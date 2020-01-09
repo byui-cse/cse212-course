@@ -38,7 +38,7 @@ class CustomerService:
         new record into the queue.
         """
         # Verify there is room in the service queue
-        if len(self.queue) < self.max_size:
+        if len(self.queue) >= self.max_size:
             print("Maximum Number of Customers in Queue.")
             return
 
@@ -58,4 +58,13 @@ class CustomerService:
         customer = self.queue[0]
         print(customer)
 
+# Test Cases
 
+# Test 1
+# Scenario: 
+# Expected Result: 
+
+
+# Defect Found: 
+
+print("=================")

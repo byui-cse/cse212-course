@@ -16,13 +16,48 @@
       <h1>04 Teach: Group Activity</h1>
 		
       <h2>Overview</h2>
-      <p>TBD</p>
+      <p>You will pair up with another member in your assigned study group to debug two implementations of a Queue.  A good method of finding defects is to review the code as we discussed previously.  However, in this activity, you should fight the urge to read the code first.  Instead, you will write tests to help identify where the code errors are hiding.</p>
 		
-      <h2>Insructions</h2>
-	  <p>TBD</p>
+      <h2>Instructions</h2>
+	  <h3>Problem 1 - Traditional Queue</h3>
+		<ol>
+		<li>
+			<p>Download the following code and load into your code editor: <a href="04-teach-traditional_queue-buggy.py" target="_blank">04-teach-traditional_queue-buggy.py</a>
+			</p>
+		  </li>
+		<li>
+		<p>The Queue class implements the basic functions of enqueue and dequeue.  If the queue is empty, then the dequeue function should raise an exception.  The code also includes 3 test cases.  Run the code and determine which tests fail.</p>
+			<li>
+			<p>If the test case fails, then you know that there is an error in the function you were running.  If Python gives you an error message, you can see which lines of code where trying to execute.  Look in the code, find the error, and then fix the code.  All your test cases should pass when the code is fixed.  There are 2 major errors in the code your were given.</p></li>
+		<li>
+		  	<p>When you are done, take a look at the solution and discuss it together:  <a href="04-teach-traditional_queue-fixed.py">04-teach-traditional_queue-fixed.py</a>
+			</p>
+		  </li>
+			</ol>
+	  <h3>Problem 2 - Customer Service Queue</h3>	
+  	  <ol>
+		  <li>
+			<p>Download the following code and load into your code editor: <a href="04-teach-customer_service-buggy.py" target="_blank">04-teach-customer_service-buggy.py</a>
+			</p>
+		  </li>
+		  <li>
+		    <p>The CustomerService class has the ability to add a new customer (the enqueue) and serve a customer (dequeue).  When you create the CustomerService object, you have to specify the maximum number of customers that can be in the queue. The CustomerService class should be robust (i.e. handle gracefully) in the cases of empty or full queues. With this knowledge, write some test cases together and implement them. Remember that a test case should cover one of the possible scenarios that the CustomerService class should be able to execute successfully. </p>
+		  </li>
+		  <li><p>Run your test cases.</p></li>
+		  <li>
+		  	<p>If your test case fails, then you know that there is an error in the function you were running.  If Python gives you an error message, you can see which lines of code where trying to execute.  Look in the code, find the error, and then fix the code.  All your test cases should pass when the code is fixed.  There are 3 major errors in the code your were given.
+			</p>
+		  </li>
+		  <li>
+		  	<p>When you are done, take a look at the solution and discuss it together:  <a href="04-teach-customer_service-fixed.py">04-teach-customer_service-fixed.py</a>
+			</p>
+		  </li>
+		  
+	  </ol>
+	  
 		
       <h2>Submission</h2>
-      <p>When complete, please report your progress in the associated I-Learn quiz.</p>
+      <p>When complete, please complete the associated I-Learn quiz.</p>
 
     </article>
 

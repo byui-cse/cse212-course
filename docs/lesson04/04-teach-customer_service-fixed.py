@@ -64,24 +64,45 @@ class CustomerService:
             del self.queue[0]
             print(customer)
 
-# The following tests were used to test the code:
-# 1) Can I add one customer and then serve the customer?
+# Test Cases
+
+# Test 1
+# Scenario: Can I add one customer and then serve the customer?
+# Expected Result: This should display the customer that was added
 service = CustomerService(4)
 service.add_new_customer()
-service.serve_customer()
+service.serve_customer()  
+# Defect Found: This found that the serve_customer should get the customer before deleting from the list
 
-# 2) Can I add two customers and then serve the customers in the right order?
-service.add_new_customer()
-service.add_new_customer()
-service.serve_customer()
-service.serve_customer()
+print("=================")
 
-# 3) Can I serve a customer if there is no customer?
+# Test 2
+# Scenario: Can I add two customers and then serve the customers in the right order?
+# Expected Result: This should display the customers in the same order that they were entered
+service.add_new_customer()
+service.add_new_customer()
 service.serve_customer()
+service.serve_customer()
+# Defect Found: None :)
 
-# 4) Does the max queue size get enforced?
+print("=================")
+
+# Test 3
+# Scenario: Can I serve a customer if there is no customer?
+# Expected Result: This should display some error message
+service.serve_customer()
+# Defect Found: This found that I need to check the length in serve_customer and display an error message
+
+print("=================")
+
+# Test 4
+# Scenario: Does the max queue size get enforced?
+# Expected Result: This should display some error message when the 5th one is added
 service.add_new_customer()
 service.add_new_customer()
 service.add_new_customer()
 service.add_new_customer()
 service.add_new_customer()
+# Defect Found: This found that I need to do >= instead of > in add_new_customer
+
+
