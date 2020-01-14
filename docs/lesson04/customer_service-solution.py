@@ -1,3 +1,13 @@
+"""
+CSE212 
+(c) BYU-Idaho
+04-Teach - Problem 2 - Solution
+
+It is a violation of BYU-Idaho Honor Code to post or share this code with others or 
+to post it online.  Storage into a personal and private repository (e.g. private
+GitHub repository, unshared Google Drive folder) is acceptable.
+"""
+
 class CustomerService:
     """
     Maintain a Customer Service Queue.  Allows new customers to be 

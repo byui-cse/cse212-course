@@ -13,43 +13,60 @@
         <h1>CSE 212 | Programming with Data Structures</h1>
     </header>
     <article>
-      <h1>04 Teach: Group Activity</h1>
+      <h1>04 Teach: Pair Activity</h1>
 		
       <h2>Overview</h2>
-      <p>You will pair up with another member in your assigned study group to debug two implementations of a Queue.  A good method of finding defects is to review the code as we discussed previously.  However, in this activity, you should fight the urge to read the code first.  Instead, you will write tests to help identify where the code errors are hiding.</p>
+      <p>You will pair up with another member in your assigned study group to debug two implementations of a Queue.  In this activity, you should fight the urge to read through all the code first.  Instead, you will first write tests to help identify where the code errors are hiding.</p>
 		
       <h2>Instructions</h2>
 	  <h3>Problem 1 - Traditional Queue</h3>
 		<ol>
 		<li>
-			<p>Download the following code and load into your code editor: <a href="04-teach-traditional_queue-buggy.py" target="_blank">04-teach-traditional_queue-buggy.py</a>
+			<p>Download the following code and load into your code editor: <a href="traditional_queue.py" target="_blank">traditional_queue.py</a>
 			</p>
 		  </li>
 		<li>
-		<p>The Queue class implements the basic functions of enqueue and dequeue.  If the queue is empty, then the dequeue function should raise an exception.  The code also includes 3 test cases.  Run the code and determine which tests fail.</p>
-			<li>
-			<p>If the test case fails, then you know that there is an error in the function you were running.  If Python gives you an error message, you can see which lines of code where trying to execute.  Look in the code, find the error, and then fix the code.  All your test cases should pass when the code is fixed.  There are 2 major errors in the code your were given.</p></li>
+			<p>The Queue class requirements are as follows:</p>
+			<ul>
+			<li>The enqueue function shall put a new item in the Queue</li>
+			<li>The dequeue function shall remove an item from the Queue</li>
+			<li>If the Queue is empty, then the dequeue function shall raise an IndexError exception</li>
+			</ul>
+		</li>
 		<li>
-		  	<p>When you are done, take a look at the solution and discuss it together:  <a href="04-teach-traditional_queue-fixed.py">04-teach-traditional_queue-fixed.py</a>
+			<p>The code contains 3 tests cases already implemented for you.  Run the code and determine if a test has failed.  If the test case fails, then you know that there is an error in the function related to the test.  If Python gives you an error message, you can see which lines of code the error occurred on.  Find the errors and fix the code.  All your test cases should pass when the code is fixed.  There are 2 major errors in the code your were given.</p></li>
+		<li>
+		  	<p>When you are done, take a look at the solution and discuss it together:  <a href="traditional_queue-solution.py" target="_blank">traditional_queue-solution.py</a>
 			</p>
 		  </li>
 			</ol>
 	  <h3>Problem 2 - Customer Service Queue</h3>	
   	  <ol>
 		  <li>
-			<p>Download the following code and load into your code editor: <a href="04-teach-customer_service-buggy.py" target="_blank">04-teach-customer_service-buggy.py</a>
+			<p>Download the following code and load into your code editor: <a href="customer_service.py" target="_blank">customer_service.py</a>
+			</p>
+		  </li>
+		<li>
+			<p>The CustomerService class requirements are as follows:</p>
+			<ul>
+			<li>Each record in the Customer Service Queue shall contain the name, account ID, and the problem.</li>
+			<li>The user shall specify the maximum size of the Customer Service Queue when it is created.</li>
+			<li>The add_new_customer function shall add a new customer to the queue.</li>
+			<li>If the Customer Service Queue is full, then the add_new_customer function will display an error message.</li>
+			<li>The serve_customer function shall remove the next customer from the queue and display the details.</li>
+			<li>If the Customer Serivce Queue is empty, then the service_customer function shall raise an exception.</li>
+			</ul>
+		</li>
+		  
+		  <li>
+		    <p>Write test cases based on the requirements above and then implement the tests.</p>
+		  </li>
+		  <li>
+		  	<p>Run your test cases.  If the test case fails, then look in the related code for the error and fix it.  All your test cases should pass when the code is fixed.  There are 3 major errors in the code your were given.
 			</p>
 		  </li>
 		  <li>
-		    <p>The CustomerService class has the ability to add a new customer (the enqueue) and serve a customer (dequeue).  When you create the CustomerService object, you have to specify the maximum number of customers that can be in the queue. The CustomerService class should be robust (i.e. handle gracefully) in the cases of empty or full queues. With this knowledge, write some test cases together and implement them. Remember that a test case should cover one of the possible scenarios that the CustomerService class should be able to execute successfully. </p>
-		  </li>
-		  <li><p>Run your test cases.</p></li>
-		  <li>
-		  	<p>If your test case fails, then you know that there is an error in the function you were running.  If Python gives you an error message, you can see which lines of code where trying to execute.  Look in the code, find the error, and then fix the code.  All your test cases should pass when the code is fixed.  There are 3 major errors in the code your were given.
-			</p>
-		  </li>
-		  <li>
-		  	<p>When you are done, take a look at the solution and discuss it together:  <a href="04-teach-customer_service-fixed.py">04-teach-customer_service-fixed.py</a>
+		  	<p>When you are done, take a look at the solution and discuss it together:  <a href="customer_service-solution.py" target="_blank">customer_service-solution.py</a>
 			</p>
 		  </li>
 		  
@@ -57,7 +74,7 @@
 	  
 		
       <h2>Submission</h2>
-      <p>When complete, please complete the associated I-Learn quiz.</p>
+      <p>When finished, please complete the associated I-Learn quiz.</p>
 
     </article>
 

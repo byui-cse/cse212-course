@@ -13,13 +13,11 @@
         <h1>CSE 212 | Programming with Data Structures</h1>
     </header>
     <article>
-		<h1>04 Prepare: Finding Defects / Queues</h1>
+		<h1>04 Prepare: Finding Defects Using Tests / Queues</h1>
 				
         <h2>Overview</h2>
 
-        <p>This week you will explore techniques to improve your ability to find defects in code.  Your goal as a software programmer is to develop quality code to meet the needs of your customers.  While you will obviously "inject" defects during the coding phase, you will "detect" those defects in various phases including: coding, review, testing, and deployment to customer (hopefully not the last one).</p>
-		
-		<p>You will practice your skills at finding defects using code that implements the Queue data structure.  You are still in the <strong>PREPARE</strong> phase of the course:</p>
+        <p>This week you will explore technique of testing to help you find defects in code. You will practice your skills at finding defects via tests using code that implements the Queue data structure.  You are still in the <strong>PREPARE</strong> phase of the course:</p>
 		
 		<img src="../images/CSE212_Phase1.jpeg" width=100% height=100% alt="Shows the 3 phases of the course as described in the Syllabus.  Phase 1 is highlighted."/>
 		
@@ -27,10 +25,59 @@
 		<ul><p><u>Day 1</u> - Complete the reading below.  The reading should take 1 hour to complete.  For on-campus students, class time will be used to discuss the reading and explore Queues through examples.  Online students should watch this <a href="https://video.byui.edu" target="_blank">video</a>.  You should begin independently to work on <a href="04-prove.html" target="_blank">04-Prove</a>.  You should plan on the assignment taking 3 hours to complete.</p></ul>
 		<ul><p><u>Day 2</u> - You will pair up with a student from your assigned study group to complete <a href="04-teach.html" target="_blank">04-Teach</a>.  On-campus students will complete this activity during class time.  The activity should take 1 hour to complete.  You should independently finish work on <a href="04-prove.html" target="_blank">04-Prove</a>.</p></ul>
 		
-		<h2>Strategies for Finding Defects</h2>
+		<h2>Finding Defects Using Testing</h2>
 		
-        <p>TBD</p>
+        <p>The best time to find a defect is while you are "in-phase".  This means that before you delivery your software to the customer, you want to identify as many errors as possible.  It is much more expensive to fix errors if the software has already been delivered to the customer.  The 2 most common methods for finding defects are:
+		<ul>
+		<li><p>Code Review</p></li>
+		<li><p>Testing</p></li>
+		</ul></p>
+		<p>Even the best code reviewers may not be able to analyze in their mind all the different scenarios that the software will exeute within.  Testing using a systematic approach to verifying that code does what it was supposed to do.  Often times your will write code to test your code.  Consider a program that was supposed to determine if a year was a leap year.  The requirements of a program would be:</p>
+			<ul>
+	<li><p>Every 4 years shall be a leap year.</p></li>
+	<li><p>Every 100 years shall not be a leap year.</p></li>
+	<li><p>Every 400 years shall be a leap year.</p></li></ul>
+	<p>Based on these requirements, you can write some test cases.  Notice that you are not writing test cases based on what the code.  If there is an error in the code, you may incorrectly write the test case based on the faulty code.  Instead, you may come up with the following:</p>
+	<ul><li><p>Test 1</p><ul><li>Scenario: Year 1996 (multiple of 4 but not multiple of 100 or 400)</li>
+		<li>Expected Result: True</li></ul></li>
+		<li><p>Test 2</p><ul><li>Scenario: Year 1900 (multiple of 4, multiple of 100, not multiple of 400)</li>
+		<li>Expected Result: False</li></ul></li>
+		<li><p>Test 3</p><ul><li>Scenario: Year 2000 (multiple of 4, multiple of 100, multiple of 400)</li>
+		<li>Expected Result: True</li></ul>	</li>		
+		<li><p>Test 4</p><ul><li>Scenario: Year 2003 (not multiple of 4, 100, or 400)</li>
+			<li>Expected Result: False</li></ul></li>
+	</ul>
+	<p>Notice that each test has a detailed Scenario and Expected Result based on the requirements.  If you were given a function called <code>is_leap_year</code>, you could write test code as follows:</p>
+			<div style="background: #ffffff; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><pre style="margin: 0; line-height: 125%">		
+			result = is_leap_year(1996)
+			print(result)
+			result = is_leap_year(1900)
+			print(result)
+			result = is_leap_year(2000)
+			print(result)
+			result = is_leap_year(2003)
+			print(result)
+			</pre></div>
+	<p>When you run your test code, if anything fails then you look for code related to the test that failed. 	</p>
+	<p>Instead of printing out the results, test code in Python can use the <code>assert</code> function.  If the <code>assert</code> function fails, then the program will exit and tell you which test (e.g. assert statement) failed.  For example:</p>
+				<div style="background: #ffffff; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><pre style="margin: 0; line-height: 125%">		
+			assert is_leap_year(1996) == True
+			assert is_leap_year(1900) == False
+			assert is_leap_year(2000) == True
+			assert is_leap_year(2003) == False
+			</pre></div>
 
+	<p>For more complicated programs, a single test scenario may require you to call multiple functions to properly setup the scenario.  For example, if the requirement was that a fixed size list should not allow more 10 items to be added via a function called add_item, then one test scenario would need to call add_item 11 times (10 times to add things and 1 more time to make sure that an error message was produced).  The test code may look like the following:</p>
+	
+	<div style="background: #ffffff; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><pre style="margin: 0; line-height: 125%">		
+			my_list = fixed_size_list()
+			
+			for i in range(10):
+				my_list.add_item(randint(1,100)) # Put random numbers in the list
+				
+			my_list.add_item(10) # Try to add one more ... should get error message
+			</pre></div>
+	<p>In addition to finding defects, testing also has the benefit of helping the programmer better understand the requirements of the software.  Whether you wrote the code or another engineer wrote the code, the process of writing test scenarios will increase your understanding of what the software should do.</p>
 		<h2>The Queue Data Structure</h2>
 		<p>During the last lesson, you learned about the Stack.  The Stack was "Last In, First Out" (LIFO) and was implemented using the Python list.  The Queue is characterized as "First In, First Out" (FIFO) and can also be implemented using the Python list.</p>
 		

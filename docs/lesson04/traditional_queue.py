@@ -1,3 +1,13 @@
+"""
+CSE212 
+(c) BYU-Idaho
+04-Teach - Problem 1 
+
+It is a violation of BYU-Idaho Honor Code to post or share this code with others or 
+to post it online.  Storage into a personal and private repository (e.g. private
+GitHub repository, unshared Google Drive folder) is acceptable.
+"""
+
 class Queue:
     """
     Maintain a Queue using a List
@@ -28,18 +38,18 @@ class Queue:
 # Test Cases
 
 # Test 1
-# Scenario: Can I enqueue a value and dequeue it?
+# Scenario: Enqueue one value and then Dequeue it.
 # Exepcted Result: It should display 100
 queue = Queue()
 queue.enqueue(100)
 value = queue.dequeue()
 print(value)
-# Defect Found: This finds that the dequeue should be removing [0] instead of [1]
+# Defect Found: The dequeue function should be removing [0] instead of [1]
 
 print("=================")
 
 # Test 2
-# Scenario: Can I enqueue multiple values and dequeue them in order?  
+# Scenario: Enqueue multiple values and then Dequeue all of them
 # Exepcted Result: It should display 200, then 300, then 400 in that order
 queue = Queue()
 queue.enqueue(200)
@@ -51,12 +61,12 @@ value = queue.dequeue()
 print(value)
 value = queue.dequeue()
 print(value)
-# Defect Found: This finds that the enqueue should use append instead of insert (which resulted in a stack)
+# Defect Found: The enqueue function should use append instead of insert (which resulted in a stack)
 
 print("=================")
 
 # Test 3
-# Scenario: Can I dequeue from an empty queue
+# Scenario: Dequeue from an empty Queue
 # Exepcted Result: An exception should be raised
 try:
     queue.dequeue()
