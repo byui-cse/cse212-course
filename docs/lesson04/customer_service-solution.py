@@ -8,7 +8,7 @@ to post it online.  Storage into a personal and private repository (e.g. private
 GitHub repository, unshared Google Drive folder) is acceptable.
 """
 
-class CustomerService:
+class Customer_Service:
     """
     Maintain a Customer Service Queue.  Allows new customers to be 
     added and allows customers to be serviced.
@@ -37,10 +37,14 @@ class CustomerService:
     def __init__(self, max_size):
         """
         Initialize the empty queue using a Python List.  The maximum size of the 
-        queue is defined by parameter passed in by the user.
+        queue is defined by parameter passed in by the user.  If the size is 
+        invalid (less than or equal to 0) then the size will default to 10.
         """
         self.queue = []
-        self.max_size = max_size
+        if max_size <= 0:
+            self.max_size = 10  # Default value if max size is invalid
+        else:
+            self.max_size = max_size
 
     def add_new_customer(self):
         """
@@ -57,7 +61,7 @@ class CustomerService:
         problem = input("Problem: ")
 
         # Create the customer object and add it to the queue
-        customer = CustomerService.Customer(name, account_id, problem)
+        customer = Customer_Service.Customer(name, account_id, problem)
         self.queue.append(customer)
 
     def serve_customer(self):
@@ -74,45 +78,76 @@ class CustomerService:
             del self.queue[0]
             print(customer)
 
+    def __str__(self):
+        """ 
+        Suppport the str() function to provide a string representation of the
+        customer service queue.  This is useful for debugging.  If you have a 
+        Customer_Service object called cs, then you run print(cs) to see the 
+        contents.
+        """
+        result = "["
+        for customer in self.queue:
+            result += "{"+str(customer)+"}"  # Uses the __str__ from Customer class
+            result += ", "
+        result += "]"
+        return result
+
 # Test Cases
 
 # Test 1
 # Scenario: Can I add one customer and then serve the customer?
 # Expected Result: This should display the customer that was added
-service = CustomerService(4)
+print("Test 1")
+service = Customer_Service(4)
 service.add_new_customer()
 service.serve_customer()  
-# Defect Found: This found that the serve_customer should get the customer before deleting from the list
+# Defect(s) Found: This found that the serve_customer should get the customer before deleting from the list
 
 print("=================")
 
 # Test 2
 # Scenario: Can I add two customers and then serve the customers in the right order?
 # Expected Result: This should display the customers in the same order that they were entered
+print("Test 2")
+service = Customer_Service(4)
 service.add_new_customer()
 service.add_new_customer()
 service.serve_customer()
 service.serve_customer()
-# Defect Found: None :)
+# Defect(s) Found: None :)
 
 print("=================")
 
 # Test 3
 # Scenario: Can I serve a customer if there is no customer?
 # Expected Result: This should display some error message
+print("Test 3")
+service = Customer_Service(4)
 service.serve_customer()
-# Defect Found: This found that I need to check the length in serve_customer and display an error message
+# Defect(s) Found: This found that I need to check the length in serve_customer and display an error message
 
 print("=================")
 
 # Test 4
 # Scenario: Does the max queue size get enforced?
 # Expected Result: This should display some error message when the 5th one is added
+print("Test 4")
+service = Customer_Service(4)
 service.add_new_customer()
 service.add_new_customer()
 service.add_new_customer()
 service.add_new_customer()
 service.add_new_customer()
-# Defect Found: This found that I need to do >= instead of > in add_new_customer
+# Defect(s) Found: This found that I need to do >= instead of > in add_new_customer
+
+print("=================")
+
+# Test 5
+# Scenario: Does the max size get defaulted to 10 if an invalid value is provided?
+# Expected Result: It should display 10
+print("Test 5")
+service = Customer_Service(0)
+print(service.max_size)
+# Defect(s) Found: None :)
 
 

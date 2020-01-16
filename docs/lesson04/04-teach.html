@@ -16,27 +16,28 @@
       <h1>04 Teach: Pair Activity</h1>
 		
       <h2>Overview</h2>
-      <p>You will pair up with another member in your assigned study group to debug two implementations of a Queue.  In this activity, you should fight the urge to read through all the code first.  Instead, you will first write tests to help identify where the code errors are hiding.</p>
+      <p>You need to pair up with another member from your assigned study group to debug two applications that use a Queue.  In this activity, you should fight the urge to read through all the code first.  Instead, you will first write tests to help identify where the code errors are hiding.</p>
 		
       <h2>Instructions</h2>
-	  <h3>Problem 1 - Traditional Queue</h3>
+	  <h3>Problem 1 - Simple Queue</h3>
 		<ol>
 		<li>
-			<p>Download the following code and load into your code editor: <a href="traditional_queue.py" target="_blank">traditional_queue.py</a>
+			<p>Download the following code and load into your code editor: <a href="simple_queue.py" target="_blank">simple_queue.py</a>
 			</p>
 		  </li>
 		<li>
-			<p>The Queue class requirements are as follows:</p>
+			<p>The Simple_Queue class implements a traditional FIFO Queue that has an enqueue and dequeue function.  The requirements for the lass are as follows:</p>
 			<ul>
-			<li>The enqueue function shall put a new item in the Queue</li>
-			<li>The dequeue function shall remove an item from the Queue</li>
+			<li>The enqueue function shall put a new item in the back of the Queue</li>
+			<li>The dequeue function shall remove an item from the front of the Queue</li>
 			<li>If the Queue is empty, then the dequeue function shall raise an IndexError exception</li>
 			</ul>
 		</li>
 		<li>
-			<p>The code contains 3 tests cases already implemented for you.  Run the code and determine if a test has failed.  If the test case fails, then you know that there is an error in the function related to the test.  If Python gives you an error message, you can see which lines of code the error occurred on.  Find the errors and fix the code.  All your test cases should pass when the code is fixed.  There are 2 major errors in the code your were given.</p></li>
+			<p>The code contains 3 tests cases already implemented for you.  Run the code and determine if a test has failed.  If the test case fails, then you know that there is one or more errors in the function related to the test.  If Python gives you an error message, you can see which lines of code the error occurred on. </p>
+			<p>Find the errors and fix the code.  All your test cases should pass when the code is fixed.  There are 2 major errors in the code your were given.</p></li>
 		<li>
-		  	<p>When you are done, take a look at the solution and discuss it together:  <a href="traditional_queue-solution.py" target="_blank">traditional_queue-solution.py</a>
+		  	<p>When you are done, take a look at the solution and discuss it together:  <a href="simple_queue-solution.py" target="_blank">simple_queue-solution.py</a>
 			</p>
 		  </li>
 			</ol>
@@ -47,14 +48,14 @@
 			</p>
 		  </li>
 		<li>
-			<p>The CustomerService class requirements are as follows:</p>
+			<p>The Customer_Service class requirements are as follows:</p>
 			<ul>
 			<li>Each record in the Customer Service Queue shall contain the name, account ID, and the problem.</li>
-			<li>The user shall specify the maximum size of the Customer Service Queue when it is created.</li>
-			<li>The add_new_customer function shall add a new customer to the queue.</li>
-			<li>If the Customer Service Queue is full, then the add_new_customer function will display an error message.</li>
-			<li>The serve_customer function shall remove the next customer from the queue and display the details.</li>
-			<li>If the Customer Serivce Queue is empty, then the service_customer function shall raise an exception.</li>
+			<li>The user shall specify the maximum size of the Customer Service Queue when it is created.  If the size is invalid (less than or equal to 0) then the size shall default to 10.</li>
+			<li>The add_new_customer function shall enqueue a new customer into the queue.</li>
+			<li>If the queue is full when trying to add a customer, then an error message will be displayed.</li>
+			<li>The serve_customer function shall dequeue the next customer from the queue and display the details.</li>
+			<li>If the queue is empty when trying to serve a customer, then an error message will be displayed.</li>
 			</ul>
 		</li>
 		  
@@ -62,7 +63,7 @@
 		    <p>Write test cases based on the requirements above and then implement the tests.</p>
 		  </li>
 		  <li>
-		  	<p>Run your test cases.  If the test case fails, then look in the related code for the error and fix it.  All your test cases should pass when the code is fixed.  There are 3 major errors in the code your were given.
+		  	<p>Run your test cases.  If the test case fails, then look in the related code for the errors and fix it.  All your test cases should pass when the code is fixed.  There are 3 major errors in the code your were given.
 			</p>
 		  </li>
 		  <li>

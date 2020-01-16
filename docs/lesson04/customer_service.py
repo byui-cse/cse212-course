@@ -8,7 +8,7 @@ to post it online.  Storage into a personal and private repository (e.g. private
 GitHub repository, unshared Google Drive folder) is acceptable.
 """
 
-class CustomerService:
+class Customer_Service:
     """
     Maintain a Customer Service Queue.  Allows new customers to be 
     added and allows customers to be serviced.
@@ -37,10 +37,14 @@ class CustomerService:
     def __init__(self, max_size):
         """
         Initialize the empty queue using a Python List.  The maximum size of the 
-        queue is defined by parameter passed in by the user.
+        queue is defined by parameter passed in by the user.  If the size is 
+        invalid (less than or equal to 0) then the size will default to 10.
         """
         self.queue = []
-        self.max_size = max_size
+        if max_size <= 0:
+            self.max_size = 10  # Default value if max size is invalid
+        else:
+            self.max_size = max_size
 
     def add_new_customer(self):
         """
@@ -48,7 +52,7 @@ class CustomerService:
         new record into the queue.
         """
         # Verify there is room in the service queue
-        if len(self.queue) >= self.max_size:
+        if len(self.queue) > self.max_size:
             print("Maximum Number of Customers in Queue.")
             return
 
@@ -68,13 +72,38 @@ class CustomerService:
         customer = self.queue[0]
         print(customer)
 
+    def __str__(self):
+        """ 
+        Suppport the str() function to provide a string representation of the
+        customer service queue.  This is useful for debugging.  If you have a 
+        Customer_Service object called cs, then you run print(cs) to see the 
+        contents.
+        """
+        result = "["
+        for customer in self.queue:
+            result += "{"+str(customer)+"}"  # Uses the __str__ from Customer class
+            result += ", "
+        result += "]"
+        return result
+
 # Test Cases
 
 # Test 1
 # Scenario: 
 # Expected Result: 
+print("Test 1")
 
-
-# Defect Found: 
+# Defect(s) Found: 
 
 print("=================")
+
+# Test 2
+# Scenario: 
+# Expected Result: 
+print("Test 2")
+
+# Defect(s) Found: 
+
+print("=================")
+
+# Add more Test Cases As Needed Below

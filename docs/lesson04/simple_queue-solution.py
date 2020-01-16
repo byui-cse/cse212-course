@@ -8,7 +8,7 @@ to post it online.  Storage into a personal and private repository (e.g. private
 GitHub repository, unshared Google Drive folder) is acceptable.
 """
 
-class Queue:
+class Simple_Queue:
     """
     Maintain a Queue using a List
     """
@@ -40,18 +40,20 @@ class Queue:
 # Test 1
 # Scenario: Can I enqueue a value and dequeue it?
 # Exepcted Result: It should display 100
-queue = Queue()
+print("Test 1")
+queue = Simple_Queue()
 queue.enqueue(100)
 value = queue.dequeue()
 print(value)
-# Defect Found: 
+# Defect(s) Found: The dequeue function should be removing [0] instead of [1]
 
 print("=================")
 
 # Test 2
 # Scenario: Can I enqueue multiple values and dequeue them in order?  
-# Exepcted Result: 
-queue = Queue()
+# Exepcted Result: It should display 200, then 300, then 400 in that order
+print("Test 2")
+queue = Simple_Queue()
 queue.enqueue(200)
 queue.enqueue(300)
 queue.enqueue(400)
@@ -61,19 +63,21 @@ value = queue.dequeue()
 print(value)
 value = queue.dequeue()
 print(value)
-# Defect Found: 
+# Defect(s) Found: The enqueue function should use append instead of insert (which resulted in a stack)
 
 print("=================")
 
 # Test 3
 # Scenario: Can I dequeue from an empty queue
 # Exepcted Result: An exception should be raised
+print("Test 3")
+queue = Simple_Queue()
 try:
     queue.dequeue()
     print("Oops ... This shouldn't have worked.")
 except IndexError:
     print("I got the exception as expected.")
-# Defect Found: 
+# Defect(s) Found: None :)
 
 
 

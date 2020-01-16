@@ -22,10 +22,77 @@
 		<img src="../images/CSE212_Phase1.jpeg" width=100% height=100% alt="Shows the 3 phases of the course as described in the Syllabus.  Phase 1 is highlighted."/>
 		
 		<p>Here is the two day plan for this lesson:</p>
-		<ul><p><u>Day 1</u> - Complete the reading below.  The reading should take 1 hour to complete.  For on-campus students, class time will be used to discuss the reading and explore Queues through examples.  Online students should watch this <a href="https://video.byui.edu" target="_blank">video</a>.  You should begin independently to work on <a href="04-prove.html" target="_blank">04-Prove</a>.  You should plan on the assignment taking 3 hours to complete.</p></ul>
+		<ul><p><u>Day 1</u> - Complete the reading below.  The reading should take 1 hour to complete.  For on-campus students, class time will be used to discuss the reading and explore Queues through examples.  You should begin independently to work on <a href="04-prove.html" target="_blank">04-Prove</a>.  You should plan on the assignment taking 3 hours to complete.</p></ul>
 		<ul><p><u>Day 2</u> - You will pair up with a student from your assigned study group to complete <a href="04-teach.html" target="_blank">04-Teach</a>.  On-campus students will complete this activity during class time.  The activity should take 1 hour to complete.  You should independently finish work on <a href="04-prove.html" target="_blank">04-Prove</a>.</p></ul>
 		
-		<h2>Finding Defects Using Testing</h2>
+			<h2>The Queue Data Structure</h2>
+		<p>During the last lesson, you learned about the Stack.  The Stack was "Last In, First Out" (LIFO) and was implemented using the Python list.  The Queue is characterized as "First In, First Out" (FIFO) and can also be implemented using the Python list.</p>
+		
+		<h3>Grocery Story Queue</h3>
+		
+		<p>In the example below, we can see a line at a busy grocery store used to represent a Queue.  The person next in line for the cashier is called the <strong>front</strong> and the person at the end of the line is called the <strong>back</strong>.  When the person at the front is removed from the Queue was call this a <strong>dequeue</strong> operation.  When a new person joins the Queue at the back, we call this a <strong>enqueue</strong> operation.  Note that someone can not cheat and enter the line in the middle of the Queue. </p>
+		
+		<img src="04-prepare-queue.jpeg" width=100% height=100% alt="Shows a line at a grocery store with the next person be dequeued from the front and a new person being enqueued into the back."/>
+		
+		<p>Queues are used when we need to process a collection of requests in an orderly and fair way.  Consider the following two common Queues used in software: the Web Server Queue and the Reader/Writer Queue. </p>
+				
+		<h3>Web Server Queue</h3>
+		<p>A web server receives numerous HTTP requests for web pages from clients throughout the world.  Each request requires the web server to send back information.  The amount of time it takes to send that information makes it difficult to respond timely to all requests.  This would be similair to a customer service desk that had only one phone.  If the customer service agent is helping someone else, then no one would pick up your call.  To solve the problem, a queue is used to pick up all the phone calls and transfer you to the customer service agent when they were ready for the next person.</p>
+		
+		<img src="04-prepare-web_server.jpeg" width=100% height=100% alt="Shows 3 processes trying to read a shared variable and 3 processes trying to write to a shared variable."/>
+		
+		<p>The web server does the same thing.  When a request is sent, it is put into a Queue until the web server can process the request.  In this way, all requests are received and none of them are lost.  Queues frequently have a self-imposed maximum size. If a Queue is full, then the software may need to send an error message back to the client.</p>
+		
+		<h3>Reader/Writer Queue </h3>
+		
+		<p>Frequently we have the need to run different software components concurrently (e.g. looks like they are running at the same time).  Each component is called a Process or a Thread (if your curious, you can read about how this is done in python <a href="https://realpython.com/intro-to-python-threading/" target="_blank">here</a>).  Each process will likely have their own set of variables that are maintained.  Frequently, there is need to have shared data between the processes.  The diagram below shows a variable which is being shared by multiple processes.</p>
+		
+		<img src="04-prepare-reader_writer.jpeg" width=100% height=100% alt="Shows 3 processes trying to read a shared variable and 3 processes trying to write to a shared variable."/>
+		
+		<p>Processes P1 through P6 are all trying to use the variable at the same time.  Processes P1, P2, and P3 are reading the variable and Processes P4, P5, and P6 are writing to the variable.  The concurrent reading is not a problem.  However, if everyone tries to both read and write at the same time, new and modified values may be missed or overwritten.  One solution is to protect the code that that is writing to the shared data so that only one process can change the variable at a time.  A Queue is used to ensure order and integrity.  When a process wants to write, it is enqueued.  When a process is dequeued, it is then allowed to modify the shared variable.  When the process is done, then the next process is dequeued.</p>
+		
+				
+		<h3>Queues in Python</h3>
+		<p>Most Queues implemented in software will have the following basic functions:</p>
+		<ul><p><code>enqueue(value)</code> - Adds "value" to the back of the Queue</p></ul>
+		<ul><p><code>dequeue()</code> - Remove and return the item from the front of the Queue</p></ul>
+		<ul><p><code>len()</code> - Return the size of the Queue</p></ul>
+		<ul><p><code>is_empty()</code> - Returns true if the length of the Queue is zero.</p></ul>
+		<p>In Python, a Queue can be represented using a list.  To dequeue an item from the front of the Queue, <code>[0]</code> can be used to obtain the first item and also delete it from the list.  To enqueue an item to the back of the Queue, the <code>append</code> function can be used on the list.  The size can be determined by using the <code>len</code> function on the list.</p>
+		<p>The performance of the Queue using a Python list is based on the performance of the dynamic array.</p>
+
+		<table>
+			<tr>
+			  <th>Function</th>
+			  <th>Description</th>
+			  <th>Performance</th>
+			</tr>
+			<tr>
+			  <td><code></code>enqueue(value)</td>
+			  <td>Performance of adding to the end of dynamic array</td>
+			  <td>O(1)</td>
+			</tr>
+			<tr>
+			  <td>dequeue()</td>
+			  <td>Performance of removing from the beginning of dynamic array</td>
+			  <td>O(n)</td>
+			</tr>
+			<tr>
+			  <td>len()</td>
+			  <td>Performance of returning the size of the dynamic array</td>
+			  <td>O(1)</td>
+			</tr>
+			<tr>
+			  <td>is_empty()</td>
+			  <td>Performance of checking the size of the dynamic array</td>
+			  <td>O(1)</td>
+			</tr>			
+		</table>
+		<br>
+
+		<p>The Python library also includes a class called <code>deque</code> which stands for Double Ended Queue which is more frequently used due to better performance.  We will learn more about this in the future when we study Linked Lists.</p>
+	
+	<h2>Finding Defects Using Testing</h2>
 		
         <p>The best time to find a defect is while you are "in-phase".  This means that before you delivery your software to the customer, you want to identify as many errors as possible.  It is much more expensive to fix errors if the software has already been delivered to the customer.  The 2 most common methods for finding defects are:
 		<ul>
@@ -67,77 +134,26 @@
 			assert is_leap_year(2003) == False
 			</pre></div>
 
-	<p>For more complicated programs, a single test scenario may require you to call multiple functions to properly setup the scenario.  For example, if the requirement was that a fixed size list should not allow more 10 items to be added via a function called add_item, then one test scenario would need to call add_item 11 times (10 times to add things and 1 more time to make sure that an error message was produced).  The test code may look like the following:</p>
+	<p>For more complicated programs, a single test scenario may require you to call multiple functions to properly setup the scenario.  For example, if were were testing the enqueue and dequeue functions of a Queue class, we might enqueue 3 numbers and then dequeue the 3 numbers to ensure that they came out in the correct order.  The test code may look like the following:</p>
 	
 	<div style="background: #ffffff; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><pre style="margin: 0; line-height: 125%">		
-			my_list = fixed_size_list()
-			
-			for i in range(10):
-				my_list.add_item(randint(1,100)) # Put random numbers in the list
-				
-			my_list.add_item(10) # Try to add one more ... should get error message
+			# Test 1
+			# Scenario: Ensure that after adding 3 items to the queue, they can be 
+			#           removed in the proper order
+			# Expected Result: 100, 200, 300
+			print("Test 1")
+			queue = Queue()
+			queue.enqueue(100)
+			queue.enqueue(200)
+			queue.enqueue(300)
+			result = queue.dequeue()
+			print(result)
+			result = queue.dequeue()
+			print(result)
+			result = queue.dequeue()
+			print(result)
 			</pre></div>
 	<p>In addition to finding defects, testing also has the benefit of helping the programmer better understand the requirements of the software.  Whether you wrote the code or another engineer wrote the code, the process of writing test scenarios will increase your understanding of what the software should do.</p>
-		<h2>The Queue Data Structure</h2>
-		<p>During the last lesson, you learned about the Stack.  The Stack was "Last In, First Out" (LIFO) and was implemented using the Python list.  The Queue is characterized as "First In, First Out" (FIFO) and can also be implemented using the Python list.</p>
-		
-		<h3>Grocery Story Queue</h3>
-		
-		<p>In the example below, we can see a line at a busy grocery store used to represent a Queue.  The person next in line for the cashier is called the <strong>front</strong> and the person at the end of the line is called the <strong>back</strong>.  When the person at the front is removed from the Queue was call this a <strong>dequeue</strong> operation.  When a new person joins the Queue at the back, we call this a <strong>enqueue</strong> operation.  Note that someone can not cheat and enter the line in the middle of the Queue. </p>
-		
-		<img src="04-prepare-queue.jpeg" width=100% height=100% alt="Shows a line at a grocery store with the next person be dequeued from the front and a new person being enqueued into the back."/>
-		
-		<p>Queues are used when we need to process a collection of requests in an orderly and fair way.  Consider the following two common Queues used in software: the Web Server Queue and the Reader/Writer Queue. </p>
-				
-		<h3>Web Server Queue</h3>
-		<p>A web server receives numerous HTTP requests for web pages from clients throughout the world.  Each request requires the web server to send back information.  The amount of time it takes to send that information makes it difficult to respond timely to all requests.  This would be similair to a customer service desk that had only one phone.  If the customer service agent is helping someone else, then no one would pick up your call.  To solve the problem, a queue is used to pick up all the phone calls and transfer you to the customer service agent when they were ready for the next person.</p>
-		
-		<img src="04-prepare-web_server.jpeg" width=100% height=100% alt="Shows 3 processes trying to read a shared variable and 3 processes trying to write to a shared variable."/>
-		
-		<p>The web server does the same thing.  When a request is sent, it is put into a Queue until the web server can process the request.  In this way, all requests are received and none of them are lost.  Queues frequently have a self-imposed maximum size. If a Queue is full, then the software may need to send an error message back to the client.</p>
-		
-		<h3>Reader/Writer Queue </h3>
-		
-		<p>Frequently we have the need to run different software components concurrently (e.g. looks like they are running at the same time).  Each component is called a Process or a Thread (if your curious, you can read about how this is done in python <a href="https://realpython.com/intro-to-python-threading/" target="_blank">here</a>).  Each process will likely have their own set of variables that are maintained.  Frequently, there is need to have shared data between the processes.  The diagram below shows a variable which is being shared by multiple processes.</p>
-		
-		<img src="04-prepare-reader_writer.jpeg" width=100% height=100% alt="Shows 3 processes trying to read a shared variable and 3 processes trying to write to a shared variable."/>
-		
-		<p>Processes P1 through P6 are all trying to use the variable at the same time.  Processes P1, P2, and P3 are reading the variable and Processes P4, P5, and P6 are writing to the variable.  The concurrent reading is not a problem.  However, if everyone tries to both read and write at the same time, new and modified values may be missed or overwritten.  One solution is to protect the code that that is writing to the shared data so that only one process can change the variable at a time.  A Queue is used to ensure order and integrity.  When a process wants to write, it is enqueued.  When a process is dequeued, it is then allowed to modify the shared variable.  When the process is done, then the next process is dequeued.</p>
-		
-				
-		<h3>Queues in Python</h3>
-		<p>Most Queues implemented in software will have the following basic functions:</p>
-		<ul><p><code>enqueue(value)</code> - Adds "value" to the back of the Queue</p></ul>
-		<ul><p><code>dequeue()</code> - Remove the item at the front of the Queue and return it</p></ul>
-		<ul><p><code>size()</code> - Return the size of the Queue</p></ul>
-		<p>In Python, a Queue can be represented using a list.  To dequeue an item from the front of the Queue, <code>[0]</code> can be used to obtain the first item and also delete it from the list.  To enqueue an item to the back of the Queue, the <code>append</code> function can be used on the list.  The size can be determined by using the <code>len</code> function on the list.</p>
-		<p>The performance of the Queue using a Python list is based on the performance of the dynamic array.</p>
-
-		<table>
-			<tr>
-			  <th>Function</th>
-			  <th>Description</th>
-			  <th>Performance</th>
-			</tr>
-			<tr>
-			  <td><code></code>enqueue(value)</td>
-			  <td>Performance of adding to the end of dynamic array</td>
-			  <td>O(1)</td>
-			</tr>
-			<tr>
-			  <td>dequeue()</td>
-			  <td>Performance of removing from the beginning of dynamic array</td>
-			  <td>O(n)</td>
-			</tr>
-			<tr>
-			  <td>size()</td>
-			  <td>Performane of returning the size of the dynamic array</td>
-			  <td>O(1)</td>
-			</tr>
-		</table>
-		<br>
-
-		<p>The Python library also includes a class called <code>deque</code> which stands for Double Ended Queue which is more frequently used due to better performance.  We will learn more about this in the future when we study Linked Lists.</p>
     </article>
 </body>
 </html>
