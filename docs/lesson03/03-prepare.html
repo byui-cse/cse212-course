@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" type="text/css" href="../site/style.css" />
-    <title>CSE 212 - 01 Prepare</title>
+    <title>CSE 212 - 03 Prepare</title>
 </head>
 <body>
     <header id="courseTitle">
@@ -13,21 +13,74 @@
         <h1>CSE 212 | Programming with Data Structures</h1>
     </header>
     <article>
-        <h1>01 Prepare: Preparation Material</h1>
-
+		<h1>04 Prepare: Understanding Code using Reviews / Stacks</h1>
+				
         <h2>Overview</h2>
 
-        <p>TBD</p>
+        <p>This week you will explore techniques of code review to support your understanding of code. You will practice your skills at understanding code using code that implements the Stack data structure.  You are still in the <strong>PREPARE</strong> phase of the course:</p>
+		
+		<img src="../images/CSE212_Phase1.jpeg" width=100% height=100% alt="Shows the 3 phases of the course as described in the Syllabus.  Phase 1 is highlighted."/>
+		
+		<p>Here is the two day plan for this lesson:</p>
+		<ul><p><u>Day 1</u> - Complete the reading below.  The reading should take 1 hour to complete.  For on-campus students, class time will be used to discuss the reading and explore Stacks through examples.  You should begin independently to work on <a href="03-prove.html" target="_blank">03-Prove</a>.  You should plan on the assignment taking 3 hours to complete.</p></ul>
+		<ul><p><u>Day 2</u> - You will work with your study group to complete <a href="03-teach.html" target="_blank">03-Teach</a>.  On-campus students will complete this activity during class time.  The activity should take 1 hour to complete.  You should independently finish work on <a href="03-prove.html" target="_blank">03-Prove</a>.</p></ul>
+		
+			<h2>The Stack Data Structure</h2>
+		<p>A Stack is a Data Structure that is chacterized by the order in which items are added and removed.  Often called "Last In, First Out" (LIFO), the Stack can be used to accomplish various tasks and can be implemented using a Python list.</p>
+		
+		<h3>Stack of Pancakes</h3>
+		
+		<p>TBD</p>
+		
+		<h3>The "Undo" Option and the Stack</h3>
+		
+		<p>TBD</p>
+				
+		<h3>Software and the Function Stack</h3>
+		
+		<p>TBD</p>
+		
+		<h3>Stacks in Python</h3>
+		<p>Most Stacks implemented in software will have the following basic functions:</p>
+		<ul><p><code>push(value)</code> - Adds "value" to the back of the Stack</p></ul>
+		<ul><p><code>pop()</code> - Remove and return the item from the back of the Stack</p></ul>
+		<ul><p><code>len()</code> - Return the size of the Stack</p></ul>
+		<ul><p><code>is_empty()</code> - Returns true if the length of the Stack is zero.</p></ul>
+		<p>In Python, a Stack can be represented using a list.  To push an item to the back of the Stack, the <code>append</code> function can be used on the list.  To pop an items from the back of the stack, the <code>pop</code> function can be used.  The <code>pop</code> function will also delete it from the list.  The size can be determined by using the <code>len</code> function on the list.</p>
+		<p>The performance of the Stack using a Python list is based on the performance of the dynamic array.</p>
 
-        <h2>Topic 1</h2>
+		<table>
+			<tr>
+			  <th>Function</th>
+			  <th>Description</th>
+			  <th>Performance</th>
+			</tr>
+			<tr>
+			  <td><code></code>push(value)</td>
+			  <td>Performance of adding to the end of a dynamic array</td>
+			  <td>O(1)</td>
+			</tr>
+			<tr>
+			  <td>pop()</td>
+			  <td>Performance of removing from the end of a dynamic array</td>
+			  <td>O(1)</td>
+			</tr>
+			<tr>
+			  <td>len()</td>
+			  <td>Performance of returning the size of the dynamic array</td>
+			  <td>O(1)</td>
+			</tr>
+			<tr>
+			  <td>is_empty()</td>
+			  <td>Performance of checking the size of the dynamic array</td>
+			  <td>O(1)</td>
+			</tr>			
+		</table>
+		<br>
+
+	<h2>Understanding Code using Reviews</h2>
 		
         <p>TBD</p>
-
-		<h2>Topic 2</h2>
-		
-        <p>TBD</p>
-
-        
     </article>
 </body>
 </html>
