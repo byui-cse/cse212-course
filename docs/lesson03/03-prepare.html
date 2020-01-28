@@ -30,16 +30,40 @@
 		
 		<h3>Stack of Pancakes</h3>
 		
-		<p>TBD</p>
+		<p>If you were going to make pancakes for your family or friends, you probably will have a plate ready to stack the hot pancakes as the finish the cooking process.  Each time we put a pancake onto the stack, we call this a <strong>push</strong> operation.  In our culinary example, we might say that each new pancake goes onto the top of the stack.  However, since we are going to implement our stacks in Python, we will say that the pancake is actually added to the <strong>back</strong>.  When we take a pancake off to eat, we call this a <strong>pop</strong> operation.  Notice that we push and pop from the back of the stack.  Removing from the middle of the stack is not generally allowed (especially at the dinner table).  Notice that the pancake at the <strong>front</strong> is the the very first pancake that was cooked.  If the pancakes are made faster than they are eaten, then this first pancake will get cold.  A LIFO (Last In Last Out) or FIFO (First In First Out) structure like the Stack can result in data not being used for a long time.</p>
+		
+		<img src="pancake_stack.jpg" width=100% height=100% alt="Shows a stack of pancakes where no pancakes are pushed to the back and pancakes are popped from the back to be eaten."/>
 		
 		<h3>The "Undo" Option and the Stack</h3>
 		
-		<p>TBD</p>
+		<p>One of the most common stacks that people use on a computer is related to the Undo option in word processors and editors.  When we type something on the keyboard, the item is both displayed to the screen and also added to a stack.  If we type the phrase "The rain in Spain stays mainly in the plain" we would expect the following commands to be put pushed onto the stack: Type "The", Type "rain", Type "in", and so forth.  The last item to pushed would be: Type "plain".  If we press the Undo button, the software will pop the stack and receive: Type "plain".  The software will then do the opposite of this which would result in the word "plain" being removed from the screen.  </p>
+		
+		<img src="undo_stack.jpg" width=100% height=100% alt="Shows a computer screen and history stack with the initial text of The rain in Spain stays mainly in the plain.  Changes to the screen and stack are shown as described in the text of this section."/>
+		
+		<p>Since the stack is maintaining a history of what was types, we can guarentee that pressing the Undo button will revert changes in the right order.  If we popped 5 additional times, we would have "The rain in" remaining on the screen.  If we type "Idaho stays mainly in Rexburg.", we would see 5 new pushes to the stack.  The original first 3 commands to display "The rain in" still remains at the front of the stack.  If the Undo button is pressed enough times, then these initial words would eventually be removed.</p>
+		
+		<p>Stacks are useful when we need to maintain history and perform an operation (eg. undo function in an editor) backwards.</p>
 				
 		<h3>Software and the Function Stack</h3>
 		
-		<p>TBD</p>
+		<p>Even if we didn't know what a stack was before, we have been using stacks in all software we have written.  When we call a function in our code, we are telling the computer 2 things:
+		<ul><li><p>Which function we want to call</p></li>
+		<li><p>Which function to go back to when we are done</p></li></ul>
+	
+		<p>The first of these is clear in our code.  If we are currently in function A, then we expect to call function B.  However, how do we tell the computer that we want to return function A when function B is finished.  This can be even more complicated by the fact the function B will need to call functions C, D, and E before it can finish.  The computer accomplishes this by using a function stack.  When a function is called, it is pushed to the stack.  The current function running is always on the back of the stack.  When the function finishes, it is popped off the stack.  The result is that the function to return too is the one that is on the back of the stack.</p>
 		
+		<img src="function_stack.jpg" width=100% height=100% alt="Shows a structure chart of function A calling function B, function B called functions C and D (in order), and function D calling function E.  Shows the function stack (front to back) when B is running (A, B), when C is running (A, B, C), when C finishes (A, B), when D is running (A, B, D), and when E is running (A, B, D, E)."/>
+	
+		<p>In addition to keeping track of the function name that is running, the stack also allows to see where in the function we were when a function was originally called as well as the memory that we were using in our function.</p>
+	
+		<p>When using Python or other programming languages, we will often times see error messages that look like the following:</p>
+	
+		<img src="exception_function_stack.jpg" width=100% height=100% alt="Shows the call stack from a python program running in Visual Studio Code when a breakpoint was reached an paused the sofwtare."/>
+	
+		<p>Notice that the information is showing which functions have called which functions up until the point of error.  This display of information comes directly from the function stack.  Many code editors also include a debugger.  Debuggers can be used to pause execution of software so that we can see what is occurring within our code step-by-step.  Part of the debugger capability is the display of the function stack (or frequently called the call stack) when the software is paused (due to a breakpoint or an exception).</p>
+		
+		<img src="debugger_call_stack.jpg" width=100% height=100% alt="Shows the call stack from a python program running in Visual Studio Code when a breakpoint was reached an paused the sofwtare."/>
+
 		<h3>Stacks in Python</h3>
 		<p>Most Stacks implemented in software will have the following basic functions:</p>
 		<ul><p><code>push(value)</code> - Adds "value" to the back of the Stack</p></ul>
