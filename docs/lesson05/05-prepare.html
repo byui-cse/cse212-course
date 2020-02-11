@@ -19,7 +19,7 @@
 
         <p>This week you will explore how you articulate answers to technical questions that are frequently asked during employment interviews. You will practice your interviewing skills using questions related to the Set data structure.  You are still in the <strong>PREPARE</strong> phase of the course:</p>
 		
-		<img src="../images/CSE212_Phase1.jpeg" width=100% height=100% alt="Shows the 3 phases of the course as described in the Syllabus.  Phase 1 is highlighted."/>
+		<img src="../images/CSE212_Phase1.jpeg" width="100%" height="100%" alt="Shows the 3 phases of the course as described in the Syllabus.  Phase 1 is highlighted."/>
 		
 		<p>Here is the two day plan for this lesson:</p>
 		<ul><p><u>Day 1</u> - Complete the reading below.  The reading should take 1 hour to complete.  For on-campus students, class time will be used to discuss the reading and explore Sets through examples.  You should begin independently to work on <a href="05-prove.html" target="_blank">05-Prove</a>.  You should plan on the assignment taking 3 hours to complete.</p></ul>
@@ -28,16 +28,52 @@
 			<h2>The Set Data Structure</h2>
 		<p>Previously we learned about lists, stacks, and queues.  The location of each item in these data structures was very important to the proper use of the data structure.  Not all data structures worry about the order of the data.  The Set data structure is an example of one for which order is not important.  </p>
 		
-		<p>Besides the lack of order, the Set has another difference.  Could we add duplicate data to a list, stack, or queue?  The answer is yes and this situation is very common. However, the Set is constrained to allow no duplicates.  Knowing that there will be no duplicates (and because we don't care about the order) allows us to store the information in a Set so as to make it very efficient to determine if data is in the Set.  This test of membership in the Set is the most important operation belonging to this data structure.</p>
+		<p>Besides the lack of order, the Set has another difference.  Could we add duplicate data to a list, stack, or queue?  The answer is yes and this situation is very common. However, the Set is constrained to allow no duplicates.  Knowing that there will be no duplicates (and because we don't care about the order) allows us to store the information in a Set so as to make it very efficient to determine if data is in the Set.  This test of membership in the Set is the most important operation belonging to this data structure.  Using a technique called hashing, the Set is able to add, remove, and test for membership in O(1) time.</p>
 		
 		<h3>Hashing and Sets</h3>
-		<p>TBD</p>
+		<p>To achieve the O(1) time for Set operations, we will consider a very simple example.  Assume we wanted to store all positive one digit numbers (0 to 9) into a list.  How would we store these numbers if we wanted to have an O(1) performance for adding, removing, or testing for membership?  If we used the value to determine the index into the list, we might be able to achieve O(1).  If we wrote an equation: index(n) = n, this would be that if we wanted to add the number 7, then we would put it into index(7) which equals 7.  If we wanted to add the number 4, then we would put it into index(4) which equals 4.  For this to work, our list will need to be exactly size 10.</p>
+		
+		<img src="set_1digit.jpeg" height="100%" width="100%" alt="Shows a list of size 10 starting at index 0 containing some 1 digit numbers.  The value of 1 is in index 1, 4 is in index 4, 7 is in index 7, and 8 is in index 8.  Implements the equation index(n) = n.">
+		
+		<p>The list above shows several one digit numbers added to our list according to the rule index(n) = n.  Notice that the if we wanted to know if a number existed in the list, then we would use the formula to lookup the index.  This would result in an O(1) performance.  Also notice that the list is not populated in the same way that we learned about dynamic arrays.  We call this a sparse list because the list is not guarenteed to be filled from left to right.  This </p>
+		
+		<p>We call this sparse list a Set.  Notice that there is only one place for each value to go.  Therefore, the set does not allow duplicates because there would be no place for the duplciate value to placed.</p>
+		
+		<p>Imagine we changed this simple example to include all 9 digit positive numbers (0 to 999999999). How big would the list need to be store these numbers and still achieve O(1) performance?  We would need a list of size 1 billion.  While this would work, the amount of memory is prohibitive.  To store just one 10 digit number we would need memory for a 1 billion sized spare list.  Could we do this we something smaller such as a sparse list of size 10?  We can accomplish this by use the modulo (%) operator.  If we wrote the equation as: index(n) = n % 100, then we would be able store values properly.  The value 353,259,253 would be placed based on index(353,259,253) = 353,259,253 % 10 = 3.  The value 783,382,582 would be placed in index 2.  </p>
+		
+		<img src="set_10digit.jpeg" height="100%" width="100%" alt="Shows a list of size 10 starting at index 0 containing some 9 digit numbers.  The value of 783382582 in index 2, 353259253 in index 3, 490295396 in index 6, and 119393828 in index 8.  Implements the equation index(n) = n % 10.">
+			
+		<p>The equation we used above can be generalized as follows:  index(n) = n % sparse_list_size.  This works great for numbers.  We can also use equations like this for strings and floats.  The generic function is: index(n) = hash(n) % sparse_list_size.  The hash(n) represents what is called a hashing function.  The hashing function will convert non-integers into integers so that the modulo operation can be performed.  Python has a built-in hash function.  The values returned by the hash function will vary everytime you run a python script but they will be consistent while you are running a script to completion.  Not everything can be hashed.  For example, a list in Python can not be hashed.  It is common to say that the index(n) is the hashing function for a Set and that the values in a Set have been hashed.</p>
+			
+		<img src="hash_python.jpg" height="100%" width="100%" alt="Shows the output of several calls to the hash function in Python.  hash(3) resulted in 3.  hash(-3) resulted in -3.  hash(&quotcat&quot) resulted in 791447170.  hash(&quotdog&quot) resulted in 1290104669.  hash(3.14) resulted in 1846836513.  hash(True) resulted in 1. hash([1,2,3]) resulted in a TypeError that said unhashable type: 'list'">
+			
+		<p>If we only have 100 spots and there are up to 10 billion possible values, it reasonable to expect that perhaps their is a weakness in the data structure.  Using the same diagram above, what would happen if we tried to add 548,345,952?  This would also be placed in index 2.  This is called a conflict. </p>
 		
 		<h3>Dealing with Conflicts</h3>
-		<p>TBD</p>
+		<p>There are 2 general ways to deal with conflict in a sparse list.  The first option is called Open Addressing.  If we use our index(n) hashing function and find that something already occupies the space (or the item in that space is not what we are looking for), then Open Addressing strategy will tell us move to the next available space.  There are multiple ways that this can be done, but the simplist method would be to look to the right one spot at a time.  The danger with this approach is that a conflict can result in the creation of more conflicts.  In the example below, when 548,345,952 was added, since there was a conflict in index 2, we would move over to index 4.  Since there is something in 4 already, we have to move to 5.  Unfortantely, now any number ending in a 5 will also find a conflict.  This can result in a rapidly growing clusters of conflicts.  </p>
+			
+		<img src="set_10digit_open_addressing.jpeg" height="100%" width="100%" alt="Shows the previous list of size 10 with 9 digit numbers.  548345952 is shown in index 4 because indexes 2 and 3 were already full.">
+		
+		<p>A second option is called Chaining.  Instead of looking for a new place for our data, we can make a list of values that occupy the same space.  This does not have the adverse affect of creating clusters of conflict.   </p>
+		
+		<img src="set_10digit_chaining.jpeg" height="100%" width="100%" alt="Shows the previous list of size 10 with 9 digit numbers.  783382582 and the new number 548345952 are now shown in a new list.  The new list is stored in index 2.  ">
+		
+		<p>In both of these options to solve conflicts, we have an adverse effect on our O(1) performance.  The use of the index(n) hashing function is what gives us the O(1) timing.  If we have to search either through several positions to find a value or if we have to search the chained list, we may apporach O(n) if the amount of conflict is high.  To avoid this, we need to increase the size of the sparsed list if the amount of conflict is too high.  When we increase the size of the sparsed list, then we need to re-position all of the values by running the index(n) function again with the increased sparsed list size.</p>
 		
 		<h3>Applications with Sets</h3>
-		<p>TBD</p>
+		<p>Sets have the following key characteristics:</p>
+		<ul>
+		<li><p>Fast peformance for adding, removing, and finding (membership test)</p></li>
+		<li><p>No duplicates are allowed.  Most Set implementations (including Python) will not give us an error when you try to add a duplicate value.  This is done so that we can easily convert from a list which may have duplicates to a set that contains just the unique values.</p></li>
+		<li><p>The Set does not keep values in order.  This occurs because the index(n) hashing function is not based on the order the value was added.</p></li>
+		</ul>
+		
+		<p>The Set has many uses including:</p>
+		<ul>
+			<li><p>Finding the unique values in a list</p></li>
+			<li><p>Providing quick access to unique results previously calculated</p></li>
+			<li><p>Performing mathematical set operations such as an intersection (common values between 2 sets) and union (all values within 2 sets)</p></li>
+		</ul>
 		
 		<h3>Sets in Python</h3>
 		<p>Most Sets implemented in software will have the following basic functions:</p>
@@ -45,8 +81,27 @@
 		<ul><p><code>remove(value)</code> - Remove the "value" from the Set</p></ul>
 		<ul><p><code>in(value)</code> - Determine if "value" is in the Set</p></ul>
 		<ul><p><code>len()</code> - Return the number of items in the Set</p></ul>
-		<p>In Python, a Set can be represented using a curly braces or the <code>set</code> class name.  The <code>in</code> operator can be used to determine membership in the Set.</p>
-		<p>TBD code exampel</p>
+		<p>In Python, a Set can be represented using a curly braces or the <code>set</code> class name.  The <code>in</code> operator can be used to determine membership in the Set.  There are also mathematical operations to perform an intersection and union between two sets.  The code below demonstrates these capabilities in Python:</p>
+		
+		<div style="background: #ffffff; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><pre style="margin: 0; line-height: 125%">		
+			empty_set = set()
+			set1 = {1, 2, 3, 4, 5}
+			set2 = {4, 5, 6, 7, 8}
+			if 3 in set1:
+				print("3 is in the set
+			if 6 not in set1:
+				print("6 is not in the set.")
+			set1.add(100)     # Add 100 to the set
+			set1.add(100)     # This will not add a duplicate.  No error will occur.
+			set1.remove(100)  # This will remove 100 from the set
+			print(len(set1))  # Will display 5
+			set3 = intersection(set1, set2)  # This will result in {4, 5}
+			set3 = set1 & set2               # Alternate way of writing an intersection
+			set4 = union(set1, set2)  # This will result in {1, 2, 3, 4, 5, 6, 7, 8}
+			set4 = set1 | set2        # Alternate way of writing a union
+			
+			</pre></div>
+		
 		<p>The performance of the Set is based on the performance of the hashing algorithm.</p>
 
 		<table>
@@ -66,7 +121,7 @@
 			  <td>O(1)</td>
 			</tr>
 			<tr>
-			  <td>int(value)</td>
+			  <td>in(value)</td>
 			  <td>Performance of hashing the value (assuming good conflict resolution)</td>
 			  <td>O(1)</td>
 			</tr>
@@ -82,7 +137,25 @@
 	
 	<h2>Answering Technical Interview Questions</h2>
 		
-		<p>TBD</p>
+		<p>It can feel intimidating, but most interviews that relate to software engineering will require us to answer technical questions.  These questions frequently include questinos related to data structures.  Questions like:
+		</p>
+		<ul>
+		<li><p>How would you describe the performance of a Set?</p></li>
+		<li><p>What is hashing and why is it used with a Set?</p></li>
+		<li><p>When would you use a Set instead of a List?</p></li>
+		</ul>
+		<p>You want to practice questions that relate the purpose, behavior, and performance of a data structure.  Your responses should be concise lasting perhaps no more than 30 seconds.  Often these questions are asked within the context of a problem to be solved.  In your Group Practice and Indivdual Assignment this week, you will be asked to both respond to "how" you would solve the problem and actually solve the problem by writing code.</p>
+		
+		<p>Frequently, the interviewer is more interested in your thought process to getting to the "how" instead of the actual solution.  Even so, its a valuable exercise to also solve the problems so you are better able to describe the "how" in an actual interview. </p>
+		
+		<p>When you approach a problem to solve with a limited amount of time to respond, you should consider the following guidance:</p>
+		<ul>
+		<li><p>Understand the problem being asked.  You should not hesitate to ask clarifying questions to avoid assumptions.  For example: what is the valid range of numbers, are duplicates allowed, will there be invalid data in the collection?  These questions serve two purposes.  First, they help you to understand the problem and second, this communicates to the interviewer that you are aware of common constraints and errors that can occur in software.</p></li>
+		<li><p>Solve the problem by walking through scenarios.  Either verbally or on a whiteboard write or draw out the process of solving the problem for a simple example without introducing code.  The simple examples usually are those in which there are no failure cases or unusual conditions.</p></li>
+		<li><p>Identify software techniques such as Data Structures that can help solve the problem you are analyzing.  Talk out loud about the purposes, behavior, and/or performance of the Data Structure you are using so that the interviewer can see your decision making process.</p></li>
+		<li><p>Propose a solution.  Start to discuss the scenarios that will cause your solution not to work or may be less than efficient.  Refine your solution as you discuss these scenarios.</p></li>
+		<li><p>Don't worry about getting the answer to the problem completely right.  Unlike a college coding assignment, you will likely have much less time to develop a solution in the interview. </p></li>
+		</ul>
     </article>
 </body>
 </html>

@@ -28,3 +28,6 @@ print(unique_letters(test1))
 
 test2 = "abcdefghjiklanopqrstuvwxyz"  # Expect False because 'a' is repeated
 print(unique_letters(test2))
+
+test3 = "" 
+print(unique_letters(test3))          # Expect True because its an empty string
