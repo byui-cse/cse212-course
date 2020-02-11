@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" type="text/css" href="../site/style.css" />
-    <title>CSE 212 - 01 Prepare</title>
+    <title>CSE 212 - 05 Prepare</title>
 </head>
 <body>
     <header id="courseTitle">
@@ -13,21 +13,76 @@
         <h1>CSE 212 | Programming with Data Structures</h1>
     </header>
     <article>
-        <h1>01 Prepare: Preparation Material</h1>
-
+		<h1>05 Prepare: Answering Technical Interview Questions / Sets</h1>
+				
         <h2>Overview</h2>
 
-        <p>TBD</p>
-
-        <h2>Topic 1</h2>
+        <p>This week you will explore how you articulate answers to technical questions that are frequently asked during employment interviews. You will practice your interviewing skills using questions related to the Set data structure.  You are still in the <strong>PREPARE</strong> phase of the course:</p>
 		
-        <p>TBD</p>
-
-		<h2>Topic 2</h2>
+		<img src="../images/CSE212_Phase1.jpeg" width=100% height=100% alt="Shows the 3 phases of the course as described in the Syllabus.  Phase 1 is highlighted."/>
 		
-        <p>TBD</p>
+		<p>Here is the two day plan for this lesson:</p>
+		<ul><p><u>Day 1</u> - Complete the reading below.  The reading should take 1 hour to complete.  For on-campus students, class time will be used to discuss the reading and explore Sets through examples.  You should begin independently to work on <a href="05-prove.html" target="_blank">05-Prove</a>.  You should plan on the assignment taking 3 hours to complete.</p></ul>
+		<ul><p><u>Day 2</u> - You will work with your study group to complete <a href="05-teach.html" target="_blank">05-Teach</a>.  On-campus students will complete this activity during class time.  The activity should take 1 hour to complete.  You should independently finish work on <a href="05-prove.html" target="_blank">05-Prove</a>.</p></ul>
+		
+			<h2>The Set Data Structure</h2>
+		<p>Previously we learned about lists, stacks, and queues.  The location of each item in these data structures was very important to the proper use of the data structure.  Not all data structures worry about the order of the data.  The Set data structure is an example of one for which order is not important.  </p>
+		
+		<p>Besides the lack of order, the Set has another difference.  Could we add duplicate data to a list, stack, or queue?  The answer is yes and this situation is very common. However, the Set is constrained to allow no duplicates.  Knowing that there will be no duplicates (and because we don't care about the order) allows us to store the information in a Set so as to make it very efficient to determine if data is in the Set.  This test of membership in the Set is the most important operation belonging to this data structure.</p>
+		
+		<h3>Hashing and Sets</h3>
+		<p>TBD</p>
+		
+		<h3>Dealing with Conflicts</h3>
+		<p>TBD</p>
+		
+		<h3>Applications with Sets</h3>
+		<p>TBD</p>
+		
+		<h3>Sets in Python</h3>
+		<p>Most Sets implemented in software will have the following basic functions:</p>
+		<ul><p><code>add(value)</code> - Adds "value" to the Set</p></ul>
+		<ul><p><code>remove(value)</code> - Remove the "value" from the Set</p></ul>
+		<ul><p><code>in(value)</code> - Determine if "value" is in the Set</p></ul>
+		<ul><p><code>len()</code> - Return the number of items in the Set</p></ul>
+		<p>In Python, a Set can be represented using a curly braces or the <code>set</code> class name.  The <code>in</code> operator can be used to determine membership in the Set.</p>
+		<p>TBD code exampel</p>
+		<p>The performance of the Set is based on the performance of the hashing algorithm.</p>
 
-        
+		<table>
+			<tr>
+			  <th>Function</th>
+			  <th>Description</th>
+			  <th>Performance</th>
+			</tr>
+			<tr>
+			  <td><code></code>add(value)</td>
+			  <td>Performance of hashing the value (assuming good conflict resolution)</td>
+			  <td>O(1)</td>
+			</tr>
+			<tr>
+			  <td>remove(value)</td>
+			  <td>Performance of hashing the value (assuming good conflict resolution)</td>
+			  <td>O(1)</td>
+			</tr>
+			<tr>
+			  <td>int(value)</td>
+			  <td>Performance of hashing the value (assuming good conflict resolution)</td>
+			  <td>O(1)</td>
+			</tr>
+			<tr>
+			  <td>len()</td>
+			  <td>Performance of returning the size of the set</td>
+			  <td>O(1)</td>
+			</tr>
+		</table>
+		<br>
+
+		<p>The Python library also includes a class called <code>dict</code> which stands for dictinoary which is built using the Set.  The dictionary in Python also uses the curly brace notation.  We will learn more about this in the future when we study Maps.</p>
+	
+	<h2>Answering Technical Interview Questions</h2>
+		
+		<p>TBD</p>
     </article>
 </body>
 </html>
