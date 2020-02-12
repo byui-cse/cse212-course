@@ -23,7 +23,7 @@ def search_sorted_2(data, target):
             end = middle - 1
     return count # Didn't find it
 
-print("{:>15}{:>15}{:>15}{:>15}{:>15}".format("n","sort1-count","sort2-count","sort1-time","sort2-time","alg3-time"))
+print("{:>15}{:>15}{:>15}{:>15}{:>15}".format("n","sort1-count","sort2-count","sort1-time","sort2-time"))
 print("{:>15}{:>15}{:>15}{:>15}{:>15}".format("-"*10,"-"*10,"-"*10,"-"*10,"-"*10))
 for n in range(0,10001,100):
     test_data = [x for x in range(n)]
