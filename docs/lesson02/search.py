@@ -1,6 +1,22 @@
+"""
+CSE212 
+(c) BYU-Idaho
+02-Prove - Problem 3
+
+It is a violation of BYU-Idaho Honor Code to post or share this code with others or 
+to post it online.  Storage into a personal and private repository (e.g. private
+GitHub repository, unshared Google Drive folder) is acceptable.
+"""
+
 import timeit
 
 def search_sorted_1(data, target):
+    """
+    Search for 'target' in the list 'data'
+    When its found (or not found) the variable count
+    which represents the work done in the function 
+    is returned.
+    """
     count = 0
     for item in data:
         count += 1
@@ -9,6 +25,12 @@ def search_sorted_1(data, target):
     return count # Didn't find it
 
 def search_sorted_2(data, target):
+    """
+    Search for 'target' in the list 'data'
+    When its found (or not found) the variable count
+    which represents the work done in the function 
+    is returned.
+    """
     count = 0
     start = 0
     end = len(data) - 1
@@ -23,6 +45,7 @@ def search_sorted_2(data, target):
             end = middle - 1
     return count # Didn't find it
 
+# This code will analyze the the 3 algorithms for different values of "n" (size of the data)
 print("{:>15}{:>15}{:>15}{:>15}{:>15}".format("n","sort1-count","sort2-count","sort1-time","sort2-time"))
 print("{:>15}{:>15}{:>15}{:>15}{:>15}".format("-"*10,"-"*10,"-"*10,"-"*10,"-"*10))
 for n in range(0,10001,100):
