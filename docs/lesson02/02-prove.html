@@ -17,20 +17,50 @@
 
         <h2>Overview</h2>
         <p>This assignment <strong>must be completed individually</strong>.  You should not solve these problems with other students.  If you obtain help from a tutor, the tutor should help you understand principles but should not help you solve these problems.  It is an honor code violation to seek the solution to these exact problems from others including the internet (including sites that allow students to share their solutions).</p>
-		<p>You will summarize all your answers in the associated I-Learn quiz.  </p>
+		<p>You will summarize all your answers in the associated I-Learn quiz.  Please note that you only get one submission attempt with the I-Learn quiz.</p>
 
         <h2>Instructions</h2>
 		<p>There are 3 parts to this assignment.</p>
 		<h3>Part 1 - Analyze Code</h3>
-        <ol>
+	  <p>In this section, you will be asked several multiple choice and matching questions related to performance using Big-O notation.  You will mark your answers in the I-Learn quiz.</p>
+		<ol>
 			<li><p>TBD</p></li>
+			<li><p>TBD</p></li>
+			<li><p>TBD</p></li>
+			<li><p>TBD</p></li>
+		  <li><p>There are several other common Big-O notations that occur in various algorithms including:</p>
+				<ul>
+				<li>Merge Sort Algorithm - O(n * log n) - Logarithmic Linear Time</li>
+				<li>Travelling Salesman Algorithm - O(2 ^ n) - Exponential Time</li>
+				</ul>
+				<p>Using either a graphing calculator or a graphing website (e.g. <a href="desmos.com/calulator" target="_blank">desmos.com</a>), put the following in order (best performance first and worst performance last):</p>
+				<p>O(n^2), O(1), O(2^n), O(n * log n), O(log n), O(n)</p>
 		</ol>
 		<h3>Part 2 - Predicting, Measuring, and Comparing - 2 Sorting Algorithms</h3>
-        <ol>
-			<li><p>TBD</p></li>
+		<ol>
+		<li><p>Download the following code and load into your code editor: <a href="search.py" target="_blank">search.py</a> </p></li>
+		<li><p>This file contains 2 different functions called <code>search_sorted_1</code> and <code>search_sorted_2</code>.  Both of these function will search for an item in a sorted list.  Predict the performance of each function using Big-O notation.</p></li>
+		<li><p>Run the code and observe the outputs.  Here is what the columns in the table represent:
+			<ul>
+			<li><p><code>n</code> - The size of the data given to the functions in this test</p></li>
+			<li><p><code>sort1_count</code> - The number of loop iterations (i.e. work) done by <code>search_sorted_1</code></p></li>
+			<li><p><code>sort2_count</code> - The number of loop iterations (i.e. work) done by <code>search_sorted_2</code></p></li>
+			<li><p><code>sort1_time</code> - The time in milliseconds it took to complete <code>search_sorted_1</code></p></li>
+			<li><p><code>sort2_time</code> - The time in milliseconds it took to complete <code>search_sorted_2</code></p></li>
+				
+			</ul>
+			<p>While the <code>sort#_count</code> value should be the same in every execution, the <code>sort#_time</code> will vary every time it is executed on the same or different computers. For the timing numbers, the code ran the test 100 times and took the average.  This was done since there are some operating system conditions that could affect timing in some cases.  To ensure worst case, each test tried to find a number that was not in the list.</p></li>
+		<li><p>Answer the following questions:</p></li>
+			<ul>
+			<li><p>What is the performance using Big-O notation for each function (based on both your predictions and the actual results)?</p></li>
+			<li><p>For both functins, explain in detail how you can determine this just by looking at the code and without observing the actual results.</p></li>		
+			<li><p>It is possible in the best case for each of these functions to complete in O(1) time.  What scenario would give this result?</p></li>
+			</ul>
+			<li><p>You will provide your responses in the I-Learn quiz.</p></li>
 		</ol>
+
 		<h3>Part 3 - Reflection</h3>
-		<p>The last question in the I-Learn quiz will ask you to write a paragraph TBD.  You should use your experiences from the Group Practice and this Assignment to help formulate your response. </p>
+		<p>The last question in the I-Learn quiz will ask you to write a paragraph about the negative implications of forgetting to do algorithm performance analysis as a software engineer in the field.  You should use your experiences from the Group Practice and this Assignment to help formulate your response. </p>
 
     </article>
 

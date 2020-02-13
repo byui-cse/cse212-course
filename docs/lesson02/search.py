@@ -45,7 +45,7 @@ def search_sorted_2(data, target):
             end = middle - 1
     return count # Didn't find it
 
-# This code will analyze the the 3 algorithms for different values of "n" (size of the data)
+# This code will analyze the the 2 sorting functions for different values of "n" (size of the data)
 print("{:>15}{:>15}{:>15}{:>15}{:>15}".format("n","sort1-count","sort2-count","sort1-time","sort2-time"))
 print("{:>15}{:>15}{:>15}{:>15}{:>15}".format("-"*10,"-"*10,"-"*10,"-"*10,"-"*10))
 for n in range(0,10001,100):
