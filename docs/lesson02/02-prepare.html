@@ -98,7 +98,7 @@
 		<li><p>Generally, after check <code>c</code>, we have <code>n</code>/(2^<code>c</code>) left</p></li>			
 		</ul>
 		
-		<p>Returning to the question, how many checks <code>c</code> until there are just 1 left.  Written mathematically, we want to solve the following for <code>c</code>: <code>n</code>/(2^<code>c</code>) = 1.  Using logarithms, we get c = log2(n) = log(n) / log(2) which results in a Big-O notation of O(log n) since the log(2) is a coefficient.  The secret to getting O(log n) was to continously divide the data in half.</p>
+		<p>Returning to the question, how many checks <code>c</code> until there are just 1 left.  Written mathematically: <code>n</code>/(2^<code>c</code>) = 1.  Using logarithms, we get <code>c</code> = log2(<code>n</code>) = log(<code>n</code>) / log(2) which results in a Big-O notation of O(log n) since the log(2) is a coefficient.  The secret to getting O(log n) was to continously divide the data in half.</p>
 		
 		<p>The process above relies on an important fact.  The ability to find the middle of a list (or dynamic array as we learned last week) using a lookup operation is O(1).  The next section will review why this is.</p>
 		
