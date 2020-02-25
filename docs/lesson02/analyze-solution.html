@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" type="text/css" href="../site/style.css" />
+    <title>CSE 212 - 02 Teach</title>
+</head>
+<body>
+    <header id="courseTitle">
+        <span class="icon-byui-logo"></span>
+        <h1>CSE 212 | Programming with Data Structures</h1>
+    </header>
+    <article>
+      <h1>02 Teach - Part 1 Answer</h1>
+		<ul>
+			<li><p><strong>Question</strong>: What is the Big-O notation for <code>calc_factorial</code>?</p></li>
+			<li><p><strong>Answer</strong>: The <code>calc_factorial</code> function has a single for loop.  This implies O(n).</p></li>
+			<hr>
+			<li><p><strong>Question</strong>: What is the Big-O notation for <code>calc_stats</code>?</p></li>
+			<li><p><strong>Answer</strong>: The <code>calc_stats</code> function has a single for loop followed by another single for looop.  This implies O(n) + O(n) = O(2n).  With Big-O notation, the coefficient is dropped and we can simplify this to be O(n).</p></li>
+			<hr>
+			<li><p><strong>Question</strong>: What is the Big-O notation for <code>print_triangle</code>?</p></li>
+			<li><p><strong>Answer</strong>: The <code>print_triangle</code> function has a for loop within another for loop.  The outer for loop is based on the size of the data (in this case <code>size</code>).  The inner for loop is based on the size of the outer loop.  During the first iteration of the outer loop, the inner loop will only run 1 time.  However, on the last iteration of the outer loop, the inner loop will run <code>size</code> times.  Since the inner loop is based on the size (even though its decreasing), this implies O(n^2).  To see this better, we can count how many times the inner loop runs.  The first time the inner loop runs 1 times, the second time 2 times, and so forth up until <code>size</code> times.  Adding this up we get: 1 + 2 + 3 + ... + (<code>size</code>-1) + (<code>size</code>) = <code>size</code>(<code>size</code> + 1) / 2 = 0.5*(<code>size</code>^2 + <code>size</code> + 1). This simplifies down to O(n^2) since lower order exponents and coefficients are dropped with Big-O notation.</p></li>
+			<hr>
+			<li><p><strong>Question</strong>: What is the Big-O notation for <code>display_letters_in_names</code>?</p></li>
+			<li><p><strong>Answer</strong>: The <code>display_letters_in_names</code> function has a for loop within another for loop.  The outer for loop is based on the size of the data (in this case the number of names in the list).  The inner for loop is based on the length of each name and not the size of the data.  This implies O(n).  Imagine the list of names had 1,000,000 names.  The average name size might be less than 10 letters long.  This has the affect of running O(10n) which reduces to O(n).</p></li>
+			<hr>
+			<li><p><strong>Question</strong>: What is the Big-O notation for <code>average = sum(numbers) / len(numbers)</code>?</p></li>
+			<li><p><strong>Answer</strong>: The <code>sum</code> function in Python will loop through all the numbers in the list and add them together.  This will be O(n).  The <code>len</code> function will return the length of the list (also called a dynamic array).  Python does not have to count how many items are in the list because this is remembered everytime an item is added or removed from the list.  The <code>len</code> function has performance of O(1).  Therefore, the total cost is O(n).</p></li>
+			<hr>
+			<li><p><strong>Question</strong>: What is the order of O(n^2), O(log n), and O(n) (best performance first and worst performance last)?</p></li>
+			<li><p><strong>Answer</strong>: The first graph below shows the 3 graphs displayed for small values of <code>n</code> and the second graph shows the same 3 graphs zoomed out for larger values of <code>n</code>.  By looking at the graph, O(n^2) is worst performance because it increases faster  as the data size increases.  In contrast, O(log n) has the best performance because it increases slower as the data size increases.  This is seen even more in the second graph where y=x^2 is approaching the y-axis and y=log x is approaching the x-axis.  The order is:  O(log n), O(n), O(n^2).</p></li>
+			
+			<img src="graph_close_up.jpg" width="100%" height="100%" alt="Shows the graph y=x^2, y=x, and y=log x on the same graph for x in the range from 0 to  6.  As x gets bigger, y=x^2 goes up faster than y=x and y=x goes up faster than y=log x.">
+			<br>
+			<img src="graph_zoomed_out.jpg" width="100%" height="100%" alt="Shows the same graph but with x in the range from 0 to 200.  The y=x^2 line is approaching the y-axis and the y=log x is approaching the x-axis.">
+		</ul>	 
+ 
+    </article>
+
+    <script src="../site/js/highlight/highlight.pack.js"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+ 
+</body>
+</html>

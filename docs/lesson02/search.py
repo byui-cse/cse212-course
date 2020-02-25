@@ -1,7 +1,7 @@
 """
 CSE212 
 (c) BYU-Idaho
-02-Prove - Problem 3
+02-Prove - Problem 2
 
 It is a violation of BYU-Idaho Honor Code to post or share this code with others or 
 to post it online.  Storage into a personal and private repository (e.g. private
