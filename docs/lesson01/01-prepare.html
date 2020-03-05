@@ -167,7 +167,7 @@
 			# Create a list of even numbers less than 100
 			my_list = [x for x in range(100) if x % 2 == 0]
 			
-			# Do the same thing be using a different version of range
+			# Do the same thing by using a different version of range
 			my_list = [x for x in range(0, 100, 2)]
 			
 			# Create a list of words that have an 'E'
@@ -178,8 +178,8 @@
 			# Multiples of 4 are leap years
 			# Except, Multiples of 100 are not leap years
 			# Except, Multiples of 400 are leap years
-			leap_years = [year for year in range(1900, 2001) if year % 400 == 0 and
-			                    year % 100 != 0 and year % 4 == 0]
+			leap_years = [year for year in range(1900, 2001) if (year % 400 == 0) or
+			                    (year % 100 != 0 and year % 4 == 0)]
 				
 			</pre></div>
 
