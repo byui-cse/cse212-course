@@ -76,62 +76,56 @@
 		</ul>
 		
 		<h3>Sets in Python</h3>
-		<p>Most Sets implemented in software will have the following basic functions:</p>
-		<ul><p><code>add(value)</code> - Adds "value" to the Set</p></ul>
-		<ul><p><code>remove(value)</code> - Remove the "value" from the Set</p></ul>
-		<ul><p><code>in(value)</code> - Determine if "value" is in the Set</p></ul>
-		<ul><p><code>len()</code> - Return the number of items in the Set</p></ul>
-		<p>In Python, a Set can be represented using a curly braces or the <code>set</code> class name.  The <code>in</code> operator can be used to determine membership in the Set.  There are also mathematical operations to perform an intersection and union between two sets.  The code below demonstrates these capabilities in Python:</p>
-		
-		<div style="background: #ffffff; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><pre style="margin: 0; line-height: 125%">		
-			empty_set = set()
-			set1 = {1, 2, 3, 4, 5}
-			set2 = {4, 5, 6, 7, 8}
-			if 3 in set1:
-				print("3 is in the set
-			if 6 not in set1:
-				print("6 is not in the set.")
-			set1.add(100)     # Add 100 to the set
-			set1.add(100)     # This will not add a duplicate.  No error will occur.
-			set1.remove(100)  # This will remove 100 from the set
-			print(len(set1))  # Will display 5
-			set3 = intersection(set1, set2)  # This will result in {4, 5}
-			set3 = set1 & set2               # Alternate way of writing an intersection
-			set4 = union(set1, set2)  # This will result in {1, 2, 3, 4, 5, 6, 7, 8}
-			set4 = set1 | set2        # Alternate way of writing a union
-			
-			</pre></div>
-		
-		<p>The performance of the Set is based on the performance of the hashing algorithm.</p>
+		<p>In Python, a Set can be represented using a curly braces (e.g. <code>my_set = {1, 2, 3}</code>)  To create an empty set (unlike an empty list), we use the code: <code>empty_set = set()</code>.  The <code>in</code> operator can be used to determine membership in the Set.  The performance of the Set is based on the performance of the hashing algorithm.</p>
 
 		<table>
 			<tr>
-			  <th>Function</th>
+			  <th>Common Set Operation</th>
 			  <th>Description</th>
+			  <th>Python Code</th>	
 			  <th>Performance</th>
 			</tr>
 			<tr>
 			  <td><code></code>add(value)</td>
-			  <td>Performance of hashing the value (assuming good conflict resolution)</td>
-			  <td>O(1)</td>
+			  <td>Adds "value" to the Set</td>
+			  <td>my_set.add(value)</td>	
+			  <td>O(1) - Performance of hashing the value (assuming good conflict resolution)</td>
 			</tr>
 			<tr>
 			  <td>remove(value)</td>
-			  <td>Performance of hashing the value (assuming good conflict resolution)</td>
-			  <td>O(1)</td>
+			  <td>Remove the "value" from the Set</td>
+			  <td>my_set.remove(value)</td> 	
+			  <td>O(1) - Performance of hashing the value (assuming good conflict resolution)</td>
 			</tr>
 			<tr>
-			  <td>in(value)</td>
-			  <td>Performance of hashing the value (assuming good conflict resolution)</td>
-			  <td>O(1)</td>
+			  <td>member(value)</td>
+			  <td>Determine if "value" is in the Set</td>
+			  <td>if value in my_set:</td>	
+			  <td>O(1) - Performance of hashing the value (assuming good conflict resolution)</td>
 			</tr>
 			<tr>
-			  <td>len()</td>
-			  <td>Performance of returning the size of the set</td>
-			  <td>O(1)</td>
+			  <td>size()</td>
+			  <td>Return the number of items in the Set</td>
+			  <td>length = len(my_set)</td>	
+			  <td>O(1) - Performance of returning the size of the set</td>
 			</tr>
 		</table>
 		<br>
+		
+		<p>There are also mathematical operations to perform an intersection and union between two sets.  The code below demonstrates these capabilities in Python:</p>
+		
+		<div style="background: #ffffff; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><pre style="margin: 0; line-height: 125%">		
+
+			set1 = {1, 2, 3, 4, 5}
+			set2 = {4, 5, 6, 7, 8}
+			
+			set3 = intersection(set1, set2)  # This will result in {4, 5}
+			set3 = set1 & set2               # Alternate way of writing an intersection
+			
+			set4 = union(set1, set2)  # This will result in {1, 2, 3, 4, 5, 6, 7, 8}
+			set4 = set1 | set2        # Alternate way of writing a union
+			
+			</pre></div>
 
 		<p>The Python library also includes a class called <code>dict</code> which stands for dictinoary which is built using the Set.  The dictionary in Python also uses the curly brace notation.  We will learn more about this in the future when we study Maps.</p>
 	

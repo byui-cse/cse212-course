@@ -65,39 +65,38 @@
 		<img src="debugger_call_stack.jpg" width="100%" height="100%" alt="Shows the call stack from a python program running in Visual Studio Code when a breakpoint was reached an paused the sofwtare."/>
 		<br>
 		<h3>Stacks in Python</h3>
-		<p>Most Stacks implemented in software will have the following basic functions:</p>
-		<ul><p><code>push(value)</code> - Adds "value" to the back of the Stack</p></ul>
-		<ul><p><code>pop()</code> - Remove and return the item from the back of the Stack</p></ul>
-		<ul><p><code>len()</code> - Return the size of the Stack</p></ul>
-		<ul><p><code>is_empty()</code> - Returns true if the length of the Stack is zero.</p></ul>
-		<p>In Python, a Stack can be represented using a list.  To push an item to the back of the Stack, the <code>append</code> function can be used on the list.  To pop an items from the back of the stack, the <code>pop</code> function can be used.  The <code>pop</code> function will also delete it from the list.  The size can be determined by using the <code>len</code> function on the list.</p>
-		<p>The performance of the Stack using a Python list is based on the performance of the dynamic array.</p>
+		<p>In Python, a Stack can be represented using a list.  To push an item to the back of the Stack, the <code>append</code> function can be used on the list.  To pop an items from the back of the stack, the <code>pop</code> function can be used.  The <code>pop</code> function will also delete it from the list.  The size can be determined by using the <code>len</code> function on the list.  The performance of the Stack using a Python list is based on the performance of the dynamic array.</p>
 
 		<table>
 			<tr>
-			  <th>Function</th>
+			  <th>Common Stack Operation</th>
 			  <th>Description</th>
+			  <th>Python Code</th>
 			  <th>Performance</th>
 			</tr>
 			<tr>
-			  <td><code></code>push(value)</td>
-			  <td>Performance of adding to the end of a dynamic array</td>
-			  <td>O(1)</td>
+			  <td>push(value)</td>
+			  <td>Adds "value" to the back of the Stack</td>
+			  <td>my_stack.append(value)</td>	
+			  <td>O(1) - Performance of adding to the end of a dynamic array</td>
 			</tr>
 			<tr>
 			  <td>pop()</td>
-			  <td>Performance of removing from the end of a dynamic array</td>
-			  <td>O(1)</td>
+			  <td>Adds "value" to the back of the Stack</td>
+			  <td>value = my_stack.pop()</td> 	
+			  <td>O(1) - Performance of removing from the end of a dynamic array</td>
 			</tr>
 			<tr>
-			  <td>len()</td>
-			  <td>Performance of returning the size of the dynamic array</td>
-			  <td>O(1)</td>
+			  <td>size()</td>
+			  <td>Return the size of the Stack</td>
+			  <td>length = len(my_stack)</td>	
+			  <td>O(1) - Performance of returning the size of the dynamic array</td>
 			</tr>
 			<tr>
-			  <td>is_empty()</td>
-			  <td>Performance of checking the size of the dynamic array</td>
-			  <td>O(1)</td>
+			  <td>empty()</td>
+			  <td>Returns true if the length of the Stack is zero.</td>
+			  <td>if len(my_stack) == 0:</td>	
+			  <td>O(1) - Performance of checking the size of the dynamic array</td>
 			</tr>			
 		</table>
 		<br>

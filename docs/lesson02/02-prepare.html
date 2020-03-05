@@ -113,12 +113,12 @@
 			  <th>Performance</th>
 			</tr>
 			<tr>
-			  <td><code></code>lookup(index)</td>
+			  <td>lookup(index)</td>
 			  <td>Performance of getting a value in the dynamic array using the index.  Since the dynamic array is in contiguous memory, the equation address = starting_address + (item_size * index) can be used ot get the value in a dynamic array using the index quickly. </td>
 			  <td>O(1)</td>
 			</tr>					
 			<tr>
-			  <td><code></code>append(value)</td>
+			  <td>append(value)</td>
 			  <td>Performance of adding to the end of dynamic array.  If the dynamic array is not full yet, then the cost is based on the lookup operation to goto the next open space.  If the dynami array is full, then we need to create new memory which is twice the size and then copy the old memory.  This is an O(n) operation because of the loop required.  However, for large values of n, this copy doesn't happen very often.  We can amortize (or spread out) the cost of the O(n) loop on all the previous append's that were filling up the dynamic array.  Therefore, we say the worst case for appending in the dynamic array is O(1).</td>
 			  <td>O(1)</td>
 			</tr>
@@ -128,17 +128,22 @@
 			  <td>O(n)</td>
 			</tr>
 			<tr>
-			  <td>remove(index, value)</td>
+			  <td>remove(index)</td>
 			  <td>Performance of removing an element in the list.  When we remove, we have to move all items over by one position towards the begining of the list.  This requires a loop which in the worst case will require moving all items in the list.  However, in the case of removing the last item in the list, there is nothing to move over.  This scenario will be O(1). </td>
 			  <td>O(n) except for removing the last one which is O(1)</td>
 			</tr>				
 			<tr>
-			  <td>len()</td>
+			  <td>size()</td>
 			  <td>Performance of returning the size of the dynamic array.  The class for the dynamic array data structure will keep track of how many items are currently in the list so no loop is required.</td>
 			  <td>O(1)</td>
 			</tr>
 			<tr>
-			  <td>is_empty()</td>
+			  <td>capacity()</td>
+			  <td>Performance of returning the capacity of the dynamic array.  The class for the dynamic array data structure will keep track of the capcity of the current list so no loop is required.</td>
+			  <td>O(1)</td>
+			</tr>
+			<tr>
+			  <td>empty()</td>
 			  <td>Performance of checking the size of the dynamic array</td>
 			  <td>O(1)</td>
 			</tr>			

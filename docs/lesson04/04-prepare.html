@@ -53,39 +53,38 @@
 		
 				
 		<h3>Queues in Python</h3>
-		<p>Most Queues implemented in software will have the following basic functions:</p>
-		<ul><p><code>enqueue(value)</code> - Adds "value" to the back of the Queue</p></ul>
-		<ul><p><code>dequeue()</code> - Remove and return the item from the front of the Queue</p></ul>
-		<ul><p><code>len()</code> - Return the size of the Queue</p></ul>
-		<ul><p><code>is_empty()</code> - Returns true if the length of the Queue is zero.</p></ul>
-		<p>In Python, a Queue can be represented using a list.  To dequeue an item from the front of the Queue, <code>[0]</code> can be used to obtain the first item and also delete it from the list.  To enqueue an item to the back of the Queue, the <code>append</code> function can be used on the list.  The size can be determined by using the <code>len</code> function on the list.</p>
-		<p>The performance of the Queue using a Python list is based on the performance of the dynamic array.</p>
+		<p>In Python, a Queue can be represented using a list.  To dequeue an item from the front of the Queue, <code>[0]</code> can be used to obtain the first item and also delete it from the list.  To enqueue an item to the back of the Queue, the <code>append</code> function can be used on the list.  The size can be determined by using the <code>len</code> function on the list.  The performance of the Queue using a Python list is based on the performance of the dynamic array.</p>
 
 		<table>
 			<tr>
-			  <th>Function</th>
+			  <th>Common Queue Operation</th>
 			  <th>Description</th>
+			  <th>Python Code</th>	
 			  <th>Performance</th>
 			</tr>
 			<tr>
-			  <td><code></code>enqueue(value)</td>
-			  <td>Performance of adding to the end of dynamic array</td>
-			  <td>O(1)</td>
+			  <td>enqueue(value)</td>
+			  <td>Adds "value" to the back of the Queue</td>
+			  <td>my_queue.append(value)</td>	
+			  <td>O(1) - Performance of adding to the end of dynamic array</td>
 			</tr>
 			<tr>
 			  <td>dequeue()</td>
-			  <td>Performance of removing from the beginning of dynamic array</td>
-			  <td>O(n)</td>
+			  <td>Remove and return the item from the front of the Queue</td>
+			  <td>value = my_queue[0]<br>del my_queue[0]</td> 	
+			  <td>O(n) - Performance of removing from the beginning of dynamic array</td>
 			</tr>
 			<tr>
-			  <td>len()</td>
-			  <td>Performance of returning the size of the dynamic array</td>
-			  <td>O(1)</td>
+			  <td>size()</td>
+			  <td>Return the size of the Queue</td>
+			  <td>length = len(my_queue)</td> 	
+			  <td>O(1) - Performance of returning the size of the dynamic array</td>
 			</tr>
 			<tr>
-			  <td>is_empty()</td>
-			  <td>Performance of checking the size of the dynamic array</td>
-			  <td>O(1)</td>
+			  <td>empty()</td>
+			  <td>Returns true if the length of the Queue is zero.</td>
+			  <td>if len(my_queue) == 0:</td>	
+			  <td>O(1) - Performance of checking the size of the dynamic array</td>
 			</tr>			
 		</table>
 		<br>
