@@ -23,20 +23,21 @@
 		
 		<p>Download the following code file and use it to solve all 5 problems:  <a href="maps.py" target="_blank">maps.py</a></p>
 
-		<h3>Problem 1</h3>
-		<p>TBD</p>
+		<h3>Problem 1 - Translator Class</h3>
+		<p>Implement the functions in the Translator Class (<code>__init__</code>, <code>add_word</code>, <code>translate</code>) using a Python dictionary.  The <code>add_word</code> function should allow the use to add word translations (e.g. english to german).  The <code>translate</code> function should return the translation of a word.  If the translation is not available for a word, then "???" should be returned instead.</p>
 		
-		<h3>Problem 2</h3>
-		<p>TBD</p>
+		<h3>Problem 2 - Degree Summary</h3>
+		<p>Finish implementing the <code>summarize_degrees</code> function which reads a file and creates a Python Dictionary containing a summary of all the degrees (eduction) that people earned as reported in the file.  You should use the following file for testing: <a href="census.csv" target="_blank">census.csv</a>.</p>
 			
-		<h3>Problem 3</h3>
-		<p>TBD</p>
+		<h3>Problem 3 - Anagrams</h3>
+		<p>Finish implementing the <code>is_anagram</code> function to determine if two words are anagrams.  Two words are an anagram if they use the same letters and the same number of letters.  For example, "CAT" and "ACT" are anagrams but "DOG" and "GOOD" are not because "GOOD" has two O's.  You must use a Python Dictionary to solve this problem.</p>
 				
-		<h3>Problem 4</h3>
-		<p>TBD</p>
+		<h3>Problem 4 - Maze</h3>
+		<p>Implement the <code>move_left</code>, <code>move_right</code>, <code>move_up</code>, and <code>move_down</code> functions in the Maze class.  The code provides a sample Maze in the form of a dictionary where the key represents the (x,y) coordinate in the maze and the value contains the valid movements in the format (left, right, up, down).  The valid movements are set to True and False.  The dictionary maze shown in the code can be represented graphically as follows (note that it is assumed there is a wall going around the entire maze which means that you can not leave the outside boundaries of the maze):</p>
+		<img src="maze.jpeg" alt="A maze that has 6 rows (y=1 to y=6) and 6 columns (x=1 to x=6).  Walls are drawn in the following blocks: (3,1) (3,2) (4,2) (6,2) (1,3) (3,3) (6,4) (2,5) (4,5) (6,5) (2,6) (4,6).">
 		
-		<h3>Problem 5</h3>
-		<p>TBD</p>
+		<h3>Problem 5 - Earthquake JSON Data</h3>
+		<p>Finish implementing the <code>earthquake_daily_summary</code> function to display all the earthquake locations ('place' attribute) and magnitudes ('mag' attribute) for the current day from the United States Geological Service (USGS) website.  The USGS website (<a href="https://earthquake.usgs.gov/earthquakes/feed/v1.0/geojson_detail.php" target="_blank">Click Here</a>) provides details about how to interpret the data that you will receive from their server.  The data uses JSON (JavaScript Object Notation) format.  In Python, JSON data is represented as a Dictionary. The code uses the 'requests' library to read data from the server.  To use this library, you will need to install the 'requests' package.  To install the package, run <code>pip install requests</code> within a terminal.</p>
 		
 	
     </article>
