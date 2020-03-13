@@ -1,3 +1,13 @@
+"""
+CSE212 
+(c) BYU-Idaho
+06-Prove
+
+It is a violation of BYU-Idaho Honor Code to post or share this code with others or 
+to post it online.  Storage into a personal and private repository (e.g. private
+GitHub repository, unshared Google Drive folder) is acceptable.
+"""
+
 #############
 # Problem 1 #
 #############
@@ -11,7 +21,7 @@ class Translator:
 
     def __init__(self):
         """ 
-        Initialize the Python Dictionary
+        Initialize the Python Dictionary to store word mappings
         """
         self.words = dict() 
 
@@ -22,7 +32,7 @@ class Translator:
 
         my_translator.add_word("book","buch")
         """
-        self.words[from_word] = to_word 
+        pass
 
     def translate(self, from_word):
         """
@@ -32,9 +42,7 @@ class Translator:
 
         german_word = my_translator.translate("book")
         """
-        if from_word not in self.words:  
-            return "???"
-        return self.words[from_word]
+        pass
 
 # Sample Test Cases (may not be comprehensive)
 english_to_german = Translator()
@@ -63,12 +71,9 @@ def summarize_degrees(filename):
     with open(filename) as file_in:
         for line in file_in:
             fields = line.split(",") 
-            degree = fields[3]       
 
-            if degree in degrees: 
-                degrees[degree] += 1
-            else:
-                degrees[degree] = 1
+            # ADD YOUR CODE HERE
+
     return degrees
 
 # Sample Test Cases
@@ -86,23 +91,6 @@ print(summarize_degrees("docs/lesson06/census.csv"))
 # Problem 3 #
 #############
 
-def convert_word_to_dictionary(word):
-    """
-    This function converts a word to a dictionary.  The key
-    is a letter (all in upper case) and the value is the number
-    of times the number appears in the word.
-    """
-    word_letters = dict()
-    for letter in word:
-        letter_upper = letter.upper()
-        if letter_upper != " ":
-            if letter_upper in word_letters:
-                word_letters[letter_upper] += 1
-            else:
-                word_letters[letter_upper] = 1
-    return word_letters
-
-
 def is_anagram(word1, word2):
     """
     Determine if 'word1' and 'word2' are anagrams.  An anagram
@@ -113,10 +101,7 @@ def is_anagram(word1, word2):
     is_anagram("CAT","ACT") would return True
     is_anagram("DOG","GOOD") would return False because GOOD has 2 O's
     """
-    word1_letters = convert_word_to_dictionary(word1)
-    word2_letters = convert_word_to_dictionary(word2)
-
-    return word1_letters == word2_letters
+    pass
 
 # Sample Test Cases (may not be comprehensive)
 print(is_anagram("A Decimal Point", "Im a Dot in Place"))  # True
@@ -161,50 +146,34 @@ class Maze:
         Check to see if you can move left.  If you can, then move.  If you
         can't move, then display "Can't go that way!"
         """
-        allowed = self.maze_map[(self.curr_x, self.curr_y)]
-        if allowed[0]:
-            self.curr_x -= 1
-        else:
-            print("Can't go that way!")
+        pass
 
     def move_right(self):
         """
         Check to see if you can move right.  If you can, then move.  If you
         can't move, then display "Can't go that way!"
         """        
-        allowed = self.maze_map[(self.curr_x, self.curr_y)]
-        if allowed[1]:
-            self.curr_x += 1
-        else:
-            print("Can't go that way!")
+        pass
 
     def move_up(self):
         """
         Check to see if you can move up.  If you can, then move.  If you
         can't move, then display "Can't go that way!"
         """
-        allowed = self.maze_map[(self.curr_x, self.curr_y)]
-        if allowed[2]:
-            self.curr_y -= 1
-        else:
-            print("Can't go that way!")
+        pass
 
     def move_down(self):
         """
         Check to see if you can move down.  If you can, then move.  If you
         can't move, then display "Can't go that way!"
         """
-        allowed = self.maze_map[(self.curr_x, self.curr_y)]
-        if allowed[3]:
-            self.curr_y += 1
-        else:
-            print("Can't go that way!")
+        pass
     
     def show_status(self):
         print("Current location (x={} , y={})".format(self.curr_x, self.curr_y))
 
 # Sample Test Cases 
-map = {(1,1) : (False, True, False, True),
+map =  {(1,1) : (False, True, False, True),
         (1,2) : (False, True, True, False),
         (1,3) : (False, False, False, False),
         (1,4) : (False, True, False, True),
@@ -281,15 +250,21 @@ def earthquake_daily_summary():
     https://earthquake.usgs.gov/earthquakes/feed/v1.0/geojson_detail.php
     """    
     req = requests.get("https://earthquake.usgs.gov/earthquakes/feed/v1.0/summary/all_day.geojson")
-    data = req.json()
-    earthquakes = []
-    for feature in data["features"]:
-        properties = feature["properties"]
-        print("{} - Mag {}".format(properties["place"], properties["mag"]))
+    data = req.json() # The .json() function will convert the json data from the server to a dictionary
+
+    # ADD YOUR CODE HERE
 
 # Sample Test Cases 
 earthquake_daily_summary()
 
+# Sample output from the function.  Number of earthquakes, places, and magnitudes will vary.
+
+# 1km NE of Pahala, Hawaii - Mag 2.36
+# 58km NW of Kandrian, Papua New Guinea - Mag 4.5
+# 16km NNW of Truckee, California - Mag 0.7
+# 9km S of Idyllwild, CA - Mag 0.25
+# 14km SW of Searles Valley, CA - Mag 0.36
+# 4km SW of Volcano, Hawaii - Mag 1.99
 
 
 
