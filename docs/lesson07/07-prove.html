@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" type="text/css" href="../site/style.css" />
-    <title>CSE 212 - 01 Prove</title>
+    <title>CSE 212 - 07 Prove</title>
 </head>
 <body>
     <header id="courseTitle">
@@ -13,17 +13,51 @@
         <h1>CSE 212 | Programming with Data Structures</h1>
     </header>
     <article>
-        <h1>01 Prove: Individual Assignment</h1>
+        <h1>07 Prove: Individual Assignment</h1>
 
         <h2>Overview</h2>
-        <p>TBD</p>
+        <p>This assignment <strong>must be completed individually</strong>.  With the exception of the Group Collaboration activity that you did in <a href="07-teach.html" target="_blank">07-Teach</a>, you should not solve these problems with other students.  If you obtain help from a tutor, the tutor should help you understand principles but should not help you solve these problems.  It is an honor code violation to seek the solution to these exact problems from others including the internet (including sites that allow students to share their solutions).</p>
+		<p>You will provide your code and solution strategies in the associated I-Learn quiz. Your grade will be based on how many problems you answer correctly.  To get a 100% you need to solve 4 of the problems.  If you solve all 5 problems you will get up to 110%.</p>
 
-        <h2>Instructions</h2>
-        <p>TBD</p>
+        <h2>Problem Set</h2>
+		
+		<p>Download the following code file and use it to solve all 5 problems:  <a href="linked_list.py" target="_blank">linked_list.py</a></p>
 
-        <h2>Submission</h2>
-        <p>When complete, upload your assignment to I-Learn.</p>
-
+		<h3>Problem 1 - Insert Tail</h3>
+		<p>Implement the <code>insert_tail</code> function in the LinkedList class.  The function should add a new node (<code>LinkedList.Node</code>) at the end of the Linked List.  You will need to write code to test your solution.</p>
+		
+		<h3>Problem 2 - Remove Tail</h3>
+		<p>Implement the <code>remove_tail</code> function in the LinkedList class.  The function should remove the last node.  You will need to write code to test your solution.</p>
+			
+		<h3>Problem 3 - Remove</h3>
+		<p>Implement the <code>remove</code> function in the LinkedList class.  The function will need to search for the node that contains the value and then remove the node.  You will need to write code to test your solution.</p>
+				
+		<h3>Problem 4 - Replace</h3>
+		<p>Implement the <code>replace</code> function in the LinkedList class.  The function should search for all nodes that are equal to 'old_value' and then replace the value in those nodes with 'new_value'.  You will need to write code to test your solution.</p>
+		
+		<h3>Problem 5 - Reversed Iterator</h3>
+		<p>The <code>__iter__</code> function provides the ability to iterate forward through a LinkedList object using a for loop such as <code>for item in my_linkedlist</code>.  When a for loop starts, the <code>__iter__</code> function will start.  Each time the <code>yield</code> statement runs, it will provide a new value to the for loop and pause the <code>__iter__</code> function.  When the for loop goes to the next iteration, it will continue running the <code>__iter__</code> function again until it gets to the next <code>yield</code> which will provide the next value to the for loop.  You can use the following test code to see how <code>__iter__</code> function works:</p>
+		
+		<div style="background: #ffffff; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><pre style="margin: 0; line-height: 125%">		
+		
+			for item in my_linkedlist:
+				print(item)
+				
+			</pre></div>
+		
+		<p>The <code>__reversed__</code> function is used to iterate backwards.  Implement the <code>__reversed__ </code> function in the LinkedList class.  To test the <code>__reversed__</code> function, you can use the following code:</p>
+		
+		<div style="background: #ffffff; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><pre style="margin: 0; line-height: 125%">		
+		
+			for item in reversed(my_linkedlist):
+				print(item)
+				
+			# Another option:
+			
+			print(list(reversed(my_linkedlist)))
+				
+			</pre></div>
+	
     </article>
 
     <script src="../site/js/highlight/highlight.pack.js"></script>
