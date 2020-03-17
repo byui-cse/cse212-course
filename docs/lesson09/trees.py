@@ -1,3 +1,13 @@
+"""
+CSE212 
+(c) BYU-Idaho
+08-Prove - Problems
+
+It is a violation of BYU-Idaho Honor Code to post or share this code with others or 
+to post it online.  Storage into a personal and private repository (e.g. private
+GitHub repository, unshared Google Drive folder) is acceptable.
+"""
+
 class BST:
     """
     Implement the Binary Search Tree (BST) data structure.  The Node 
@@ -59,7 +69,7 @@ class BST:
                 # Need to keep looking.  Call _insert
                 # recursively on the left sub-tree.
                 self._insert(data, node.left)
-        elif data > node.data:
+        elif data >= node.data:
             # The data belongs on the right side.
             if node.right is None:
                 # We found an empty spot
@@ -69,7 +79,6 @@ class BST:
                 # recursively on the right sub-tree.
                 self._insert(data, node.right)
 
-        # If data is equal to node.data, then do nothing
 
     def __in__(self, data):
         """ 
@@ -92,28 +101,8 @@ class BST:
         represented by 'node'.  This function is intended
         to be called the first time by the __in__ function.
         """
-        if data == node.data:
-            # We found it!
-            return True
-        elif data < node.data:
-            # Check the left side
-            if node.left is None:
-                # Nothing there ... doesn't exist
-                return False
-            else:
-                # More data to check.  Call _contains
-                # recursively on the left sub-tree
-                return self._contains(data, node.left)
-        else:
-            # Check the right side
-            if node.right is None:
-                # Nothing there ... doesn't exist
-                return False
-            else:
-                # More data to check.  Call _contains
-                # recursively on the right sub-tree
-                return self._contains(data, node.right)
-            
+        pass
+
     def __iter__(self):
         """
         Perform a formward traversal (in order traversal) starting from 
@@ -183,10 +172,7 @@ class BST:
         This function is intended to be called the first time by 
         the __reversed__ function.        
         """
-        if node is not None:
-            yield from self._traverse_backward(node.right)
-            yield node.data
-            yield from self._traverse_backward(node.left)
+        pass
 
     def get_height(self):
         """
@@ -211,15 +197,7 @@ class BST:
         This function intended to be called the first time by 
         get_height.
         """
-        if node is None:
-            # This will occur if the sub-tree is empty
-            return 0
-        else:
-            # One plus the height of either the left or right
-            # sub-tree (which ever one is bigger ... hence the use
-            # of the max function)
-            return 1 + max(self._get_height(node.left), self._get_height(node.right))
-
+        pass
 
 # NOTE: Functions below are not part of the BST class above. 
 
@@ -264,21 +242,7 @@ def _insert_middle(sorted_list, first, last, bst):
     This function is intended to be called the first time by 
     create_bst_from_sorted_list.
     """
-    if first > last:
-        # No more values to insert 
-        return
-
-    # Determine the middle relative to 'first' and 'last'
-    middle = (last - first) // 2 + first
-
-    # Insert the value into the BST
-    bst.insert(sorted_list[middle])
-
-    # Find the middle number in the first half of the list to add 
-    _insert_middle(sorted_list, first, middle-1, bst)
-    # Find the middle number in the second half of the list to add
-    _insert_middle(sorted_list, middle+1, last, bst)
-
+    pass
 
 # Sample Test Cases (You may need to add more)
 tree = BST()

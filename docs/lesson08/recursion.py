@@ -95,7 +95,7 @@ def count_steps(s):
     Using recursion, determine how many steps it takes to climb 
     's' stairs.  When climbing, the person can only take 1 step, 
     2 steps, or 3 steps at a time.  The person must land on the top
-    stair exactly.  You can assume that if there are no stairs then
+    stair exactly.  You should assume that if there are no stairs then
     the number of steps would be 0.
     """
     pass

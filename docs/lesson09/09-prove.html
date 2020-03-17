@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" type="text/css" href="../site/style.css" />
-    <title>CSE 212 - 01 Prove</title>
+    <title>CSE 212 - 09 Prove</title>
 </head>
 <body>
     <header id="courseTitle">
@@ -13,17 +13,46 @@
         <h1>CSE 212 | Programming with Data Structures</h1>
     </header>
     <article>
-        <h1>01 Prove: Individual Assignment</h1>
+        <h1>08 Prove: Individual Assignment</h1>
 
         <h2>Overview</h2>
-        <p>TBD</p>
+        <p>This assignment <strong>must be completed individually</strong>.  With the exception of the Group Collaboration activity that you did in <a href="08-teach.html" target="_blank">08-Teach</a>, you should not solve these problems with other students.  If you obtain help from a tutor, the tutor should help you understand principles but should not help you solve these problems.  It is an honor code violation to seek the solution to these exact problems from others including the internet (including sites that allow students to share their solutions).</p>
+		<p>You will provide your code and solution strategies in the associated I-Learn quiz. Your grade will be based on how many problems you answer correctly.  To get a 100% you need to solve 4 of the problems.  If you solve all 5 problems you will get up to 110%.</p>
 
-        <h2>Instructions</h2>
-        <p>TBD</p>
+        <h2>Problem Set</h2>
+		
+		<p>Download the following code file and use it to solve all 5 problems:  <a href="linked_list.py" target="_blank">linked_list.py</a></p>
 
-        <h2>Submission</h2>
-        <p>When complete, upload your assignment to I-Learn.</p>
-
+		<h3>Problem 1 - Recursive Sum</h3>
+		<p>Implement the <code>sum_recursive</code> function to find the sum 1 + 2 + 3 + ... + n using recursion.  A loop should not be used.</p>
+		
+		<h3>Problem 2 - Fibonacci Improved</h3>
+		<p>Implement an improved version of the <code>fibonacci</code> function using recursion and a dictionary to remember previously calculated fibonacci values.  Without the dictionary, the recursive version of the fibonacci algorithm would not be able to calculate the 100th fibonacci number in your life time.  The fibonacci algorithm is defined as fib(n) = fib(n-1) + fib(n-2) where fib(1) and fib(2) are equal to 1.  You can assume that the value of n will be an integer greater than 0.</p>
+			
+		<h3>Problem 3 - Find in a Sorted List</h3>
+		<p>Finish the <code>find</code> function which will search for a target value in a sorted list in O(log n) time.  This is achievable by comparing the middle item in the list with the target value.  If the middle item is less than the target, then you can exclude the first half of the list (because the list is already sorted).  Likewise, if the middle item is greater than the target, then you can exclude the second half of the list.  Use recursion to appropriately call the <code>find</code> function resulting in the ability to determine if the target value is in the list.  You will likely need to use list slicing to complete this problem:</p>
+		<ul>
+		<li><p><code>data[:a]</code> - Creates a new list from index 0 to index a-1</p></li>
+		<li><p><code>data[a:]</code> - Creates a new list from index a to len(data)-1</p></li>
+		<li><p><code>data[a:b]</code> - Creates a new list from index a to index b-1</p></li>
+		<li><p><code>data[a:b:c]</code> - Creates a new list form index a to index b-1 stepping by c</p></li>
+		</ul>
+				
+		<h3>Problem 4 - Climbing Stairs</h3>
+		<p>Imagine that there was a staircase with <code>s</code> stairs.  We want to count how many ways there are to climb the stairs.  If the person could only climb one stair at a time, there the total would be just one.  However, if the person could choose to climb either 1, 2, or 3 stairs at a time (in any order), then the total ways becomes much more complicated.  If there were just 3 stairs, the possible ways to climb would be four as follows:</p>
+		<ul>
+		<li><p>1 step, 1 step, 1 step</p></li>
+		<li><p>1 step, 2 step</p></li>
+		<li><p>2 step, 1 step</p></li>
+		<li><p>3 step</p></li>
+		</ul>
+		<p>Using recursion, determine how many ways there are to climb <code>s</code> stairs.  Note that the problem requires that the person land on the top stair.  For example, if you are on the second to last stair, you can't do either a 2 step or a 3 step.  You should assume that if there are no stairs, then the numbers of way to climb would be 0.</p>
+		
+		<h3>Problem 5 - Wildcard Binary Patterns</h3>
+		<p>A binary string is a string consisting of just <code>1</code>'s and <code>0</code>'s.  For example, <code>1010111</code> is a binary string.  If we introduce a wildcard symbol <code>*</code> into the string, we can say that this is now a pattern for multiple binary strings.  For example, <code>101*1</code> could be used to represent <code>10101</code> and <code>10111</code>.  A pattern can have more than one <code>*</code> wildcard.  For example, <code>1**1</code> would result in 4 different binary strings: <code>1001</code>, <code>1011</code>, <code>1101</code>, and <code>1111</code>.</p>
+		<p>Using recursion, display all possible binary strings for a given pattern.  You might find some of the Python <code>str</code> functions like <code>find</code> and <code>replace</code> to be useful in solving this problem.</p>
+		
+	
     </article>
 
     <script src="../site/js/highlight/highlight.pack.js"></script>
