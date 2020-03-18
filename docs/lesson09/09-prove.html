@@ -13,44 +13,49 @@
         <h1>CSE 212 | Programming with Data Structures</h1>
     </header>
     <article>
-        <h1>08 Prove: Individual Assignment</h1>
+        <h1>09 Prove: Individual Assignment</h1>
 
         <h2>Overview</h2>
-        <p>This assignment <strong>must be completed individually</strong>.  With the exception of the Group Collaboration activity that you did in <a href="08-teach.html" target="_blank">08-Teach</a>, you should not solve these problems with other students.  If you obtain help from a tutor, the tutor should help you understand principles but should not help you solve these problems.  It is an honor code violation to seek the solution to these exact problems from others including the internet (including sites that allow students to share their solutions).</p>
+        <p>This assignment <strong>must be completed individually</strong>.  With the exception of the Group Collaboration activity that you did in <a href="09-teach.html" target="_blank">09-Teach</a>, you should not solve these problems with other students.  If you obtain help from a tutor, the tutor should help you understand principles but should not help you solve these problems.  It is an honor code violation to seek the solution to these exact problems from others including the internet (including sites that allow students to share their solutions).</p>
 		<p>You will provide your code and solution strategies in the associated I-Learn quiz. Your grade will be based on how many problems you answer correctly.  To get a 100% you need to solve 4 of the problems.  If you solve all 5 problems you will get up to 110%.</p>
 
         <h2>Problem Set</h2>
 		
-		<p>Download the following code file and use it to solve all 5 problems:  <a href="linked_list.py" target="_blank">linked_list.py</a></p>
+		<p>Download the following code file and use it to solve all 5 problems:  <a href="tress.py" target="_blank">rees.py</a></p>
 
-		<h3>Problem 1 - Recursive Sum</h3>
-		<p>Implement the <code>sum_recursive</code> function to find the sum 1 + 2 + 3 + ... + n using recursion.  A loop should not be used.</p>
+		<h3>Problem 1 - Insert Unique Values Only</h3>
+		<p>Update the <code>_insert</code> function of the BST class to only allow unique values to be added to the tree (thus creating a sorted set).  The <code>_insert</code> function is already written for to correctly insert values into the BST.  However, the current implementation will cause duplicate values to be added to the tree.</p>
 		
-		<h3>Problem 2 - Fibonacci Improved</h3>
-		<p>Implement an improved version of the <code>fibonacci</code> function using recursion and a dictionary to remember previously calculated fibonacci values.  Without the dictionary, the recursive version of the fibonacci algorithm would not be able to calculate the 100th fibonacci number in your life time.  The fibonacci algorithm is defined as fib(n) = fib(n-1) + fib(n-2) where fib(1) and fib(2) are equal to 1.  You can assume that the value of n will be an integer greater than 0.</p>
-			
-		<h3>Problem 3 - Find in a Sorted List</h3>
-		<p>Finish the <code>find</code> function which will search for a target value in a sorted list in O(log n) time.  This is achievable by comparing the middle item in the list with the target value.  If the middle item is less than the target, then you can exclude the first half of the list (because the list is already sorted).  Likewise, if the middle item is greater than the target, then you can exclude the second half of the list.  Use recursion to appropriately call the <code>find</code> function resulting in the ability to determine if the target value is in the list.  You will likely need to use list slicing to complete this problem:</p>
-		<ul>
-		<li><p><code>data[:a]</code> - Creates a new list from index 0 to index a-1</p></li>
-		<li><p><code>data[a:]</code> - Creates a new list from index a to len(data)-1</p></li>
-		<li><p><code>data[a:b]</code> - Creates a new list from index a to index b-1</p></li>
-		<li><p><code>data[a:b:c]</code> - Creates a new list form index a to index b-1 stepping by c</p></li>
-		</ul>
+		<h3>Problem 2 - Contains</h3>
+		<p>Implement the <code>_contains</code> function in the BST class.  This function is called by the <code>__in__</code> function to search for a value in the BST.  The <code>__in__</code> function allows you to write code using the <code>in</code> operator like the following:</p>
+		
+		<div style="background: #ffffff; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><pre style="margin: 0; line-height: 125%">		
+		
+			if 5 in my_bst:
+				print("5 is in the bst")
 				
-		<h3>Problem 4 - Climbing Stairs</h3>
-		<p>Imagine that there was a staircase with <code>s</code> stairs.  We want to count how many ways there are to climb the stairs.  If the person could only climb one stair at a time, there the total would be just one.  However, if the person could choose to climb either 1, 2, or 3 stairs at a time (in any order), then the total ways becomes much more complicated.  If there were just 3 stairs, the possible ways to climb would be four as follows:</p>
-		<ul>
-		<li><p>1 step, 1 step, 1 step</p></li>
-		<li><p>1 step, 2 step</p></li>
-		<li><p>2 step, 1 step</p></li>
-		<li><p>3 step</p></li>
-		</ul>
-		<p>Using recursion, determine how many ways there are to climb <code>s</code> stairs.  Note that the problem requires that the person land on the top stair.  For example, if you are on the second to last stair, you can't do either a 2 step or a 3 step.  You should assume that if there are no stairs, then the numbers of way to climb would be 0.</p>
+		</pre></div>
+			
+		<p>If the value is found, the <code>True</code> should be returned; otherwise return <code>False</code>.  Hint: Study the <code>_insert</code> function.  You will need to use recursion to solve this problem. </p>
+			
+		<h3>Problem 3 - Traverse Backwards</h3>
+		<p>Implement the <code>_traverse_backward</code> function in the BST class.  This function is called by the <code>__reversed__</code> function to loop through the tree backwards (largest value down to the smallest value).  The <code>__reversed__</code> function allows you to write code using the <code>reversed</code> function like the following:</p>
+
+		<div style="background: #ffffff; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><pre style="margin: 0; line-height: 125%">		
 		
-		<h3>Problem 5 - Wildcard Binary Patterns</h3>
-		<p>A binary string is a string consisting of just <code>1</code>'s and <code>0</code>'s.  For example, <code>1010111</code> is a binary string.  If we introduce a wildcard symbol <code>*</code> into the string, we can say that this is now a pattern for multiple binary strings.  For example, <code>101*1</code> could be used to represent <code>10101</code> and <code>10111</code>.  A pattern can have more than one <code>*</code> wildcard.  For example, <code>1**1</code> would result in 4 different binary strings: <code>1001</code>, <code>1011</code>, <code>1101</code>, and <code>1111</code>.</p>
-		<p>Using recursion, display all possible binary strings for a given pattern.  You might find some of the Python <code>str</code> functions like <code>find</code> and <code>replace</code> to be useful in solving this problem.</p>
+			for value in reversed(my_bst):
+				print(value)
+				
+		</pre></div>
+		
+		<p>Hint: Study the <code>_traverse_forward</code> function to see how traversing forward is done using the <code>yield</code> keyword.</p>
+				
+		<h3>Problem 4 - Tree Height</h3>
+		<p>Implement the <code>_get_height</code> function to get the height of the BST.  The height of any tree (or sub-tree) is defined as one plus the height of either the left sub-tree or the right sub-tree (whichever one is bigger).  If the BST has only the root node, then this would be 1 plus the maximum height of either sub-tree which would be 0.  Therefore, the height of a BST with only the root node is 1.  You will need to use reursion to solve this problem.</p>
+		
+		<h3>Problem 5 - Create Tree from Sorted List</h3>
+		<p>Implement the <code>_insert_middle</code> function (note this function is defined outside the BST class) so that the <code>create_bst_from_sorted_list</code> function can successfully create a balanced BST from a sorted list of values.  If we looped throught the list of sorted values and added them (using the <code>insert</code> function in the BST class) one at a time in order, then the resulting BST would look like a linked list.  This is not desirable because it results in O(n) instead of O(log n).</p>
+		<p>To achieve a balanced BST, the <code>_insert_middle</code> function should find the middle of the list (or sub-list ... notice that the function takes a <code>first</code> and <code>last</code> value so as to keep track of what part of the list you are working with) and add it to the BST.  After adding the middle value, then the middle value from the first half and the middle value from the second half should be added.  This process (which is recursive) will result in a balanced BST.</p>
 		
 	
     </article>

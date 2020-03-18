@@ -227,17 +227,17 @@ def _insert_middle(sorted_list, first, last, bst):
     For example, if the function was called on:
 
     sorted_list = [10, 20, 30, 40, 50, 60]
-    first = 3
+    first = 0
     last = 5
 
-    then the value 50 (which is in the middle between index 3 and 
-    index 5) would be added to the 'bst' (the insert function above
-    can be used to do this).  
+    then the value 30 (index 2) would be added to the 'bst' 
+    (the insert function above can be used to do this).  
 
-    After adding the middle, the middle of the first half of the list
-    and the middle of the second half of the list must be added to the bst.
-    This will result in a balanced tree if this is recursively done until 
-    there are no more values to insert.
+    After adding the middle, the middle of the first half of the list 
+    (defined by start = 0 and last = 1) and the middle of the second 
+    half of the list (defined by start = 3 and last = 5) must be added to 
+    the bst. This will result in a balanced tree if this is recursively 
+    done until there are no more values to insert.
 
     This function is intended to be called the first time by 
     create_bst_from_sorted_list.
