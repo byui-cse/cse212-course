@@ -24,19 +24,19 @@
 		<p>Download the following code file and use it to solve all 5 problems:  <a href="linked_list.py" target="_blank">linked_list.py</a></p>
 
 		<h3>Problem 1 - Insert Tail</h3>
-		<p>Implement the <code>insert_tail</code> function in the LinkedList class.  The function should add a new node (<code>LinkedList.Node</code>) at the end of the Linked List.  You will need to write code to test your solution.</p>
+		<p>Implement the <code>insert_tail</code> function in the LinkedList class.  The function should add a new node (<code>LinkedList.Node</code>) at the end of the Linked List.  You will need to write code to test your solution.  <strong>Hint</strong>: Consider the code already written for <code>insert_head</code>.</p>
 		
 		<h3>Problem 2 - Remove Tail</h3>
-		<p>Implement the <code>remove_tail</code> function in the LinkedList class.  The function should remove the last node.  You will need to write code to test your solution.</p>
+		<p>Implement the <code>remove_tail</code> function in the LinkedList class.  The function should remove the last node.  You will need to write code to test your solution.  <strong>Hint</strong>:  Consider the code already written for <code>remove_head</code>.</p>
 			
 		<h3>Problem 3 - Remove</h3>
-		<p>Implement the <code>remove</code> function in the LinkedList class.  The function will need to search for the node that contains the value and then remove the node.  You will need to write code to test your solution.</p>
+		<p>Implement the <code>remove</code> function in the LinkedList class.  The function will need to search for the node that contains the value and then remove the node.  You will need to write code to test your solution.  <strong>Hint</strong>:  You may be able to reuse some of the other functions in the class in special cases.</p>
 				
 		<h3>Problem 4 - Replace</h3>
 		<p>Implement the <code>replace</code> function in the LinkedList class.  The function should search for all nodes that are equal to 'old_value' and then replace the value in those nodes with 'new_value'.  You will need to write code to test your solution.</p>
 		
 		<h3>Problem 5 - Reversed Iterator</h3>
-		<p>The <code>__iter__</code> function provides the ability to iterate forward through a LinkedList object using a for loop such as <code>for item in my_linkedlist</code>.  When a for loop starts, the <code>__iter__</code> function will start.  Each time the <code>yield</code> statement runs, it will provide a new value to the for loop and pause the <code>__iter__</code> function.  When the for loop goes to the next iteration, it will continue running the <code>__iter__</code> function again until it gets to the next <code>yield</code> which will provide the next value to the for loop.  You can use the following test code to see how <code>__iter__</code> function works:</p>
+		<p>The <code>__iter__</code> function provides the ability to iterate forward through a LinkedList object using a <code>for</code> loop such as <code>for item in my_linkedlist</code>.  When a <code>for</code> loop starts, the <code>__iter__</code> function will start.  Each time the <code>yield</code> statement runs, it will provide a new value to the <code>for</code> loop and pause the <code>__iter__</code> function.  When the <code>for</code> loop goes to the next iteration, it will continue running the <code>__iter__</code> function again until it gets to the next <code>yield</code> which will provide the next value to the <code>for</code> loop.  You can use the following test code to see how <code>__iter__</code> function works:</p>
 		
 		<div style="background: #ffffff; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><pre style="margin: 0; line-height: 125%">		
 		
@@ -45,7 +45,7 @@
 				
 			</pre></div>
 		
-		<p>The <code>__reversed__</code> function is used to iterate backwards.  Implement the <code>__reversed__ </code> function in the LinkedList class.  To test the <code>__reversed__</code> function, you can use the following code:</p>
+		<p>The <code>__reversed__</code> function is used to iterate backwards.  Implement the <code>__reversed__ </code> function in the LinkedList class. <strong>Hint</strong>: Pattern your solution after the <code>__iter__</code> function that was already written for you and that was described above.  To test the <code>__reversed__</code> function, you can use the following code:</p>
 		
 		<div style="background: #ffffff; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><pre style="margin: 0; line-height: 125%">		
 		
