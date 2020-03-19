@@ -26,7 +26,116 @@
 		<ul><p><u>Day 2</u> - You will work with your study group to complete <a href="06-teach.html" target="_blank">06-Teach</a> which will involve colloborating together on <a href="06-prove.html" target="_blank">06-Prove</a> which you will need to finish on your own.  On-campus students will complete this activity during class time.  You should come prepared to the activity by starting or completing several of the problems in the individual Prove assignment.  The activity should take 1 hour to complete.</p></ul>
 		
 		<h2>The Map Data Structure</h2>
-		<p>TBD</p>
+		<p>The Map is most commonly viewed as a table.  In the Map below, the first column contains a unique value called the <strong>key</strong>.  The second column contains a value (not necessarily unique) value called the <strong>value</strong>.  The key forms a Set because all the values are unique.  A Map is created in software by associating a value with each item in the Key Set.  In the picture below, the table shows the Key and Value pairs.  The Key's are hashed into what looks like a Set.  The values are then stored with the each Key value.</p>
+		
+		<img src="map.jpeg" alt="Shows a table with Color (the key) equal to Green (the value), Quantity equal to 25, Price equal to 1.99, Name equal to Pencil, and ID equal to 3924A-3.  Each key/value pair is then stored in the data structure.  The keys are hashed (index(n) = hash(key) % 10) into a list of size 10.  For demonstration purposes, Quantity has been put in Index 1, the Name has been put in Index 3, the Color has been put in Index 4, then Price has been put in Index 7, and the ID has been put in Index 9.  The values for each key value have been placed in the same location as the Key.">
+		
+		<p>The performance of the Map is the same for the Set.  Some programming languages call this a HashTable or a HashMap.  In Python, this is called a dictionary.  The dictionary (like the set) can be represented using a curly braces to specify a comma seperated list of key/value pairs:</p>
+		
+		<div style="background: #ffffff; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><pre style="margin: 0; line-height: 125%">		
+		
+			my_map = {"key1" : value1, "key2" : value2, "key3" : value3}
+			empty_map1 = {}
+			empty_map2 = dict()
+					
+			</pre></div>
+			
+		<br>
+		
+		<table>
+			<tr>
+			  <th>Common Map Operation</th>
+			  <th>Description</th>
+			  <th>Python Code</th>	
+			  <th>Performance</th>
+			</tr>
+			<tr>
+			  <td><code>put(key, value)</code></td>
+			  <td>Adds (or replaces) a row in the map with the sepecified key and value.</td>
+			  <td><code>my_map[key] = value</code></td>	
+			  <td>O(1) - Performance of hashing the key (assuming good conflict resolution) and assigning the value</td>
+			</tr>
+			<tr>
+			  <td><code>get(key)</code></td>
+			  <td>Gets the value for the specified key.</td>
+			  <td><code>my_map[key]</code></td>	
+			  <td>O(1) - Performance of hashing the key (assuming good conflict resolution) and getting the associated value</td>
+			</tr>
+			<tr>
+			  <td><code>remove(key)</code></td>
+			  <td>Remove the row from the map containing the specified key.</td>
+			  <td><code>del my_map[key]</code></td> 	
+			  <td>O(1) - Performance of hashing the key (assuming good conflict resolution) and removing the associated value</td>
+			</tr>
+			<tr>
+			  <td><code>member(key)</code></td>
+			  <td>Determine if "key" is in the Map</td>
+			  <td><code>if key in my_map:</code></td>	
+			  <td>O(1) - Performance of hashing the key (assuming good conflict resolution)</td>
+			</tr>
+			<tr>
+			  <td><code>size()</code></td>
+			  <td>Return the number of items in the Map</td>
+			  <td><code>length = len(my_map)</code></td>	
+			  <td>O(1) - Performance of returning the size of the map</td>
+			</tr>
+		</table>
+		<br>
+		<h2>Complex Dictionary Data</h2>
+		<p>A Python dictionary can store any value including other dictionaries.  Consider the following example which is data that was received from a website about the location of the International Space Station (<a href="http://api.open-notify.org/iss-now.json" target="_blank">click here</a>).  This data is called JSON (JavaScript Object Notation) data and is a common data format.  JSON data looks like a Python dictionary.</p>
+		<div style="background: #ffffff; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><pre style="margin: 0; line-height: 125%">		
+		
+			space_station = {"timestamp": 1584638006, 
+			                 "message": "success", 
+						     "iss_position": {"longitude": "-149.9053", 
+							                  "latitude": "-35.9225"}}
+											  
+			longitude = space_station["iss_position"]["longitude"]
+			latitude = space_station["iss_position"]["latitude"]
+			
+			print("Space Station at Lon: {} Lat: {}".format(longitude, latitude))
+			</pre></div>
+		<p>Notice how "iss_position" is a key in the dictionary.  The value for this key is another dictionary.  To get access to the "longitude" key, we need to go through the "iss_position".  The use of square brackets twice is needed.</p>
+		<p>Here is another example of data that was received about the number of people that are in space (<a href="http://api.open-notify.org/astros.json" target="_blank">click here</a>): </p>
+		
+		<div style="background: #ffffff; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><pre style="margin: 0; line-height: 125%">		
+		
+			astronauts = {"people": [
+							{"craft": "ISS", "name": "Andrew Morgan"}, 
+							{"craft": "ISS", "name": "Oleg Skripochka"}, 
+							{"craft": "ISS", "name": "Jessica Meir"}], 
+						  "message": "success", 
+						  "number": 3}
+											  
+			for person in astronauts["people"]:
+				print(person["name"])
+			</pre></div>
+		<p>Notice that the "people" key has a list for a value (using the square brackets).  To display the "name" of each person, we need to loop through each of the dictionaries in the "people" list and display the value assoiated with the name "key".</p>
+		
+		<h2>Building Summary Tables</h2>
+		<p>If we have an empty table, we can build a table from a list of data.  Using a dictionary, we can convert a list of data into a summary table:</p>
+		<div style="background: #ffffff; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><pre style="margin: 0; line-height: 125%">		
+		
+			letters = ["A", "A", "B", "G", "C", "G", "G", "D", "B"]
+			summary_table = dict()
+			
+			for letter in letters:
+				# If the letter is not in our summary table yet, add it
+				if letter not in summary_table:
+					# The key is the letter since we want to summarize how
+					# many letters we have.  Since it the first time we 
+					# have seen this letter, we will set the value to 1.
+					summary_table[letter] = 1
+					
+				# If the letter is in the table, then update the value
+				else:
+					# We want to increase the value by 1 since we have 
+					# already seen this letter before
+					summary_table[letter] += 1
+					
+			print(summary_table)
+			# {'A': 2, 'B': 2, 'G': 3, 'C': 1, 'D': 1}
+			</pre></div>
     </article>
 </body>
 </html>
