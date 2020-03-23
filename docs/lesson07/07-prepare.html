@@ -28,15 +28,15 @@
 		<h2>The Linked List Data Structure</h2>
 		<p>When we learned about the Dynamic Array, we saw that it was characterized by contiguous memory.  Each item in a dynamic array is right next to the next item in memory.  This allowed for very quick access to items in the drynamic array because memory addresses of each item could be calculated from a formula (address = starting_address * (index * item_size)).  The queue, stack, set, and map were all based on memory organized in this way.</p>
 		
-		TBD - Picture of Dynamic Array in Memory
+		<img src="dynamic_array_not_full.jpeg" width="100%" height="100%" alt="Shows a dynamic array with capacity 8 and size 7.  Indicies 0 through 6 are populated with 8, 12, 31, 15, 4, 42, and 27."/>
 		
 		<p>A collection of data can also be stored in a random way within memory.  A Linked Lists is organized in this way.  With a linked list, each element in the list is at some location in memory.  There is no guarentee that one element will be next to another element.  In order to keep our list together, each element (which we will call a Node) will contain both the value and a link to the next item in the list.  Specifically, the link will be a pointer to the location in memory that contains our next element.</p>
 		
-		TBD - Show Linked List with a Node pointing to next
+		<img src="linked_list.jpeg" width="100%" height="100%" alt="Shows a linked list made up of 5 Nodes.  Each Node has a value and a NEXT that points to the next Node.  The HEAD is pointing to the first Node.  The Nodes have the following values in order: 8, 12, 31, 15, 4."/>
 		
 		<p>In the linked list shown above, the first Node is called the <strong>head</strong>.  If you know where the head is, then you can traverse the entire linked list by following the pointers.  Most linked lists maintain a bi-directional linking between Nodes.  The doubly-linked list shown below has both a <strong>head</strong> and a <strong>tail</strong>.</p>
 		
-		TBD - Show Doubly Linked List
+		<img src="linked_list_double.jpeg" width="100%" height="100%" alt="Shows a doubly linked list made up of 5 Nodes.  Each Node has a value, a NEXT that points to the next Node, and a PREV that points to the previous Node.  The HEAD is pointing to the first Node and the TAIL is pointing to the last Node.  The Nodes have the following values in order: 8, 12, 31, 15, 4."/>
 		
 		<h2>Inserting into a Linked List</h2>
 		
@@ -44,24 +44,24 @@
 		<p>Inserting at the head usually requires a four step process:</p>
 		<ol>
 		<li><p>Create a new Node (we will call it <code>new_node</code>)</p></li>
-		<li><p>Set the Next of the new node to the current Head (<code>new_node.next = self.head)</code></p></li>
-		<li><p>Set the Prev of the current Head to the new node (<code>self.head.prev = new_node)</code></p></li>
-		<li><p>Set the Head equal to the new node (<code>self.head = new_node)</code></p></li>
+		<li><p>Set the Next of the new node to the current Head (<code>new_node.next = self.head</code>)</p></li>
+		<li><p>Set the Prev of the current Head to the new node (<code>self.head.prev = new_node</code>)</p></li>
+		<li><p>Set the Head equal to the new node (<code>self.head = new_node</code>)</p></li>
 		</ol>
 		
-		TBD - Show picture adding to head
+		<img src="linked_list_insert_head.jpeg" width="100%" height="100%" alt="Shows a doubly linked list made up of 5 Nodes with values of 8, 12, 31, 15, and 4.  The four step process to add 42 to the beginning (HEAD) is shown: 1) Create a new node with value 42; 2) Connect NEXT of the new node to the node with value 8 (the HEAD); 3) Connect PREV from the node containing 8 to the new node; 4) Set HEAD equal to the new node."/>
 		
 		<p>There is a sepecial case that exists for inserting at the head (and also inserting at the tail).  If the linked list is empty (<code>self.head is None)</code>) then all we have to do is set both the head and the tail to the new node we created.</p>
 		
 		<p>Inserting at the tail is similair to inserting at the head.  The same four steps are followed but with respect to the tail:</p>
 		<ol>
 		<li><p>Create a new Node (we will call it <code>new_node</code>)</p></li>
-		<li><p>Set the Prev of the new node to the current Tail (<code>new_node.prev = self.tail)</code></p></li>
-		<li><p>Set the Next of the current Tail to the new node (<code>self.tail.next = new_node)</code></p></li>
-		<li><p>Set the Tail equal to the new node (<code>self.tail = new_node)</code></p></li>
+		<li><p>Set the Prev of the new node to the current Tail (<code>new_node.prev = self.tail</code>)</p></li>
+		<li><p>Set the Next of the current Tail to the new node (<code>self.tail.next = new_node</code>)</p></li>
+		<li><p>Set the Tail equal to the new node (<code>self.tail = new_node</code>)</p></li>
 		</ol>
 		
-		TBD - Show picture adding to tail
+		<img src="linked_list_insert_tail.jpeg" width="100%" height="100%" alt="Shows a doubly linked list made up of 5 Nodes with values of 8, 12, 31, 15, and 4.  The four step process to add 23 to the end (TAIL) is shown: 1) Create a new node with value 23; 2) Connect PREV of the new node to the node with value 4 (the TAIL); 3) Connect NEXT from the node containing 4 to the new node; 4) Set TAIL equal to the new node."/>
 		
 		<p>The process to inserting into the middle is a little more complicated.  In the picture below, we are trying to insert after node <code>current</code>.  The process involves five steps:</p>
 		
@@ -73,38 +73,38 @@
 		<li><p>Set the Next of the current node to the new node (<code>current.next = new_node)</code></p></li>
 		</ol>
 		
-		TBD - Show picture adding in the middle
+		<img src="linked_list_insert_middle.jpeg" width="100%" height="100%" alt="Shows a doubly linked list made up of 5 Nodes with values of 8, 12, 31, 15, and 4.  The four step process to add 50 after the node with 31 (called CURRENT NODE) is shown: 1) Create a new node with value 50; 2) Connect PREV of the new node to the CURRENT NODE; 3) Connect NEXT from the new node to the node after CURRENT NODE (15); 4) Set the PREV of the node after CURRENT NODE to the new node; 5) Set the NEXT of the CURRENT NODE to the new node."/>
 		
 		<h2>Removing from a Linked List</h2>
 		
 		<p>Removing the first (the head) or the last (this tail) node from a linked list are similair and involve setting updating the second node (or the second to last node in the case of removing from the tail).  The process for removing the first node is:</p>
 		
 		<ol>
-		<li><p>Set the Prev of the second node (<code>self.head.next</code>) to nothing (<code>self.head.next.prev = None)</code></p></li>
-		<li><p>Set the Head to be the second node (<code>self.head = self.head.next)</code></p></li>
+		<li><p>Set the Prev of the second node (<code>self.head.next</code>) to nothing (<code>self.head.next.prev = None</code>)</p></li>
+		<li><p>Set the Head to be the second node (<code>self.head = self.head.next</code>)</p></li>
 		</ol>
 		
-		TBD - Show picture of removing the first
+		<img src="linked_list_remove_head.jpeg" width="100%" height="100%" alt="Shows a doubly linked list made up of 5 Nodes with values of 8, 12, 31, 15, and 4.  The two step process to remove 8 (HEAD): 1) Set the PREV of the second node (12) to nothing; 2) Set the HEAD to the second node."/>
 		
 		<p>As a special case, if there was only one node in the linked list, the Head and Tail would need to be set to None thus creating an empty linked list.</p>
 		
-		<p>The proess for removing the last node is:</p>
+		<p>The process for removing the last node is:</p>
 
 		<ol>
-		<li><p>Set the Next of the second to last node (<code>self.tail.prev</code>) to nothing (<code>self.tail.prev.next = None)</code></p></li>
-		<li><p>Set the Tail to be the second to last node (<code>self.tail = self.tail.prev)</code></p></li>
+		<li><p>Set the Next of the second to last node (<code>self.tail.prev</code>) to nothing (<code>self.tail.prev.next = None</code>)</p></li>
+		<li><p>Set the Tail to be the second to last node (<code>self.tail = self.tail.prev</code>)</p></li>
 		</ol>
 
-		TBD - Show picture removing the last
+		<img src="linked_list_remove_tail.jpeg" width="100%" height="100%" alt="Shows a doubly linked list made up of 5 Nodes with values of 8, 12, 31, 15, and 4.  The two step process to remove 4 (TAIL): 1) Set the NEXT of the second to last node (15) to nothing; 2) Set the TAIL to the second to last node."/>
 		
 		<p>The process to inserting into the middle is not as complicated as inserting in the middle.  In the picture below, we are trying to remove the node <code>current</code>.  The process involves two steps:</p>
 		
 		<ol>
-		<li><p>Set the Prev of the node after current to the node before current (<code>current.next.prev = current.prev)</code></p></li>
-		<li><p>Set the Next of the node before current to the node after current (<code>current.prev.next = current.next)</code></p></li>
+		<li><p>Set the Prev of the node after current to the node before current (<code>current.next.prev = current.prev</code>)</p></li>
+		<li><p>Set the Next of the node before current to the node after current (<code>current.prev.next = current.next</code>)</p></li>
 		</ol>
 
-		TBD - Show picture removing from the middle
+		<img src="linked_list_remove_middle.jpeg" width="100%" height="100%" alt="Shows a doubly linked list made up of 5 Nodes with values of 8, 12, 31, 15, and 4.  The two step process to remove the node with 31 (called the CURRENT NODE): 1) Set the PREV of the node after the CURRENT NODE (15) to the node before the CURRENT NODE (12); 2) Set the NEXT of the node before the CURRENT NODE to the node after the CURRENT NODE."/>
 		
 		<h2>Accessing from a Linked List</h2>
 		
