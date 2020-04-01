@@ -205,8 +205,8 @@ def create_bst_from_sorted_list(sorted_list):
     """
     Given a sorted list (sorted_list), create a balanced BST.  If 
     the values in the sorted_list were inserted in order from left
-    to right into the BST, then it would resemble a linked list.  To
-    get a balanced BST, the _insert_middle function is called to 
+    to right into the BST, then it would resemble a linked list (unbalanced). 
+    To get a balanced BST, the _insert_middle function is called to 
     find the middle item in the list to add first to the BST.  The 
     _insert_middle function takes the whole list but also takes a 
     range (first to last) to consider.  For the first call, the full 
@@ -230,14 +230,14 @@ def _insert_middle(sorted_list, first, last, bst):
     first = 0
     last = 5
 
-    then the value 30 (index 2) would be added to the 'bst' 
+    then the value 30 (index 2) would be added to the 'bst'
     (the insert function above can be used to do this).  
 
-    After adding the middle, the middle of the first half of the list 
-    (defined by start = 0 and last = 1) and the middle of the second 
-    half of the list (defined by start = 3 and last = 5) must be added to 
-    the bst. This will result in a balanced tree if this is recursively 
-    done until there are no more values to insert.
+    Subsequent recursive calls are made to insert the middle from the values 
+    before 30 and the values after 30.  If done correctly, the order
+    in which values are added (which results in a balanced bst) will be:
+
+    30, 10, 20, 50, 40, 60
 
     This function is intended to be called the first time by 
     create_bst_from_sorted_list.

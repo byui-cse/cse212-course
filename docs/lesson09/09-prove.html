@@ -29,24 +29,20 @@
 		<h3>Problem 2 - Contains</h3>
 		<p>Implement the <code>_contains</code> function in the BST class.  This function is called by the <code>__in__</code> function to search for a value in the BST.  The <code>__in__</code> function allows you to write code using the <code>in</code> operator like the following:</p>
 		
-		<div style="background: #ffffff; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><pre style="margin: 0; line-height: 125%">		
-		
-			if 5 in my_bst:
-				print("5 is in the bst")
-				
-		</pre></div>
+		<pre><code class="Python">			
+if 5 in my_bst:
+	print("5 is in the bst")
+		</code></pre>
 			
 		<p>If the value is found, the <code>True</code> should be returned; otherwise return <code>False</code>.  <strong>Hint</strong>: Study the <code>_insert</code> function.  You will need to use recursion to solve this problem. </p>
 			
 		<h3>Problem 3 - Traverse Backwards</h3>
 		<p>Implement the <code>_traverse_backward</code> function in the BST class.  This function is called by the <code>__reversed__</code> function to loop through the tree backwards (largest value down to the smallest value).  The <code>__reversed__</code> function allows you to write code using the <code>reversed</code> function like the following:</p>
 
-		<div style="background: #ffffff; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><pre style="margin: 0; line-height: 125%">		
-		
-			for value in reversed(my_bst):
-				print(value)
-				
-		</pre></div>
+		<pre><code class="Python">				
+for value in reversed(my_bst):
+	print(value)
+		</code></pre>
 		
 		<p><strong>Hint</strong>: Study the <code>_traverse_forward</code> function to see how traversing forward is done using the <code>yield</code> keyword.</p>
 				
