@@ -96,43 +96,41 @@ print("Space Station at Lon: {} Lat: {}".format(longitude, latitude))
 		<p>Here is another example of data that was received about the <a href="http://api.open-notify.org/astros.json" target="_blank">number of people that are in space</a>. </p>
 		
 		<pre><code class="Python">	
-		
-			astronauts = {"people": [
-							{"craft": "ISS", "name": "Andrew Morgan"}, 
-							{"craft": "ISS", "name": "Oleg Skripochka"}, 
-							{"craft": "ISS", "name": "Jessica Meir"}], 
-						  "message": "success", 
-						  "number": 3}
-											  
-			for person in astronauts["people"]:
-				print(person["name"])
-			</pre></div>
+astronauts = {"people": [
+				{"craft": "ISS", "name": "Andrew Morgan"}, 
+				{"craft": "ISS", "name": "Oleg Skripochka"}, 
+				{"craft": "ISS", "name": "Jessica Meir"}], 
+			  "message": "success", 
+			  "number": 3}
+
+for person in astronauts["people"]:
+	print(person["name"])
+			</code></pre>
 		<p>Notice that the "people" key has a list for a value (using the square brackets).  To display the "name" of each person, we need to loop through each of the dictionaries in the "people" list and display the value assoiated with the name "key".</p>
 		
 		<h2>Building Summary Tables</h2>
 		<p>If we have an empty table, we can build a table from a list of data.  Using a dictionary, we can convert a list of data into a summary table:</p>
-		<div style="background: #ffffff; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><pre style="margin: 0; line-height: 125%">		
-		
-			letters = ["A", "A", "B", "G", "C", "G", "G", "D", "B"]
-			summary_table = dict()
-			
-			for letter in letters:
-				# If the letter is not in our summary table yet, add it
-				if letter not in summary_table:
-					# The key is the letter since we want to summarize how
-					# many letters we have.  Since it the first time we 
-					# have seen this letter, we will set the value to 1.
-					summary_table[letter] = 1
-					
-				# If the letter is in the table, then update the value
-				else:
-					# We want to increase the value by 1 since we have 
-					# already seen this letter before
-					summary_table[letter] += 1
-					
-			print(summary_table)
-			# {'A': 2, 'B': 2, 'G': 3, 'C': 1, 'D': 1}
-			</pre></div>
+		<pre><code class="Python">	
+letters = ["A", "A", "B", "G", "C", "G", "G", "D", "B"]
+summary_table = dict()
+
+for letter in letters:
+	# If the letter is not in our summary table yet, add it
+	if letter not in summary_table:
+		# The key is the letter since we want to summarize how
+		# many letters we have.  Since it the first time we 
+		# have seen this letter, we will set the value to 1.
+		summary_table[letter] = 1
+
+	# If the letter is in the table, then update the value
+	else:
+		# We want to increase the value by 1 since we have 
+		# already seen this letter before
+		summary_table[letter] += 1
+
+print(summary_table)
+# {'A': 2, 'B': 2, 'G': 3, 'C': 1, 'D': 1}
+			</code></pre>
     </article>
 	
 		<script src="../site/js/highlight/highlight.pack.js"></script>

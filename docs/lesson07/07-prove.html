@@ -38,25 +38,21 @@
 		<h3>Problem 5 - Reversed Iterator</h3>
 		<p>The <code>__iter__</code> function provides the ability to iterate forward through a LinkedList object using a <code>for</code> loop such as <code>for item in my_linkedlist</code>.  When a <code>for</code> loop starts, the <code>__iter__</code> function will start.  Each time the <code>yield</code> statement runs, it will provide a new value to the <code>for</code> loop and pause the <code>__iter__</code> function.  When the <code>for</code> loop goes to the next iteration, it will continue running the <code>__iter__</code> function again until it gets to the next <code>yield</code> which will provide the next value to the <code>for</code> loop.  You can use the following test code to see how <code>__iter__</code> function works:</p>
 		
-		<div style="background: #ffffff; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><pre style="margin: 0; line-height: 125%">		
-		
-			for item in my_linkedlist:
-				print(item)
-				
-			</pre></div>
+		<pre><code class="Python">		
+for item in my_linkedlist:
+	print(item)
+			</code></pre>
 		
 		<p>The <code>__reversed__</code> function is used to iterate backwards.  Implement the <code>__reversed__ </code> function in the LinkedList class. <strong>Hint</strong>: Pattern your solution after the <code>__iter__</code> function that was already written for you and that was described above.  To test the <code>__reversed__</code> function, you can use the following code:</p>
 		
-		<div style="background: #ffffff; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><pre style="margin: 0; line-height: 125%">		
-		
-			for item in reversed(my_linkedlist):
-				print(item)
-				
-			# Another option:
-			
-			print(list(reversed(my_linkedlist)))
-				
-			</pre></div>
+		<pre><code class="Python">		
+for item in reversed(my_linkedlist):
+	print(item)
+
+# Another option:
+
+print(list(reversed(my_linkedlist)))
+			</code></pre>
 	
     </article>
 

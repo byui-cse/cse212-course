@@ -110,22 +110,20 @@
 		
 		<p>If we want to find a value in the linked list or if we want to find a specific node (e.g. the 3rd node or the 10th node), we are required to loop through the linked list.  We can start at either the Head (if we want to go forward through the list) or we can start at the Tail (if we want to go backward through the list).  To loop through the list, we will follow the Next (or the Prev if going backwards from Tail) links until we get to the end.  The following code is a basic traversal through a linked list:</p>
 		
-		<div style="background: #ffffff; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><pre style="margin: 0; line-height: 125%">		
-		
-			def go_forward(self):
-				# Start at the beginning (the head)
-				current = self.head
-				
-				# Loop until we have reached the end (None)
-				while current is not Node:
-				
-					# Do something with the current Node
-					print(current.data)
-					
-					# Follow the pointer to the next Node
-					current = current.next
-					
-			</pre></div>
+		<pre><code class="Python">	
+def go_forward(self):
+	# Start at the beginning (the head)
+	current = self.head
+
+	# Loop until we have reached the end (None)
+	while current is not Node:
+
+		# Do something with the current Node
+		print(current.data)
+
+		# Follow the pointer to the next Node
+		current = current.next
+			</code></pre>
 		
 		<h2>Linked Lists in Python</h2>
 		
