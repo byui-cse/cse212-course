@@ -15,13 +15,13 @@
     <article>
       <h1>02 Teach - Part 2 Answer</h1>
 		<ul>
-			<li><p><strong>Question</strong>: Do the actual results agree with the Big-O predictions made earlier?  If not, what do you think the Big-O should be?</p></li>
+			<li><p><strong>Question</strong>: Do the actual results agree with the big O predictions made earlier?  If not, what do you think the big O should be?</p></li>
 			<li><p><strong>Answer</strong>: The <code>algorithm1</code> function has a single for loop.  This implies O(n).  If we look at the actual results, we see that count is the same value as the size of the list.  The <code>algorithm2</code> function has a loop within a loop.  This implies O(n^2).  If we look at the actual results, we see that the count is the square of the size of the data.  The <code>algorithm3</code> functions finds the center of the list and then looks at the 2nd half the list.  This process is repeated in which each iteration of the while loop the list is cut in half again.  This implies O(log n).  If we look at the actual results, we see that the count is approximately the base 2 logarithm of the size.</p></li>
 			<hr>
 			<li><p><strong>Question</strong>: Which function (<code>algorithm1</code>, <code>algorithm2</code>, <code>algorithm3</code>) has the best performance and which one the worst performance?</p></li>					
-			<li><p><strong>Answer</strong>: Based on the timeing data, <code>algorithm3</code> is much faster and <code>algorithm2</code> is much slower.  Note that <code>algorithm3</code> is barely increasing (if at all) and <code>algorithm2</code> is growing by larger amounts as the size of the data increases.  This result agrees with the Big-O notation from above.  O(log n) is better than O(n), and O(n) is better than O(n^2) when <code>n</code> is &quot;large&quot;.</p></li>
+			<li><p><strong>Answer</strong>: Based on the timeing data, <code>algorithm3</code> is much faster and <code>algorithm2</code> is much slower.  Note that <code>algorithm3</code> is barely increasing (if at all) and <code>algorithm2</code> is growing by larger amounts as the size of the data increases.  This result agrees with the big O notation from above.  O(log n) is better than O(n), and O(n) is better than O(n^2) when <code>n</code> is &quot;large&quot;.</p></li>
 			<hr>
-			<li><p><strong>Question</strong>: Looking at the results, why do we say that Big-O only applies when <code>n</code> is &quot;large&quot;</p></li>
+			<li><p><strong>Question</strong>: Looking at the results, why do we say that big O only applies when <code>n</code> is &quot;large&quot;</p></li>
 			<li><p><strong>Answer</strong>: When <code>n</code> is small, the time for all three algorithims is very close to each other.  Realizing that these are in milliseconds, the amount of time to see the result for <code>algorithm2</code> when <code>n</code> is large will start to approach 1 second unlike the other 2 functions.  However, when <code>n</code> is small, no difference is seen by the user.</p></li>
 			</ul>
 

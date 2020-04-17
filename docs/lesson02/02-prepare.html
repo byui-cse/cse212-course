@@ -13,24 +13,24 @@
         <h1>CSE 212 | Programming with Data Structures</h1>
     </header>
     <article>
-		<h1>02 Prepare: Evaulate Performance of Alternative Solutions and Big-O Notation</h1>
+		<h1>02 Prepare: Evaluate Performance of Alternative Solutions and Big O Notation</h1>
 				
       <h2>Overview</h2>
 
-        <p>This week you will explore skill of Evaluating Performance of Alternative Solutions.  To support this evaluation, you will learn how to use Big-O notation (ref: Syllabus Course Outcome 2).  You are still in the <strong>PREPARE</strong> phase of the course.</p>
+        <p>This week you will explore skill of evaluating performance of alternative solutions.  To support this evaluation, you will learn how to use big O notation (ref: Syllabus Course Outcome 2).  You are still in the <strong>PREPARE</strong> phase of the course.</p>
 		
 		<img src="../images/cse212_phase1.jpeg" width="100%" height="100%" alt="Shows the 3 phases of the course as described in the Syllabus.  Phase 1 is highlighted."/>
 		
-		<p>Here is the two day plan for this lesson:</p>
+		<p>Here is the two-day plan for this lesson:</p>
 		<ul><p><u>Day 1</u> - Complete the reading below.  The reading should take one hour to complete.  For on-campus students, class time will be used to discuss the reading and explore examples.  Online students should spend an additional hour communicating with other students in Slack and reviewing any examples or information provided by your instructor.  You should begin to work on <a href="02-prove.html" target="_blank">02-Prove</a> independently.  You should plan on the assignment taking three hours to complete.</p></ul>
 		<ul><p><u>Day 2</u> - You will work with your study group to complete <a href="02-teach.html" target="_blank">02-Teach</a> which will contain practice problems similar to your individual assignment.  On-campus students will complete this activity during class time.  The activity should take one hour to complete.  You should finish work on <a href="02-prove.html" target="_blank">02-Prove</a> independently.</p></ul>
 		
-			<h2>Big-O Notation</h2>
+			<h2>Big O Notation</h2>
 		<p>To evaluate code and look for alternative solutions, it is important that we have a common method for quanitfying the performance of code in terms of time.  The principles we will learn can also be applied to analysis of how much memory or space is used by code to perform a task.</p>
 		
-		<h3>Big-O Notation and Linear Performance</h3>
+		<h3>Big O Notation and Linear Performance</h3>
 		
-		<p>Big-O Notation is used to describe the performance of an algorithm (or function) for large sets of data.  If we have two functions that do the same thing, we can use Big-O notation to compare the performance of the two functions.  As a simple example, consider the following code which looks for the name "Bob" in a list of names:</p>
+		<p>Big O Notation is used to describe the performance of an algorithm (or function) for large sets of data.  If we have two functions that do the same thing, we can use big O notation to compare the performance of the two functions.  As a simple example, consider the following code which looks for the name "Bob" in a list of names:</p>
 		
 		<pre><code class="Python">	
 def find_bob(name_list):
@@ -40,8 +40,8 @@ def find_bob(name_list):
 	return False
 			</code></pre>
 		
-		<p>The size of the data in this function is based on the size of the <code>name_list</code>.  We will say that size of the data is <code>n</code>.  The for loop in the code means that we will potentially run <code>n</code> times.  This worst case potential will only happen if "Bob" is not in the list of names.  Therefore, we say that the Big-O in the worst case is O(n).  In general, when we ask for the Big-O of a function we are asking for the worst case scenario.  This function does have a best case scenario.  If "Bob" is the first name in the list, then the loop will only run one time.  Therefore, we can say the Big-O in the best case is O(1).  We call O(1) constant time.  When looking at code, usually a single line of code like an assignment statement is considered O(1).</p>
-		<p>If a function has O(n) performance, then we also say that the function has linear performance.  Using a graphing calculator or a graphing website (e.g. <a href="http://desmos.com/calculator" target="_blank">desmos.com</a>) we can visually see the linear performance of O(n).  The graph below show y=x which is used to represent O(n).  When x (or n) gets bigger, the amount of work (y) gets larger in a linear way.</p>
+		<p>The size of the data in this function is based on the size of the <code>name_list</code>.  We will say that size of the data is <code>n</code>.  The for loop in the code means that we will potentially run <code>n</code> times.  This worst case potential will only happen if "Bob" is not in the list of names.  Therefore, we say that the big O in the worst case is O(n).  In general, when we ask for the big O of a function we are asking for the worst case scenario.  This function does have a best case scenario.  If "Bob" is the first name in the list, then the loop will only run one time.  Therefore, we can say the big O in the best case is O(1).  We call O(1) constant time.  When looking at code, usually a single line of code like an assignment statement, is considered O(1).</p>
+		<p>If a function has O(n) performance, then we also say that the function has linear performance.  Using a graphing calculator or a graphing website (e.g. <a href="http://desmos.com/calculator" target="_blank">desmos.com</a>), we can visually see the linear performance of O(n).  The graph below shows y = x which is used to represent O(n).  When x (or n) gets bigger, the amount of work (y) gets larger in a linear way.</p>
 		<img src="linear.jpg" width="100%" height="100%" alt="Shows the graph y=x for x in the range from 0 to 200.">
 		<p>Consider the following code that has two loops in serial (one right after the other):</p>
 		<pre><code class="Python">	
@@ -51,25 +51,25 @@ def multiple_loops(n):
 	for j in range(n):
 		print(i**2)
 			</code></pre>
-		<p>In this function, each for loop contributes O(n) to the performance of the function.  The total would be O(n) + O(n) = O(2 * n).  If we graph this, O(2*n) does look like it has worst performance than O(n).</p>
+		<p>In this function, each for loop contributes O(n) to the performance of the function.  The total would be O(n) + O(n) = O(2n).  If we graph this, O(2n) does look like it has a worse performance than O(n).</p>
 		<img src="linear_two.jpg" width="100%" height="100%" alt="Shows y=x and y=2*x on the same graph for x in the range from 0 to 200.  The y=2*x graph takes twice as much work (y) as y=x.">
-		<p>However, if we zoom very far out to very large values of n, we notice that the distance between O(n) and O(2*n) has not changed.  While it is true O(2*n) will take twice as long, in the measurements of Big-O notation, they are equivalant since as we get to larger and larger values of n, the rate of increase (or decrease) has not changed.  The coefficients in Big-O notation should be dropped.  Therefore, instead of saying O(2*n) for the function above, we will say O(n).</p>
+		<p>However, if we zoom very far out to very large values of n, we notice that the distance between O(n) and O(2n) has not changed.  While it is true O(2n) will take twice as long, in the measurements of big O notation, they are equivalant since as we get to larger and larger values of n, the rate of increase (or decrease) has not changed.  The coefficients in big O notation should be dropped.  Therefore, instead of saying O(2n) for the function above, we will say O(n).</p>
 		<img src="linear_two_zoomed_out.jpg" width="100%" height="100%" alt="Shows y=x and y=2*x on the same graph for x in the range from 0 to 2000000.  The distance between the two graphs is the same as when we were zoomed in.">
 		
 		<h3>Polynomial Performance</h3>
 		
-		<p>As seen earlier, the structure of the for loops is important to analyzing the Big-O performance for a function.  Consider the following scenario:</p>
+		<p>As seen earlier, the structure of the for loops is important to analyzing the big O performance for a function.  Consider the following scenario:</p>
 		<pre><code class="Python">	
 def multiplication_table(n):
 	for i in range(n):
 		for j in range(n):
 			print((i+1) * (j+1))
 			</code></pre>
-		<p>This function has a loop within a loop.  Both loops are based on the size of the data.  Instead of adding O(n) twice like we did with loops in serial, we multiply as follows:  O(n) * O(n) = O(n^2).  The rate of increase is much higher with an O(n^2) function compared to an O(n) function.  The <code>find_bob</code> function would in the worst case take 1000 checks if the list size was 1000, but the <code>multiplication_table</code> will take 1000^2 = 1,000,000 print statements to complete for a similairly sized value of n.  The graph for an O(n^2) function is shown below:</p>
+		<p>This function has a loop within a loop.  Both loops are based on the size of the data.  Instead of adding O(n) twice like we did with loops in serial, we multiply as follows:  O(n) * O(n) = O(n^2).  The rate of increase is much higher with an O(n^2) function compared to an O(n) function.  The <code>find_bob</code> function would, in the worst case, take 1,000 checks if the list size was 1,000, but the <code>multiplication_table</code> will take 1,000^2 = 1,000,000 print statements to complete for a similairly sized value of n.  The graph for an O(n^2) function is shown below:</p>
 		
 		<img src="polynomial.jpg" width="100%" height="100%" alt="Shows the graph y=x^2 for x in the range 0 to 20.">
 		
-		<p>Caution should be used when look on loops within loops.  If one of the loops is based on the size of the data but the other loop is not, it would be more accurate to characterize it as O(k * n) where <code>k</code> is a constant.  Based on the rules we learned earlier O(k * n) = O(n) when <code>k</code> is a coefficient.  The code below would be O(n) because the inner loop is only running 3 times but the outer loop is based on the size of the data.</p>
+		<p>Caution should be used when analyzing code that contains a loop within a loop.  If one of the loops is based on the size of the data but the other loop is not, it would be more accurate to characterize it as O(kn) where <code>k</code> is a constant.  Based on the rules we learned earlier, O(kn) = O(n) when <code>k</code> is a coefficient.  The code below would be O(n) because the inner loop is only running three times but the outer loop is based on the size of the data.</p>
 		
 		<pre><code class="Python">	
 def short_multiplication_table(n):
@@ -78,19 +78,19 @@ def short_multiplication_table(n):
 			print((i+1) * (j+1))
 			</code></pre>
 		
-		<p>When we count iterations of a loops in a function, we may end up with complex polynomials that look like this.  Assume that we had performance predicted at O(2*n^3 - 7*n^2 + 13*n - 15).  In addition to dropping coefficients, we also drop lessor exponents like (in this example) the n^2 and the n.  Therefore, O(2*n^3 - 7*n^2 + 13*n - 15) = O(n^3).  This code likely has a loop, within a loop, within a loop.</p>
+		<p>When we count iterations of a loops in a function, we may end up with complex polynomials that look like this.  Assume that we had performance predicted at O(2n^3 - 7n^2 + 13n - 15).  In addition to dropping coefficients, we also drop lesser exponents like (in this example) the n^2 and the n.  Therefore, O(2n^3 - 7n^2 + 13n - 15) = O(n^3).  This code likely has a loop, within a loop, within a loop.</p>
 
 		<h3>Logarithmic Performance</h3>
 		
-		<p>It would seem like O(n) is the best performance you can get if we want to analyze a set of information.  However, there are some algorithms that have better performance.  Consider a function that had performance of O(log n).  When graphed, the performance does not get signifcantly worse as the size of the data increases.</p>
+		<p>It would seem like O(n) is the best performance you can get if we want to analyze a set of information.  However, there are some algorithms that have better performance.  Consider a function that had performance of O(log n).  When graphed, the performance does not get significantly worse as the size of the data increases.</p>
 		
 		<img src="logarithmic.jpg" width="100%" height="100%" alt="Shows the graph y=log x for x in the range 0 to 40.">
 		
-		<p>To find a function that has this type of performance, consider a list of sorted data: 2, 7, 12, 19, 31, 54, 68, and 91.  If we wanted to determine if 68 was in the list, we could search from left to right looking for 68.  Instead, we are going to treat this sorted list of numbers like a phone book.  If you wanted to find a name in a phone book, we would likely use our knowledge of the alphabet to get their faster.  A simple process could be to goto the item in the middle of the list (or the phone book) and determine if the number we are looking for is before or after the value in the middle.  By doing this, we will discard half of the values in the list in support of our search.  Using the remaining numbers, we will repeat the process by going to the middle and discarding half again.  If we repeat this process, we will eventually either find the number of determine that the number does not exist.</p>
+		<p>To find a function that has this type of performance, consider a list of sorted data: 2, 7, 12, 19, 31, 54, 68, and 91.  If we wanted to determine if 68 was in the list, we could search from left to right looking for 68.  Instead, we are going to treat this sorted list of numbers like a phone book.  If we wanted to find a name in a phone book, we would likely use our knowledge of the alphabet to get there faster.  A simple process could be to go to the item in the middle of the list (or the phone book) and determine if the number we are looking for is before or after the value in the middle.  By doing this, we will discard half of the values in the list in support of our search.  Using the remaining numbers, we will repeat the process by going to the middle and discarding half again.  If we repeat this process, we will eventually either find the number or determine that the number does not exist.</p>
 		
-		<p>Returning to our list of numbers, we will say 19 is in the middle (we started with an even number so we will use integer division to find the middle such as <code>len(numbers)//2</code>).  Since 68 (the number we are looking for) is greater than 19, then we concentrate our search after the 19.  The middle of the remaining numbers (31, 54, 68, and 91) is 54.  Since 68 is great than 53, we will look at the numbers afterwards.  The middle of the remaining numbers (68 and 91) is 68.  Since 68 matches 68, we can say the number exists an it took us only 3 checks.</p>
+		<p>Returning to our list of numbers, we will say 19 is in the middle (we started with an even number so we will use integer division to find the middle such as <code>len(numbers)//2</code>).  Since 68 (the number we are looking for) is greater than 19, then we concentrate our search after the 19.  The middle of the remaining numbers (31, 54, 68, and 91) is 54.  Since 68 is greater than 53, we will look at the numbers afterwards.  The middle of the remaining numbers (68 and 91) is 68.  Since 68 matches 68, we can say the number exists and it only took us three checks.</p>
 		
-		<p>If we look at this generically, lets ask ourselves how many checks it will take if we had <code>n</code> numbers in the list.  The worst case will occur if the number we are looking for is not in the list.  Therefore, we want to know how many checks it will take (in terms of <code>n</code>) until we reach the point where there is only one item left in the list to check (because that means we don't have to look any further).  To solve this problem, consider how many numbers are left after each check:</p>
+		<p>If we look at this generically, let's ask ourselves how many checks it will take if we had <code>n</code> numbers in the list.  The worst case would occur if the number we are looking for is not in the list.  Therefore, we want to know how many checks it will take (in terms of <code>n</code>) until we reach the point where there is only one item left in the list to check (because that means we don't have to look any further).  To solve this problem, consider how many numbers are left after each check.</p>
 		<ul>
 		<li><p>After check 1, we have <code>n</code>/2 left</p></li>
 		<li><p>After check 2, we have <code>n</code>/4 left</p></li>
@@ -98,13 +98,13 @@ def short_multiplication_table(n):
 		<li><p>Generally, after check <code>c</code>, we have <code>n</code>/(2^<code>c</code>) left</p></li>			
 		</ul>
 		
-		<p>Returning to the question, how many checks <code>c</code> until there are just 1 left.  Written mathematically: <code>n</code>/(2^<code>c</code>) = 1.  Using logarithms, we get <code>c</code> = log2(<code>n</code>) = log(<code>n</code>) / log(2) which results in a Big-O notation of O(log n) since the log(2) is a coefficient.  The secret to getting O(log n) was to continously divide the data in half.</p>
+		<p>Returning to the question, how many checks <code>c</code> until there is just one left.  Written mathematically: <code>n</code>/(2^<code>c</code>) = 1.  Using logarithms, we get <code>c</code> = log2(<code>n</code>) = log(<code>n</code>) / log(2) which results in a big O notation of O(log n) since the log(2) is a coefficient.  The secret to getting O(log n) was to continously divide the data in half.</p>
 		
 		<p>The process above relies on an important fact.  The ability to find the middle of a list (or dynamic array as we learned last week) using a lookup operation is O(1).  The next section will review why this is.</p>
 		
 		<h3>Performance of the Dynamic Arrays</h3>
 		
-		<p>Now that we have Big-O notation, we can characterize the performance of our data structure operations.</p>
+		<p>Now that we have big O notation, we can characterize the performance of our data structure operations.</p>
 		
 			<table>
 			<tr>
@@ -114,22 +114,22 @@ def short_multiplication_table(n):
 			</tr>
 			<tr>
 			  <td>lookup(index)</td>
-			  <td>Performance of getting a value in the dynamic array using the index.  Since the dynamic array is in contiguous memory, the equation address = starting_address + (item_size * index) can be used ot get the value in a dynamic array using the index quickly. </td>
+			  <td>Performance of getting a value in the dynamic array using the index.  Since the dynamic array is in contiguous memory, the equation address = starting_address + (item_size * index) can be used to get the value in a dynamic array using the index quickly. </td>
 			  <td>O(1)</td>
 			</tr>					
 			<tr>
 			  <td>append(value)</td>
-			  <td>Performance of adding to the end of dynamic array.  If the dynamic array is not full yet, then the cost is based on the lookup operation to goto the next open space.  If the dynami array is full, then we need to create new memory which is twice the size and then copy the old memory.  This is an O(n) operation because of the loop required.  However, for large values of n, this copy doesn't happen very often.  We can amortize (or spread out) the cost of the O(n) loop on all the previous append's that were filling up the dynamic array.  Therefore, we say the worst case for appending in the dynamic array is O(1).</td>
+			  <td>Performance of adding to the end of dynamic array.  If the dynamic array is not full yet, then the cost is based on the lookup operation to go to the next open space.  If the dynamic array is full, then we need to create new memory which is twice the size and then copy the old memory.  This is an O(n) operation because of the loop required.  However, for large values of n, this copy doesn't happen very often.  We can amortize (or spread out) the cost of the O(n) loop on all the previous appends that were filling up the dynamic array.  Therefore, we say the worst case for appending in the dynamic array is O(1).</td>
 			  <td>O(1)</td>
 			</tr>
 			<tr>
 			  <td>insert(index, value)</td>
-			  <td>Performance of inserting at the beginning or the middle of the dynamic array.  When we insert anywhere but the end, we will need a loop to move all the items from the index to the end over by one position.  This requires a loop which in the worst case will require moving all items in the list.</td>
+			  <td>Performance of inserting at the beginning or the middle of the dynamic array.  When we insert anywhere but the end, then we will need a loop to move all the items from the index to the end over by one position.  This requires a loop which in the worst case will require moving all items in the list.</td>
 			  <td>O(n)</td>
 			</tr>
 			<tr>
 			  <td>remove(index)</td>
-			  <td>Performance of removing an element in the list.  When we remove, we have to move all items over by one position towards the begining of the list.  This requires a loop which in the worst case will require moving all items in the list.  However, in the case of removing the last item in the list, there is nothing to move over.  This scenario will be O(1). </td>
+			  <td>Performance of removing an element in the list.  When we remove, we have to move all items over by one position towards the begining of the list.  This requires a loop that in the worst case will require moving all items in the list.  However, in the case of removing the last item in the list, there is nothing to move over.  This scenario will be O(1). </td>
 			  <td>O(n) except for removing the last one which is O(1)</td>
 			</tr>				
 			<tr>
@@ -150,17 +150,17 @@ def short_multiplication_table(n):
 		</table>
 		<br>
 
-	<h2 style="counter-reset: h3">Evaulate Performance of Alternative Solutions</h2>
+	<h2 style="counter-reset: h3">Evaluate Performance of Alternative Solutions</h2>
 		
 		<h3>Analyze Performance</h3>
 		
-		<p>The real benefit of using Big-O notation is to find a way to compare and contrast one or more functions that perform the same task.  Its possible that we have written one function that functionally works very well.  However, when we run the function, it is taking to long to complete.  When code takes to long the user may have a user interface that is unresponsive or the software may miss requests arriving from external sources.  When this happens, we need to analyze the Big-O notation of our code and look for ways to improve it with a new function.</p>
+		<p>The real benefit of using big O notation is to find a way to compare and contrast one or more functions that perform the same task.  It's possible that we have written one function that functionally works very well.  However, when we run the function, it is taking too long to complete.  When code takes too long, the user may have a user interface that is unresponsive or the software may miss requests arriving from external sources.  When this happens, we need to analyze the big O notation of our code and look for ways to improve it with a new function.</p>
 		
-		<p>We should not be satisified with the funcitonality of our code only.  We should always consider the performance.  In addition to looking at timing, we can also perform a similair analysis on the amount of memory our functions use.  It is possible to write code in many different ways but not all solutions may have the best performance.  We should always check the performance of our code especially when loops are involved.  Care should be taken when multiple functions are used in software.  If one function has a loop and calls another set of functions within that loop, the performance of the other functions needs to be done.</p>
+		<p>We should not be satisified with the functionality of our code only.  We should always consider the performance.  In addition to looking at timing, we can also perform a similar analysis on the amount of memory our functions use.  It is possible to write code in many different ways but not all solutions may have the best performance.  We should always check the performance of our code especially when loops are involved.  Care should be taken when multiple functions are used in software.  If one function has a loop and calls another set of functions within that loop, the performance of the other functions needs to be done.</p>
 		
 		<h3>Measure Actual Execution Time</h3>
 		
-		<p>When we analyze performance, we are making a prediction.  Frequently we need to perform tests to benchmark (i.e. measure) the actual performance of the functions we are using. In Python, the <code>timeit</code> library provides a capability to measure how much time was spent was spent executing a function.  Consider the following example:</p>
+		<p>When we analyze performance, we are making a prediction.  Frequently, we need to perform tests to benchmark (i.e. measure) the actual performance of the functions we are using. In Python, the <code>timeit</code> library provides a capability to measure how much time was spent executing a function.  Consider the following example:</p>
 	
 		<pre><code class="Python">	
 import timeit
@@ -179,7 +179,7 @@ time = timeit.timeit("lots_of_loops(100)", number=10, globals=globals()) / 10 * 
 print("Time in milliseconds = {}".format(time)) 
 			</code></pre>			
 	
-		<p>In the line of code setting the time variable:</p>
+		<p>The parameters in the <code>timeit</code> function are interpreted as follows:</p>
 		<ul><li><p>"lots_of_loops(100)" =&gt; This is the code that will be executed and timed</p></li>
 			<li><p>number=10 =&gt; This means the lots_of_loops function will be executed 10 times in serial</p></li>
 			<li><p>globals=globals() =&gt; This will give access to your lots_of_loops function inside the timeit function</p></li>
@@ -187,7 +187,7 @@ print("Time in milliseconds = {}".format(time))
 			<li><p>* 1000 =&gt; This will convert the result from seconds to milliseconds</p></li>
 		</ul>
 		
-	<p>Another way to look at actual performance is to insturment the code by adding a variable that counts how much work is performed.  This variable can then be returned.</p>
+	<p>Another way to look at actual performance is to instrument the code by adding a variable that counts how much work is performed.  This variable can then be returned.</p>
 	
 		<pre><code class="Python">	
 def lots_of_loops(n):
