@@ -39,7 +39,7 @@
 		<h3>Web Server Queue</h3>
 		<p>A web server receives numerous HTTP requests for web pages from clients throughout the world.  Each request requires the web server to send back information.  The amount of time it takes to send that information makes it difficult to respond timely to all requests.  This would be similair to a customer service desk that had only one phone.  If the customer service agent is helping someone else, then no one would pick up your call.  To solve the problem, a queue is used to pick up all the phone calls and transfer you to the customer service agent when they were ready for the next person.</p>
 		
-		<img src="04-prepare-web_server.jpeg" width="100%" height="100%" alt="Shows 3 processes trying to read a shared variable and 3 processes trying to write to a shared variable."/>
+		<img src="04-prepare-web_server.jpeg" width="100%" height="100%" alt="Shows 3 laptop computers sending requests through the Internet Cloud to a server.  The server enqueues the requests into a Web Server Queue (whih currently has 4 requests with space for 5).  The server dequeues requests from the queue when it is ready.  The response is sent to back to the laptop through the Internet Cloud."/>
 		
 		<p>The web server does the same thing.  When a request is sent, it is put into a Queue until the web server can process the request.  In this way, all requests are received and none of them are lost.  Queues frequently have a self-imposed maximum size. If a Queue is full, then the software may need to send an error message back to the client.</p>
 		
