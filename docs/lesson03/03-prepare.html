@@ -17,7 +17,7 @@
 				
         <h2>Overview</h2>
 
-        <p>This week you will explore techniques of code review to support your understanding of code. You will practice your skills at understanding code using code that implements the Stack data structure (ref: Syllabus Course Outcome 3).  You are still in the <strong>PREPARE</strong> phase of the course.</p>
+        <p>This week you will explore techniques of code review to support your understanding of code. You will practice your skills at understanding code using code that implements the stack data structure (ref: Syllabus Course Outcome 3).  You are still in the <strong>PREPARE</strong> phase of the course.</p>
 		
 		<img src="../images/cse212_phase1.jpeg" width="100%" height="100%" alt="Shows the 3 phases of the course as described in the Syllabus.  Phase 1 is highlighted."/>
 		
@@ -26,37 +26,37 @@
 		<ul><p><u>Day 2</u> - You will work with your study group to complete <a href="03-teach.html" target="_blank">03-Teach</a> which will contain practice problems similar to your individual assignment.  On-campus students will complete this activity during class time.  The activity should take one hour to complete.  You should finish work on <a href="03-prove.html" target="_blank">03-Prove</a> independently.</p></ul>
 		
 			<h2>The Stack Data Structure</h2>
-		<p>A Stack is a Data Structure that is chacterized by the order in which items are added and removed.  Often called "Last In, First Out" (LIFO), the Stack can be used to accomplish various tasks and can be implemented using a Python list.</p>
+		<p>A stack is a data structure that is chacterized by the order in which items are added and removed.  Often called "Last In, First Out" (LIFO), the stack can be used to accomplish various tasks and can be implemented using a Python list.</p>
 		
 		<h3>Stack of Pancakes</h3>
 		
-		<p>If you were going to make pancakes for your family or friends, you probably will have a plate ready to stack the hot pancakes as the finish the cooking process.  Each time we put a pancake onto the stack, we call this a <strong>push</strong> operation.  In our culinary example, we might say that each new pancake goes onto the top of the stack.  However, since we are going to implement our stacks in Python, we will say that the pancake is actually added to the <strong>back</strong>.  When we take a pancake off to eat, we call this a <strong>pop</strong> operation.  Notice that we push and pop from the back of the stack.  Removing from the middle of the stack is not generally allowed (especially at the dinner table).  Notice that the pancake at the <strong>front</strong> is the the very first pancake that was cooked.  If the pancakes are made faster than they are eaten, then this first pancake will get cold.  A LIFO (Last In Last Out) or FIFO (First In First Out) structure like the Stack can result in data not being used for a long time.  This might not work well for a rotating stock system in a grocery store, but the real benefit of the stack is the ability to rememember where we have been.</p>
+		<p>If you were going to make pancakes for your family or friends, you probably would have a plate ready to stack the hot pancakes on as they finished ooking.  Each time we put a pancake onto the stack, we call this a <strong>push</strong> operation.  In our culinary example, we might say that each new pancake goes onto the top of the stack.  However, since we are going to implement our stacks in Python, we will say that the pancake is actually added to the <strong>back</strong>.  When we take a pancake off to eat, we call this a <strong>pop</strong> operation.  Notice that we push and pop from the back of the stack.  Removing from the middle of the stack is not generally allowed (especially at the dinner table).  Notice that the pancake at the <strong>front</strong> is the the very first pancake that was cooked.  If the pancakes are made faster than they are eaten, then this first pancake would get cold.  A LIFO (Last In, First Out) or FIFO (First In, First Out) structure like the stack can result in data not being used for a long time.  This might not work well for a rotating stock system in a grocery store, but the real benefit of the stack is the ability to rememember where we have been.</p>
 		
 		<img src="pancake_stack.jpeg" width="100%" height="100%" alt="Shows a stack of pancakes where no pancakes are pushed to the back and pancakes are popped from the back to be eaten."/>
 		<br>
 		<h3>The "Undo" Option and the Stack</h3>
 		
-		<p>One of the most common stacks that people use on a computer is related to the Undo option in word processors and editors.  When we type something on the keyboard, the item is both displayed to the screen and also added to a stack.  If we type the phrase <code>"The rain in Spain stays mainly in the plain"</code> we would expect the following commands to be put pushed onto the stack: <code>Type "The"</code>, <code>Type "rain"</code>, <code>Type "in"</code>, and so forth.  The last item to pushed would be: <code>Type "plain"</code>.  If we press the Undo button, the software will pop the stack and receive: <code>Type "plain"</code>.  The software will then do the opposite of this which would result in the word <code>"plain"</code> being removed from the screen.  </p>
+		<p>One of the most common stacks that people use on a computer is related to the Undo option in word processors and editors.  When we type something on the keyboard, the item is both displayed to the screen and also added to a stack.  If we type the phrase <code>"The rain in Spain stays mainly in the plain"</code>, we would expect the following commands to be put pushed onto the stack: <code>Type "The"</code>, <code>Type "rain"</code>, <code>Type "in"</code>, and so forth.  The last item to pushed would be <code>Type "plain"</code>.  If we press the Undo button, the software will pop the stack and receive: <code>Type "plain"</code>.  The software will then do the opposite of this which would result in the word <code>"plain"</code> being removed from the screen.  </p>
 		
 		<img src="undo_stack.jpeg" width="100%" height="100%" alt="Shows a computer screen and history stack with the initial text of The rain in Spain stays mainly in the plain.  Changes to the screen and stack are shown as described in the text of this section."/>
 		<br>
-		<p>Since the stack is maintaining a history of what was typed, we can guarentee that pressing the Undo button will revert changes in the right order.  If we popped 5 additional times, we would have <code>"The rain in"</code> remaining on the screen.  If we type <code>"Idaho stays mainly in Rexburg."</code>, we would see 5 new pushes to the stack.  The original first 3 commands to display <code>"The rain in"</code> still remains at the front of the stack.  If the Undo button is pressed enough times, then these initial words would eventually be removed.</p>
+		<p>Since the stack is maintaining a history of what was typed, we can guarentee that pressing the Undo button will revert changes in the right order.  If we popped five additional times, we would have <code>"The rain in"</code> remaining on the screen.  If we type <code>"Idaho stays mainly in Rexburg"</code>, we would see five new pushes to the stack.  The original first three commands to display <code>"The rain in"</code> still remains at the front of the stack.  If the Undo button is pressed enough times, then these initial words would eventually be removed.</p>
 		
-		<p>Stacks are useful when we need to maintain history and perform an operation (eg. undo function in an editor) backwards.</p>
+		<p>Stacks are useful when we need to maintain history and perform an operation (eg. Undo function in an editor) backwards.</p>
 				
 		<h3>Software and the Function Stack</h3>
 		
-		<p>Even if we didn't know what a stack was before today, we have actually been using stacks in all software we have written.  When we call a function in our code, we are telling the computer 2 things:</p>
+		<p>Even if we didn't know what a stack was before today, we have actually been using stacks in all software we have written.  When we call a function in our code, we are telling the computer two things:</p>
 		<ul><li><p>Which function we want to call</p></li>
 		<li><p>Which function to go back to when we are done</p></li></ul>
 	
-		<p>The first of these is clear in our code.  If we are currently in function A, then we expect to call function B.  However, how do we tell the computer that we want to return function A when function B is finished.  This can be even more complicated by the fact the function B will need to call functions C, D, and E before it can finish.  The computer accomplishes this by using a function stack.  When a function is called, it is pushed to the stack.  The current function running is always on the back of the stack.  When the function finishes, it is popped off the stack.  The result is that the function to return too is the one that is on the back of the stack.</p>
+		<p>The first of these is clear in our code.  If we are currently in function A, then we expect to call function B.  However, how do we tell the computer that we want to return function A when function B is finished.  This can be even more complicated by the fact that function B will need to call functions C, D, and E before it can finish.  The computer accomplishes this by using a function stack.  When a function is called, it is pushed to the stack.  The current function running is always on the back of the stack.  When the function finishes, it is popped off the stack.  The result is that the function to return to is the one that is on the back of the stack.</p>
 		
 		<img src="function_stack.jpeg" width="100%" height="100%" alt="Shows a structure chart of function A calling function B, function B called functions C and D (in order), and function D calling function E.  Shows the function stack (front to back) when B is running (A, B), when C is running (A, B, C), when C finishes (A, B), when D is running (A, B, D),  when E is running (A, B, D, E) and when B finishes. (A)"/>
 		<br>
-		<p>In addition to keeping track of the function name that is running, the stack also allows to see where in the function we were when a function was originally called as well as the memory that we were using in our function.  Stacks work well for remembering where we've been and the circumstances we were in during that previous time.</p>
+		<p>In addition to keeping track of the function name that is running, the stack also allows us to see where in the function we were when a function was originally called as well as the memory that we were using in our function.  Stacks work well for remembering where we've been and the circumstances we were in during that previous time.</p>
 	
-		<p>When using Python or other programming languages, we will often times see error messages that look like the following.  Notice that the information is showing which functions have called which functions up until the point of error.  This display of information comes directly from the function stack.  </p>
+		<p>When using Python or other programming languages, we will often see error messages that look like the following.  Notice that the information is showing which functions have called which functions up until the point of error.  This display of information comes directly from the function stack.  </p>
 	
 		<img src="exception_function_stack.jpeg" width="100%" height="100%" alt="Shows the call stack from a Python program running in Visual Studio Code when a breakpoint was reached an paused the sofwtare."/>
 		<br>
@@ -65,7 +65,7 @@
 		<img src="debugger_call_stack.jpeg" width="100%" height="100%" alt="Shows the call stack from a Python program running in Visual Studio Code when a breakpoint was reached an paused the sofwtare."/>
 		<br>
 		<h3>Stacks in Python</h3>
-		<p>In Python, a Stack can be represented using a list.  To push an item to the back of the Stack, the <code>append</code> function can be used on the list.  To pop an items from the back of the stack, the <code>pop</code> function can be used.  The <code>pop</code> function will also delete it from the list.  The size can be determined by using the <code>len</code> function on the list.  The performance of the Stack using a Python list is based on the performance of the dynamic array.</p>
+		<p>In Python, a stack can be represented using a list.  To push an item to the back of the stack, the <code>append</code> function can be used on the list.  To pop an items from the back of the stack, the <code>pop</code> function can be used.  The <code>pop</code> function will also delete it from the list.  The size can be determined by using the <code>len</code> function on the list.  The performance of the stack using a Python list is based on the performance of the dynamic array.</p>
 
 		<table>
 			<tr>
@@ -76,52 +76,52 @@
 			</tr>
 			<tr>
 			  <td>push(value)</td>
-			  <td>Adds "value" to the back of the Stack</td>
+			  <td>Adds "value" to the back of the stack.</td>
 			  <td>my_stack.append(value)</td>	
 			  <td>O(1) - Performance of adding to the end of a dynamic array</td>
 			</tr>
 			<tr>
 			  <td>pop()</td>
-			  <td>Adds "value" to the back of the Stack</td>
+			  <td>Removes and returns the item from the back of the stack.</td>
 			  <td>value = my_stack.pop()</td> 	
 			  <td>O(1) - Performance of removing from the end of a dynamic array</td>
 			</tr>
 			<tr>
 			  <td>size()</td>
-			  <td>Return the size of the Stack</td>
+			  <td>Return the size of the stack.</td>
 			  <td>length = len(my_stack)</td>	
 			  <td>O(1) - Performance of returning the size of the dynamic array</td>
 			</tr>
 			<tr>
 			  <td>empty()</td>
-			  <td>Returns true if the length of the Stack is zero.</td>
+			  <td>Returns true if the length of the stack is zero.</td>
 			  <td>if len(my_stack) == 0:</td>	
 			  <td>O(1) - Performance of checking the size of the dynamic array</td>
 			</tr>			
 		</table>
 		<br>
 
-	<h2 style="counter-reset: h3">Understanding Code using Reviews</h2>
-		<p>We have frequently been asked to write code for either school or work.  However, how often have we been asked to complete the companion activity of reading code?  We have likely looked at code from websites and books, but the there is a signficant difference between looking at code and reading code.  When we read code, we are attempting to undersatnd the code like we would a book.  If we open a book a read a few random pages we might get a high level summary of what the book is about.  However, to fully understand the book, we would need to not only read the book cover to cover, but we would also need to become acquainted personally with the diverse set of characters, follow a potentially winding plot, and discover the underlying messages woven in the story from the author.  This type of reading takes effort.  Reading code for understanding takes an equal amount of effort.</p>
+	<h2 style="counter-reset: h3">Understanding Code Using Reviews</h2>
+		<p>We have frequently been asked to write code for either school or work.  However, how often have we been asked to complete the companion activity of reading code?  We have likely looked at code from websites and books, but there is a signficant difference between looking at code and reading code.  When we read code, we are attempting to understand the code like we would a book.  If we open a book and read a few random pages, we might get a high level summary of what the book is about.  However, to fully understand the book, we would need to not only read the book cover to cover, but we would also need to become acquainted personally with the diverse set of characters, follow a potentially winding plot, and discover the underlying messages woven in the story from the author.  This type of reading takes effort.  Reading code for understanding takes an equal amount of effort.</p>
 		
-		<p>There are multiple reasons why we might be asked to read code in our </p>
+		<p>There are multiple reasons why we might be asked to read code in our teams: </p>
 		<ul>
 		<li><p>A team member has written some code and has asked other engineers to review the code for correctness against the design and for compliance against company standards.</p></li>
 		<li><p>A team member is asked to modify some code that was written by a former employee with or without the aid of a well documented design.</p></li>
 		<li><p>A team member needs to integrate their software with an external library which included several code examples that demonstrate how to properly use the library.</p></li></ul>
 		
-		<p>When we read code others have written, we refer to this activity as a <strong>Review</strong>.  A review should follow a methodoical process.  Many companies will include a Review Checklist for engineers to use to ensure that they both understand the code and that they have checked all the coding standards.  When you review code, there are several strategies that you can use including:</p>
+		<p>When we read code others have written, we refer to this activity as a <strong>review</strong>.  A review should follow a methodical process.  Many companies will include a review checklist for engineers to use to ensure that they both understand the code and that they have checked all the coding standards.  When you review code, there are several strategies that you can use including the following:</p>
 		
-		<ul><li><p>Read Code "Cover to Cover"</p></li>
-		<li><p>"Execute" the Code Manually</p></li>
-		<li><p>Ananlyze the use of Data Structures</p></li></ul>
+		<ul><li><p>Read code "cover to cover"</p></li>
+		<li><p>"Execute" the code manually</p></li>
+		<li><p>Ananlyze the use of data structures</p></li></ul>
 		
-		<p> Each of these methods will be discussed below.  When working with these methods, we should try to employ principles learned from the Scientific Method.  The Scientific Method requires us to form a hypothesis about what we think the code should be doing.  As we read through the code, we will test our hypothesis and look at the results.  If we are incorrect, then we can correct our misconceptions and form a new hypothesis.  This iterative process is necesessary to fully understand code. There are no shortcuts.  We can be tempted to search for the answer online or in a book.  While this may produce a faster answer, we have not obtained full understanding of the code.</p>
+		<p> Each of these methods will be discussed below.  When working with these methods, we should try to employ principles learned from the scientific method.  The scientific method requires us to form a hypothesis about what we think the code should be doing.  As we read through the code, we will test our hypothesis and look at the results.  If we are incorrect, then we can correct our misconceptions and form a new hypothesis.  This iterative process is necesessary to fully understand code. There are no shortcuts.  We can be tempted to search for the answer online or in a book.  While this may produce a faster answer, we will have not obtained full understanding of the code.</p>
 			
-		<p>In this process, it is possible that we might find defects in the code that we were given.  Code reviews are a common tool for increasing software quality.  Performing these steps will requrie us to keep a good notebook to record are hypotheses, experiments, and conclusions.  A good reviewer will always have pen and paper ready to complete their task.</p>
+		<p>In this process, it is possible that we might find defects in the code that we were given.  Code reviews are a common tool for increasing software quality.  Performing these steps will require us to keep a good notebook to record our hypotheses, experiments, and conclusions.  A good reviewer will always have a pen and paper ready to complete their task.</p>
 		
 		<h3>Read Code "Cover to Cover"</h3>
-		<p>Unlike a book, code does not begin on page 1.  We need to find where the code begins and follow it as it calls functions, runs loops, and branches in different directions with decision statements.  If the code has multiple functions, the creation of a structure chart (also called a calling tree) will be helpful.  The structure chart will use boxes to represent functions and arrows to represent functions calling functions.  Frequently drawn with the starting function at the top and working downwards, these diagrams can help us navigate through the code.  On the arrows, we may frequently write the inputs and outputs related to each function.  This will help us better undersatnd the data in the code and which functions are responsible for creating, modifying, and using that data.</p>
+		<p>Unlike a book, code does not begin on page one.  We need to find where the code begins and follow it as it calls functions, runs loops, and branches in different directions with decision statements.  If the code has multiple functions, the creation of a structure chart (also called a calling tree) will be helpful.  The structure chart will use boxes to represent functions and arrows to represent functions calling functions.  Frequently drawn with the starting function at the top and working downwards, these diagrams can help us navigate through the code.  On the arrows, we may frequently write the inputs and outputs related to each function.  This will help us better understand the data in the code and which functions are responsible for creating, modifying, and using that data.</p>
 		
 		<img src="structure_chart.jpeg" width="100%" height="100%" alt="Shows a structure chart where the main function calls the readAccessRecords function and the searchAccessRecords function.  The readAccessRecords function receives an accessFile input and produces accessRecords and recordCount as an output.  The searchAccessRecords function receives the accessREcords, numRecords, startTime, and entTime while producing no output.  The searchAccessRecords function also call the displayAccessRecord function providing accessRecord as an input with no outputs."/>
 		<br>
@@ -129,16 +129,16 @@
 		
 		<img src="uml_diagram.jpeg" width="100%" height="100%" alt="Shows the classes and their relationships shown in the text above.  The Order class has an integer order_id and a list of Product objects called products.  The Order class has an init function, an add_product function that takes a product object as an input, and a display function.  The Product class has a string name and a float price with an init function and a display function.  The ElectronicProduct has a string url_download and both an init and download function.  The PerishableProduct has a expiry datetime object and both an init and donate function.">
 		<br>
-		<p>When we are looking at a single function, it can be useful to diagram the behavior of the function.  Simple flow charts can quickly give us better perspective of loop and if statements in our code.  In the flow chart, use diamonds to represent decisions, boxes to represent actions, and arrows to show flow.</p>
+		<p>When we are looking at a single function, it can be useful to diagram the behavior of the function.  Simple flow charts can quickly give us a better perspective of the loops and decisions in our code.  In the flow chart, use diamonds to represent decisions, boxes to represent actions, and arrows to show flow.</p>
 		
 		<img src="flow_chart.jpeg" width="100%" height="100%" alt="Shows the flow of random number guessing game.  After getting the seed from the user and seeding the generator, a random number is selected and the guess counter is reset.  A loop begins with the user being prompted for a guess.  The guess counter will be udpated and then the guess is compared with the actual number.  Either the phrase higher, lower, or congratulations will be displayed.  If the correct answer was guessed, the guess count is also displayed.  The user is prompted to play the game again.  If they want to play again, then the process above repeast starting with the selection of a random number and the resetting of the guess counter.  Otherwise, the software says goodbye and the program ends.">
 		<br>
 		<h3>"Execute" the Code Manually</h3>
 		<p>It is not always practical to run code that we are given.  If we can, then running the code with inputs that we generate can be helpful to understand the software.  However, the goal in this process is to understand the software without running the code on the computer.  Instead, we are going to run the software in our minds and on paper.</p>
 		
-		<p>If we created diagrams in the previous step from our reading of the code "cover to cover", then we can run the code from the diagrams.  This is an incomplete approach but is very helpful in gaining more understanding of what the software will perform.</p>
+		<p>If we created diagrams in the previous step from our reading of the code "cover to cover," then we can run the code from the diagrams.  This is an incomplete approach but is very helpful in gaining more understanding of what the software will perform.</p>
 		
-		<p>To execute code manually in our minds and on paper, we must start at the begining (or if we are looking a one piece of the sofwtare, perhaps start at the beginning of one of the functions).  If inputs are provided at the beginning (or at any other place along the way), we will have to develop useful inputs to see what will happen.  For example, if we had the following code:</p>
+		<p>To execute code manually in our minds and on paper, we must start at the begining (or if we are looking at one piece of the sofwtare, perhaps start at the beginning of one of the functions).  If inputs are provided at the beginning (or at any other place along the way), we will have to develop useful inputs to see what will happen.  For example, consider the following code:</p>
 		
 		<pre><code class="Python">	
 def do_something(text):
@@ -209,7 +209,7 @@ def do_something(text):
 </table>
 		<br>
 		<h3>Analyze the use of Data Structures</h3>
-		<p>When code contains a data structure like a list or a stack (and others that we will learn during the course), we should consider why the data structure was used.  Data structures are used both for storing information but also to use the information in differet ways.  Looking at the readings above, a stack is used if we want to remember where we have been and potentially go reverse or backwards.  Knowing this capability, you can form a hypothesis about what the code is doing if you see a stack being used in the code.  During the activities this week, you will be reading code that uses stacks.  How the stack is being used will help you better understand the purpose and behavior of the code.</p>
+		<p>When code contains a data structure like a list or a stack (and others that we will learn during the course), we should consider why the data structure was used.  Data structures are used both for storing information but also to use the information in different ways.  Looking at the readings above, a stack is used if we want to remember where we have been and potentially go reverse or backwards.  Knowing this capability, you can form a hypothesis about what the code is doing if you see a stack being used in the code.  During the activities this week, you will be reading code that uses stacks.  How the stack is being used will help you better understand the purpose and behavior of the code.</p>
         </article>
 	
 	<script src="../site/js/highlight/highlight.pack.js"></script>
