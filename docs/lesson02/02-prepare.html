@@ -32,25 +32,25 @@
 		
 		<p>Big-O Notation is used to describe the performance of an algorithm (or function) for large sets of data.  If we have two functions that do the same thing, we can use Big-O notation to compare the performance of the two functions.  As a simple example, consider the following code which looks for the name "Bob" in a list of names:</p>
 		
-		<div style="background: #ffffff; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><pre style="margin: 0; line-height: 125%">		
-			def find_bob(name_list):
-				for name in name_list:
-					if name == "Bob":
-						return True
-				return False
-			</pre></div>
+		<pre><code class="Python">	
+def find_bob(name_list):
+	for name in name_list:
+		if name == "Bob":
+			return True
+	return False
+			</code></pre>
 		
 		<p>The size of the data in this function is based on the size of the <code>name_list</code>.  We will say that size of the data is <code>n</code>.  The for loop in the code means that we will potentially run <code>n</code> times.  This worst case potential will only happen if "Bob" is not in the list of names.  Therefore, we say that the Big-O in the worst case is O(n).  In general, when we ask for the Big-O of a function we are asking for the worst case scenario.  This function does have a best case scenario.  If "Bob" is the first name in the list, then the loop will only run one time.  Therefore, we can say the Big-O in the best case is O(1).  We call O(1) constant time.  When looking at code, usually a single line of code like an assignment statement is considered O(1).</p>
 		<p>If a function has O(n) performance, then we also say that the function has linear performance.  Using a graphing calculator or a graphing website (e.g. <a href="http://desmos.com/calculator" target="_blank">desmos.com</a>) we can visually see the linear performance of O(n).  The graph below show y=x which is used to represent O(n).  When x (or n) gets bigger, the amount of work (y) gets larger in a linear way.</p>
 		<img src="linear.jpg" width="100%" height="100%" alt="Shows the graph y=x for x in the range from 0 to 200.">
 		<p>Consider the following code that has two loops in serial (one right after the other):</p>
-		<div style="background: #ffffff; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><pre style="margin: 0; line-height: 125%">		
-			def multiple_loops(n):
-				for i in range(n):
-					print(i)
-				for j in range(n):
-					print(i**2)
-			</pre></div>
+		<pre><code class="Python">	
+def multiple_loops(n):
+	for i in range(n):
+		print(i)
+	for j in range(n):
+		print(i**2)
+			</code></pre>
 		<p>In this function, each for loop contributes O(n) to the performance of the function.  The total would be O(n) + O(n) = O(2 * n).  If we graph this, O(2*n) does look like it has worst performance than O(n).</p>
 		<img src="linear_two.jpg" width="100%" height="100%" alt="Shows y=x and y=2*x on the same graph for x in the range from 0 to 200.  The y=2*x graph takes twice as much work (y) as y=x.">
 		<p>However, if we zoom very far out to very large values of n, we notice that the distance between O(n) and O(2*n) has not changed.  While it is true O(2*n) will take twice as long, in the measurements of Big-O notation, they are equivalant since as we get to larger and larger values of n, the rate of increase (or decrease) has not changed.  The coefficients in Big-O notation should be dropped.  Therefore, instead of saying O(2*n) for the function above, we will say O(n).</p>
@@ -59,24 +59,24 @@
 		<h3>Polynomial Performance</h3>
 		
 		<p>As seen earlier, the structure of the for loops is important to analyzing the Big-O performance for a function.  Consider the following scenario:</p>
-			<div style="background: #ffffff; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><pre style="margin: 0; line-height: 125%">		
-			def multiplication_table(n):
-				for i in range(n):
-					for j in range(n):
-						print((i+1) * (j+1))
-			</pre></div>
+		<pre><code class="Python">	
+def multiplication_table(n):
+	for i in range(n):
+		for j in range(n):
+			print((i+1) * (j+1))
+			</code></pre>
 		<p>This function has a loop within a loop.  Both loops are based on the size of the data.  Instead of adding O(n) twice like we did with loops in serial, we multiply as follows:  O(n) * O(n) = O(n^2).  The rate of increase is much higher with an O(n^2) function compared to an O(n) function.  The <code>find_bob</code> function would in the worst case take 1000 checks if the list size was 1000, but the <code>multiplication_table</code> will take 1000^2 = 1,000,000 print statements to complete for a similairly sized value of n.  The graph for an O(n^2) function is shown below:</p>
 		
 		<img src="polynomial.jpg" width="100%" height="100%" alt="Shows the graph y=x^2 for x in the range 0 to 20.">
 		
 		<p>Caution should be used when look on loops within loops.  If one of the loops is based on the size of the data but the other loop is not, it would be more accurate to characterize it as O(k * n) where <code>k</code> is a constant.  Based on the rules we learned earlier O(k * n) = O(n) when <code>k</code> is a coefficient.  The code below would be O(n) because the inner loop is only running 3 times but the outer loop is based on the size of the data.</p>
 		
-		<div style="background: #ffffff; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><pre style="margin: 0; line-height: 125%">		
-			def short_multiplication_table(n):
-				for i in range(n):
-					for j in range(3):
-						print((i+1) * (j+1))
-			</pre></div>
+		<pre><code class="Python">	
+def short_multiplication_table(n):
+	for i in range(n):
+		for j in range(3):
+			print((i+1) * (j+1))
+			</code></pre>
 		
 		<p>When we count iterations of a loops in a function, we may end up with complex polynomials that look like this.  Assume that we had performance predicted at O(2*n^3 - 7*n^2 + 13*n - 15).  In addition to dropping coefficients, we also drop lessor exponents like (in this example) the n^2 and the n.  Therefore, O(2*n^3 - 7*n^2 + 13*n - 15) = O(n^3).  This code likely has a loop, within a loop, within a loop.</p>
 
@@ -158,57 +158,57 @@
 		
 		<p>We should not be satisified with the funcitonality of our code only.  We should always consider the performance.  In addition to looking at timing, we can also perform a similair analysis on the amount of memory our functions use.  It is possible to write code in many different ways but not all solutions may have the best performance.  We should always check the performance of our code especially when loops are involved.  Care should be taken when multiple functions are used in software.  If one function has a loop and calls another set of functions within that loop, the performance of the other functions needs to be done.</p>
 		
-	</p>
-		
 		<h3>Measure Actual Execution Time</h3>
 		
 		<p>When we analyze performance, we are making a prediction.  Frequently we need to perform tests to benchmark (i.e. measure) the actual performance of the functions we are using. In Python, the <code>timeit</code> library provides a capability to measure how much time was spent was spent executing a function.  Consider the following example:</p>
 	
-		<div style="background: #ffffff; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><pre style="margin: 0; line-height: 125%">		
-			import timeit
-			
-			def lots_of_loops(n):
-				total = 0
-				for i in range(n):
-					for j in range(n):
-						for k in range(n):
-						 	total += (i*j*k)
-				print(total)
-				
-			time = timeit.timeit("lots_of_loops(100)", number=10, globals=globals()) / 10 * 1000
-			
-			# The time displayed will vary based on your computer
-			print("Time in milliseconds = {}".format(time)) 
-			</pre></div>			
+		<pre><code class="Python">	
+import timeit
+
+def lots_of_loops(n):
+	total = 0
+	for i in range(n):
+		for j in range(n):
+			for k in range(n):
+				total += (i*j*k)
+	print(total)
+
+time = timeit.timeit("lots_of_loops(100)", number=10, globals=globals()) / 10 * 1000
+
+# The time displayed will vary based on your computer
+print("Time in milliseconds = {}".format(time)) 
+			</code></pre>			
 	
 		<p>In the line of code setting the time variable:</p>
-		<ul><li><p>"lots_of_loops(100)" => This is the code that will be executed and timed</p></li>
-			<li><p>number=10 => This means the lots_of_loops function will be executed 10 times in serial</p></li>
-			<li><p>globals=globals() => This will give access to your lots_of_loops function inside the timeit function</p></li>
-			<li><p>/ 10 => This will get the average time for the 10 executions</p></li>
-			<li><p>* 1000 => This will convert the result from seconds to milliseconds</p></li>
+		<ul><li><p>"lots_of_loops(100)" =&gt; This is the code that will be executed and timed</p></li>
+			<li><p>number=10 =&gt; This means the lots_of_loops function will be executed 10 times in serial</p></li>
+			<li><p>globals=globals() =&gt; This will give access to your lots_of_loops function inside the timeit function</p></li>
+			<li><p>/ 10 =&gt; This will get the average time for the 10 executions</p></li>
+			<li><p>* 1000 =&gt; This will convert the result from seconds to milliseconds</p></li>
 		</ul>
 		
 	<p>Another way to look at actual performance is to insturment the code by adding a variable that counts how much work is performed.  This variable can then be returned.</p>
 	
-			<div style="background: #ffffff; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><pre style="margin: 0; line-height: 125%">		
-			
-			def lots_of_loops(n):
-				total = 0
-				count = 0 # Instrumented code
-				for i in range(n):
-					for j in range(n):
-						for k in range(n):
-						 	total += (i*j*k)
-							count += 1 # Instrumented code
-				print(total)
-				return count
-				
-			work = lots_of_loops(1000)
-			
-			# This will display 1000000
-			print("Work = {}".format(work)) 
-			</pre></div>
+		<pre><code class="Python">	
+def lots_of_loops(n):
+	total = 0
+	count = 0 # Instrumented code
+	for i in range(n):
+		for j in range(n):
+			for k in range(n):
+				total += (i*j*k)
+				count += 1 # Instrumented code
+	print(total)
+	return count
+
+work = lots_of_loops(1000)
+
+# This will display 1000000
+print("Work = {}".format(work)) 
+			</code></pre>
+	
+		<script src="../site/js/highlight/highlight.pack.js"></script>
+		<script>hljs.initHighlightingOnLoad();</script>	
 	
 </article>
 </body>
