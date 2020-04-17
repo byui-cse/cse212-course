@@ -23,7 +23,7 @@
 		
 		<p>Here is the two day plan for this lesson:</p>
 		<ul><p><u>Day 1</u> - Complete the reading below.  The reading should take 1 hour to complete.  For on-campus students, class time will be used to discuss the reading and explore examples.  Online students should spend an additional hour communicating with other students in Slack and reviewing any examples or information provided by your instructor.  You should begin independently to work on <a href="08-prove.html" target="_blank">08-Prove</a>.  You should plan on the assignment taking 3 hours to complete.</p></ul>
-		<ul><p><u>Day 2</u> - You will work with your study group to complete <a href="08-teach.html" target="_blank">08-Teach</a> which will involve colloborating together on <a href="08-prove.html" target="_blank">08-Prove</a> which you will need to finish on your own.  On-campus students will complete this activity during class time.  You should come prepared to the activity by starting or completing several of the problems in the individual Prove assignment.  The activity should take 1 hour to complete.</p></ul>
+		<ul><p><u>Day 2</u> - You will work with your study group to complete <a href="08-teach.html" target="_blank">08-Teach</a> which will involve colloborating together on <a href="08-prove.html" target="_blank">08-Prove</a> which you will need to finish on your own.  On-campus students will complete this activity during class time.  You should come prepared for the activity by starting or completing several of the problems in the individual Prove assignment.  The activity should take 1 hour to complete.</p></ul>
 		
 		<h2>Recursion</h2>
 		<p>Usually when we write functions, we design them so they call different functions.  Recursion is a technique where a function calls itself.  For example, consider the following code:</p>
@@ -34,7 +34,7 @@ def say_hello():
 	say_hello()  # This is the recursive call
 		</code></pre>		
 		
-		<p>This code will print "Hello" forever.  Actually, Python will eventually stop with a <code>RecursionError</code> because the <code>say_hello</code> function was called to many times.  Notice that in this function, the first call to <code>say_hello</code> never has a chance to finish.  In software, when a function is called it is put onto a stack.  The stack is used to keep track of what function to go back to when a function finishes.  In this case, the stack is filling up.</p>
+		<p>This code will print "Hello" forever.  Actually, Python will eventually stop with a <code>RecursionError</code> because the <code>say_hello</code> function was called too many times.  Notice that in this function, the first call to <code>say_hello</code> never has a chance to finish.  In software, when a function is called it is put onto a stack.  The stack is used to keep track of what function to go back to when a function finishes.  In this case, the stack is filling up.</p>
 		
 		<p>When we use recursion, we need to make sure we following two important rules:</p>
 		<ul>
