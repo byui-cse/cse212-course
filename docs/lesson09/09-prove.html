@@ -52,6 +52,7 @@ for value in reversed(my_bst):
 		<h3>Problem 5 - Create Tree from Sorted List</h3>
 		<p>Implement the <code>_insert_middle</code> function (note this function is defined outside the BST class) so that the <code>create_bst_from_sorted_list</code> function can successfully create a balanced BST from a sorted list of values.  If we looped throught the list of sorted values and added them (using the <code>insert</code> function in the BST class) one at a time in order, then the resulting BST would look like a linked list.  This is not desirable because it results in O(n) instead of O(log n).</p>
 		<p>To achieve a balanced BST, the <code>_insert_middle</code> function should find the middle of the list (or sub-list ... notice that the function takes a <code>first</code> and <code>last</code> value so as to keep track of what part of the list you are working with) and add it to the BST.  After adding the middle value, then the middle value from the first half and the middle value from the second half should be added.  This process (which is recursive) will result in a balanced BST.</p>
+		<p>Please note we are are not using balanced algorithms like AVL or Red/Black trees in this problem.</p>
 		
 	
     </article>
