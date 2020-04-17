@@ -114,45 +114,48 @@
 			<li>Expected Result: False</li></ul></li>
 	</ul>
 	<p>Notice that each test has a detailed Scenario and Expected Result based on the requirements.  If you were given a function called <code>is_leap_year</code>, you could write test code as follows:</p>
-			<div style="background: #ffffff; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><pre style="margin: 0; line-height: 125%">		
-			result = is_leap_year(1996)
-			print(result)
-			result = is_leap_year(1900)
-			print(result)
-			result = is_leap_year(2000)
-			print(result)
-			result = is_leap_year(2003)
-			print(result)
-			</pre></div>
+		<pre><code class="Python">	
+result = is_leap_year(1996)
+print(result)
+result = is_leap_year(1900)
+print(result)
+result = is_leap_year(2000)
+print(result)
+result = is_leap_year(2003)
+print(result)
+			</code></pre>
 	<p>When you run your test code, if anything fails then you look for code related to the test that failed. 	</p>
 	<p>Instead of printing out the results, test code in Python can use the <code>assert</code> function.  If the <code>assert</code> function fails, then the program will exit and tell you which test (e.g. assert statement) failed.  For example:</p>
-				<div style="background: #ffffff; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><pre style="margin: 0; line-height: 125%">		
-			assert is_leap_year(1996) == True
-			assert is_leap_year(1900) == False
-			assert is_leap_year(2000) == True
-			assert is_leap_year(2003) == False
-			</pre></div>
+		<pre><code class="Python">
+assert is_leap_year(1996) == True
+assert is_leap_year(1900) == False
+assert is_leap_year(2000) == True
+assert is_leap_year(2003) == False
+			</code></pre>
 
 	<p>For more complicated programs, a single test scenario may require you to call multiple functions to properly setup the scenario.  For example, if were were testing the enqueue and dequeue functions of a Queue class, we might enqueue 3 numbers and then dequeue the 3 numbers to ensure that they came out in the correct order.  The test code may look like the following:</p>
 	
-	<div style="background: #ffffff; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><pre style="margin: 0; line-height: 125%">		
-			# Test 1
-			# Scenario: Ensure that after adding 3 items to the queue, they can be 
-			#           removed in the proper order
-			# Expected Result: 100, 200, 300
-			print("Test 1")
-			queue = Queue()
-			queue.enqueue(100)
-			queue.enqueue(200)
-			queue.enqueue(300)
-			result = queue.dequeue()
-			print(result)
-			result = queue.dequeue()
-			print(result)
-			result = queue.dequeue()
-			print(result)
-			</pre></div>
+		<pre><code class="Python">	
+# Test 1
+# Scenario: Ensure that after adding 3 items to the queue, they can be 
+#           removed in the proper order
+# Expected Result: 100, 200, 300
+print("Test 1")
+queue = Queue()
+queue.enqueue(100)
+queue.enqueue(200)
+queue.enqueue(300)
+result = queue.dequeue()
+print(result)
+result = queue.dequeue()
+print(result)
+result = queue.dequeue()
+print(result)
+			</code></pre>
 	<p>In addition to finding defects, testing also has the benefit of helping the programmer better understand the requirements of the software.  Whether you wrote the code or another engineer wrote the code, the process of writing test scenarios will increase your understanding of what the software should do.</p>
     </article>
+	
+		<script src="../site/js/highlight/highlight.pack.js"></script>
+		<script>hljs.initHighlightingOnLoad();</script>
 </body>
 </html>

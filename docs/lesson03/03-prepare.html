@@ -140,18 +140,18 @@
 		
 		<p>To execute code manually in our minds and on paper, we must start at the begining (or if we are looking a one piece of the sofwtare, perhaps start at the beginning of one of the functions).  If inputs are provided at the beginning (or at any other place along the way), we will have to develop useful inputs to see what will happen.  For example, if we had the following code:</p>
 		
-		<div style="background: #ffffff; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><pre style="margin: 0; line-height: 125%">		
-		def do_something(text):
-    			new_text = ""
-    			for letter in text:
-        			if letter != " ":
-            				number = ord(letter)
-	            			new_letter = chr(number + 1)
-	            			new_text += new_letter
-        			else:
-            				new_text += letter
-    			return new_text
-			</pre></div>
+		<pre><code class="Python">	
+def do_something(text):
+		new_text = ""
+		for letter in text:
+			if letter != " ":
+					number = ord(letter)
+					new_letter = chr(number + 1)
+					new_text += new_letter
+			else:
+					new_text += letter
+		return new_text
+			</code></pre>
 		<br>
 		<p>The function needs text and so we will propose some text like "Hello".  We will then step through each line of code and record in our notebook the value of each variable.  If we come across a code function that we don't understand (e.g. the ord and chr commands), then we will need to go online to read about those.  The <code>ord</code> function will return the ASCII numeric code that represents a character.  The <code>chr</code> function will convert an ASCII numeric code into a letter again.  When we finish the code we get <code>Ifmmp</code> which appears to be a form of simple childhood encryption in which each letter in the original text is changed by one letter higher in the alphabet.  When we ran the program, we noticed that you had to check if the letter was a space.  It would be good to try to the test again with spaces.  If we tried "Hello World", we end up with <code>Ifmmp Xpsme</code>.  Not only does the function perform the encoding, but it also preserves the spaces.</p>
 		
@@ -211,5 +211,8 @@
 		<h3>Analyze the use of Data Structures</h3>
 		<p>When code contains a data structure like a list or a stack (and others that we will learn during the course), we should consider why the data structure was used.  Data structures are used both for storing information but also to use the information in differet ways.  Looking at the readings above, a stack is used if we want to remember where we have been and potentially go reverse or backwards.  Knowing this capability, you can form a hypothesis about what the code is doing if you see a stack being used in the code.  During the activities this week, you will be reading code that uses stacks.  How the stack is being used will help you better understand the purpose and behavior of the code.</p>
         </article>
+	
+	<script src="../site/js/highlight/highlight.pack.js"></script>
+	<script>hljs.initHighlightingOnLoad();</script>
 </body>
 </html>

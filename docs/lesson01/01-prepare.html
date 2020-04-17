@@ -120,21 +120,17 @@
 		<h3>Looping Through Lists and the Range Function</h3>
 		
 		<p>To access, display, or do something with every item in a list, the for loop is used.  The following code will display all values in a list one at a time:</p>
-		
-		<div style="background: #ffffff; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><pre style="margin: 0; line-height: 125%">		
-
-			for item in my_list:
-				print(item)
-				
-			</pre></div>
+		<pre><code class="Python">	
+for item in my_list:
+	print(item)
+			</code></pre>
 		
 		<p>This type of for loop is called an iterator because it will visit all items in the collection without the programmer needing to think about the index.  We can change the for loop so that it loops through all the index values for the list instead:</p>
 		
-		<div style="background: #ffffff; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><pre style="margin: 0; line-height: 125%">		
-
-			for index in range(len(my_list)):
-				print(my_list[index])
-			</pre></div>
+		<pre><code class="Python">	
+for index in range(len(my_list)):
+	print(my_list[index])
+			</code></pre>
 		
 		<p>The <code>range(n)</code> function is used to create something "like" a list that goes from 0 to n-1.  This is very convienant since the indicies of a list of size n will go from 0 to n-1.  While this for loop is more complicated, there will be times when solving a problem that you want to know the index value.  When this is needed, the <code>range</code> function should be used.  There are 3 ways the <code>range</code> function can be used:</p>
 	
@@ -156,32 +152,30 @@
 		</ul>
 		<p>Here are some examples of list comprehensions:</p>
 		
-			<div style="background: #ffffff; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><pre style="margin: 0; line-height: 125%">		
+		<pre><code class="Python">	
+# Create a list of numbers 0 to 99
+my_list = [x for x in range(100)]
 
-			# Create a list of numbers 0 to 99
-			my_list = [x for x in range(100)]
-			
-			# Create a list of square numbers from 0^2 to 99^2
-			my_list = [x*x for x in range(100)]
-			
-			# Create a list of even numbers less than 100
-			my_list = [x for x in range(100) if x % 2 == 0]
-			
-			# Do the same thing by using a different version of range
-			my_list = [x for x in range(0, 100, 2)]
-			
-			# Create a list of words that have an 'E'
-			my_words = ['CAKE', 'DOG', 'APPLE']
-			words_with_e = [word for word in my_words if 'E' in word]
-			
-			# Find all leap years between 1900 and 2000
-			# Multiples of 4 are leap years
-			# Except, Multiples of 100 are not leap years
-			# Except, Multiples of 400 are leap years
-			leap_years = [year for year in range(1900, 2001) if (year % 400 == 0) or
-			                    (year % 100 != 0 and year % 4 == 0)]
-				
-			</pre></div>
+# Create a list of square numbers from 0^2 to 99^2
+my_list = [x*x for x in range(100)]
+
+# Create a list of even numbers less than 100
+my_list = [x for x in range(100) if x % 2 == 0]
+
+# Do the same thing by using a different version of range
+my_list = [x for x in range(0, 100, 2)]
+
+# Create a list of words that have an 'E'
+my_words = ['CAKE', 'DOG', 'APPLE']
+words_with_e = [word for word in my_words if 'E' in word]
+
+# Find all leap years between 1900 and 2000
+# Multiples of 4 are leap years
+# Except, Multiples of 100 are not leap years
+# Except, Multiples of 400 are leap years
+leap_years = [year for year in range(1900, 2001) if (year % 400 == 0) or
+					(year % 100 != 0 and year % 4 == 0)]
+			</code></pre>
 
 		<h2 style="counter-reset: h3">Problem Solving Strategies</h2>
 		<p>It can be daunting to try to solve a problem (especially if you are constrained by time in an interview).  While it can be tempting to either dive into code or dive into the internet to find help, we want to develop engineering discipline in our work.  When we learned about science, we were introduced to the Scientific Method.</p>
@@ -198,6 +192,9 @@
 		</ul>
 		
 		<img src="problem_solving.jpeg" width="100%" height="100%" alt="Shows a flow chart representing how to solve code problems.  The process goes: Understand the Problem, Plan &amp; Desgin the Solution, Implement the Solution, and Evaluate the Solution.  If the solution is not complete, then the process goes back to Understand the Problem."/>
+		
+		<script src="../site/js/highlight/highlight.pack.js"></script>
+		<script>hljs.initHighlightingOnLoad();</script>
 </article>
 </body>
 </html>

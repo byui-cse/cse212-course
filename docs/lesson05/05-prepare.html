@@ -114,18 +114,18 @@
 		
 		<p>There are also mathematical operations to perform an intersection and union between two sets.  The code below demonstrates these capabilities in Python:</p>
 		
-		<div style="background: #ffffff; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><pre style="margin: 0; line-height: 125%">		
+		<pre><code class="Python">	
 
-			set1 = {1, 2, 3, 4, 5}
-			set2 = {4, 5, 6, 7, 8}
+set1 = {1, 2, 3, 4, 5}
+set2 = {4, 5, 6, 7, 8}
+
+set3 = intersection(set1, set2)  # This will result in {4, 5}
+set3 = set1 &amp; set2               # Alternate way of writing an intersection
+
+set4 = union(set1, set2)  # This will result in {1, 2, 3, 4, 5, 6, 7, 8}
+set4 = set1 | set2        # Alternate way of writing a union
 			
-			set3 = intersection(set1, set2)  # This will result in {4, 5}
-			set3 = set1 & set2               # Alternate way of writing an intersection
-			
-			set4 = union(set1, set2)  # This will result in {1, 2, 3, 4, 5, 6, 7, 8}
-			set4 = set1 | set2        # Alternate way of writing a union
-			
-			</pre></div>
+			</code></pre>
 
 		<p>The Python library also includes a class called <code>dict</code> which stands for dictinoary which is built using the Set.  The dictionary in Python also uses the curly brace notation.  We will learn more about this in the future when we study Maps.</p>
 	
@@ -151,5 +151,8 @@
 		<li><p>Don't worry about getting the answer to the problem completely right.  Unlike a college coding assignment, you will likely have much less time to develop a solution in the interview. </p></li>
 		</ul>
     </article>
+	
+		<script src="../site/js/highlight/highlight.pack.js"></script>
+		<script>hljs.initHighlightingOnLoad();</script>	
 </body>
 </html>
