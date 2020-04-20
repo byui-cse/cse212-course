@@ -1,4 +1,4 @@
-**Functions**
+# Functions
 
 The function gives software the ability to organize and reuse software code.  Imagine you are in a car factory.  If you were the only one in the factory, it would take a very long time to build a single car.  However, if you have multiple people in the factory, the work could get done more efficiently.  One of the reasons we have efficiency is because we can organize the building of the car better with several hands to help.  However, if we put 1000 people in the car factory but didn't get them responsibilities, we would probably not be very sucessful.  The people in the factory are like functions in code.  The functions are added to organize the effort but each function must have a specific task to complete.  If we are wise, we will give tasks to each function that are commonly repeated in our software.  
 
@@ -11,7 +11,7 @@ Thinking of our favorite game again, you can think of common things which are do
 - Calculate the health of our ship
 - Save the state of our game so we can play again later
 
-**Structure of a Python Function**
+## Structure of a Python Function
 
 In Python, a function is defined using the `def` keyword.  A function has 4 components:
 
@@ -88,7 +88,7 @@ my_density = calc_density(my_mass, my_volume)
 the_user, the_password = get_user()
 ```
 
-**Organzing Functions**
+## Organzing Functions
 
 In larger software, you will need several functions and they will likely need to call each other.  Before you write a bunch of functions, you should plan what functions you will need and how they will be called.  One way represent this is with a calling tree.  The following diagram is meant to represent a weather observation tool:
 
@@ -154,7 +154,7 @@ main()
 
 In the stub code, there is still plenty of work to be done to fully implement the solution.  Notice that the `main()` function is called at the very bottom to start up our code.
 
-**Example: Electronic Purchase**
+## Example: Electronic Purchase
 
 When making a purchase, there are several things that must be determined:
 
@@ -249,7 +249,7 @@ $107.56
 $111.31
 ```
 
- **Problem to Solve: Robot**
+##  Problem to Solve: Robot
 
 A robot wants to move around on the following grid:
 

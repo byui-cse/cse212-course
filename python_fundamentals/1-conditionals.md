@@ -1,4 +1,4 @@
-**Conditionals**
+# Conditionals
 
 Software would be very boring if we didn't have the ability to make choices.  Imagine you had a game app on your phone that didn't allow you to make any choices:
 
@@ -18,7 +18,7 @@ if temp <= 32.0:
 
 In Python, we use the colon (`:`) to indicate the beginning of a block of code.  In this case, the block of code that displays the message will only occur the the condition is True.  The condition `temp <= 32.0` is called a boolean expression.  A boolean expression will also result in a True or a False.  If the boolean expression is True, then code in the block will run.
 
-**Boolean Expressions**
+## Boolean Expressions
 
 A boolean expressions will use one or more of the following boolean operators:
 
@@ -67,7 +67,7 @@ if (not alive) and (points > 30) and (name != "Bob"):
 	print("Since you did well (and you are not Bob), you get to play again!")
 ```
 
-**Multiple Conditions**
+## Multiple Conditions
 
 When we allow the software to make decisions, there might be more than one decision that should be made.  Specifying multiple conditions in python uses the `elif` and `else` keywords.  The `elif` keyword means "else if" and represents an additional condition.  The `else` keyword represents all other possible conditions.  Here is a complete example to consider:
 
@@ -86,7 +86,7 @@ When this code runs, if will first consider the `temp <= 32.0` condition.  If it
 
 Sometimes programmers think they always need to put an `elif` and an `else` when they write an `if` statement.  This is not true.  You should think about all the scenarios you want to check for and use the `elif` and `else` as needed.  If we wrote the same code above  but without `elif` and `else`, we would have to write more complicated boolean expressions.  It is better to use `elif` and `else` to simplify the code and ensure the result we want.
 
-**Example : Geometry Calculator**
+## Example : Geometry Calculator
 
 In the example below, we will write a simple Geometry Calculator.  Before we write the code, we should first think about what we want the software to do.  Writing a list of requirements is an important step in writing software.  The requirements can help us ensure that we using conditionals correctly.  
 
@@ -134,7 +134,7 @@ else:
 
 Note the use of `elif` to provide conditions for different choices and `else` for the special condition of an invalid choice.  Within each conditional block, different prompts, variables, expressions, and conditionals are used.
 
-**Problem to Solve : Summer Camp Cost**
+## Problem to Solve : Summer Camp Cost
 
 Write a program that will determine the cost for a child to attend a summer camp based on various factors described below:
 

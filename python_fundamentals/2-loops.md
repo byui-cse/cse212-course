@@ -1,4 +1,4 @@
-**Loops**
+# Loops
 
 When we think about computers, many will think about their vast computing power that allows for billions of operations to be completed in a single second.  However, even though the computer can do billions of operations, it does not mean that the software programmer needs to write billions of lines.  When we write code, we should think about loops that repeat code dozens or millions of times to achieve the desired result.  Consider that favorite game again and where loops might exist:
 
@@ -8,7 +8,7 @@ When we think about computers, many will think about their vast computing power 
 
 Loops are used in two ways in Python.  The `for` loop is used when you know how many times you want to do something or you know how many things are in something.  The `while` loop is used when you don't how many times you to do something.  Selecting the correct type of loop will help you simplify your code.
 
-**For Loops (Iterators)**
+## For Loops (Iterators)
 
 The `for` loop is frequently also called an iterator because it will iterate (i.e. visit) each item in a collection.  The most basic and common collection in Python is the list.  If we had a list of numbers that we wanted to print, we could you use a `for` loop:
 
@@ -57,7 +57,7 @@ for letter in word:
         break 
 ```
 
-**Using Range with For Loops**
+## Using Range with For Loops
 
 Sometimes we want to repeat something a certain number of times.  In this case, we don't have a collection  to loop through.  In Python, we can use the `range` function to create a "list" of numbers.  The `range` does not really give you a list, but its like a list in that you can loop through it with a `for` loop.  This can be very useful if we want to build a loop to repeat something.  For example, if we wanted to print out "Hello" 100 times, we could write the following:
 
@@ -68,7 +68,7 @@ for x in range(100):
 
 In this code, the `range(100)` will create a list of numbers from 0 to 99.  If we loop through that list, it will run 100 times.  The result is "Hello" printed 100 times.  Notice that the variable `x` is not being used in the loop block.  This is common when all we wanted to do was to repeat the code in the block.
 
-**While Loops**
+## While Loops
 
 The `while` loop also repeats a block of code but the number of times the loop will run is usually not known.  The `while` loop includes a boolean condition to determine if the loop should continue running.
 
@@ -82,7 +82,7 @@ while choice != "quit":
 
 Notice that this loop will continue to run so long as the user does not type "quit" for the command.  This loop might run only 1 time if the user types "quit" for their first command or the loop might run forever if the user never types "quit".  It's also possible for a while loop to not run at all.  Imagine if choice was already equal to "quit" before we got to the while loop.  If this was the case, then we would not enter the while loop.  It's important to think about how we will allow entry to the `while` loop.  In this case, we choose to set `choice` equal to `None` (which is a safe value).  Since `None` does not equal "quit", we know that we will run the while loop at least one time. 
 
-**Example: Random Number Guessing Game**
+## Example: Random Number Guessing Game
 
 When we design loops, it can be useful to draw a flow chart of how we want our program to run.  Designing software before writing code is a wise first step.  A flow chart is a simple design technique where rectangle boxes are used to represents actions and diamonds are used to represent decisions.  Arrows are drawn to represent the flow between boxes and diamonds.  The following flow chart represents a random number guessing game. 
 
@@ -112,7 +112,7 @@ while play_again == "YES":
 print("Goodbye")
 ```
 
-**Problem to Solve : Geometric Series Sum**
+## Problem to Solve : Geometric Series Sum
 
 Write a program that will allow the user to estimate the sum of geometric series.  A geometric series one where each element in the series is calculated by multiplying the previous value by a constant.  For example, here is a geometric series:
 $$
