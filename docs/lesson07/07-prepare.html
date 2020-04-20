@@ -17,7 +17,7 @@
 				
         <h2>Overview</h2>
 
-        <p>This week you will learn about Linked Lists and will solve numerous problems using this data structure (ref: Syllabus Course Outcome 6). You are still in the <strong>TEACH</strong> phase of the course.</p>
+        <p>This week you will learn about linked lists and will solve numerous problems using this data structure (ref: Syllabus Course Outcome 6). You are still in the <strong>TEACH</strong> phase of the course.</p>
 		
 		<img src="../images/cse212_phase2.jpeg" width="100%" height="100%" alt="Shows the 3 phases of the course as described in the Syllabus.  Phase 2 is highlighted."/>
 		
@@ -26,89 +26,89 @@
 		<ul><p><u>Day 2</u> - You will work with your study group to complete <a href="07-teach.html" target="_blank">07-Teach</a> which will involve collaborating together on <a href="07-prove.html" target="_blank">07-Prove</a> which you will need to finish on your own.  On-campus students will complete this activity during class time.  You should come prepared for the activity by starting or completing several of the problems in the individual Prove assignment.  The activity should take one hour to complete.</p></ul>
 		
 		<h2>The Linked List Data Structure</h2>
-		<p>When we learned about the Dynamic Array, we saw that it was characterized by contiguous memory.  Each item in a dynamic array is right next to the next item in memory.  This allowed for very quick access to items in the drynamic array because memory addresses of each item could be calculated from a formula (address = starting_address + (index * item_size)).  The queue, stack, set, and map were all based on memory organized in this way.</p>
+		<p>When we learned about the dynamic array, we saw that it was characterized by contiguous memory.  Each item in a dynamic array is right next to the next item in memory.  This allowed for very quick access to items in the drynamic array because memory addresses of each item could be calculated from a formula (address = starting_address + (index * item_size)).  The queue, stack, set, and map were all based on memory organized in this way.</p>
 		
 		<img src="dynamic_array_not_full.jpeg" width="100%" height="100%" alt="Shows a dynamic array with capacity 8 and size 7.  Indicies 0 through 6 are populated with 8, 12, 31, 15, 4, 42, and 27."/>
 		
-		<p>A collection of data can also be stored in a random way within memory.  A Linked Lists is organized in this way.  With a linked list, each element in the list is at some location in memory.  There is no guarentee that one element will be next to another element.  In order to keep our list together, each element (which we will call a Node) will contain both the value and a link to the next item in the list.  Specifically, the link will be a pointer to the location in memory that contains our next element.</p>
+		<p>A collection of data can also be stored in a random way within memory.  A linked list is organized in this way.  With a linked list, each element in the list is at some location in memory.  There is no guarantee that one element will be next to another element.  In order to keep our list together, each element (which we will call a node) will contain both the value and a link to the next item in the list.  Specifically, the link will be a pointer to the location in memory that contains our next element.</p>
 		
-		<img src="linked_list.jpeg" width="100%" height="100%" alt="Shows a linked list made up of 5 Nodes.  Each Node has a value and a NEXT that points to the next Node.  The HEAD is pointing to the first Node.  The Nodes have the following values in order: 8, 12, 31, 15, 4."/>
+		<img src="linked_list.jpeg" width="100%" height="100%" alt="Shows a linked list made up of 5 nodes.  Each node has a value and a NEXT that points to the next node.  The HEAD is pointing to the first node.  The nodes have the following values in order: 8, 12, 31, 15, 4."/>
 		
-		<p>In the linked list shown above, the first Node is called the <strong>head</strong>.  If you know where the head is, then you can traverse the entire linked list by following the pointers.  Most linked lists maintain a bi-directional linking between Nodes.  The doubly-linked list shown below has both a <strong>head</strong> and a <strong>tail</strong>.</p>
+		<p>In the linked list shown above, the first node is called the <strong>head</strong>.  If you know where the head is, then you can traverse the entire linked list by following the pointers.  Most linked lists maintain a bi-directional linking between nodes.  The doubly-linked list shown below has both a <strong>head</strong> and a <strong>tail</strong>.</p>
 		
-		<img src="linked_list_double.jpeg" width="100%" height="100%" alt="Shows a doubly linked list made up of 5 Nodes.  Each Node has a value, a NEXT that points to the next Node, and a PREV that points to the previous Node.  The HEAD is pointing to the first Node and the TAIL is pointing to the last Node.  The Nodes have the following values in order: 8, 12, 31, 15, 4."/>
+		<img src="linked_list_double.jpeg" width="100%" height="100%" alt="Shows a doubly linked list made up of 5 nodes.  Each node has a value, a NEXT that points to the next node, and a PREV that points to the previous node.  The HEAD is pointing to the first node and the TAIL is pointing to the last node.  The nodes have the following values in order: 8, 12, 31, 15, 4."/>
 		
 		<h2>Inserting into a Linked List</h2>
 		
-		<p>Unlinke inserting into a dynamic array where we had to worry about moving items over towards the end to maintain contiguous memory, the act of inserting into a linked list only has an affect on its neighboring elements.  Additionally, since we are going to use pointers to connect the nodes together, there is no need to think about things such as capacity or growing the list like we did with a dynamic array.  There are three scenarios to consider: insert at the head, insert at the tail, and insert at the middle.</p>
+		<p>Unlike inserting into a dynamic array where we had to worry about moving items over towards the end to maintain contiguous memory, the act of inserting into a linked list only has an effect on its neighboring elements.  Additionally, since we are going to use pointers to connect the nodes together, there is no need to think about things such as capacity or growing the list like we did with a dynamic array.  There are three scenarios to consider: insert at the head, insert at the tail, and insert at the middle.</p>
 		<p>Inserting at the head usually requires a four step process:</p>
 		<ol>
-		<li><p>Create a new Node (we will call it <code>new_node</code>)</p></li>
-		<li><p>Set the Next of the new node to the current Head (<code>new_node.next = self.head</code>)</p></li>
-		<li><p>Set the Prev of the current Head to the new node (<code>self.head.prev = new_node</code>)</p></li>
-		<li><p>Set the Head equal to the new node (<code>self.head = new_node</code>)</p></li>
+		<li><p>Create a new node (we will call it <code>new_node</code>)</p></li>
+		<li><p>Set the "next" of the new node to the current head (<code>new_node.next = self.head</code>)</p></li>
+		<li><p>Set the "prev" of the current head to the new node (<code>self.head.prev = new_node</code>)</p></li>
+		<li><p>Set the head equal to the new node (<code>self.head = new_node</code>)</p></li>
 		</ol>
 		
-		<img src="linked_list_insert_head.jpeg" width="100%" height="100%" alt="Shows a doubly linked list made up of 5 Nodes with values of 8, 12, 31, 15, and 4.  The four step process to add 42 to the beginning (HEAD) is shown: 1) Create a new node with value 42; 2) Connect NEXT of the new node to the node with value 8 (the HEAD); 3) Connect PREV from the node containing 8 to the new node; 4) Set HEAD equal to the new node."/>
+		<img src="linked_list_insert_head.jpeg" width="100%" height="100%" alt="Shows a doubly linked list made up of 5 nodes with values of 8, 12, 31, 15, and 4.  The four step process to add 42 to the beginning (HEAD) is shown: 1) Create a new node with value 42; 2) Connect NEXT of the new node to the node with value 8 (the HEAD); 3) Connect PREV from the node containing 8 to the new node; 4) Set HEAD equal to the new node."/>
 		
-		<p>There is a sepecial case that exists for inserting at the head (and also inserting at the tail).  If the linked list is empty (<code>self.head is None)</code>) then all we have to do is set both the head and the tail to the new node we created.</p>
+		<p>There is a special case that exists for inserting at the head (and also inserting at the tail).  If the linked list is empty (<code>self.head is None)</code>) then all we have to do is set both the head and the tail to the new node we created.</p>
 		
-		<p>Inserting at the tail is similair to inserting at the head.  The same four steps are followed but with respect to the tail:</p>
+		<p>Inserting at the tail is similar to inserting at the head.  The same four steps are followed but with respect to the tail the following should happen:</p>
 		<ol>
-		<li><p>Create a new Node (we will call it <code>new_node</code>)</p></li>
-		<li><p>Set the Prev of the new node to the current Tail (<code>new_node.prev = self.tail</code>)</p></li>
-		<li><p>Set the Next of the current Tail to the new node (<code>self.tail.next = new_node</code>)</p></li>
-		<li><p>Set the Tail equal to the new node (<code>self.tail = new_node</code>)</p></li>
+		<li><p>Create a new node (we will call it <code>new_node</code>)</p></li>
+		<li><p>Set the "prev" of the new node to the current tail (<code>new_node.prev = self.tail</code>)</p></li>
+		<li><p>Set the "next" of the current tail to the new node (<code>self.tail.next = new_node</code>)</p></li>
+		<li><p>Set the tail equal to the new node (<code>self.tail = new_node</code>)</p></li>
 		</ol>
 		
-		<img src="linked_list_insert_tail.jpeg" width="100%" height="100%" alt="Shows a doubly linked list made up of 5 Nodes with values of 8, 12, 31, 15, and 4.  The four step process to add 23 to the end (TAIL) is shown: 1) Create a new node with value 23; 2) Connect PREV of the new node to the node with value 4 (the TAIL); 3) Connect NEXT from the node containing 4 to the new node; 4) Set TAIL equal to the new node."/>
+		<img src="linked_list_insert_tail.jpeg" width="100%" height="100%" alt="Shows a doubly linked list made up of 5 nodes with values of 8, 12, 31, 15, and 4.  The four step process to add 23 to the end (TAIL) is shown: 1) Create a new node with value 23; 2) Connect PREV of the new node to the node with value 4 (the TAIL); 3) Connect NEXT from the node containing 4 to the new node; 4) Set TAIL equal to the new node."/>
 		
-		<p>The process to inserting into the middle is a little more complicated.  In the picture below, we are trying to insert after node <code>current</code>.  The process involves five steps:</p>
+		<p>The process for inserting into the middle is a little more complicated.  In the picture below, we are trying to insert after node <code>current</code>.  The process involves five steps as follows:</p>
 		
 		<ol>
-		<li><p>Create a new Node (we will call it <code>new_node</code>)</p></li>
-		<li><p>Set the Prev of the new node to the current node (<code>new_node.prev = current)</code></p></li>
-		<li><p>Set the Next of the new node to the next node after current (<code>new_node.next = current.next)</code></p></li>
-		<li><p>Set the Prev of the next node after current to the new node (<code>current.next.prev = new_node)</code></p></li>
-		<li><p>Set the Next of the current node to the new node (<code>current.next = new_node)</code></p></li>
+		<li><p>Create a new node (we will call it <code>new_node</code>)</p></li>
+		<li><p>Set the "prev" of the new node to the current node (<code>new_node.prev = current)</code></p></li>"
+		<li><p>Set the "next" of the new node to the next node after current (<code>new_node.next = current.next)</code></p></li>
+		<li><p>Set the "prev" of the "next" node after current to the new node (<code>current.next.prev = new_node)</code></p></li>
+		<li><p>Set the next of the current node to the new node (<code>current.next = new_node)</code></p></li>
 		</ol>
 		
-		<img src="linked_list_insert_middle.jpeg" width="100%" height="100%" alt="Shows a doubly linked list made up of 5 Nodes with values of 8, 12, 31, 15, and 4.  The four step process to add 50 after the node with 31 (called CURRENT NODE) is shown: 1) Create a new node with value 50; 2) Connect PREV of the new node to the CURRENT NODE; 3) Connect NEXT from the new node to the node after CURRENT NODE (15); 4) Set the PREV of the node after CURRENT NODE to the new node; 5) Set the NEXT of the CURRENT NODE to the new node."/>
+		<img src="linked_list_insert_middle.jpeg" width="100%" height="100%" alt="Shows a doubly linked list made up of 5 nodes with values of 8, 12, 31, 15, and 4.  The four step process to add 50 after the node with 31 (called CURRENT NODE) is shown: 1) Create a new node with value 50; 2) Connect PREV of the new node to the CURRENT NODE; 3) Connect NEXT from the new node to the node after CURRENT NODE (15); 4) Set the PREV of the node after CURRENT NODE to the new node; 5) Set the NEXT of the CURRENT NODE to the new node."/>
 		
 		<h2>Removing from a Linked List</h2>
 		
-		<p>Removing the first (the head) or the last (this tail) node from a linked list are similair and involve setting updating the second node (or the second to last node in the case of removing from the tail).  The process for removing the first node is:</p>
+		<p>Removing the first (the head) or the last (this tail) node from a linked list is similar and involve setting updating the second node (or the second to last node in the case of removing from the tail).  The process for removing the first node is as follows:</p>
 		
 		<ol>
-		<li><p>Set the Prev of the second node (<code>self.head.next</code>) to nothing (<code>self.head.next.prev = None</code>)</p></li>
-		<li><p>Set the Head to be the second node (<code>self.head = self.head.next</code>)</p></li>
+		<li><p>Set the "prev" of the second node (<code>self.head.next</code>) to nothing (<code>self.head.next.prev = None</code>)</p></li>
+		<li><p>Set the head to be the second node (<code>self.head = self.head.next</code>)</p></li>
 		</ol>
 		
-		<img src="linked_list_remove_head.jpeg" width="100%" height="100%" alt="Shows a doubly linked list made up of 5 Nodes with values of 8, 12, 31, 15, and 4.  The two step process to remove 8 (HEAD): 1) Set the PREV of the second node (12) to nothing; 2) Set the HEAD to the second node."/>
+		<img src="linked_list_remove_head.jpeg" width="100%" height="100%" alt="Shows a doubly linked list made up of 5 nodes with values of 8, 12, 31, 15, and 4.  The two step process to remove 8 (HEAD): 1) Set the PREV of the second node (12) to nothing; 2) Set the HEAD to the second node."/>
 		
-		<p>As a special case, if there was only one node in the linked list, the Head and Tail would need to be set to None thus creating an empty linked list.</p>
+		<p>As a special case, if there was only one node in the linked list, the head and tail would need to be set to None thus creating an empty linked list.</p>
 		
-		<p>The process for removing the last node is:</p>
+		<p>The process for removing the last node is as follows:</p>
 
 		<ol>
-		<li><p>Set the Next of the second to last node (<code>self.tail.prev</code>) to nothing (<code>self.tail.prev.next = None</code>)</p></li>
-		<li><p>Set the Tail to be the second to last node (<code>self.tail = self.tail.prev</code>)</p></li>
+		<li><p>Set the "next" of the second to last node (<code>self.tail.prev</code>) to nothing (<code>self.tail.prev.next = None</code>)</p></li>
+		<li><p>Set the tail to be the second to last node (<code>self.tail = self.tail.prev</code>)</p></li>
 		</ol>
 
-		<img src="linked_list_remove_tail.jpeg" width="100%" height="100%" alt="Shows a doubly linked list made up of 5 Nodes with values of 8, 12, 31, 15, and 4.  The two step process to remove 4 (TAIL): 1) Set the NEXT of the second to last node (15) to nothing; 2) Set the TAIL to the second to last node."/>
+		<img src="linked_list_remove_tail.jpeg" width="100%" height="100%" alt="Shows a doubly linked list made up of 5 nodes with values of 8, 12, 31, 15, and 4.  The two step process to remove 4 (TAIL): 1) Set the NEXT of the second to last node (15) to nothing; 2) Set the TAIL to the second to last node."/>
 		
 		<p>The process to inserting into the middle is not as complicated as inserting in the middle.  In the picture below, we are trying to remove the node <code>current</code>.  The process involves two steps:</p>
 		
 		<ol>
-		<li><p>Set the Prev of the node after current to the node before current (<code>current.next.prev = current.prev</code>)</p></li>
-		<li><p>Set the Next of the node before current to the node after current (<code>current.prev.next = current.next</code>)</p></li>
+		<li><p>Set the prev of the node after current to the node before current (<code>current.next.prev = current.prev</code>)</p></li>
+		<li><p>Set the next of the node before current to the node after current (<code>current.prev.next = current.next</code>)</p></li>
 		</ol>
 
-		<img src="linked_list_remove_middle.jpeg" width="100%" height="100%" alt="Shows a doubly linked list made up of 5 Nodes with values of 8, 12, 31, 15, and 4.  The two step process to remove the node with 31 (called the CURRENT NODE): 1) Set the PREV of the node after the CURRENT NODE (15) to the node before the CURRENT NODE (12); 2) Set the NEXT of the node before the CURRENT NODE to the node after the CURRENT NODE."/>
+		<img src="linked_list_remove_middle.jpeg" width="100%" height="100%" alt="Shows a doubly linked list made up of 5 nodes with values of 8, 12, 31, 15, and 4.  The two step process to remove the node with 31 (called the CURRENT NODE): 1) Set the PREV of the node after the CURRENT NODE (15) to the node before the CURRENT NODE (12); 2) Set the NEXT of the node before the CURRENT NODE to the node after the CURRENT NODE."/>
 		
 		<h2>Accessing from a Linked List</h2>
 		
-		<p>If we want to find a value in the linked list or if we want to find a specific node (e.g. the 3rd node or the 10th node), we are required to loop through the linked list.  We can start at either the Head (if we want to go forward through the list) or we can start at the Tail (if we want to go backward through the list).  To loop through the list, we will follow the Next (or the Prev if going backwards from Tail) links until we get to the end.  The following code is a basic traversal through a linked list:</p>
+		<p>If we want to find a value in the linked list or if we want to find a specific node (e.g. the 3rd node or the 10th node), we are required to loop through the linked list.  We can start at either the head (if we want to go forward through the list) or we can start at the tail (if we want to go backward through the list).  To loop through the list, we will follow the "next" (or the "prev" if going backwards from tail) links until we get to the end.  The following code is a basic traversal through a linked list:</p>
 		
 		<pre><code class="Python">	
 def go_forward(self):
@@ -116,18 +116,18 @@ def go_forward(self):
 	current = self.head
 
 	# Loop until we have reached the end (None)
-	while current is not Node:
+	while current is not None:
 
-		# Do something with the current Node
+		# Do something with the current node
 		print(current.data)
 
-		# Follow the pointer to the next Node
+		# Follow the pointer to the next node
 		current = current.next
 			</code></pre>
 		
 		<h2>Linked Lists in Python</h2>
 		
-		<p>In your assignment this week you will be writing your own Linked List class.  However, Python does have a Linked List available for use called the <code>deque</code>.  To create an empty linked list, the following code is used:  <code>link_list = deque()</code>.  You will need to include the following import statement as well:  <code>import deque</code>.  The table below shows the common functions in the <code>deque</code></p>
+		<p>In your assignment this week you will be writing your own linked list class.  However, Python does have a linked list available for use called the <code>deque</code>.  To create an empty linked list, the following code is used:  <code>link_list = deque()</code>.  You will need to include the following import statement as well:  <code>import deque</code>.  The table below shows the common functions in the <code>deque</code>.</p>
 		
 		<table>
 			<tr>
@@ -150,33 +150,33 @@ def go_forward(self):
 			</tr>			
 			<tr>
 			  <td>insert(i, value)</td>
-			  <td>Adds "value" after the ith node</td>
+			  <td>Adds "value" after node "i".</td>
 			  <td>my_deque.insert(i, value)</td> 	
-			  <td>O(n) - Its not complicated to adjust the pointers to insert, but it takes a loop to find the node to insert after.</td>					
+			  <td>O(n) - It's not complicated to adjust the pointers to insert, but it takes a loop to find the node to insert after.</td>					
 			</tr>
 			<tr>
 			  <td>remove_head()</td>
 			  <td>Removes the first item (the head)</td>	
 			  <td>value = my_deque.popleft()</td>	
-			  <td>O(1) - Just need to adjust the pointers near the head</td>					
+			  <td>O(1) - Just need to adjust the pointers near the head.</td>					
 			</tr>
 			<tr>
 			  <td>remove_tail(index)</td>
 			  <td>Removes the last item (the tail)</td>	
 			  <td>value = my_deque.pop()</td>	
-			  <td>O(1) - Just need to adjust the pointers near the head</td>					
+			  <td>O(1) - Just need to adjust the pointers near the head.</td>					
 			</tr>
 			<tr>
 			  <td>remove(i)</td>
-			  <td>Removes the ith node</td>
+			  <td>Removes node "i".</td>
 			  <td>del my_deque[i]</td> 	
-			  <td>O(n) - Its not complicated to adjust the pointers to remove, but it takes a loop to find the node to remove.</td>					
+			  <td>O(n) - It's not complicated to adjust the pointers to remove, but it takes a loop to find the node to remove.</td>					
 			</tr>
 			<tr>
 			  <td>size()</td>
 			  <td>Return the size of the linked list</td>
 			  <td>length = len(my_deque)</td>	
-			  <td>O(1) - The size is maintained within the linked list class</td>					
+			  <td>O(1) - The size is maintained within the linked list class.</td>					
 			</tr>
 			<tr>
 			  <td>empty()</td>
@@ -188,7 +188,7 @@ def go_forward(self):
 		
 		<h2>Comparing Dynamic Array and Linked List</h2>
 		
-		<p>The dynamic array and linked list look the same to the user but because the memory is managed differently, the performane numbers are different.  The table below compares these two data structures:</p>
+		<p>The dynamic array and linked list look the same to the user but because the memory is managed differently, the performance numbers are different.  The table below compares these two data structures:</p>
 		
 		<table>
 			<tr>
@@ -234,8 +234,8 @@ def go_forward(self):
 		<p>We can conclude the following:</p>
 		
 		<ul>
-		<li><p>The dynamic array has good performance at the end</p></li>
-		<li><p>The linked list has good performance at the beginning and the end</p></li>
+		<li><p>The dynamic array has good performance at the end.</p></li>
+		<li><p>The linked list has good performance at the beginning and the end.</p></li>
 		</ul>
 		
 		<p>Thinking back about stacks and queues, the stack did the push and pop operations from the end.  Therefore, a stack can use either a dynamic array or linked list (a Python <code>list</code> or a Python <code>deque</code>) equally well.  However, since a queue did the enqueue and dequeue operations from the end and the front, a queue should always be implemented with a linked list (a Python <code>deque</code>).  This strong statement only applies when the size of the data is "large" (recall discussions earlier about big O).  If we only have a small number of items in my queue, then both a dynamic array and linked list will run fast enough.</p>
