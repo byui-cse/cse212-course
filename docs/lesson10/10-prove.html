@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" type="text/css" href="../site/style.css" />
-    <title>CSE 212 - 09 Prove</title>
+    <title>CSE 212 - 10 Prove</title>
 </head>
 <body>
     <header id="courseTitle">
@@ -13,47 +13,10 @@
         <h1>CSE 212 | Programming with Data Structures</h1>
     </header>
     <article>
-        <h1>09 Prove: Individual Assignment</h1>
+        <h1>10 Prove: Final Project - Outline</h1>
 
         <h2>Overview</h2>
-        <p>This assignment <strong>must be completed individually</strong> to ensure you are meeting course outcomes (ref: Syllabus Course Outcome 6).  With the exception of the group collaboration activity that you did in W09-Teach, you should not solve these problems with other students.  If you obtain help from a tutor, the tutor should help you understand principles but should not help you solve these problems.  It is an honor code violation to seek the solution to these exact problems from others including the internet (including sites that allow students to share their solutions).</p>
-		<p>You will provide your code and solution strategies in the associated I-Learn quiz. Your grade will be based on how many problems you answer correctly.  Bonus points are available for answering all five problems correctly.</p>
-
-        <h2>Problem Set</h2>
-		
-		<p>Download the following code file and use it to solve all five problems:  <a href="trees.py" target="_blank">trees.py</a>.</p>
-
-		<h3>Problem 1 - Insert Unique Values Only</h3>
-		<p>Update the <code>_insert</code> function of the BST class to only allow unique values to be added to the tree (thus creating a sorted set).  The <code>_insert</code> function is already written for to correctly insert values into the BST.  However, the current implementation will cause duplicate values to be added to the tree.</p>
-		
-		<h3>Problem 2 - Contains</h3>
-		<p>Implement the <code>_contains</code> function in the BST class.  This function is called by the <code>__in__</code> function to search for a value in the BST.  The <code>__in__</code> function allows you to write code using the <code>in</code> operator like the following:</p>
-		
-		<pre><code class="Python">			
-if 5 in my_bst:
-	print("5 is in the bst")
-		</code></pre>
-			
-		<p>If the value is found, the <code>True</code> should be returned; otherwise return <code>False</code>.  <strong>Hint</strong>: Study the <code>_insert</code> function.  You will need to use recursion to solve this problem. </p>
-			
-		<h3>Problem 3 - Traverse Backwards</h3>
-		<p>Implement the <code>_traverse_backward</code> function in the BST class.  This function is called by the <code>__reversed__</code> function to loop through the tree backwards (largest value down to the smallest value).  The <code>__reversed__</code> function allows you to write code using the <code>reversed</code> function like the following:</p>
-
-		<pre><code class="Python">				
-for value in reversed(my_bst):
-	print(value)
-		</code></pre>
-		
-		<p><strong>Hint</strong>: Study the <code>_traverse_forward</code> function to see how traversing forward is done using the <code>yield</code> keyword.</p>
-				
-		<h3>Problem 4 - Tree Height</h3>
-		<p>Implement the <code>_get_height</code> function to get the height of the BST.  The height of any tree (or sub-tree) is defined as one plus the height of either the left sub-tree or the right sub-tree (whichever one is bigger).  If the BST has only the root node, then this would be 1 plus the maximum height of either sub-tree which would be 0.  Therefore, the height of a BST with only the root node is 1.  You will need to use reursion to solve this problem.</p>
-		
-		<h3>Problem 5 - Create Tree from Sorted List</h3>
-		<p>Implement the <code>_insert_middle</code> function (note this function is defined outside the BST class) so that the <code>create_bst_from_sorted_list</code> function can successfully create a balanced BST from a sorted list of values.  If we looped throught the list of sorted values and added them (using the <code>insert</code> function in the BST class) one at a time in order, then the resulting BST would look like a linked list.  This is not desirable because it results in O(n) instead of O(log n).</p>
-		<p>To achieve a balanced BST, the <code>_insert_middle</code> function should find the middle of the list (or sub-list ... notice that the function takes a <code>first</code> and <code>last</code> value so as to keep track of what part of the list you are working with) and add it to the BST.  After adding the middle value, then the middle value from the first half and the middle value from the second half should be added.  This process (which is recursive) will result in a balanced BST.</p>
-		<p>Please note we are are not using balanced algorithms like AVL or Red/Black trees in this problem.</p>
-		
+        <p>Before you spend time implementing the tutorial, you should first build an outline.  Just like preparing to write a report, an outline can help you organize your thoughts and split up the work into manageble pieces.  The <a href="outline.html" target="_blank">outline for the Python Fundamentals Tutorial</a> that you were give in W10-Prepare can be used as a template for what you need to create.  Your outline should clearly identify the three data structures you will be teaching in your tutorial.  You should submit your outline in the associated I-Learn quiz.
 	
     </article>
 
