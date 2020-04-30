@@ -8,6 +8,6 @@ List:
 * B
 * C
 
-![](problem_solving.jpeg)
+![](problem_solving.jpeg){width=50%}
 
 [Goto Lesson 1](01-prepare.html)
