@@ -17,28 +17,28 @@
 				
         <h2>Overview</h2>
 
-        <p>This week, you will learn about Binary Search Trees and will solve numerous problems using this data structure (ref: Syllabus Course Outcome 6). You are still in the <strong>TEACH</strong> phase of the course.</p>
+        <p>This week, you will learn about binary search trees and will solve numerous problems using this data structure (ref: Syllabus Course Outcome 6). You are still in the <strong>TEACH</strong> phase of the course.</p>
 		
 		<img src="../images/cse212_phase2.jpeg" width="100%" height="100%" alt="Shows the 3 phases of the course as described in the Syllabus.  Phase 2 is highlighted."/>
 		
 		<p>Here is the two-day plan for this lesson:</p>
-		<ul><p><u>Day 1</u> - Complete the reading below.  The reading should take one hour to complete.  For on-campus students, class time will be used to discuss the reading and explore examples.  Online students should spend an additional hour communicating with other students in Slack and reviewing any examples or information provided by your instructor.  You should begin to work on <a href="09-prove.html" target="_blank">09-Prove</a> independently.  You should plan on the assignment taking three hours to complete.</p></ul>
+		<ul><p><u>Day 1</u> - Complete the reading below.  The reading should take one hour to complete.  For on-campus students, class time will be used to discuss the reading and explore examples.  Online students should spend an additional hour communicating with other students in Slack and reviewing any examples or information provided by their instructor.  You should begin to work on <a href="09-prove.html" target="_blank">09-Prove</a> independently.  You should plan on the assignment taking three hours to complete.</p></ul>
 		<ul><p><u>Day 2</u> - You will work with your study group to complete <a href="09-teach.html" target="_blank">09-Teach</a> which will involve collaborating together on <a href="09-prove.html" target="_blank">09-Prove</a> which you will need to finish on your own.  On-campus students will complete this activity during class time.  You should come prepared for the activity by starting or completing several of the problems in the individual prove assignment.  The activity should take one hour to complete.</p></ul>
 		
 		<h2>Binary Search Trees</h2>
-		<p>Trees are linked linked list in that nodes are connected together by pointers.  However, unlike linked lists, a tree can connect to multiple different nodes.  We will look at the following types of Trees: Binary Trees, Binary Search Trees, and Balanced Binary Search Trees.</p>
+		<p>Trees are like linked lists in that nodes are connected together by pointers.  However, unlike linked lists, a tree can connect to multiple different nodes.  We will look at the following types of trees: binary trees, binary search trees, and balanced binary search trees.</p>
 		
 		<h3>Binary Trees</h3>
-		<p>A Binary Tree is a Tree that links to no more than two other nodes.  In the picture below, the top node is called the <strong>root</strong> node.  The nodes that connect to no other nodes are called <strong>leaf</strong> nodes.  Nodes are frequently also referred to <strong>parent</strong> and <strong>child</strong> nodes.  The nodes to the left of a parent node and the nodes to the right of a parent node each form a sub-tree.  There is always only one root node.  While not shown in the picture, it is common for child nodes to also point back up to the parent node (similar to a linked list).</p>
+		<p>A binary tree is a tree that links to no more than two other nodes.  In the picture below, the top node is called the <strong>root</strong> node.  The nodes that connect to no other nodes are called <strong>leaf</strong> nodes.  Nodes are frequently also referred to <strong>parent</strong> and <strong>child</strong> nodes.  The nodes to the left of a parent node and the nodes to the right of a parent node each form a subtree.  There is always only one root node.  While not shown in the picture, it is common for child nodes to also point back up to the parent node (similar to a linked list).</p>
 		
-		<img src="binary_tree.jpeg" height="100%" width="100%" alt="Shows a Binary Tree where the top (node A) is called the root, the nodes that do not conenct to any other nodes are called leaves (node D, E, and F).  Node A connects to nodes B and C.  Node B connects to node D and E.  Node C connects only to node F.  A sub-tree is formed from a any parent node such as node B and includes all of the children nodes D and E.">
+		<img src="binary_tree.jpeg" height="100%" width="100%" alt="Shows a Binary Tree where the top (node A) is called the root, the nodes that do not conenct to any other nodes are called leaves (node D, E, and F).  Node A connects to nodes B and C.  Node B connects to node D and E.  Node C connects only to node F.  A subtree is formed from a any parent node such as node B and includes all of the children nodes D and E.">
 		
 		<h3>Binary Search Trees</h3>
-		<p>A Binary Search Tree (BST) is a Binary Tree that follows rules for data that is put into the tree.  Data is placed into the BST by comparing the data with the value in the parent node.  If the data being added is less than the parent node, then it is put in the left sub-tree.  If the data being added is greater (usually we will say greater than or equal too if duplicates are allowed) than the parent node, then it is put in the right sub-tree.  By using this process, the data is stored sorted within the tree.</p>
+		<p>A binary search tree (BST) is a binary tree that follows rules for data that is put into the tree.  Data is placed into the BST by comparing the data with the value in the parent node.  If the data being added is less than the parent node, then it is put in the left subtree.  If the data being added is greater (usually we will say greater than or equal to if duplicates are allowed) than the parent node, then it is put in the right subtree.  By using this process, the data is stored in the tree sorted.</p>
 		
 		<img src="binary_search_tree.jpeg" height="100%" width="100%" alt="Shows a Binary Search Tree where the root node is 15.  The 15 is connected to 10 (on the left) and 24 (on the right).  The 10 is connected to 3 (on the left) and 14 (on the right).  The 24 is connected to 33 (on the right).">
 		
-		<p>Using the tree above, we can determine where to put additional items.  We always start at the root node and we compare the new value with it.  We keep comparing until we have found a place to be a new leaf node.  For example, to insert the value 20:</p>
+		<p>Using the tree above, we can determine where to put additional items.  We always start at the root node and compare the new value with it.  We keep comparing until we have found an empty place for the new node.  For example, to insert the value 20, do the following:</p>
 		
 		<ul>
 		<li><p>Start at the root node 15 and compare with the new value 20</p></li>
@@ -49,16 +49,16 @@
 		
 		<img src="binary_search_tree_add_node.jpeg" height="100%" widgth="100%" alt="Shows the same binary search tree with node 20 added to the left of node 24.  Nodes 15, 24, and 20 are highlighted to show the path to find where the new node was inserted.">
 		
-		<p>The process that we used to find where to put the new node was an efficient process.  If we had dynamic array or a linked list containing sorted values, we would have an O(n) operation as we search for the proper location to insert a value into the proper sorted position.  By using the BST, we are able to exclude a subtree with each comparison.  This ability to split the job in half recursively results in O(log n).  Maintaining sorted data in a BST performs better than other data structures.</p>
+		<p>The process that we used to find where to put the new node was an efficient process.  If we had a dynamic array or a linked list containing sorted values, we would have an O(n) operation as we search for the proper location to insert a value into the proper sorted position.  By using the BST, we are able to exclude a subtree with each comparison.  This ability to split the job in half recursively results in O(log n).  Maintaining sorted data in a BST performs better than other data structures.</p>
 		
-		<p>However, the only reason we had O(log n) in the example above was because the tree was "balanced".  To see the difference between a balanced and an unbalanced tree, we will construct a tree with the same values but in a different order.  The reason why the previous tree has 15 as the root node is because 15 was added first.  This time we will add the values in the following order: 3, 10, 14, 15, 20, 24, 33 (purposefully in ascending order).</p>
+		<p>However, the only reason we had O(log n) in the example above was because the tree was "balanced".  To see the difference between a balanced and an unbalanced tree, we will construct a tree with the same values but in a different order.  The reason why the previous tree has 15 as the root node is because 15 was added first.  This time, we will add the values in the following order: 3, 10, 14, 15, 20, 24, 33 (purposefully in ascending order).</p>
 		
 		<img src="unbalanced_bst.jpeg" height="100%" width="100%" alt="Shows a binary search tree with a root node of 3.  Each subsequent node is attached to the right including 10, 14, 15, 20, 24, and 33.">
 		
-		<p>This tree is a BST but it looks more like a linked list.  This BST is unbalanced has a resulting performance for searching of O(n) insetad of O(log n).</p>
+		<p>This tree is a BST but looks more like a linked list.  This BST is unbalanced has a resulting performance for searching of O(n) instead of O(log n).</p>
 		
 		<h3>Balanced Binary Search Trees</h3>
-		<p>A Balanced Binary Search Tree (Balanced BST) is a BST such that the difference of height between two sub-trees is not dramatically different.  The height of a tree can be found by counting the maximum number of nodes between the root the leaves.  Since it is not reasonble to expect that the order of data will result in a Balanced BST, numerous algorithms have been written to detect if a tree is unbalanced and to correct the unbalance.  Common algorithms include Red Black Trees and AVL (Addelson, Velesky, and Landis) Trees.  The example below shows an AVL Tree which is balanced because the difference of height between subtrees is less than 2.</p>
+		<p>A balanced binary search tree (balanced BST) is a BST such that the difference of height between the two subtrees is not dramatically different.  The height of a tree can be found by counting the maximum number of nodes between the root and the leaves.  Since it is not reasonable to expect that the order of data will result in a balanced BST, numerous algorithms have been written to detect if a tree is unbalanced and to correct the unbalance.  Common algorithms include red black trees and AVL (Adelson, Velskii, and Landis) trees.  The example below shows an AVL tree which is balanced because the difference of height between subtrees is less than 2.</p>
 		
 		<img src="avl_tree_initial.jpeg" height="100%" width="100%" alt="Shows an AVL tree where the root node is 15.  The 15 is connected to 10 (on the left) and 24 (on the right).  The 10 is connected to 3 (on the left) and 14 (on the right).   The 12 is connected to 14 (on the left).  The 24 is connected to 33 (on the right). Looking at the subtree starting with 10, the height to the 3 on the left is 2.  The height of the subtree to the 12 on the right is 3.">
 		
@@ -66,7 +66,7 @@
 		
 		<img src="avl_tree_unbalanced.jpeg" height="100%" width="100%" alt="Shows the same AVL tree but with node 13 added to the right of 12.  The height between node 10 and node 13 is now 4.">
 		
-		<p>The AVL algorithm will detect that the tree has become unbalanced.  To balance the tree, one of many different kinds of node rotation will be performend.  For our tree, we can rotate the node with 13 so that nodes 12 and 14 are children node of the 13.  When this rotation is done, the tree returns to a balanced state.  An AVL tree will always be a Balanced BST and therfore benefit from O(log n) performance.</p>
+		<p>The AVL algorithm will detect that the tree has become unbalanced.  To balance the tree, a node rotation will be performed.  For our tree, we can rotate the node with 13 so that nodes 12 and 14 are children nodes of the 13.  When this rotation is done, the tree returns to a balanced state.  An AVL tree will always be a Balanced BST and therefore benefit from O(log n) performance.</p>
 		
 		<h2 style="counter-reset: h3">BST Operations</h2>
 		
@@ -76,15 +76,15 @@
 		
 		<p>Inserting into a BST is a recursive operations:</p>
 		<ul>
-		<li><p>Smaller Problem: Insert a value either into the left sub-tree or the right-subtree based on the value</p></li>
-		<li><p>Base Case: If there is space to add the node (the sub-tree is empty) then the correct place has been found and the item can be inserted.</p></li>
+		<li><p>Smaller problem: Insert a value into either the left subtree or the right subtree based on the value.</p></li>
+		<li><p>Base case: If there is space to add the node (the subtree is empty), then the correct place has been found and the item can be inserted.</p></li>
 		</ul>
 		
-		<p>The code for inserting into a BST is shown below.  Some things to note:</p>
+		<p>The code for inserting into a BST is shown below.  Some things to note are as follows:</p>
 		<ul>
-		<li><p>A node is defined as object (in this example) of class <code>BST.Node</code>.  This is similair to what we saw with the linked list class.  The <code>Node</code> class is called an inner class because its defined inside the <code>BST</code> class.  The Node class contains three things: <code>data</code> (the value), <code>left</code> (pointer to the left node), and <code>right</code> (pointer to the right node).</p></li>
-		<li><p>There are two functions.  The <code>insert</code> function is the one called by the user who wants to insert the a value into the tree.  This function is used to call the recursive function <code>_insert</code> starting at the root node.  As a special case, if the root node is empty (<code>none</code>), then we will put the new node in the root without using any recursion.  We will follow this pattern for many of the recursive functions we write for the BST.</p></li>
-		<li><p>In the <code>_insert</code> function, we should identify the base case and the recursive calls to the correct sub-trees.</p></li>
+		<li><p>A node is defined as an object (in this example) of class <code>BST.Node</code>.  This is similar to what we saw with the linked list class.  The <code>Node</code> class is called an inner class because it's defined inside the <code>BST</code> class.  The Node class contains three things: <code>data</code> (the value), <code>left</code> (pointer to the left node), and <code>right</code> (pointer to the right node).</p></li>
+		<li><p>There are two functions.  The <code>insert</code> function is the one called by the user who wants to insert a value into the tree.  This function is used to call the recursive function <code>_insert</code> starting at the root node.  As a special case, if the root node is empty (<code>none</code>), then we will put the new node in the root without using any recursion.  We will follow this pattern for many of the recursive functions we write for the BST.</p></li>
+		<li><p>In the <code>_insert</code> function, we should identify the base case and the recursive calls to the correct subtrees.</p></li>
 		</ul>
 		
 		<pre><code class="Python">		
@@ -103,7 +103,7 @@ def insert(self, data):
 def _insert(self, data, node):
 	"""
 	This function will look for a place to insert a node
-	with 'data' inside of it.  The current sub-tree is
+	with 'data' inside of it.  The current subtree is
 	represented by 'node'.  This function is intended to be
 	called the first time by the insert function.
 	"""
@@ -114,7 +114,7 @@ def _insert(self, data, node):
 			node.left = BST.Node(data)
 		else:
 			# Need to keep looking.  Call _insert
-			# recursively on the left sub-tree.
+			# recursively on the left subtree.
 			self._insert(data, node.left)
 	elif data &gt;= node.data:
 		# The data belongs on the right side.
@@ -123,7 +123,7 @@ def _insert(self, data, node):
 			node.right = BST.Node(data)
 		else:
 			# Need to keep looking.  Call _insert
-			# recursively on the right sub-tree.
+			# recursively on the right subtree.
 			self._insert(data, node.right)
 
 		</code></pre>	
@@ -132,8 +132,8 @@ def _insert(self, data, node):
 		<p>We traverse a BST when we want to display all the data in the tree.  An in-order traversal will visit each node from smallest to largest.  A similair process can be followed to visit each node from the largest to the smallest.  This is also a recursive process:</p>
 
 		<ul>
-		<li><p>Smaller Problem: Traverse the left sub-tree of a node, use the current node, and then traverse the right sub-tree of the node</p></li>
-		<li><p>Base Case: If the sub-tree is empty, then don't recursively traverse or use anything</p></li>
+		<li><p>Smaller problem: Traverse the left subtree of a node, use the current node, and then traverse the right subtree of the node.</p></li>
+		<li><p>Base case: If the subtree is empty, then don't recursively traverse or use anything.</p></li>
 		</ul>
 		
 		<p>The code for traversing a BST is shown below.  In addition to the observations made to the insert code above, we should note the following additional things about this algorithm:</p>
@@ -146,7 +146,7 @@ def _insert(self, data, node):
 		<pre><code class="Python">		
 def __iter__(self):
 	"""
-	Perform a formward traversal (in order traversal) starting from 
+	Perform a forward traversal (in order traversal) starting from 
 	the root of the BST.  This function is called when a loop
 	is performed:
 
@@ -160,7 +160,7 @@ def _traverse_forward(self, node):
 	"""
 	Does a forward traversal (in-order traversal) through the 
 	BST.  If the node that we are given (which is the current
-	sub-tree) exists, then we will keep traversing on the left
+	subtree) exists, then we will keep traversing on the left
 	side (thus getting the smaller numbers first), then we will 
 	provide the data in the current node, and finally we will 
 	traverse on the right side (thus getting the larger numbers last).
@@ -191,7 +191,7 @@ def _traverse_forward(self, node):
 		
 		<h2 style="counter-reset: h3">BST in Python</h2>
 		
-		<p>In your assignment this week you will be writing your own BST class.  Python does not have a built-in BST class.  However, there are packages that can be installed from other developers such as <code>bintrees</code> that provides implementations of the BST (<a href="https://pypi.org/project/bintrees/" target="_blank">link here</a>).  The table below shows the common functions in a BST.</p>
+		<p>In your assignment this week you will be writing your own BST class.  Python does not have a built-in BST class.  However, there are packages that can be installed from other developers such as <a href="https://pypi.org/project/bintrees/" target="_blank">bintrees</a> that provides implementations of the BST.The table below shows the common functions in a BST.</p>
 		
 		<table>
 			<tr>
@@ -201,42 +201,42 @@ def _traverse_forward(self, node):
 			</tr>
 			<tr>
 			  <td>insert(value)</td>
-			  <td>Insert a value into the tree</td>
-			  <td>O(log n) - Recursively search the sub-trees to find the next available spot</td>					
+			  <td>Insert a value into the tree.</td>
+			  <td>O(log n) - Recursively search the subtrees to find the next available spot</td>					
 			</tr>
 			<tr>
 			  <td>remove(value)</td>
-			  <td>Remove a value from the tree</td>
-			  <td>O(log n) - Recursively search the sub-trees to find the value and then remove it.  This will require some cleanup of the adjacent nodes.</td>					
+			  <td>Remove a value from the tree.</td>
+			  <td>O(log n) - Recursively search the subtrees to find the value and then remove it.  This will require some cleanup of the adjacent nodes.</td>					
 			</tr>			
 			<tr>
 			  <td>contains(value)</td>
-			  <td>Determine if a value is in the tree</td>
-			  <td>O(log n) - Recursively search the sub-trees to find the value.</td>					
+			  <td>Determine if a value is in the tree.</td>
+			  <td>O(log n) - Recursively search the subtrees to find the value.</td>					
 			</tr>
 			<tr>
 			  <td>traverse_forward</td>
-			  <td>Visit all objects from smallest to largest</td>	
-			  <td>O(log n) - Recursively traverse the left sub-tree and then the right sub-tree.</td>					
+			  <td>Visit all objects from smallest to largest.</td>	
+			  <td>O(log n) - Recursively traverse the left subtree and then the right subtree.</td>					
 			</tr>
 			<tr>
 			  <td>traverse_reverse</td>
-			  <td>Visit all objects from largest to smallest</td>	
-			  <td>O(log n) - Recursively traverse the right sub-tree and then the left sub-tree.</td>					
+			  <td>Visit all objects from largest to smallest.</td>	
+			  <td>O(log n) - Recursively traverse the right subtree and then the left subtree.</td>					
 			</tr>
 			<tr>
 			  <td>height(node)</td>
 			  <td>Determine the height of a node.  If the height of the tree is needed, the root node is provided.</td>
-			  <td>O(log n) - Recursively find the height of the left and right sub-trees and then return the maximum height (plus one to account for the root).</td>					
+			  <td>O(log n) - Recursively find the height of the left and right subtrees and then return the maximum height (plus one to account for the root).</td>					
 			</tr>
 			<tr>
 			  <td>size()</td>
-			  <td>Return the size of the BST</td>
-			  <td>O(1) - The size is maintained within the BST class</td>					
+			  <td>Return the size of the BST.</td>
+			  <td>O(1) - The size is maintained within the BST class.</td>					
 			</tr>
 			<tr>
 			  <td>empty()</td>
-			  <td>Returns true if the root node is empty.  The can also be done by checking the size for 0.</td>
+			  <td>Returns true if the root node is empty.  This can also be done by checking the size for 0.</td>
 			  <td>O(1) - The comparison of the root node or the size.</td>									
 			</tr>			
 		</table>
