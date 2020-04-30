@@ -17,13 +17,13 @@
 				
         <h2>Overview</h2>
 
-        <p>This week you will learn about Recursion and will solve numerous problems using this programming technique (ref: Syllabus Course Outcome 6). You are still in the <strong>TEACH</strong> phase of the course.</p>
+        <p>This week, you will learn about recursion and will solve numerous problems using this programming technique (ref: Syllabus Course Outcome 6). You are still in the <strong>TEACH</strong> phase of the course.</p>
 		
 		<img src="../images/cse212_phase2.jpeg" width="100%" height="100%" alt="Shows the 3 phases of the course as described in the Syllabus.  Phase 2 is highlighted."/>
 		
 		<p>Here is the two-day plan for this lesson:</p>
 		<ul><p><u>Day 1</u> - Complete the reading below.  The reading should take one hour to complete.  For on-campus students, class time will be used to discuss the reading and explore examples.  Online students should spend an additional hour communicating with other students in Slack and reviewing any examples or information provided by your instructor.  You should begin to work on <a href="08-prove.html" target="_blank">08-Prove</a> independently.  You should plan on the assignment taking three hours to complete.</p></ul>
-		<ul><p><u>Day 2</u> - You will work with your study group to complete <a href="08-teach.html" target="_blank">08-Teach</a> which will involve collaborating together on <a href="08-prove.html" target="_blank">08-Prove</a> which you will need to finish on your own.  On-campus students will complete this activity during class time.  You should come prepared for the activity by starting or completing several of the problems in the individual Prove assignment.  The activity should take one hour to complete.</p></ul>
+		<ul><p><u>Day 2</u> - You will work with your study group to complete <a href="08-teach.html" target="_blank">08-Teach</a> which will involve collaborating together on <a href="08-prove.html" target="_blank">08-Prove</a> which you will need to finish on your own.  On-campus students will complete this activity during class time.  You should come prepared for the activity by starting or completing several of the problems in the individual prove assignment.  The activity should take one hour to complete.</p></ul>
 		
 		<h2>Recursion</h2>
 		<p>Usually when we write functions, we design them so they call different functions.  Recursion is a technique where a function calls itself.  For example, consider the following code:</p>
@@ -34,9 +34,9 @@ def say_hello():
 	say_hello()  # This is the recursive call
 		</code></pre>		
 		
-		<p>This code will print "Hello" forever.  Actually, Python will eventually stop with a <code>RecursionError</code> because the <code>say_hello</code> function was called too many times.  Notice that in this function, the first call to <code>say_hello</code> never has a chance to finish.  In software, when a function is called it is put onto a stack.  The stack is used to keep track of what function to go back to when a function finishes.  In this case, the stack is filling up.</p>
+		<p>This code will print "Hello" forever.  Actually, Python will eventually stop with a <code>RecursionError</code> because the <code>say_hello</code> function was called too many times.  Notice that in this function, the first call to <code>say_hello</code> never has a chance to finish.  In software, when a function is called, it is put onto a stack.  The stack is used to keep track of what function to go back to when a function finishes.  In this case, the stack is filling up.</p>
 		
-		<p>When we use recursion, we need to make sure we following two important rules:</p>
+		<p>When we use recursion, we need to make sure we follow two important rules:</p>
 		<ul>
 			<li><p>Smaller Problem - When we call the function recursively, we need to make sure we are calling the function on a smaller problem.  Without this rule, our function will run forever.</p></li>
 			<li><p>Base Case - As we continue to call the function on a smaller problem, we need a place to stop.  We must define a scenario in which recursion is not required.</p></li>
@@ -53,17 +53,17 @@ def say_hello(count):
 		say_hello(count-1)  # Smaller Problem
 		</code></pre>		
 		
-		<p>In this new code, the smaller problem is <code>count-1</code> and the base case is when count is equal (or less than) zero.  When we look at this code, we should probably question the use of recursion when this could have been done with a simple <code>for</code> loop.  Recusion should not be used with everything.  When used inappropriately, recursion can result is significant performance degradation.  However, when used wisely, a simple code solution can be found for complex problems.</p>
+		<p>In this new code, the smaller problem is <code>count-1</code> and the base case is when count is equal (or less than) zero.  When we look at this code, we should probably question the use of recursion when this could have been done with a simple <code>for</code> loop.  Recursion should not be used with everything.  When used inappropriately, recursion can result is significant performance degradation.  However, when used wisely, a simple code solution can be found for complex problems.</p>
 		
 		<h2>Sample Problems</h2>
 		
-		<p>Solving problems using recursion requies us to state the solution of a problem in terms of the problem itself (ie, calling the function recursively).  Some problems in mathematics offer good examples of recursion (perfomance is questionable, but the examples are sound).</p>
+		<p>Solving problems using recursion requires us to state the solution of a problem in terms of the problem itself (i.e., calling the function recursively).  Some problems in mathematics offer good examples of recursion (performance is questionable, but the examples are sound).</p>
 		
 		<h3>Factorials</h3>
 		
 		<p>A factorial involves multiplying a series of numbers.  For a positive integer <code>n</code> (greater than 0), <code>n</code>! (read as <code>n</code> factorial) is defined as <code>n</code> * (<code>n</code>-1) * (<code>n</code>-2) * ... * 3 * 2 * 1.  If we wanted to calculate <code>n</code>! using recursion, we need to define the answer in terms of the problem again.  The "problem" here is the factorial function.  We can rewrite <code>n</code>! as follows:</p>
 		<p><code>n</code>! = <code>n</code> * (<code>n</code>-1)!</p>
-		<p>This solution above satifies the first rule of recursion.  To satisy the second rule of recursion, we need to define <code>n</code>! for some value of <code>n</code> without using recursion so that our solution does not run forever.  Without much math, we can solve 1! and say that it is equal to 1.  We now have a base case.  With our solution and base case, we can write the code:</p>
+		<p>This solution above satisfies the first rule of recursion.  To satisfy the second rule of recursion, we need to define <code>n</code>! for some value of <code>n</code> without using recursion so that our solution does not run forever.  Without much math, we can solve 1! and say that it is equal to 1.  We now have a base case.  With our solution and base case, we can write the code:</p>
 		
 		<pre><code class="Python">		
 def factorial(n):
@@ -75,16 +75,16 @@ def factorial(n):
 		
 		<h3>Fibonacci</h3>
 		
-		<p>The Fibonacci numbers are: 1, 1, 2, 3, 5, 8, 13, 21, 34, and so forth.  The sequence starts with two 1's.  Each subsequent number is the sum of the 2 previous values.  If we wanted to write a function <code>fib(n)</code> which would give us the <code>n</code>th fibonacci number, instead of thinking about loops, let's define <code>fib(n)</code> in terms of the same <code>fib</code> problem but with smaller values:</p>
+		<p>The Fibonacci numbers are: 1, 1, 2, 3, 5, 8, 13, 21, 34, and so forth.  The sequence starts with two 1's.  Each subsequent number is the sum of the two previous values.  If we wanted to write a function <code>fib(n)</code> which would give us the <code>n</code>th Fibonacci number, instead of thinking about loops, let's define <code>fib(n)</code> in terms of the same <code>fib</code> problem but with smaller values:</p>
 		
 		<p><code>fib(n)</code> = <code>fib(n-1)</code> + <code>fib(n-2)</code></p>
 		
-		<p>If we implement this, eventually we will get to calls of the <code>fib</code> function with smaller values of <code>n</code>.  These smaller values of <code>n</code> represent the base case for recursion solution.  Usually we try to think about solutions that we can easily calculate such as <code>fib(1) </code> which will equal 1.  However, if we look at our formula above, we will need more than one base case.  Consider <code>n</code>=3 which will require us to use <code>fib(2)</code> and <code>fib(1)</code>.  If we then recursively solve for <code>fib(2)</code>, we will need <code>fib(1)</code> and <code>fib(0)</code>.  In cases like this, we will need more than one base case representing the first 2 fibonacci numbers:</p>
+		<p>If we implement this, eventually we will get to calls of the <code>fib</code> function with smaller values of <code>n</code>.  These smaller values of <code>n</code> represent the base case for recursion solution.  Usually we try to think about solutions that we can easily calculate such as <code>fib(1) </code> which will equal 1.  However, if we look at our formula above, we will need more than one base case.  Consider <code>n</code>=3 which will require us to use <code>fib(2)</code> and <code>fib(1)</code>.  If we then recursively solve for <code>fib(2)</code>, we will need <code>fib(1)</code> and <code>fib(0)</code>.  In cases like this, we will need more than one base case representing the first two Fibonacci numbers:</p>
 		
 		<p><code>fib(2)</code> = 1</p>
 		<p><code>fib(1)</code> = 1</p>
 		
-		<p>Our resulting code will be:</p>
+		<p>Our resulting code will be as follows:</p>
 		
 		<pre><code class="Python">		
 def fib(n):
@@ -94,24 +94,24 @@ def fib(n):
 		return fib(n-1) + fib(n-2)  # fib(n) = fib(n-1) + fib(n-2)
 		</code></pre>		
 		
-		<p>It is a useful exercise to analyze what happens when we call the <code>fib</code> function.  The diagram below shows the functions that are called when we run <code>fib(6)</code>.  Notice that the call to <code>fib(n-1)</code> is called before <code>fib(n-2)</code> and therefore the <code>fib(n-1)</code> must finish first.  Also notice that there are many duplicate calls to the <code>fib</code> function for the same value of <code>n</code>.</p>
+		<p>It is a useful exercise to analyze what happens when we call the <code>fib</code> function.  The diagram below shows the functions that are called when we run <code>fib(6)</code>.  Notice that the call to <code>fib(n-1)</code> is called before <code>fib(n-2)</code> and, therefore, the <code>fib(n-1)</code> must finish first.  Also notice that there are many duplicate calls to the <code>fib</code> function for the same value of <code>n</code>.</p>
 		
 		<img src="fib6_recursion.jpeg" width="100%" height="100%" alt="Shows all the functions called by fib(6).  fib(6) calls fib(5) and fib(4).  fib(5) calls fib(4) and fib(3).  fib(4) calls fib(3) and fib(2).  fib(3) calls fib(2) and fib(1).  The total calls to the fib function (including the original fib(6)) is 15.">
 
-		<p>The <code>fib</code> function was called a total of 15 times!  This is a O(2^n) algorithm.</p>
+		<p>The <code>fib</code> function was called a total of 15 times!  This is an O(2^n) algorithm.</p>
 		
 		<h3>Find Combinations</h3>
 		
-		<p>The problem is to calculate the number of combinations of different letters in a word.  Mathematically, this should be <code>n!</code> where <code>n</code> is the number of letters in the word.  However, using recursion we can also display each of the combinations (so long as the number of letters is small otherwise it will take a long time to display all the results).  This problem though allows us to demonstrate a more complicated recursion problem and show a technique of remembering past results.</p>
-		<p>Let's assume that our list of letters is ["A", "B", "C", "D"].  Thinking about smaller problems being solved recursively, we could say that the number of combinations would be the sum of the following 4 things:</p>
+		<p>The problem is to calculate the number of combinations of different letters in a word.  Mathematically, this should be <code>n!</code> where <code>n</code> is the number of letters in the word.  However, using recursion, we can also display each of the combinations (so long as the number of letters is small, otherwise it will take a long time to display all the results).  This problem, though, allows us to demonstrate a more complicated recursion problem and show a technique of remembering past results.</p>
+		<p>Let's assume that our list of letters is ["A", "B", "C", "D"].  Thinking about smaller problems being solved recursively, we could say that the number of combinations would be the sum of the following four things:</p>
 		<ul>
 		<li><p>The number of combinations of A followed by all the different combinations of B, C, and D</p></li>
 		<li><p>The number of combinations of B followed by all the different combinations of A, C, and D</p></li>
 		<li><p>The number of combinations of C followed by all the different combinations of A, B, and D</p></li>
-		<li><p>The number of combinations of D followed by all the different combiantions of A, B, and C</p></li>
+		<li><p>The number of combinations of D followed by all the different combinations of A, B, and C</p></li>
 		</ul>
-		<p>Each recursive call to the <code>combinations</code> function will need to know two things: what letters have not been used yet, and the current string that has been built so far.  In the four scenarios above, after we add the A, we are left with letters B, C, and D (the letters that have not been used yet).  Additionally, after we add the A, the A should be added to the current string that we have built.</p>
-		<p>We also need a base case.  The simplist scenario is a list with one letter.  The result of <code>combinations(["A"])</code> would be one.  Here is our code (note that the printing out of the string should be commented out for large list of letters):</p>
+		<p>Each recursive call to the <code>combinations</code> function will need to know two things: what letters have not been used yet, and the current string that has been built so far.  In the four scenarios above, after we add the A, we are left with the letters B, C, and D (the letters that have not been used yet).  Additionally, after we add the A, the A should be added to the current string that we have built.</p>
+		<p>We also need a base case.  The simplest scenario is a list with one letter.  The result of <code>combinations(["A"])</code> would be one.  Here is our code (note that the printing out of the string should be commented out for large list of letters):</p>
 		
 		<pre><code class="Python">		
 def combinations(letters, word_so_far=""):
@@ -143,7 +143,7 @@ print(combinations(list("ABC")))       # 6
 print(combinations(list("ABCDEFG")))   # 5040					
 		</code></pre>		
 
-		<p>If we try a longer list of letters, this recursive algorithm slows down significantly.  Reflecting back on the fibonacii problem, the diagram of function calls showed many duplicate calls to the <code>fib</code> function for the same value of <code>n</code>.  Likewise, in the <code>combinations</code> function, there are many duplciate calls to the function for the same value of <code>letters</code>.  To solve this problem, we will use a dictionary to remember the results of calling <code>combinations</code>.  Before we do a recursive call, we will check our dictionary to see if we have solved that part of the problem already before.  In a way, this becomes another base case.  Our faster code know looks like this:</p>
+		<p>If we try a longer list of letters, this recursive algorithm slows down significantly.  Reflecting back on the Fibonacci problem, the diagram of function calls showed many duplicate calls to the <code>fib</code> function for the same value of <code>n</code>.  Likewise, in the <code>combinations</code> function, there are many duplciate calls to the function for the same value of <code>letters</code>.  To solve this problem, we will use a dictionary to remember the results of calling <code>combinations</code>.  Before we do a recursive call, we will check our dictionary to see if we have solved that part of the problem already before.  In a way, this becomes another base case.  Our faster code now looks like this:</p>
 		
 		<pre><code class="Python">		
 def combinations(letters, word_so_far="", remember=dict()):
@@ -191,11 +191,11 @@ print(combinations(list("ABCDEFGHIJKLMNOP"))) # 20922789888000
 
 		<h3>MergeSort</h3>
 		
-		<p>Recursion plays an important role in serveral data structures and sorting algorithms.  One of the common sorting algorithms is called MergeSort.  MergeSort is based on the following process:</p>
+		<p>Recursion plays an important role in several data structures and sorting algorithms.  One of the common sorting algorithms is called MergeSort.  MergeSort is based on the following process:</p>
 		
 		<ul>
-		<li><p>Split up a list into multiple smaller lists by.  This is done by recursively cutting the list in half to make two smaller lists.  The splitting stops when we get to a list of size 1 (the base case).  Note that a list of size 1 is sorted.</p></li>
-		<li><p>Merge the lists back together again.  When this merging begins, it will be sorting 2 lists of size 1.  The result will be a sorted list of size 2.  As the merging continues, sorted lists of larger size will be merged together.  The process of merging two sorted lists into a single sorted list was one of the problems from the first week of the semester.</p></li>
+		<li><p>Split up a list into multiple smaller lists.  This is done by recursively cutting the list in half to make two smaller lists.  The splitting stops when we get to a list of size 1 (the base case).  Note that a list of size 1 is sorted.</p></li>
+		<li><p>Merge the lists back together again.  When this merging begins, it will be sorting two lists of size 1.  The result will be a sorted list of size 2.  As the merging continues, sorted lists of larger size will be merged together.  The process of merging two sorted lists into a single sorted list was one of the problems from the first week of the semester.</p></li>
 		</ul>
 		
 		<p>Here is the code for MergeSort.  Notice the recursion with the smaller problem (smaller lists) and the base case:</p>
@@ -238,7 +238,7 @@ merge_sort(data)
 print(data)  # [1, 2, 3, 4, 6, 8, 9]
 		</code></pre>
 		
-		<p>The performance of this recursive algorithm is O(n * log n).  The O(log n) occurs because the recursion is splitting the list in half.  The O(n) occurs because of the algorithm to merge the two sorted lists together.  Many of the algorithms related to data structures and sorting that use recursion result in performance of either O(log n) or O(n * log n).  These solutions are preferred over those that give O(n) or O(n^2).</p>
+		<p>The performance of this recursive algorithm is O(n log n).  The O(log n) occurs because the recursion is splitting the list in half.  The O(n) occurs because of the algorithm to merge the two sorted lists together.  Many of the algorithms related to data structures and sorting that use recursion result in performance of either O(log n) or O(n log n).  These solutions are preferred over those that give O(n) or O(n^2).</p>
 		
 		<script src="../site/js/highlight/highlight.pack.js"></script>
 		<script>hljs.initHighlightingOnLoad();</script>
