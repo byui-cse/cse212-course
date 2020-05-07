@@ -13,19 +13,22 @@
         <h1>CSE 212 | Programming with Data Structures</h1>
     </header>
     <article>
-		<h1>07 Prepare: Linked Lists</h1>
+		<h1>07 Prepare : Reading</h1>
 				
-        <h2>Overview</h2>
-
-        <p>This week, you will learn about linked lists and will solve numerous problems using this data structure (ref: Syllabus Course Outcome 6). You are still in the <strong>TEACH</strong> phase of the course.</p>
+		<h2>Table of Contents</h2>
+		<p><a href="#1">Linked Lists</a></p>
+			<ul>
+			<li><p><a href="#1.1">Linked List Structure</a></p></li>				
+			<li><p><a href="#1.2">Inserting into a Linked List</a></p></li>
+			<li><p><a href="#1.3">Removing from a Linked List</a></p></li>
+			<li><p><a href="#1.4">Accessing from a Linked List</a></p></li>
+			<li><p><a href="#1.5">Linked Lists in Python</a></p></li>
+			<li><p><a href="#1.6">Comparing Dynamic Array and Linked List</a></p></li>
+		</ul>
 		
-		<img src="../images/cse212_phase2.jpeg" width="100%" height="100%" alt="Shows the 3 phases of the course as described in the Syllabus.  Phase 2 is highlighted."/>
+		<h2 id="1">Linked Lists</h2>
 		
-		<p>Here is the two-day plan for this lesson:</p>
-		<ul><p><u>Day 1</u> - Complete the reading below.  The reading should take one hour to complete.  For on-campus students, class time will be used to discuss the reading and explore examples.  Online students should spend an additional hour communicating with other students in Slack and reviewing any examples or information provided by their instructor.  You should begin to work on <a href="07-prove.html" target="_blank">07-Prove</a> independently.  You should plan on the assignment taking three hours to complete.</p></ul>
-		<ul><p><u>Day 2</u> - You will work with your study group to complete <a href="07-teach.html" target="_blank">07-Teach</a> which will involve collaborating together on <a href="07-prove.html" target="_blank">07-Prove</a> which you will need to finish on your own.  On-campus students will complete this activity during class time.  You should come prepared for the activity by starting or completing several of the problems in the individual prove assignment.  The activity should take one hour to complete.</p></ul>
-		
-		<h2>The Linked List Data Structure</h2>
+		<h3 id="1.1">Linked List Structure</h3>
 		<p>When we learned about the dynamic array, we saw that it was characterized by contiguous memory.  Each item in a dynamic array is right next to the next item in memory.  This allowed for very quick access to items in the drynamic array because memory addresses of each item could be calculated from a formula (address = starting_address + (index * item_size)).  The queue, stack, set, and map were all based on memory organized in this way.</p>
 		
 		<img src="dynamic_array_not_full.jpeg" width="100%" height="100%" alt="Shows a dynamic array with capacity 8 and size 7.  Indicies 0 through 6 are populated with 8, 12, 31, 15, 4, 42, and 27."/>
@@ -38,7 +41,7 @@
 		
 		<img src="linked_list_double.jpeg" width="100%" height="100%" alt="Shows a doubly linked list made up of 5 nodes.  Each node has a value, a NEXT that points to the next node, and a PREV that points to the previous node.  The HEAD is pointing to the first node and the TAIL is pointing to the last node.  The nodes have the following values in order: 8, 12, 31, 15, 4."/>
 		
-		<h2>Inserting into a Linked List</h2>
+		<h2 id="1.2">Inserting into a Linked List</h2>
 		
 		<p>Unlike inserting into a dynamic array where we had to worry about moving items over towards the end to maintain contiguous memory, the act of inserting into a linked list only has an effect on its neighboring elements.  Additionally, since we are going to use pointers to connect the nodes together, there is no need to think about things such as capacity or growing the list like we did with a dynamic array.  There are three scenarios to consider: insert at the head, insert at the tail, and insert at the middle.</p>
 		<p>Inserting at the head usually requires a four step process:</p>
@@ -75,7 +78,7 @@
 		
 		<img src="linked_list_insert_middle.jpeg" width="100%" height="100%" alt="Shows a doubly linked list made up of 5 nodes with values of 8, 12, 31, 15, and 4.  The four step process to add 50 after the node with 31 (called CURRENT NODE) is shown: 1) Create a new node with value 50; 2) Connect PREV of the new node to the CURRENT NODE; 3) Connect NEXT from the new node to the node after CURRENT NODE (15); 4) Set the PREV of the node after CURRENT NODE to the new node; 5) Set the NEXT of the CURRENT NODE to the new node."/>
 		
-		<h2>Removing from a Linked List</h2>
+		<h2 id="1.3">Removing from a Linked List</h2>
 		
 		<p>Removing the first (the head) or the last (this tail) node from a linked list is similar and involve setting updating the second node (or the second to last node in the case of removing from the tail).  The process for removing the first node is as follows:</p>
 		
@@ -106,7 +109,7 @@
 
 		<img src="linked_list_remove_middle.jpeg" width="100%" height="100%" alt="Shows a doubly linked list made up of 5 nodes with values of 8, 12, 31, 15, and 4.  The two step process to remove the node with 31 (called the CURRENT NODE): 1) Set the PREV of the node after the CURRENT NODE (15) to the node before the CURRENT NODE (12); 2) Set the NEXT of the node before the CURRENT NODE to the node after the CURRENT NODE."/>
 		
-		<h2>Accessing from a Linked List</h2>
+		<h2 id="1.4">Accessing from a Linked List</h2>
 		
 		<p>If we want to find a value in the linked list or if we want to find a specific node (e.g. the 3rd node or the 10th node), we are required to loop through the linked list.  We can start at either the head (if we want to go forward through the list) or we can start at the tail (if we want to go backward through the list).  To loop through the list, we will follow the "next" (or the "prev" if going backwards from tail) links until we get to the end.  The following code is a basic traversal through a linked list:</p>
 		
@@ -125,7 +128,7 @@ def go_forward(self):
 		current = current.next
 			</code></pre>
 		
-		<h2>Linked Lists in Python</h2>
+		<h2 id="1.5">Linked Lists in Python</h2>
 		
 		<p>In your assignment this week you will be writing your own linked list class.  However, Python does have a linked list available for use called the <code>deque</code>.  To create an empty linked list, the following code is used:  <code>link_list = deque()</code>.  You will need to include the following import statement as well:  <code>import deque</code>.  The table below shows the common functions in the <code>deque</code>.</p>
 		
@@ -186,7 +189,7 @@ def go_forward(self):
 			</tr>			
 		</table>
 		
-		<h2>Comparing Dynamic Array and Linked List</h2>
+		<h2 id="1.6">Comparing Dynamic Array and Linked List</h2>
 		
 		<p>The dynamic array and linked list look the same to the user but because the memory is managed differently, the performance numbers are different.  The table below compares these two data structures:</p>
 		

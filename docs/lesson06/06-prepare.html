@@ -13,23 +13,25 @@
         <h1>CSE 212 | Programming with Data Structures</h1>
     </header>
     <article>
-		<h1>06 Prepare: Maps</h1>
+		<h1>06 Prepare : Reading</h1>
 				
-        <h2>Overview</h2>
+		<h2>Table of Contents</h2>
+		<p><a href="#1">Maps</a></p>
+			<ul>
+			<li><p><a href="#1.1">Making the Map from the Set</a></p></li>				
+			<li><p><a href="#1.2">Sets in Python</a></p></li>
+			<li><p><a href="#1.3">Complex Dictionary Data</a></p></li>
+			<li><p><a href="#1.4">Building Summary Tables</a></p></li>
+		</ul>
 
-        <p>This week, you will learn about maps (also called hashtables, hasmaps, and dictionaries) and will solve numerous problems using this data structure (ref: Syllabus Course Outcome 6). You are starting the <strong>TEACH</strong> phase of the course.</p>
+		<h2 id="1">Maps</h2>
 		
-		<img src="../images/cse212_phase2.jpeg" width="100%" height="100%" alt="Shows the 3 phases of the course as described in the Syllabus.  Phase 2 is highlighted."/>
-		
-		<p>Here is the two-day plan for this lesson:</p>
-		<ul><p><u>Day 1</u> - Complete the reading below.  The reading should take one hour to complete.  For on-campus students, class time will be used to discuss the reading and explore examples.  Online students should spend an additional hour communicating with other students in Slack and reviewing any examples or information provided by their instructor.  You should begin to work on <a href="06-prove.html" target="_blank">06-Prove</a> independently.  You should plan on the assignment taking three hours to complete.</p></ul>
-		<ul><p><u>Day 2</u> - You will work with your study group to complete <a href="06-teach.html" target="_blank">06-Teach</a> which will involve collaborating together on <a href="06-prove.html" target="_blank">06-Prove</a> which you will need to finish on your own.  On-campus students will complete this activity during class time.  You should come prepared for the activity by starting or completing several of the problems in the individual prove assignment.  The activity should take one hour to complete.</p></ul>
-		
-		<h2>The Map Data Structure</h2>
+		<h3 id="1.1">Making the Map from the Set</h3>
 		<p>The map is most commonly viewed as a table.  In the map below, the first column contains a unique value called the <strong>key</strong>.  The second column contains a value (not necessarily unique) called the <strong>value</strong>.  The key forms a set because all the values are unique.  A map is created in software by associating a value with each item in the key set.  In the picture below, the table shows the key and value pairs.  The Key's are hashed into what looks like a set.  The values are then stored with each key value.</p>
 		
 		<img src="map.jpeg" alt="Shows a table with Color (the key) equal to Green (the value), Quantity equal to 25, Price equal to 1.99, Name equal to Pencil, and ID equal to 3924A-3.  Each key/value pair is then stored in the data structure.  The keys are hashed (index(n) = hash(key) % 10) into a list of size 10.  For demonstration purposes, Quantity has been put in Index 1, the Name has been put in Index 3, the Color has been put in Index 4, then Price has been put in Index 7, and the ID has been put in Index 9.  The values for each key value have been placed in the same location as the Key.">
 		
+		<h3 id="1.2">Sets in Python</h3>
 		<p>The performance of the map is the same for the set.  Some programming languages call this a hashtable or a hashmap.  In Python, this is called a dictionary.  The dictionary (like the set) can be represented using a curly braces to specify a comma separated list of key/value pairs:</p>
 		
 		<pre><code class="Python">	
@@ -79,7 +81,7 @@ empty_map2 = dict()
 			</tr>
 		</table>
 		<br>
-		<h2>Complex Dictionary Data</h2>
+		<h3 id="1.3">Complex Dictionary Data</h3>
 		<p>A Python dictionary can store any value including other dictionaries.  Consider the following example which is data that was received from a website about the location of the <a href="http://open-notify.org/Open-Notify-API/ISS-Location-Now/" target="_blank">International Space Station </a>.  This data is called JSON (JavaScript Object Notation) data and is a common data format.  JSON data looks like a Python dictionary.</p>
 		<pre><code class="Python">
 space_station = {"timestamp": 1584638006, 
@@ -108,7 +110,7 @@ for person in astronauts["people"]:
 			</code></pre>
 		<p>Notice that the "people" key has a list for a value (using the square brackets).  To display the "name" of each person, we need to loop through each of the dictionaries in the "people" list and display the value associated with the name "key".</p>
 		
-		<h2>Building Summary Tables</h2>
+		<h3 id="1.4">Building Summary Tables</h3>
 		<p>If we have an empty table, we can build a table from a list of data.  Using a dictionary, we can convert a list of data into a summary table.</p>
 		<pre><code class="Python">	
 letters = ["A", "A", "B", "G", "C", "G", "G", "D", "B"]

@@ -13,22 +13,27 @@
         <h1>CSE 212 | Programming with Data Structures</h1>
     </header>
     <article>
-		<h1>02 Prepare: Evaluating Performance of Alternative Solutions / Big O Notation</h1>
+		<h1>02 Prepare : Reading</h1>
 				
-      <h2>Overview</h2>
-
-        <p>This week, you will explore the skill of evaluating performance of alternative solutions.  To support this evaluation, you will learn how to use big O notation (ref: Syllabus Course Outcome 2).  You are still in the <strong>PREPARE</strong> phase of the course.</p>
+		<h2>Table of Contents</h2>
+		<p><a href="#1">Big O Notation</a></p>
+			<ul>
+			<li><p><a href="#1.1">Big O Notation and Linear Performance</a></p></li>
+			<li><p><a href="#1.2">Polynomial Performance</a></p></li>
+			<li><p><a href="#1.3">Logarithmic Performance</a></p></li>
+			<li><p><a href="#1.4">Performance of Dynamic Arrays</a></p></li>
+			</ul>
 		
-		<img src="../images/cse212_phase1.jpeg" width="100%" height="100%" alt="Shows the 3 phases of the course as described in the Syllabus.  Phase 1 is highlighted."/>
+		<p><a href="2">Evaluating Performance of Alternative Solutions</a></p>
+			<ul>
+			<li><p><a href="2.1">Analyze Performance</a></p></li>
+			<li><p><a href="2.2">Measure Actual Execution Time</a></p></li>
+			</ul>
 		
-		<p>Here is the two-day plan for this lesson:</p>
-		<ul><p><u>Day 1</u> - Complete the reading below.  The reading should take one hour to complete.  For on-campus students, class time will be used to discuss the reading and explore examples.  Online students should spend an additional hour communicating with other students in Slack and reviewing any examples or information provided by their instructor.  You should begin to work on <a href="02-prove.html" target="_blank">02-Prove</a> independently.  You should plan on the assignment taking three hours to complete.</p></ul>
-		<ul><p><u>Day 2</u> - You will work with your study group to complete <a href="02-teach.html" target="_blank">02-Teach</a> which will contain practice problems similar to your individual assignment.  On-campus students will complete this activity during class time.  The activity should take one hour to complete.  You should finish work on <a href="02-prove.html" target="_blank">02-Prove</a> independently.</p></ul>
-		
-			<h2>Big O Notation</h2>
+		<h2 id="1">Big O Notation</h2>
 		<p>To evaluate code and look for alternative solutions, it is important that we have a common method for quanitfying the performance of code in terms of time.  The principles we will learn can also be applied to analysis of how much memory or space is used by code to perform a task.</p>
 		
-		<h3>Big O Notation and Linear Performance</h3>
+		<h3 id="1.1">Big O Notation and Linear Performance</h3>
 		
 		<p>Big O Notation is used to describe the performance of an algorithm (or function) for large sets of data.  If we have two functions that do the same thing, we can use big O notation to compare the performance of the two functions.  As a simple example, consider the following code which looks for the name "Bob" in a list of names:</p>
 		
@@ -56,7 +61,7 @@ def multiple_loops(n):
 		<p>However, if we zoom very far out to very large values of n, we notice that the distance between O(n) and O(2n) has not changed.  While it is true O(2n) will take twice as long, in the measurements of big O notation, they are equivalant since as we get to larger and larger values of n, the rate of increase (or decrease) has not changed.  The coefficients in big O notation should be dropped.  Therefore, instead of saying O(2n) for the function above, we will say O(n).</p>
 		<img src="linear_two_zoomed_out.jpg" width="100%" height="100%" alt="Shows y=x and y=2*x on the same graph for x in the range from 0 to 2000000.  The distance between the two graphs is the same as when we were zoomed in.">
 		
-		<h3>Polynomial Performance</h3>
+		<h3 id="1.2">Polynomial Performance</h3>
 		
 		<p>As seen earlier, the structure of the for loops is important to analyzing the big O performance for a function.  Consider the following scenario:</p>
 		<pre><code class="Python">	
@@ -80,7 +85,7 @@ def short_multiplication_table(n):
 		
 		<p>When we count iterations of a loops in a function, we may end up with complex polynomials that look like this.  Assume that we had performance predicted at O(2n^3 - 7n^2 + 13n - 15).  In addition to dropping coefficients, we also drop lesser exponents like (in this example) the n^2 and the n.  Therefore, O(2n^3 - 7n^2 + 13n - 15) = O(n^3).  This code likely has a loop, within a loop, within a loop.</p>
 
-		<h3>Logarithmic Performance</h3>
+		<h3 id="1.3">Logarithmic Performance</h3>
 		
 		<p>It would seem like O(n) is the best performance you can get if we want to analyze a set of information.  However, there are some algorithms that have better performance.  Consider a function that had performance of O(log n).  When graphed, the performance does not get significantly worse as the size of the data increases.</p>
 		
@@ -102,7 +107,7 @@ def short_multiplication_table(n):
 		
 		<p>The process above relies on an important fact.  The ability to find the middle of a list (or dynamic array as we learned last week) using a lookup operation is O(1).  The next section will review why this is.</p>
 		
-		<h3>Performance of the Dynamic Arrays</h3>
+		<h3 id="1.4">Performance of Dynamic Arrays</h3>
 		
 		<p>Now that we have big O notation, we can characterize the performance of our data structure operations.</p>
 		
@@ -150,15 +155,15 @@ def short_multiplication_table(n):
 		</table>
 		<br>
 
-	<h2 style="counter-reset: h3">Evaluate Performance of Alternative Solutions</h2>
+	<h2 id="2" style="counter-reset: h3">Evaluate Performance of Alternative Solutions</h2>
 		
-		<h3>Analyze Performance</h3>
+		<h3 id="2.1">Analyze Performance</h3>
 		
 		<p>The real benefit of using big O notation is to find a way to compare and contrast one or more functions that perform the same task.  It's possible that we have written one function that functionally works very well.  However, when we run the function, it is taking too long to complete.  When code takes too long, the user may have a user interface that is unresponsive or the software may miss requests arriving from external sources.  When this happens, we need to analyze the big O notation of our code and look for ways to improve it with a new function.</p>
 		
 		<p>We should not be satisified with the functionality of our code only.  We should always consider the performance.  In addition to looking at timing, we can also perform a similar analysis on the amount of memory our functions use.  It is possible to write code in many different ways but not all solutions may have the best performance.  We should always check the performance of our code especially when loops are involved.  Care should be taken when multiple functions are used in software.  If one function has a loop and calls another set of functions within that loop, the performance of the other functions needs to be done.</p>
 		
-		<h3>Measure Actual Execution Time</h3>
+		<h3 id="2.2">Measure Actual Execution Time</h3>
 		
 		<p>When we analyze performance, we are making a prediction.  Frequently, we need to perform tests to benchmark (i.e. measure) the actual performance of the functions we are using. In Python, the <code>timeit</code> library provides a capability to measure how much time was spent executing a function.  Consider the following example:</p>
 	
