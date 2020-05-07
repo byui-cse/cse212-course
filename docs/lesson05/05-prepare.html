@@ -13,24 +13,31 @@
         <h1>CSE 212 | Programming with Data Structures</h1>
     </header>
     <article>
-		<h1>05 Prepare: Articulating Answers to Technical Questions / Sets</h1>
+		<h1>05 Prepare : Reading</h1>
 				
-        <h2>Overview</h2>
-
-        <p>This week, you will explore how you articulate answers to technical questions that are frequently asked during employment interviews. You will practice your interviewing skills using questions related to the set data structure (ref: Syllabus Course Outcome 5).  You are still in the <strong>PREPARE</strong> phase of the course.</p>
+		<h2>Table of Contents</h2>
+		<p><a href="#1">Sets</a></p>
+			<ul>
+			<li><p><a href="#1.1">Characteristics of Sets</a></p></li>				
+			<li><p><a href="#1.2">Hashing and Sets</a></p></li>
+			<li><p><a href="#1.3">Dealing with Conflicts</a></p></li>
+			<li><p><a href="#1.4">Applications with Sets</a></p></li>
+			<li><p><a href="#1.5">Sets in Python</a></p></li>
+			</ul>
 		
-		<img src="../images/cse212_phase1.jpeg" width="100%" height="100%" alt="Shows the 3 phases of the course as described in the Syllabus.  Phase 1 is highlighted."/>
+		<p><a href="2">Artiulating Answers to Technical  Questions</a></p>
+			<ul>
+			<li><p><a href="2.1">Interview Questions</a></p></li>
+			<li><p><a href="2.2">Articulating the Answer</a></p></li>
+			</ul>
 		
-		<p>Here is the two-day plan for this lesson:</p>
-		<ul><p><u>Day 1</u> - Complete the reading below.  The reading should take one hour to complete.  For on-campus students, class time will be used to discuss the reading and explore examples.  Online students should spend an additional hour communicating with other students in Slack and reviewing any examples or information provided by their instructor.  You should begin to work on <a href="05-prove.html" target="_blank">05-Prove</a> independently.  You should plan on the assignment taking three hours to complete.</p></ul>
-		<ul><p><u>Day 2</u> - You will work with your study group to complete <a href="05-teach.html" target="_blank">05-Teach</a> which will contain practice problems similar to your individual assignment.  On-campus students will complete this activity during class time.  The activity should take one hour to complete.  You should finish work on <a href="05-prove.html" target="_blank">05-Prove</a> independently.</p></ul>
-		
-			<h2>The Set Data Structure</h2>
+			<h2 id="1">Sets</h2>
 		<p>Previously we learned about lists, stacks, and queues.  The location of each item in these data structures was very important to the proper use of the data structure.  Not all data structures worry about the order of the data.  The set data structure is an example of one for which order is not important.  </p>
 		
+		<h3 id="1.1">Characteristics of Sets</h3>
 		<p>Besides the lack of order, the set has another difference.  Could we add duplicate data to a list, stack, or queue?  The answer is yes and this situation is very common. However, the set is constrained to allow no duplicates.  Knowing that there will be no duplicates (and because we don't care about the order) allows us to store the information in a set to make it very efficient to determine if data is in the set.  This test of membership in the set is the most important operation belonging to this data structure.  Using a technique called hashing, the set is able to add, remove, and test for membership in O(1) time.</p>
 		
-		<h3>Hashing and Sets</h3>
+		<h3  id="1.2">Hashing and Sets</h3>
 		<p>To achieve the O(1) time for set operations, we will consider a very simple example.  Assume we wanted to store all positive one digit numbers (0 to 9) into a list.  How would we store these numbers if we wanted to have an O(1) performance for adding, removing, or testing for membership?  If we used the value to determine the index into the list, we might be able to achieve O(1).  Consider the function <code>index(n) = n</code>.  If we wanted to add the number 7, then we would use this simple function to determine the index to put the number 7 is index 7.  If we wanted to add the number 4, then we would put it into our function and get the index 4.  For this to work, our list will need to be exactly size 10.</p>
 		
 		<img src="set_1digit.jpeg" height="100%" width="100%" alt="Shows a list of size 10 starting at index 0 containing some 1 digit numbers.  The value of 1 is in index 1, 4 is in index 4, 7 is in index 7, and 8 is in index 8.  Implements the equation index(n) = n.">
@@ -49,7 +56,7 @@
 			
 		<p>If we only have 100 spots and there are up to 10 billion possible values, it's reasonable to expect that perhaps there is a weakness in the data structure.  Using the same diagram above, what would happen if we tried to add 548,345,952?  This would also be placed in index 2.  This is called a conflict. </p>
 		
-		<h3>Dealing with Conflicts</h3>
+		<h3  id="1.3">Dealing with Conflicts</h3>
 		<p>There are two common ways to deal with conflict in a sparse list.  The first option is called open addressing.  If we use our <code>index(n)</code> hashing function and find that something already occupies the space (or the item in that space is not what we are looking for), then open addressing strategy will tell us move to the next available space.  There are multiple ways that this can be done, but the simplest method would be to look to the right one spot at a time.  The danger with this approach is that a conflict can result in the creation of more conflicts.  In the example below, when 548,345,952 was added, since there was a conflict in index 2, we would move over to index 4.  Since there is something in index 4 already, we have to move to index 5.  Unfortantely, now any number ending in a 5 will also find a conflict.  This can result in rapidly growing clusters of conflicts.  </p>
 			
 		<img src="set_10digit_open_addressing.jpeg" height="100%" width="100%" alt="Shows the previous list of size 10 with 9 digit numbers.  548345952 is shown in index 4 because indexes 2 and 3 were already full.">
@@ -60,7 +67,7 @@
 		
 		<p>In both of these options to solve conflicts, we have an adverse effect on our O(1) performance.  The use of the <code>index(n)</code> hashing function is what gives us the O(1) timing.  If we have to search through several positions to find a value, or if we have to search the chained list, we may approach O(n) if the amount of conflict is high.  To avoid this, we need to increase the size of the sparsed list if the amount of conflict is too high.  When we increase the size of the sparsed list, then we need to reposition all of the values by running the <code>index(n)</code> function again with the increased sparsed list size.</p>
 		
-		<h3>Applications with Sets</h3>
+		<h3 id="1.4">Applications with Sets</h3>
 		<p>Sets have the following key characteristics:</p>
 		<ul>
 		<li><p>Fast peformance for adding, removing, and finding (membership test).</p></li>
@@ -75,7 +82,7 @@
 			<li><p>Performing mathematical set operations such as an intersection (common values between two sets) and union (all values within two sets).</p></li>
 		</ul>
 		
-		<h3>Sets in Python</h3>
+		<h3 id="1.5">Sets in Python</h3>
 		<p>In Python, a set can be represented using a curly braces (e.g. <code>my_set = {1, 2, 3}</code>)  To create an empty set (unlike an empty list), we use the code: <code>empty_set = set()</code>.  The <code>in</code> operator can be used to determine membership in the set.  The performance of the set is based on the performance of the hashing algorithm.</p>
 
 		<table>
@@ -129,8 +136,9 @@ set4 = set1 | set2        # Alternate way of writing a union
 
 		<p>The Python library also includes a class called <code>dict</code> which stands for dictionary which is built using the set.  The dictionary in Python also uses the curly brace notation.  We will learn more about this in the future when we study maps.</p>
 	
-	<h2>Answering Technical Interview Questions</h2>
+	<h2 id="2" style="counter-reset: h3">Artiulating Answers to Technical Questions</h2>
 		
+		<h3 id="2.1">Interview Questions</h3>
 		<p>It can feel intimidating, but most interviews that relate to software engineering will require us to answer technical questions.  These questions frequently include questions related to data structures like the following:
 		</p>
 		<ul>
@@ -142,6 +150,7 @@ set4 = set1 | set2        # Alternate way of writing a union
 		
 		<p>Frequently, the interviewer is more interested in your thought process of getting to the "how" instead of the actual solution.  Even so, it's a valuable exercise to also solve the problems so you are better able to describe the "how" in an actual interview. </p>
 		
+		<h3  id="2.2">Articulating the Answer</h3>
 		<p>When you approach a problem to solve with a limited amount of time to respond, you should consider the following guidance:</p>
 		<ul>
 		<li><p>Understand the problem being asked.  You should not hesitate to ask clarifying questions to avoid assumptions.  For example: what is the valid range of numbers? Are duplicates allowed? Will there be invalid data in the collection?  These questions serve two purposes.  First, they help you to understand the problem and second, they communicate to the interviewer that you are aware of common constraints and errors that can occur in software.</p></li>

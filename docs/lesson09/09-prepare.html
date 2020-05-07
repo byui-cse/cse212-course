@@ -13,27 +13,28 @@
         <h1>CSE 212 | Programming with Data Structures</h1>
     </header>
     <article>
-		<h1>09 Prepare: Binary Search Trees</h1>
+		<h1>09 Prepare : Reading</h1>
 				
-        <h2>Overview</h2>
-
-        <p>This week, you will learn about binary search trees and will solve numerous problems using this data structure (ref: Syllabus Course Outcome 6). You are still in the <strong>TEACH</strong> phase of the course.</p>
+		<h2>Table of Contents</h2>
+		<p><a href="#1">Trees</a></p>
+			<ul>
+			<li><p><a href="#1.1">Binary Trees</a></p></li>				
+			<li><p><a href="#1.2">Binary Search Trees</a></p></li>
+			<li><p><a href="#1.3">Balanced Binary Search Trees</a></p></li>
+			<li><p><a href="#1.4">Inserting into a BST</a></p></li>
+			<li><p><a href="#1.5">Traversing a BST</a></p></li>
+			<li><p><a href="#1.6">BST in Python</a></p></li>
+		</ul>
 		
-		<img src="../images/cse212_phase2.jpeg" width="100%" height="100%" alt="Shows the 3 phases of the course as described in the Syllabus.  Phase 2 is highlighted."/>
-		
-		<p>Here is the two-day plan for this lesson:</p>
-		<ul><p><u>Day 1</u> - Complete the reading below.  The reading should take one hour to complete.  For on-campus students, class time will be used to discuss the reading and explore examples.  Online students should spend an additional hour communicating with other students in Slack and reviewing any examples or information provided by their instructor.  You should begin to work on <a href="09-prove.html" target="_blank">09-Prove</a> independently.  You should plan on the assignment taking three hours to complete.</p></ul>
-		<ul><p><u>Day 2</u> - You will work with your study group to complete <a href="09-teach.html" target="_blank">09-Teach</a> which will involve collaborating together on <a href="09-prove.html" target="_blank">09-Prove</a> which you will need to finish on your own.  On-campus students will complete this activity during class time.  You should come prepared for the activity by starting or completing several of the problems in the individual prove assignment.  The activity should take one hour to complete.</p></ul>
-		
-		<h2>Binary Search Trees</h2>
+		<h2 id="1">Trees</h2>
 		<p>Trees are like linked lists in that nodes are connected together by pointers.  However, unlike linked lists, a tree can connect to multiple different nodes.  We will look at the following types of trees: binary trees, binary search trees, and balanced binary search trees.</p>
 		
-		<h3>Binary Trees</h3>
+		<h3 id="1.1">Binary Trees</h3>
 		<p>A binary tree is a tree that links to no more than two other nodes.  In the picture below, the top node is called the <strong>root</strong> node.  The nodes that connect to no other nodes are called <strong>leaf</strong> nodes.  Nodes are frequently also referred to <strong>parent</strong> and <strong>child</strong> nodes.  The nodes to the left of a parent node and the nodes to the right of a parent node each form a subtree.  There is always only one root node.  While not shown in the picture, it is common for child nodes to also point back up to the parent node (similar to a linked list).</p>
 		
 		<img src="binary_tree.jpeg" height="100%" width="100%" alt="Shows a Binary Tree where the top (node A) is called the root, the nodes that do not conenct to any other nodes are called leaves (node D, E, and F).  Node A connects to nodes B and C.  Node B connects to node D and E.  Node C connects only to node F.  A subtree is formed from a any parent node such as node B and includes all of the children nodes D and E.">
 		
-		<h3>Binary Search Trees</h3>
+		<h3 id="1.2">Binary Search Trees</h3>
 		<p>A binary search tree (BST) is a binary tree that follows rules for data that is put into the tree.  Data is placed into the BST by comparing the data with the value in the parent node.  If the data being added is less than the parent node, then it is put in the left subtree.  If the data being added is greater (usually we will say greater than or equal to if duplicates are allowed) than the parent node, then it is put in the right subtree.  By using this process, the data is stored in the tree sorted.</p>
 		
 		<img src="binary_search_tree.jpeg" height="100%" width="100%" alt="Shows a Binary Search Tree where the root node is 15.  The 15 is connected to 10 (on the left) and 24 (on the right).  The 10 is connected to 3 (on the left) and 14 (on the right).  The 24 is connected to 33 (on the right).">
@@ -57,7 +58,7 @@
 		
 		<p>This tree is a BST but looks more like a linked list.  This BST is unbalanced has a resulting performance for searching of O(n) instead of O(log n).</p>
 		
-		<h3>Balanced Binary Search Trees</h3>
+		<h3 id="1.3">Balanced Binary Search Trees</h3>
 		<p>A balanced binary search tree (balanced BST) is a BST such that the difference of height between the two subtrees is not dramatically different.  The height of a tree can be found by counting the maximum number of nodes between the root and the leaves.  Since it is not reasonable to expect that the order of data will result in a balanced BST, numerous algorithms have been written to detect if a tree is unbalanced and to correct the unbalance.  Common algorithms include red black trees and AVL (Adelson, Velskii, and Landis) trees.  The example below shows an AVL tree which is balanced because the difference of height between subtrees is less than 2.</p>
 		
 		<img src="avl_tree_initial.jpeg" height="100%" width="100%" alt="Shows an AVL tree where the root node is 15.  The 15 is connected to 10 (on the left) and 24 (on the right).  The 10 is connected to 3 (on the left) and 14 (on the right).   The 12 is connected to 14 (on the left).  The 24 is connected to 33 (on the right). Looking at the subtree starting with 10, the height to the 3 on the left is 2.  The height of the subtree to the 12 on the right is 3.">
@@ -72,7 +73,7 @@
 		
 		<p>BST operations can be very complicated (balanced BST's offering even more complication).  We will look at two operations in our study of trees:  inserting and traversing.</p>
 		
-		<h3>Inserting into a BST</h3>
+		<h3 id="1.4">Inserting into a BST</h3>
 		
 		<p>Inserting into a BST is a recursive operations:</p>
 		<ul>
@@ -127,7 +128,7 @@ def _insert(self, data, node):
 			self._insert(data, node.right)
 
 		</code></pre>	
-		<h3>Traversing a BST</h3>
+		<h3 id="1.5">Traversing a BST</h3>
 		
 		<p>We traverse a BST when we want to display all the data in the tree.  An in-order traversal will visit each node from smallest to largest.  A similair process can be followed to visit each node from the largest to the smallest.  This is also a recursive process:</p>
 
@@ -189,7 +190,7 @@ def _traverse_forward(self, node):
 		
 		<p>A reverse traversal is frequently associated with the <code>__reversed__</code> function in Python.</p>
 		
-		<h2 style="counter-reset: h3">BST in Python</h2>
+		<h3 id="1.6">BST in Python</h3>
 		
 		<p>In your assignment this week you will be writing your own BST class.  Python does not have a built-in BST class.  However, there are packages that can be installed from other developers such as <a href="https://pypi.org/project/bintrees/" target="_blank">bintrees</a> that provides implementations of the BST.The table below shows the common functions in a BST.</p>
 		

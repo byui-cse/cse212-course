@@ -13,22 +13,27 @@
         <h1>CSE 212 | Programming with Data Structures</h1>
     </header>
     <article>
-		<h1>04 Prepare: Finding Defects Using Tests / Queues</h1>
+		<h1>04 Prepare : Reading</h1>
 				
-        <h2>Overview</h2>
-
-        <p>This week, you will explore the technique of testing to help you find defects in code. You will practice your skills at finding defects via tests using code that implements the queue data structure (ref: Syllabus Course Outcome 4).  You are still in the <strong>PREPARE</strong> phase of the course.</p>
+		<h2>Table of Contents</h2>
+		<p><a href="#1">Queues</a></p>
+			<ul>
+			<li><p><a href="#1.1">Grocery Story Queue</a></p></li>
+			<li><p><a href="#1.2">Web Server Queue</a></p></li>
+			<li><p><a href="#1.3">Reader/Writer Queue</a></p></li>
+			<li><p><a href="#1.4">Queues in Python</a></p></li>
+			</ul>
 		
-		<img src="../images/cse212_phase1.jpeg" width="100%" height="100%" alt="Shows the 3 phases of the course as described in the Syllabus.  Phase 1 is highlighted."/>
+		<p><a href="2">Finding Defects Using Testing</a></p>
+			<ul>
+			<li><p><a href="2.1">Testing Code from Requirements</a></p></li>
+			<li><p><a href="2.2">Running Test Cases</a></p></li>
+			</ul>
 		
-		<p>Here is the two-day plan for this lesson:</p>
-		<ul><p><u>Day 1</u> - Complete the reading below.  The reading should take one hour to complete.  For on-campus students, class time will be used to discuss the reading and explore examples.  Online students should spend an additional hour communicating with other students in Slack and reviewing any examples or information provided by their instructor.  You should begin to work on <a href="04-prove.html" target="_blank">04-Prove</a> independently.  You should plan on the assignment taking three hours to complete.</p></ul>
-		<ul><p><u>Day 2</u> - You will work with your study group to complete <a href="04-teach.html" target="_blank">04-Teach</a> which will contain practice problems similar to your individual assignment.  On-campus students will complete this activity during class time.  The activity should take one hour to complete.  You should finish work on <a href="04-prove.html" target="_blank">04-Prove</a> independently.</p></ul>
-		
-			<h2>The Queue Data Structure</h2>
+			<h2 id="1">Queues</h2>
 		<p>During the last lesson, we learned about the stack.  The Stack was "Last In, First Out" (LIFO) and was implemented using the Python list.  The queue is characterized as "First In, First Out" (FIFO) and can also be implemented using the Python list.</p>
 		
-		<h3>Grocery Story Queue</h3>
+		<h3 id="1.1">Grocery Story Queue</h3>
 		
 		<p>In the example below, we can see a line at a busy grocery store used to represent a queue.  The person next in line for the cashier is called the <strong>front</strong> and the person at the end of the line is called the <strong>back</strong>.  When the person at the front is removed from the queue we call this a <strong>dequeue</strong> operation.  When a new person joins the queue at the back, we call this an <strong>enqueue</strong> operation.  Note that someone cannot cheat and enter the line in the middle of the queue. </p>
 		
@@ -36,14 +41,14 @@
 		
 		<p>Queues are used when we need to process a collection of requests in a fair and orderly way.  Consider the following two common queues used in software: the Web Server Queue and the Reader/Writer Queue. </p>
 				
-		<h3>Web Server Queue</h3>
+		<h3 id="1.2">Web Server Queue</h3>
 		<p>A web server receives numerous HTTP requests for web pages from clients throughout the world.  Each request requires the web server to send back information.  The amount of time it takes to send that information makes it difficult to respond timely to all requests.  This would be similair to a customer service desk that had only one phone.  If the customer service agent is helping someone else, then no one would pick up your call.  To solve the problem, a queue is used to pick up all the phone calls and transfer you to the customer service agent when they are ready for the next person.</p>
 		
 		<img src="web_server.jpeg" width="100%" height="100%" alt="Shows 3 laptop computers sending requests through the Internet Cloud to a server.  The server enqueues the requests into a Web Server Queue (whih currently has 4 requests with space for 5).  The server dequeues requests from the queue when it is ready.  The response is sent to back to the laptop through the Internet Cloud."/>
 		
 		<p>The web server does the same thing.  When a request is sent, it is put into a queue until the web server can process the request.  In this way, all requests are received and none of them are lost.  Queues frequently have a self-imposed maximum size. If a queue is full, then the software may need to send an error message back to the client.</p>
 		
-		<h3>Reader/Writer Queue </h3>
+		<h3 id="1.3">Reader/Writer Queue </h3>
 		
 		<p>Frequently, we have the need to run different software components concurrently (e.g. looks like they are running at the same time).  Each component is called a process or a thread (additonal information about threads in Python can be found <a href="https://realpython.com/intro-to-python-threading/" target="_blank">here</a>).  Each process will likely have their own set of variables that are maintained.  Frequently, there is need to have shared data between the processes.  The diagram below shows a variable which is being shared by multiple processes.</p>
 		
@@ -52,7 +57,7 @@
 		<p>Processes P1 through P6 are all trying to use the variable at the same time.  Processes P1, P2, and P3 are reading the variable and processes P4, P5, and P6 are writing to the variable.  The concurrent reading is not a problem.  However, if everyone tries to both read and write at the same time, new and modified values may be missed or overwritten.  One solution is to protect the code that is writing to the shared data so that only one process can change the variable at a time.  A queue is used to ensure order and integrity.  When a process wants to write, it is enqueued.  When a process is dequeued, it is then allowed to modify the shared variable.  When the process is done, then the next process is dequeued.</p>
 		
 				
-		<h3>Queues in Python</h3>
+		<h3 id="1.4">Queues in Python</h3>
 		<p>In Python, a queue can be represented using a list.  To dequeue an item from the front of the queue, <code>[0]</code> can be used to obtain the first item and also delete it from the list.  To enqueue an item to the back of the queue, the <code>append</code> function can be used on the list.  The size can be determined by using the <code>len</code> function on the list.  The performance of the queue using a Python list is based on the performance of the dynamic array.</p>
 
 		<table>
@@ -91,13 +96,15 @@
 
 		<p>The Python library also includes a class called <code>deque</code> which stands for double ended queue and is more frequently used due to better performance.  We will learn more about this in the future when we study linked lists.</p>
 	
-	<h2>Finding Defects Using Testing</h2>
+	<h2 id="2" style="counter-reset: h3">Finding Defects Using Testing</h2>
 		
         <p>The best time to find a defect is while you are "in-phase."  This means that before you deliver your software to the customer you want to identify as many errors as possible.  It is much more expensive to fix errors if the software has already been delivered to the customer.  The two most common methods for finding defects are:
 		<ul>
 		<li><p>Code Review</p></li>
 		<li><p>Testing</p></li>
 		</ul></p>
+	
+	<h3 id="2.1">Testing Code from Requirements</h3>
 		<p>Even the best code reviewers may not be able to analyze all the different scenarios that the software will execute within.  Testing is a process of demonstrating that specific inputs will result in expected outputs.  The selection of inputs can be done systematically.  We do not need to test all input combination.  Often times we will write code to test your code.  Consider a program that was supposed to determine if a year was a leap year.  The requirements of a program would include the following:</p>
 			<ul>
 	<li><p>Every 4 years shall be a leap year.</p></li>
@@ -113,6 +120,8 @@
 		<li><p>Test 4</p><ul><li>Scenario: Year 2003 (not multiple of 4, 100, or 400)</li>
 			<li>Expected Result: False</li></ul></li>
 	</ul>
+	
+	<h3 id="2.2">Running Test Cases</h3>
 	<p>Notice that each test has a detailed scenario and expected result based on the requirements.  If we were given a function called <code>is_leap_year</code>, we could write test code as follows:</p>
 		<pre><code class="Python">	
 result = is_leap_year(1996)

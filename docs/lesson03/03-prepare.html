@@ -13,28 +13,36 @@
         <h1>CSE 212 | Programming with Data Structures</h1>
     </header>
     <article>
-		<h1>03 Prepare: Understanding Code Using Reviews / Stacks</h1>
+		<h1>03 Prepare : Reading</h1>
 				
-        <h2>Overview</h2>
-
-        <p>This week, you will explore techniques of code review to support your understanding of code. You will practice your skills at understanding code using code that implements the stack data structure (ref: Syllabus Course Outcome 3).  You are still in the <strong>PREPARE</strong> phase of the course.</p>
+		<h2>Table of Contents</h2>
+		<p><a href="#1">Stacks</a></p>
+			<ul>
+			<li><p><a href="#1.1">Stack of Pancakes</a></p></li>
+			<li><p><a href="#1.2">The "Undo" Option and the Stack</a></p></li>
+			<li><p><a href="#1.3">Software and the Function Stack</a></p></li>
+			<li><p><a href="#1.4">Stacks in Python</a></p></li>
+			</ul>
 		
-		<img src="../images/cse212_phase1.jpeg" width="100%" height="100%" alt="Shows the 3 phases of the course as described in the Syllabus.  Phase 1 is highlighted."/>
+		<p><a href="2">Understanding Code Using Reviews</a></p>
+			<ul>
+			<li><p><a href="2.1">Code Reviews</a></p></li>
+			<li><p><a href="2.2">Read code "cover to cover"</a></p></li>
+			<li><p><a href="2.3">"Execute" the Code Manually</a></p></li>
+			<li><p><a href="2.4">Analyze the use of Data Structures</a></p></li>
+			</ul>
 		
-		<p>Here is the two-day plan for this lesson:</p>
-		<ul><p><u>Day 1</u> - Complete the reading below.  The reading should take one hour to complete.  For on-campus students, class time will be used to discuss the reading and explore examples.  Online students should spend an additional hour communicating with other students in Slack and reviewing any examples or information provided by their instructor.  You should begin to work on <a href="03-prove.html" target="_blank">03-Prove</a> independently.  You should plan on the assignment taking three hours to complete.</p></ul>
-		<ul><p><u>Day 2</u> - You will work with your study group to complete <a href="03-teach.html" target="_blank">03-Teach</a> which will contain practice problems similar to your individual assignment.  On-campus students will complete this activity during class time.  The activity should take one hour to complete.  You should finish work on <a href="03-prove.html" target="_blank">03-Prove</a> independently.</p></ul>
 		
-			<h2>The Stack Data Structure</h2>
+			<h2 id="1">Stacks</h2>
 		<p>A stack is a data structure that is chacterized by the order in which items are added and removed.  Often called "Last In, First Out" (LIFO), the stack can be used to accomplish various tasks and can be implemented using a Python list.</p>
 		
-		<h3>Stack of Pancakes</h3>
+		<h3 id="1.1">Stack of Pancakes</h3>
 		
 		<p>If you were going to make pancakes for your family or friends, you probably would have a plate ready to stack the hot pancakes on as they finished ooking.  Each time we put a pancake onto the stack, we call this a <strong>push</strong> operation.  In our culinary example, we might say that each new pancake goes onto the top of the stack.  However, since we are going to implement our stacks in Python, we will say that the pancake is actually added to the <strong>back</strong>.  When we take a pancake off to eat, we call this a <strong>pop</strong> operation.  Notice that we push and pop from the back of the stack.  Removing from the middle of the stack is not generally allowed (especially at the dinner table).  Notice that the pancake at the <strong>front</strong> is the the very first pancake that was cooked.  If the pancakes are made faster than they are eaten, then this first pancake would get cold.  A LIFO (Last In, First Out) or FIFO (First In, First Out) structure like the stack can result in data not being used for a long time.  This might not work well for a rotating stock system in a grocery store, but the real benefit of the stack is the ability to rememember where we have been.</p>
 		
 		<img src="pancake_stack.jpeg" width="100%" height="100%" alt="Shows a stack of pancakes where no pancakes are pushed to the back and pancakes are popped from the back to be eaten."/>
 		<br>
-		<h3>The "Undo" Option and the Stack</h3>
+		<h3 id="1.2">The "Undo" Option and the Stack</h3>
 		
 		<p>One of the most common stacks that people use on a computer is related to the Undo option in word processors and editors.  When we type something on the keyboard, the item is both displayed to the screen and also added to a stack.  If we type the phrase <code>"The rain in Spain stays mainly in the plain"</code>, we would expect the following commands to be put pushed onto the stack: <code>Type "The"</code>, <code>Type "rain"</code>, <code>Type "in"</code>, and so forth.  The last item to pushed would be <code>Type "plain"</code>.  If we press the Undo button, the software will pop the stack and receive: <code>Type "plain"</code>.  The software will then do the opposite of this which would result in the word <code>"plain"</code> being removed from the screen.  </p>
 		
@@ -44,7 +52,7 @@
 		
 		<p>Stacks are useful when we need to maintain history and perform an operation (eg. Undo function in an editor) backwards.</p>
 				
-		<h3>Software and the Function Stack</h3>
+		<h3 id="1.3">Software and the Function Stack</h3>
 		
 		<p>Even if we didn't know what a stack was before today, we have actually been using stacks in all software we have written.  When we call a function in our code, we are telling the computer two things:</p>
 		<ul><li><p>Which function we want to call</p></li>
@@ -64,7 +72,7 @@
 		
 		<img src="debugger_call_stack.jpeg" width="100%" height="100%" alt="Shows the call stack from a Python program running in Visual Studio Code when a breakpoint was reached an paused the sofwtare."/>
 		<br>
-		<h3>Stacks in Python</h3>
+		<h3 id="1.4">Stacks in Python</h3>
 		<p>In Python, a stack can be represented using a list.  To push an item to the back of the stack, the <code>append</code> function can be used on the list.  To pop an items from the back of the stack, the <code>pop</code> function can be used.  The <code>pop</code> function will also delete it from the list.  The size can be determined by using the <code>len</code> function on the list.  The performance of the stack using a Python list is based on the performance of the dynamic array.</p>
 
 		<table>
@@ -101,7 +109,9 @@
 		</table>
 		<br>
 
-	<h2 style="counter-reset: h3">Understanding Code Using Reviews</h2>
+	<h2  id="2" style="counter-reset: h3">Understanding Code Using Reviews</h2>
+		
+		<h3 id="2.1">Code Reviews</h3>
 		<p>We have frequently been asked to write code for either school or work.  However, how often have we been asked to complete the companion activity of reading code?  We have likely looked at code from websites and books, but there is a signficant difference between looking at code and reading code.  When we read code, we are attempting to understand the code like we would a book.  If we open a book and read a few random pages, we might get a high level summary of what the book is about.  However, to fully understand the book, we would need to not only read the book cover to cover, but we would also need to become acquainted personally with the diverse set of characters, follow a potentially winding plot, and discover the underlying messages woven in the story from the author.  This type of reading takes effort.  Reading code for understanding takes an equal amount of effort.</p>
 		
 		<p>There are multiple reasons why we might be asked to read code in our teams: </p>
@@ -120,7 +130,7 @@
 			
 		<p>In this process, it is possible that we might find defects in the code that we were given.  Code reviews are a common tool for increasing software quality.  Performing these steps will require us to keep a good notebook to record our hypotheses, experiments, and conclusions.  A good reviewer will always have a pen and paper ready to complete their task.</p>
 		
-		<h3>Read Code "Cover to Cover"</h3>
+		<h3 id="2.2">Read Code "Cover to Cover"</h3>
 		<p>Unlike a book, code does not begin on page one.  We need to find where the code begins and follow it as it calls functions, runs loops, and branches in different directions with decision statements.  If the code has multiple functions, the creation of a structure chart (also called a calling tree) will be helpful.  The structure chart will use boxes to represent functions and arrows to represent functions calling functions.  Frequently drawn with the starting function at the top and working downwards, these diagrams can help us navigate through the code.  On the arrows, we may frequently write the inputs and outputs related to each function.  This will help us better understand the data in the code and which functions are responsible for creating, modifying, and using that data.</p>
 		
 		<img src="structure_chart.jpeg" width="100%" height="100%" alt="Shows a structure chart where the main function calls the readAccessRecords function and the searchAccessRecords function.  The readAccessRecords function receives an accessFile input and produces accessRecords and recordCount as an output.  The searchAccessRecords function receives the accessREcords, numRecords, startTime, and entTime while producing no output.  The searchAccessRecords function also call the displayAccessRecord function providing accessRecord as an input with no outputs."/>
@@ -133,7 +143,7 @@
 		
 		<img src="flow_chart.jpeg" width="100%" height="100%" alt="Shows the flow of random number guessing game.  After getting the seed from the user and seeding the generator, a random number is selected and the guess counter is reset.  A loop begins with the user being prompted for a guess.  The guess counter will be udpated and then the guess is compared with the actual number.  Either the phrase higher, lower, or congratulations will be displayed.  If the correct answer was guessed, the guess count is also displayed.  The user is prompted to play the game again.  If they want to play again, then the process above repeast starting with the selection of a random number and the resetting of the guess counter.  Otherwise, the software says goodbye and the program ends.">
 		<br>
-		<h3>"Execute" the Code Manually</h3>
+		<h3 id="2.3">"Execute" the Code Manually</h3>
 		<p>It is not always practical to run code that we are given.  If we can, then running the code with inputs that we generate can be helpful to understand the software.  However, the goal in this process is to understand the software without running the code on the computer.  Instead, we are going to run the software in our minds and on paper.</p>
 		
 		<p>If we created diagrams in the previous step from our reading of the code "cover to cover," then we can run the code from the diagrams.  This is an incomplete approach but is very helpful in gaining more understanding of what the software will perform.</p>
@@ -208,7 +218,7 @@ def do_something(text):
   </tbody>
 </table>
 		<br>
-		<h3>Analyze the use of Data Structures</h3>
+		<h3 id="2.4">Analyze the use of Data Structures</h3>
 		<p>When code contains a data structure like a list or a stack (and others that we will learn during the course), we should consider why the data structure was used.  Data structures are used both for storing information but also to use the information in different ways.  Looking at the readings above, a stack is used if we want to remember where we have been and potentially go reverse or backwards.  Knowing this capability, you can form a hypothesis about what the code is doing if you see a stack being used in the code.  During the activities this week, you will be reading code that uses stacks.  How the stack is being used will help you better understand the purpose and behavior of the code.</p>
         </article>
 	

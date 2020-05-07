@@ -13,22 +13,28 @@
         <h1>CSE 212 | Programming with Data Structures</h1>
     </header>
     <article>
-		<h1>01 Prepare: Problem Solving Strategies / Dynamic Arrays</h1>
-				
-      <h2>Overview</h2>
+		<h1>01 Prepare: Reading</h1>
+		<h2>Table of Contents</h2>
+		<p><a href="#1">Dynamic Arrays</a></p>
+			<ul>
+			<li><p><a href="#1.1">Fixed Arrays</a></p></li>
+			<li><p><a href="#1.2">Dynamic Arrays</a></p></li>
+			<li><p><a href="#1.3">Inserting in the Array</a></p></li>
+			<li><p><a href="#1.4">Deleting from the Array</a></p></li>
+			<li><p><a href="#1.5">Python Lists</a></p></li>
+			<li><p><a href="#1.6">Looping through Lists and the Range Function</a></p></li>
+			<li><p><a href="#1.7">List Comprehensions</a></p></li>
+			</ul>
+		
+		<p><a href="#2">Problem Solving Strategies</a></p>
+			<ul>
+			<li><p><a href="#2.1">Scientific Method</a></p></li>
+			<li><p><a href="#2.2">Four Step Process</a></p></li>
+			</ul>
 
-        <p>This week, you will explore problem solving strategies.  To support these strategies, you will learn how to use Dynamic Arrays (ref: Syllabus Course Outcome 1). </p>
-		<p>This course is divided up into three phases: PREPARE, TEACH, and PROVE.  Starting this week you are in the <strong>PREPARE</strong> phase of the course.</p>
-		
-		<img src="../images/cse212_phase1.jpeg" width="100%" height="100%" alt="Shows the 3 phases of the course as described in the Syllabus.  Phase 1 is highlighted."/>
-		
-		<p>Here is the two-day plan for this lesson:</p>
-		<ul><p><u>Day 1</u> - Complete the reading below.  The reading should take one hour to complete.  For on-campus students, class time will be used to discuss the reading and explore examples.  Online students should spend an additional hour communicating with other students in Slack and reviewing any examples or information provided by their instructor.  You should begin to work on <a href="01-prove.html" target="_blank">01-Prove</a> independently.  You should plan on the assignment taking three hours to complete.</p></ul>
-		<ul><p><u>Day 2</u> - You will work with your study group to complete <a href="01-teach.html" target="_blank">01-Teach</a> which will contain practice problems similar to your individual assignment.  On-campus students will complete this activity during class time.  The activity should take one hour to complete.  You should finish work on <a href="01-prove.html" target="_blank">01-Prove</a> independently.</p></ul>
-		
-		<h2>Dynamic Arrays</h2>
+		<h2 id="1">Dynamic Arrays</h2>
 
-		<h3>Fixed Arrays</h3>
+		<h3 id="1.1">Fixed Arrays</h3>
 		<p>A fixed array is a collection of data put in memory with the following properties:</p>
 		<ul>
 		<li><p>The fixed array cannot grow or shrink after it is created.</p></li>
@@ -39,7 +45,7 @@
 		
 		<img src="fixed_array.jpeg" width="100%" height="100%" alt="Shows a fixed array with 8 items (index going from 0 to 7) where each item is 4 bytes long.  Since the starting memory address is 100, the addresses of all items (in order) are 100, 104, 108, 112, 116, 120, 124, and 128."/>
 		
-		<h3>Growing the Array</h3>
+		<h3 id="1.2">Dynamic Arrays</h3>
 		<p>The difference between a dynamic array and a fixed array is that the dynamic array can grow (and also shrink).  This means that we can always add another item to a dynamic array.  One of the common operations performed on a dynamic array is to append a new item to the end of the list.  Consider the dynamic array below.</p>
 		
 		<img src="dynamic_array_not_full.jpeg" width="100%" height="100%" alt="Shows a dynamic array with capacity 8 and size 7.  Indicies 0 through 6 are populated with 8, 12, 31, 15, 4, 42, and 27."/>
@@ -62,15 +68,19 @@
 		
 		<img src="dynamic_array_grow.jpeg" width="100%" height="100%" alt="Shows the previous full array.  A new array with double the capacity (16) is created.  ALl the values from indicies 0 to 7 from the original array are copied to the new array.  The new value 99 is then added to index 8 of the new array."/>
 		
+		<h3 id="1.3">Inserting in the Array</h3>
+		
 		<p>If we wanted to insert an item somewhere besides the end of the dynamic array, we would need to be careful to maintain the order of the items in the array.  In the array below, if we insert a value at the beginning of the array, all other items will need to move to the next index (i.e. move to the right).</p>
 		
 		<img src="dynamic_array_insert.jpeg" width="100%" height="100%" alt="Shows the previous array of capacity 16 and size 9.  The number 20 is inserted into index 0 which causes the previous values in indicies 0 to 8 to move over by one to the right (towards the end)."/>
+		
+		<h3 id="1.4">Deleting from the Array</h3>
 		
 		<p>If we wanted to delete an item from the array, we would need to move all items after the item removed to the previous index (i.e. move to the left).  As a special case, if we wanted to remove the last item in the array, we would not need to move any other items.  The typical effect of removing the last item is to just decrease the <code>size</code> variable by 1 while leaving the <code>capacity</code> the same.  This means that the data is not really "deleted."  If we append a new item, then the previously "deleted" item will be overwritten.</p>
 		
 		<img src="dynamic_array_delete.jpeg" width="100%" height="100%" alt="Shows the previous array of capacity 16 and size 10.  The number 20 is removed from index 0 which causes the previous values in indicies 1 to 9 to move over by one to the left (towards the beginning)."/>
 		
-		<h3>Python Lists</h3>
+		<h3 id="1.5">Python Lists</h3>
 		
 		<p>In Python, a dynamic array is created by using a <code>list</code>.  The most common way to create a list is to use square brackets (e.g. <code>my_list = [1, 2, 3]</code>)  The following table shows the most common operations in a dynamic array and the equivalent Python code:</p>
 		
@@ -117,7 +127,7 @@
 			</tr>			
 		</table>
 		
-		<h3>Looping Through Lists and the Range Function</h3>
+		<h3 id="1.6">Looping Through Lists and the Range Function</h3>
 		
 		<p>To access, display, or do something with every item in a list, the for loop is used.  The following code will display all values in a list one at a time:</p>
 		<pre><code class="Python">	
@@ -140,7 +150,7 @@ for index in range(len(my_list)):
 		<li><p><code>range(a,b,c)</code> - Select numbers from a to b-1 stepping by c.  For example, <code>range(1,8,2)</code> will produce 1, 3, 5, 7.  Notice that the step size may prevent us from finishing at the b-1 value.</p></li>
 		</ul>
 	
-		<h3>List Comprehensions</h3>
+		<h3 id="1.7">List Comprehensions</h3>
 	
 		<p>If we need to create a list in Python, a list comprehension provides some shorthand notation for writing them quickly.  A list comprehension can generically be written as the following: <code>my_list = [expression for item in collection if condition]</code></p>
 	
@@ -177,10 +187,14 @@ leap_years = [year for year in range(1900, 2001) if (year % 400 == 0) or
 					(year % 100 != 0 and year % 4 == 0)]
 			</code></pre>
 
-		<h2 style="counter-reset: h3">Problem Solving Strategies</h2>
+		<h2 id="2" style="counter-reset: h3">Problem Solving Strategies</h2>
+		
+		<h3 id="2.1">Scientific Method</h3>
 		<p>It can be daunting to try to solve a problem (especially if you are constrained by time in an interview).  While it can be tempting to either dive into code or dive into the internet to find help, we want to develop engineering discipline in our work.  When we learned about science, we were introduced to the scientific method.</p>
 		
 		<img src="scientific_method.jpeg" width="100%" height="100%" alt="Shows a flow chart representing the scientific method.  The process goes: Problem Statement, Research, Hypothesis, Experiment, and then Conclusions.  If the conclusions suggest that the problem is solved, then we can finish knowing we have the answer.  If the conclusions suggest that the problem is not solved, then we return back up to the Research step."/>
+		
+		<h3 id="2.2">Four Step Process</h3>
 		
 		<p>When we go directly to writing code we are short-circuiting the  process.  When we start out the process by researching online but use the answers without experimenting with those ideas, we are also short-circuiting the process.  For the purposes of solving problems with software, consider the following four steps that align well with the scientific method:</p>
 		
