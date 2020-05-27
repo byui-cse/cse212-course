@@ -16,39 +16,38 @@
         <h1>04 Prove: Individual Assignment</h1>
 
         <h2>Instructions</h2>
-		<p>This assignment <strong>must be completed individually</strong> to ensure you are meeting all course outcomes.  You should not complete this project within a group.  If you obtain help from a tutor, the tutor should help you understand principles but should not help you design or write your project.  It is an honor code violation to obtain text or example problems for your project from others including using the internet (i.e. sites that allow students to share their solutions).</p>
+		<p>This assignment <strong>must be completed individually</strong> to ensure you are meeting all course outcomes.  You should not complete this assignment within a group.  If you obtain help from a tutor, the tutor should help you understand principles but should not help you answer these problems.  It is an honor code violation to obtain answers for these problems from others including using the internet (i.e. sites that allow students to share their solutions).</p>
+		<p>Download the <a href="01-prove_response.docx" target="_blank">01-prove_response.docx</a> document to provide your answers to questions asked in the steps below.</p>
 		
 		<p>Download the <a href="04-prove_response.docx" target="_blank">04-prove_response.docx</a> document to provide your answers to questions asked in the steps below.</p>
 
 		
 		<h3>Part 1 - Taking Turns Queue</h3>
         <ol>
-			<li><p>Download the following code file: <a href="taking_turns_queue.py" target="_blank">taking_turns_queue.py</a>  (Note: Do not read through the code first.  Instead, proceed with the instructions below).</p></li>
-			<li><p>The Taking_Turns_Queue class maintains a circular queue of people.  When a person is added, they are assigned a number of turns (which could be infinite).  When a person is removed from the queue, they are re-added to the queue if they still have turns left.  Here are the detailed requirements:</p>
-			<ul>
-			<li>Each record in the Taking Turns Queue shall contain the name of the person and the number of turns they will get (a value of 0 or less means an infinite number of turns). </li>
+			<li><p>Download the following code file: <a href="04-prove_taking_turns_queue.py" target="_blank">04-prove_taking_turns_queue.py</a>  (Note: Do not read through the code first.  Instead, proceed with the instructions below).</p></li>
+			<li><p>The Taking_Turns_Queue class maintains a circular queue of people.  When a person is added, they are assigned a number of turns (a value of 0 or less means that they have an infinite number of turns).  When a person is removed from the queue, they are re-added to the queue if they still have turns left.  Here are the detailed requirements:</p>
+			<ol>
 			<li>The add_person function shall enqueue a person into the queue.</li>
 			<li>The get_next_person function shall dequeue a person from the queue and display their name.</li>
 			<li>When a person is dequeued and still has turns left, they shall be enqueued again.</li>
-			<li>When a person is dequeued and has an infinite number of turns, they shall be enqueued again.</li>
+			<li>When a person is dequeued and has an infinite number of turns (defined as having number of turns of 0 or less), they shall be enqueued again.</li>
 			<li>If the queue is empty, then an error message shall be displayed.</li>
-			</ul>
+			</ol>
 			</li>
 			<li><p>Test cases are already written for you in the code.  Run the tests and find the errors.  You should summarize the results of the tests and the errors found in your response document.  </p></li>
 			<li><p>Fix the code so that all requirements are implemented corretly.  You know that you are done because the test cases will all pass.</p></li>
 		</ol>
 		<h3>Part 2 - Priority Queue</h3>
 		<ol>
-			<li><p>Download the following code file: <a href="priority_queue.py" target="_blank">priority_queue.py</a> (Note: Do not read through the code first.  Instead, proceed with the instructions below).</p></li>
+			<li><p>Download the following code file: <a href="04-prove_priority_queue.py" target="_blank">04-prove_priority_queue.py</a> (Note: Do not read through the code first.  Instead, proceed with the instructions below).</p></li>
 			<li><p>The Priority_Queue class maintains a queue where each value put in the queue also has a priority (higher numbers have a higher priority).  When you add to the queue, it goes to the back as expected.  When you remove from the queue, the highest priority item is removed.  If there are multiple values with the same high priority, then the first one (following the FIFO strategy) is removed first.  Here are the detailed requirements:</p>
-			<ul>
-			<li>Each node in the Priority Queue shall contain a value and a priority (higher numbers have a higher priority). </li>
+			<ol>
 			<li>The enqueue function shall add a node to the back of the queue.</li>
 			<li>The dequeue function shall remove the node with the highest priority and return its value.</li>
 			<li>If there are more than one node with the highest priority, then the item closest to the front of the queue will be removed and its value returned.</li>
 			<li>If the queue is empty, then an error message will be displayed.</li>
-			</ul></li>
-			<li><p>Write your own test cases based on these requirements.  You will summarize the test cases in your response document.</p></li>
+			</ol></li>
+			<li><p>Write your own test cases based on these requirements.  Ensure that your tests cover all of the requirements listed above.  You will summarize the test cases in your response document.</p></li>
 			<li><p>Run your test cases and find the errors.  If your tests were not sufficient, you might not find all the errors in the code.  You should summarize the results of the tests in your response document.</p></li>
 			<li><p>Fix the code so that all requirements are implemented corretly. You know that you are done because the test cases will all pass (assuming your test cases were sufficient).</p></li>
 		</ol>

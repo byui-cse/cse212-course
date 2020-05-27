@@ -1,7 +1,7 @@
 """
 CSE212 
 (c) BYU-Idaho
-04-Teach - Problem 2 - Solution
+05-Teach - Problem 2 - Solution
 
 It is a violation of BYU-Idaho Honor Code to post or share this code with others or 
 to post it online.  Storage into a personal and private repository (e.g. private
