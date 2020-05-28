@@ -48,7 +48,7 @@
 		<h3 id="1.2">Dynamic Arrays</h3>
 		<p>The difference between a dynamic array and a fixed array is that the dynamic array can grow (and also shrink).  This means that we can always add another item to a dynamic array.  One of the common operations performed on a dynamic array is to append a new item to the end of the list.  Consider the dynamic array below.</p>
 		
-		<img src="dynamic_array_not_full.jpeg" width="100%" height="100%" alt="Shows a dynamic array with capacity 8 and size 7.  Indicies 0 through 6 are populated with 8, 12, 31, 15, 4, 42, and 27."/>
+		<img src="dynamic_array_not_full.jpeg" width="100%" height="100%" alt="Shows a dynamic array with capacity 8 and size 7.  Indices 0 through 6 are populated with 8, 12, 31, 15, 4, 42, and 27."/>
 		
 		<p>In the dynamic array, the <code>size</code> of the array is 7 and the <code>capacity</code> is 8.  If we append another number to the array, we can use the formula described earlier to get the memory location of the next available index.  We will then store the new number into the memory location just calculated.</p>
 		
@@ -66,19 +66,19 @@
 		<li><p>Add the new item to the larger array.</p></li>
 		</ul>
 		
-		<img src="dynamic_array_grow.jpeg" width="100%" height="100%" alt="Shows the previous full array.  A new array with double the capacity (16) is created.  ALl the values from indicies 0 to 7 from the original array are copied to the new array.  The new value 99 is then added to index 8 of the new array."/>
+		<img src="dynamic_array_grow.jpeg" width="100%" height="100%" alt="Shows the previous full array.  A new array with double the capacity (16) is created.  ALl the values from Indices 0 to 7 from the original array are copied to the new array.  The new value 99 is then added to index 8 of the new array."/>
 		
 		<h3 id="1.3">Inserting in the Array</h3>
 		
 		<p>If we wanted to insert an item somewhere besides the end of the dynamic array, we would need to be careful to maintain the order of the items in the array.  In the array below, if we insert a value at the beginning of the array, all other items will need to move to the next index (i.e. move to the right).</p>
 		
-		<img src="dynamic_array_insert.jpeg" width="100%" height="100%" alt="Shows the previous array of capacity 16 and size 9.  The number 20 is inserted into index 0 which causes the previous values in indicies 0 to 8 to move over by one to the right (towards the end)."/>
+		<img src="dynamic_array_insert.jpeg" width="100%" height="100%" alt="Shows the previous array of capacity 16 and size 9.  The number 20 is inserted into index 0 which causes the previous values in Indices 0 to 8 to move over by one to the right (towards the end)."/>
 		
 		<h3 id="1.4">Deleting from the Array</h3>
 		
 		<p>If we wanted to delete an item from the array, we would need to move all items after the item removed to the previous index (i.e. move to the left).  As a special case, if we wanted to remove the last item in the array, we would not need to move any other items.  The typical effect of removing the last item is to just decrease the <code>size</code> variable by 1 while leaving the <code>capacity</code> the same.  This means that the data is not really "deleted."  If we append a new item, then the previously "deleted" item will be overwritten.</p>
 		
-		<img src="dynamic_array_delete.jpeg" width="100%" height="100%" alt="Shows the previous array of capacity 16 and size 10.  The number 20 is removed from index 0 which causes the previous values in indicies 1 to 9 to move over by one to the left (towards the beginning)."/>
+		<img src="dynamic_array_delete.jpeg" width="100%" height="100%" alt="Shows the previous array of capacity 16 and size 10.  The number 20 is removed from index 0 which causes the previous values in Indices 1 to 9 to move over by one to the left (towards the beginning)."/>
 		
 		<h3 id="1.5">Python Lists</h3>
 		
@@ -158,7 +158,7 @@ for index in range(len(my_list)):
 		<ul>
 			<li><p><code>expression</code> - This is required and represents what will be put in the list.</p></li>
 			<li><p><code>for item in collection</code> - This is required and represents how many items should be in the list (or considered in the list).</p></li>
-			<li><p><code>if expression</code> - This is optional and represents which items should be included (or excluded).</p></li>
+			<li><p><code>if condition</code> - This is optional and represents which items should be included (or excluded).</p></li>
 		</ul>
 		<p>Here are some examples of list comprehensions:</p>
 		

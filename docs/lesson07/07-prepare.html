@@ -29,9 +29,9 @@
 		<h2 id="1">Linked Lists</h2>
 		
 		<h3 id="1.1">Linked List Structure</h3>
-		<p>When we learned about the dynamic array, we saw that it was characterized by contiguous memory.  Each item in a dynamic array is right next to the next item in memory.  This allowed for very quick access to items in the drynamic array because memory addresses of each item could be calculated from a formula (address = starting_address + (index * item_size)).  The queue, stack, set, and map were all based on memory organized in this way.</p>
+		<p>When we learned about the dynamic array, we saw that it was characterized by contiguous memory.  Each item in a dynamic array is right next to the next item in memory.  This allowed for very quick access to items in the dynamic array because memory addresses of each item could be calculated from a formula (address = starting_address + (index * item_size)).  The queue, stack, set, and map were all based on memory organized in this way.</p>
 		
-		<img src="dynamic_array_not_full.jpeg" width="100%" height="100%" alt="Shows a dynamic array with capacity 8 and size 7.  Indicies 0 through 6 are populated with 8, 12, 31, 15, 4, 42, and 27."/>
+		<img src="dynamic_array_not_full.jpeg" width="100%" height="100%" alt="Shows a dynamic array with capacity 8 and size 7.  Indices 0 through 6 are populated with 8, 12, 31, 15, 4, 42, and 27."/>
 		
 		<p>A collection of data can also be stored in a random way within memory.  A linked list is organized in this way.  With a linked list, each element in the list is at some location in memory.  There is no guarantee that one element will be next to another element.  In order to keep our list together, each element (which we will call a node) will contain both the value and a link to the next item in the list.  Specifically, the link will be a pointer to the location in memory that contains our next element.</p>
 		
@@ -100,7 +100,7 @@
 
 		<img src="linked_list_remove_tail.jpeg" width="100%" height="100%" alt="Shows a doubly linked list made up of 5 nodes with values of 8, 12, 31, 15, and 4.  The two step process to remove 4 (TAIL): 1) Set the NEXT of the second to last node (15) to nothing; 2) Set the TAIL to the second to last node."/>
 		
-		<p>The process to inserting into the middle is not as complicated as inserting in the middle.  In the picture below, we are trying to remove the node <code>current</code>.  The process involves two steps:</p>
+		<p>The process to remove from the middle is not as compicated as inserting from the middle.  In the picture below, we are trying to remove the node <code>current</code>.  The process involves two steps:</p>
 		
 		<ol>
 		<li><p>Set the prev of the node after current to the node before current (<code>current.next.prev = current.prev</code>)</p></li>
