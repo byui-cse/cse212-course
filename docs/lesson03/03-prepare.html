@@ -24,31 +24,31 @@
 			<li><p><a href="#1.4">Stacks in Python</a></p></li>
 			</ul>
 		
-		<p><a href="2">Understanding Code Using Reviews</a></p>
+		<p><a href="#2">Understanding Code Using Reviews</a></p>
 			<ul>
-			<li><p><a href="2.1">Code Reviews</a></p></li>
-			<li><p><a href="2.2">Read code "cover to cover"</a></p></li>
-			<li><p><a href="2.3">"Execute" the Code Manually</a></p></li>
-			<li><p><a href="2.4">Analyze the use of Data Structures</a></p></li>
+			<li><p><a href="#2.1">Code Reviews</a></p></li>
+			<li><p><a href="#2.2">Read code "cover to cover"</a></p></li>
+			<li><p><a href="#2.3">"Execute" the Code Manually</a></p></li>
+			<li><p><a href="#2.4">Analyze the use of Data Structures</a></p></li>
 			</ul>
 		
 		
 			<h2 id="1">Stacks</h2>
-		<p>A stack is a data structure that is chacterized by the order in which items are added and removed.  Often called "Last In, First Out" (LIFO), the stack can be used to accomplish various tasks and can be implemented using a Python list.</p>
+		<p>A stack is a data structure that is characterized by the order in which items are added and removed.  Often called "Last In, First Out" (LIFO), the stack can be used to accomplish various tasks and can be implemented using a Python list.</p>
 		
 		<h3 id="1.1">Stack of Pancakes</h3>
 		
-		<p>If you were going to make pancakes for your family or friends, you probably would have a plate ready to stack the hot pancakes on as they finished ooking.  Each time we put a pancake onto the stack, we call this a <strong>push</strong> operation.  In our culinary example, we might say that each new pancake goes onto the top of the stack.  However, since we are going to implement our stacks in Python, we will say that the pancake is actually added to the <strong>back</strong>.  When we take a pancake off to eat, we call this a <strong>pop</strong> operation.  Notice that we push and pop from the back of the stack.  Removing from the middle of the stack is not generally allowed (especially at the dinner table).  Notice that the pancake at the <strong>front</strong> is the the very first pancake that was cooked.  If the pancakes are made faster than they are eaten, then this first pancake would get cold.  A LIFO (Last In, First Out) or FIFO (First In, First Out) structure like the stack can result in data not being used for a long time.  This might not work well for a rotating stock system in a grocery store, but the real benefit of the stack is the ability to rememember where we have been.</p>
+		<p>If you were going to make pancakes for your family or friends, you probably would have a plate ready to stack the hot pancakes on as they finished looking.  Each time we put a pancake onto the stack, we call this a <strong>push</strong> operation.  In our culinary example, we might say that each new pancake goes onto the top of the stack.  However, since we are going to implement our stacks in Python, we will say that the pancake is actually added to the <strong>back</strong>.  When we take a pancake off to eat, we call this a <strong>pop</strong> operation.  Notice that we push and pop from the back of the stack.  Removing from the middle of the stack is not generally allowed (especially at the dinner table).  Notice that the pancake at the <strong>front</strong> is the the very first pancake that was cooked.  If the pancakes are made faster than they are eaten, then this first pancake would get cold.  A LIFO (Last In, First Out) or FIFO (First In, First Out) structure like the stack can result in data not being used for a long time.  This might not work well for a rotating stock system in a grocery store, but the real benefit of the stack is the ability to remember where we have been.</p>
 		
 		<img src="pancake_stack.jpeg" width="100%" height="100%" alt="Shows a stack of pancakes where no pancakes are pushed to the back and pancakes are popped from the back to be eaten."/>
 		<br>
 		<h3 id="1.2">The "Undo" Option and the Stack</h3>
 		
-		<p>One of the most common stacks that people use on a computer is related to the Undo option in word processors and editors.  When we type something on the keyboard, the item is both displayed to the screen and also added to a stack.  If we type the phrase <code>"The rain in Spain stays mainly in the plain"</code>, we would expect the following commands to be put pushed onto the stack: <code>Type "The"</code>, <code>Type "rain"</code>, <code>Type "in"</code>, and so forth.  The last item to pushed would be <code>Type "plain"</code>.  If we press the Undo button, the software will pop the stack and receive: <code>Type "plain"</code>.  The software will then do the opposite of this which would result in the word <code>"plain"</code> being removed from the screen.  </p>
+		<p>One of the most common stacks that people use on a computer is related to the Undo option in word processors and editors.  When we type something on the keyboard, the item is both displayed to the screen and also added to a stack.  If we type the phrase <code>"The rain in Spain stays mainly in the plain"</code>, we would expect the following commands to be put pushed onto the stack: <code>Type "The"</code>, <code>Type "rain"</code>, <code>Type "in"</code>, and so forth.  The last item to be pushed would be <code>Type "plain"</code>.  If we press the Undo button, the software will pop the stack and receive: <code>Type "plain"</code>.  The software will then do the opposite of this which would result in the word <code>"plain"</code> being removed from the screen.  </p>
 		
 		<img src="undo_stack.jpeg" width="100%" height="100%" alt="Shows a computer screen and history stack with the initial text of The rain in Spain stays mainly in the plain.  Changes to the screen and stack are shown as described in the text of this section."/>
 		<br>
-		<p>Since the stack is maintaining a history of what was typed, we can guarentee that pressing the Undo button will revert changes in the right order.  If we popped five additional times, we would have <code>"The rain in"</code> remaining on the screen.  If we type <code>"Idaho stays mainly in Rexburg"</code>, we would see five new pushes to the stack.  The original first three commands to display <code>"The rain in"</code> still remains at the front of the stack.  If the Undo button is pressed enough times, then these initial words would eventually be removed.</p>
+		<p>Since the stack is maintaining a history of what was typed, we can guarantee that pressing the Undo button will revert changes in the right order.  If we popped five additional times, we would have <code>"The rain in"</code> remaining on the screen.  If we type <code>"Idaho stays mainly in Rexburg"</code>, we would see five new pushes to the stack.  The original first three commands to display <code>"The rain in"</code> still remains at the front of the stack.  If the Undo button is pressed enough times, then these initial words would eventually be removed.</p>
 		
 		<p>Stacks are useful when we need to maintain history and perform an operation (eg. Undo function in an editor) backwards.</p>
 				
@@ -73,7 +73,7 @@
 		<img src="debugger_call_stack.jpeg" width="100%" height="100%" alt="Shows the call stack from a Python program running in Visual Studio Code when a breakpoint was reached an paused the sofwtare."/>
 		<br>
 		<h3 id="1.4">Stacks in Python</h3>
-		<p>In Python, a stack can be represented using a list.  To push an item to the back of the stack, the <code>append</code> function can be used on the list.  To pop an items from the back of the stack, the <code>pop</code> function can be used.  The <code>pop</code> function will also delete it from the list.  The size can be determined by using the <code>len</code> function on the list.  The performance of the stack using a Python list is based on the performance of the dynamic array.</p>
+		<p>In Python, a stack can be represented using a list.  To push an item to the back of the stack, the <code>append</code> function can be used on the list.  To pop items from the back of the stack, the <code>pop</code> function can be used.  The <code>pop</code> function will also delete it from the list.  The size can be determined by using the <code>len</code> function on the list.  The performance of the stack using a Python list is based on the performance of the dynamic array.</p>
 
 		<table>
 			<tr>
@@ -128,7 +128,7 @@
 		
 		<p> Each of these methods will be discussed below.  When working with these methods, we should try to employ principles learned from the scientific method.  The scientific method requires us to form a hypothesis about what we think the code should be doing.  As we read through the code, we will test our hypothesis and look at the results.  If we are incorrect, then we can correct our misconceptions and form a new hypothesis.  This iterative process is necesessary to fully understand code. There are no shortcuts.  We can be tempted to search for the answer online or in a book.  While this may produce a faster answer, we will have not obtained full understanding of the code.</p>
 			
-		<p>In this process, it is possible that we might find defects in the code that we were given.  Code reviews are a common tool for increasing software quality.  Performing these steps will require us to keep a good notebook to record our hypotheses, experiments, and conclusions.  A good reviewer will always have a pen and paper ready to complete their task.</p>
+		<p>In this process, it is possible that we might find defects in the code that we were given.  Code reviews are a common tool for increasing software quality.  Performing these steps will require us to keep a good notebook to record our hypothesis, experiments, and conclusions.  A good reviewer will always have a pen and paper ready to complete their task.</p>
 		
 		<h3 id="2.2">Read Code "Cover to Cover"</h3>
 		<p>Unlike a book, code does not begin on page one.  We need to find where the code begins and follow it as it calls functions, runs loops, and branches in different directions with decision statements.  If the code has multiple functions, the creation of a structure chart (also called a calling tree) will be helpful.  The structure chart will use boxes to represent functions and arrows to represent functions calling functions.  Frequently drawn with the starting function at the top and working downwards, these diagrams can help us navigate through the code.  On the arrows, we may frequently write the inputs and outputs related to each function.  This will help us better understand the data in the code and which functions are responsible for creating, modifying, and using that data.</p>

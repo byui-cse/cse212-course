@@ -24,14 +24,14 @@
 			<li><p><a href="#1.4">Performance of Dynamic Arrays</a></p></li>
 			</ul>
 		
-		<p><a href="2">Evaluating Performance of Alternative Solutions</a></p>
+		<p><a href="#2">Evaluating Performance of Alternative Solutions</a></p>
 			<ul>
-			<li><p><a href="2.1">Analyze Performance</a></p></li>
-			<li><p><a href="2.2">Measure Actual Execution Time</a></p></li>
+			<li><p><a href="#2.1">Analyze Performance</a></p></li>
+			<li><p><a href="#2.2">Measure Actual Execution Time</a></p></li>
 			</ul>
 		
 		<h2 id="1">Big O Notation</h2>
-		<p>To evaluate code and look for alternative solutions, it is important that we have a common method for quanitfying the performance of code in terms of time.  The principles we will learn can also be applied to analysis of how much memory or space is used by code to perform a task.</p>
+		<p>To evaluate code and look for alternative solutions, it is important that we have a common method for quantifying the performance of code in terms of time.  The principles we will learn can also be applied to analysis of how much memory or space is used by code to perform a task.</p>
 		
 		<h3 id="1.1">Big O Notation and Linear Performance</h3>
 		
@@ -58,7 +58,7 @@ def multiple_loops(n):
 			</code></pre>
 		<p>In this function, each for loop contributes O(n) to the performance of the function.  The total would be O(n) + O(n) = O(2n).  If we graph this, O(2n) does look like it has a worse performance than O(n).</p>
 		<img src="linear_two.jpg" width="100%" height="100%" alt="Shows y=x and y=2*x on the same graph for x in the range from 0 to 200.  The y=2*x graph takes twice as much work (y) as y=x.">
-		<p>However, if we zoom very far out to very large values of n, we notice that the distance between O(n) and O(2n) has not changed.  While it is true O(2n) will take twice as long, in the measurements of big O notation, they are equivalant since as we get to larger and larger values of n, the rate of increase (or decrease) has not changed.  The coefficients in big O notation should be dropped.  Therefore, instead of saying O(2n) for the function above, we will say O(n).</p>
+		<p>However, if we zoom very far out to very large values of n, we notice that the distance between O(n) and O(2n) has not changed.  While it is true O(2n) will take twice as long, in the measurements of big O notation, they are equivalent since as we get to larger and larger values of n, the rate of increase (or decrease) has not changed.  The coefficients in big O notation should be dropped.  Therefore, instead of saying O(2n) for the function above, we will say O(n).</p>
 		<img src="linear_two_zoomed_out.jpg" width="100%" height="100%" alt="Shows y=x and y=2*x on the same graph for x in the range from 0 to 2000000.  The distance between the two graphs is the same as when we were zoomed in.">
 		
 		<h3 id="1.2">Polynomial Performance</h3>
