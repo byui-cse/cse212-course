@@ -23,11 +23,13 @@
 			<li><p><a href="#1.3">Complex Dictionary Data</a></p></li>
 			<li><p><a href="#1.4">Building Summary Tables</a></p></li>
 		</ul>
+        
+        <p><a href="#2">Key Terms</a></p>
 
 		<h2 id="1">Maps</h2>
 		
 		<h3 id="1.1">Making the Map from the Set</h3>
-		<p>The map is most commonly viewed as a table.  In the map below, the first column contains a unique value called the <strong>key</strong>.  The second column contains a value (not necessarily unique) called the <strong>value</strong>.  The key forms a set because all the values are unique.  A map is created in software by associating a value with each item in the key set.  In the picture below, the table shows the key and value pairs.  The Key's are hashed into what looks like a set.  The values are then stored with each key value.</p>
+		<p>The <strong>map</strong> is most commonly viewed as a table.  In the map below, the first column contains a unique value called the <strong>key</strong>.  The second column contains a value (not necessarily unique) called the <strong>value</strong>.  The key forms a set because all the values are unique.  A map is created in software by associating a value with each item in the key set.  In the picture below, the table shows the key and value pairs.  The Key's are hashed into what looks like a set.  The values are then stored with each key value.</p>
 		
 		<img src="map.jpeg" alt="Shows a table with Color (the key) equal to Green (the value), Quantity equal to 25, Price equal to 1.99, Name equal to Pencil, and ID equal to 3924A-3.  Each key/value pair is then stored in the data structure.  The keys are hashed (index(n) = hash(key) % 10) into a list of size 10.  For demonstration purposes, Quantity has been put in Index 1, the Name has been put in Index 3, the Color has been put in Index 4, then Price has been put in Index 7, and the ID has been put in Index 9.  The values for each key value have been placed in the same location as the Key.">
 		
@@ -82,7 +84,7 @@ empty_map2 = dict()
 		</table>
 		<br>
 		<h3 id="1.3">Complex Dictionary Data</h3>
-		<p>A Python dictionary can store any value including other dictionaries.  Consider the following example which is data that was received from a website about the location of the <a href="http://open-notify.org/Open-Notify-API/ISS-Location-Now/" target="_blank">International Space Station </a>.  This data is called JSON (JavaScript Object Notation) data and is a common data format.  JSON data looks like a Python dictionary.</p>
+		<p>A Python dictionary can store any value including other dictionaries.  Consider the following example which is data that was received from a website about the location of the <a href="http://open-notify.org/Open-Notify-API/ISS-Location-Now/" target="_blank">International Space Station </a>.  This data is called <strong>JSON</strong> (JavaScript Object Notation) data and is a common data format.  JSON data looks like a Python dictionary.</p>
 		<pre><code class="Python">
 space_station = {"timestamp": 1584638006, 
 				 "message": "success", 
@@ -133,8 +135,17 @@ for letter in letters:
 print(summary_table)
 # {'A': 2, 'B': 2, 'G': 3, 'C': 1, 'D': 1}
 			</code></pre>
-    </article>
-	
+
+    
+    <h2 id="2">Key Terms</h2>
+    
+    <ul>
+    <li><p><strong>JSON</strong> - JavaScript Object Notation.  A format used frequently to share data between software.  JSON data uses maps and lists.  The syntax of JSON is the same as Python.</p></li>
+    <li><p><strong>key</strong> - The keys in the map form a set.  Each key is unique.  Keys are used to lookup value from the map.</p></li>
+    <li><p><strong>map</strong> - A data struture that is based on the set.  In addition to storing the unique values in the set, the map also includes a value associated with each key.  The map has the same O(1) behavior as the set.</p></li>
+    <li><p><strong>value</strong> - The value associated with each key within a map.  Frequently these values are referred to as key-value pairs.</p></li>
+    </ul>
+	    </article>
 		<script src="../site/js/highlight/highlight.pack.js"></script>
 		<script>hljs.initHighlightingOnLoad();</script>	
 </body>

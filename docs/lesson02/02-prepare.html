@@ -29,13 +29,15 @@
 			<li><p><a href="#2.1">Analyze Performance</a></p></li>
 			<li><p><a href="#2.2">Measure Actual Execution Time</a></p></li>
 			</ul>
+        
+        <p><a href="#3">Key Terms</a></p>
 		
 		<h2 id="1">Big O Notation</h2>
-		<p>To evaluate code and look for alternative solutions, it is important that we have a common method for quantifying the performance of code in terms of time.  The principles we will learn can also be applied to analysis of how much memory or space is used by code to perform a task.</p>
+		<p>To evaluate code and look for alternative solutions, it is important that we have a common method for quantifying the <strong>performance</strong> of code in terms of time.  The principles we will learn can also be applied to analysis of how much memory or space is used by code to perform a task.</p>
 		
 		<h3 id="1.1">Big O Notation and Linear Performance</h3>
 		
-		<p>Big O Notation is used to describe the performance of an algorithm (or function) for large sets of data.  If we have two functions that do the same thing, we can use big O notation to compare the performance of the two functions.  As a simple example, consider the following code which looks for the name "Bob" in a list of names:</p>
+		<p><strong>Big O</strong> Notation is used to describe the performance of an <strong>algorithm</strong> (or function) for large sets of data.  If we have two functions that do the same thing, we can use big O notation to compare the performance of the two functions.  As a simple example, consider the following code which looks for the name "Bob" in a list of names:</p>
 		
 		<pre><code class="Python">	
 def find_bob(name_list):
@@ -45,8 +47,8 @@ def find_bob(name_list):
 	return False
 			</code></pre>
 		
-		<p>The size of the data in this function is based on the size of the <code>name_list</code>.  We will say that size of the data is <code>n</code>.  The for loop in the code means that we will potentially run <code>n</code> times.  This worst case potential will only happen if "Bob" is not in the list of names.  Therefore, we say that the big O in the worst case is O(n).  In general, when we ask for the big O of a function we are asking for the worst case scenario.  This function does have a best case scenario.  If "Bob" is the first name in the list, then the loop will only run one time.  Therefore, we can say the big O in the best case is O(1).  We call O(1) constant time.  When looking at code, usually a single line of code like an assignment statement, is considered O(1).</p>
-		<p>If a function has O(n) performance, then we also say that the function has linear performance.  Using a graphing calculator or a graphing website (e.g. <a href="http://desmos.com/calculator" target="_blank">desmos.com</a>), we can visually see the linear performance of O(n).  The graph below shows y = x which is used to represent O(n).  When x (or n) gets bigger, the amount of work (y) gets larger in a linear way.</p>
+		<p>The size of the data in this function is based on the size of the <code>name_list</code>.  We will say that size of the data is <code>n</code>.  The <code>for</code> loop in the code means that we will potentially run <code>n</code> times.  This worst case potential will only happen if "Bob" is not in the list of names.  Therefore, we say that the big O in the worst case is O(n).  In general, when we ask for the big O of a function we are asking for the worst case scenario.  This function does have a best case scenario.  If "Bob" is the first name in the list, then the loop will only run one time.  Therefore, we can say the big O in the best case is O(1).  We call O(1) <strong>constant</strong> time.  When looking at code, usually a single line of code like an assignment statement, is considered O(1).</p>
+		<p>If a function has O(n) performance, then we also say that the function has <strong>linear</strong> performance.  Using a graphing calculator or a graphing website (e.g. <a href="http://desmos.com/calculator" target="_blank">desmos.com</a>), we can visually see the linear performance of O(n).  The graph below shows y = x which is used to represent O(n).  When x (or n) gets bigger, the amount of work (y) gets larger in a linear way.</p>
 		<img src="linear.jpg" width="100%" height="100%" alt="Shows the graph y=x for x in the range from 0 to 200.">
 		<p>Consider the following code that has two loops in serial (one right after the other):</p>
 		<pre><code class="Python">	
@@ -58,7 +60,7 @@ def multiple_loops(n):
 			</code></pre>
 		<p>In this function, each for loop contributes O(n) to the performance of the function.  The total would be O(n) + O(n) = O(2n).  If we graph this, O(2n) does look like it has a worse performance than O(n).</p>
 		<img src="linear_two.jpg" width="100%" height="100%" alt="Shows y=x and y=2*x on the same graph for x in the range from 0 to 200.  The y=2*x graph takes twice as much work (y) as y=x.">
-		<p>However, if we zoom very far out to very large values of n, we notice that the distance between O(n) and O(2n) has not changed.  While it is true O(2n) will take twice as long, in the measurements of big O notation, they are equivalent since as we get to larger and larger values of n, the rate of increase (or decrease) has not changed.  The coefficients in big O notation should be dropped.  Therefore, instead of saying O(2n) for the function above, we will say O(n).</p>
+		<p>However, if we zoom very far out to very large values of n, we notice that the distance between O(n) and O(2n) has not changed.  While it is true O(2n) will take twice as long, in the measurements of big O notation, they are equivalent since as we get to larger and larger values of n, the rate of increase (or decrease) has not changed.  The <strong>coefficients</strong> in big O notation should be dropped.  Therefore, instead of saying O(2n) for the function above, we will say O(n).</p>
 		<img src="linear_two_zoomed_out.jpg" width="100%" height="100%" alt="Shows y=x and y=2*x on the same graph for x in the range from 0 to 2000000.  The distance between the two graphs is the same as when we were zoomed in.">
 		
 		<h3 id="1.2">Polynomial Performance</h3>
@@ -70,7 +72,7 @@ def multiplication_table(n):
 		for j in range(n):
 			print((i+1) * (j+1))
 			</code></pre>
-		<p>This function has a loop within a loop.  Both loops are based on the size of the data.  Instead of adding O(n) twice like we did with loops in serial, we multiply as follows:  O(n) * O(n) = O(n^2).  The rate of increase is much higher with an O(n^2) function compared to an O(n) function.  The <code>find_bob</code> function would, in the worst case, take 1,000 checks if the list size was 1,000, but the <code>multiplication_table</code> will take 1,000^2 = 1,000,000 print statements to complete for a similairly sized value of n.  The graph for an O(n^2) function is shown below:</p>
+		<p>This function has a loop within a loop.  Both loops are based on the size of the data.  Instead of adding O(n) twice like we did with loops in serial, we multiply as follows:  O(n) * O(n) = O(n^2).  The rate of increase is much higher with an O(n^2) function compared to an O(n) function.  The <code>find_bob</code> function would, in the worst case, take 1,000 checks if the list size was 1,000, but the <code>multiplication_table</code> will take 1,000^2 = 1,000,000 print statements to complete for a similairly sized value of n.  This results in O(n^2) which is <strong>polynomial</strong> time.  The graph for an O(n^2) function is shown below:</p>
 		
 		<img src="polynomial.jpg" width="100%" height="100%" alt="Shows the graph y=x^2 for x in the range 0 to 20.">
 		
@@ -87,7 +89,7 @@ def short_multiplication_table(n):
 
 		<h3 id="1.3">Logarithmic Performance</h3>
 		
-		<p>It would seem like O(n) is the best performance you can get if we want to analyze a set of information.  However, there are some algorithms that have better performance.  Consider a function that had performance of O(log n).  When graphed, the performance does not get significantly worse as the size of the data increases.</p>
+		<p>It would seem like O(n) is the best performance you can get if we want to analyze a set of information.  However, there are some algorithms that have better performance.  Consider a function that had performance of O(log n).  This is called <strong>logarithmic</strong> time.  When graphed, the performance does not get significantly worse as the size of the data increases.</p>
 		
 		<img src="logarithmic.jpg" width="100%" height="100%" alt="Shows the graph y=log x for x in the range 0 to 40.">
 		
@@ -103,7 +105,7 @@ def short_multiplication_table(n):
 		<li><p>Generally, after check <code>c</code>, we have <code>n</code>/(2^<code>c</code>) left</p></li>			
 		</ul>
 		
-		<p>Returning to the question, how many checks <code>c</code> until there is just one left.  Written mathematically: <code>n</code>/(2^<code>c</code>) = 1.  Using logarithms, we get <code>c</code> = log2(<code>n</code>) = log(<code>n</code>) / log(2) which results in a big O notation of O(log n) since the log(2) is a coefficient.  The secret to getting O(log n) was to continously divide the data in half.</p>
+		<p>Returning to the question, how many checks <code>c</code> are there until there is just one left.  Written mathematically: <code>n</code>/(2^<code>c</code>) = 1.  Using logarithms, we get <code>c</code> = log2(<code>n</code>) = log(<code>n</code>) / log(2) which results in a big O notation of O(log n) since the log(2) is a coefficient.  The secret to getting O(log n) was to continously divide the data in half.</p>
 		
 		<p>The process above relies on an important fact.  The ability to find the middle of a list (or dynamic array as we learned last week) using a lookup operation is O(1).  The next section will review why this is.</p>
 		
@@ -165,7 +167,7 @@ def short_multiplication_table(n):
 		
 		<h3 id="2.2">Measure Actual Execution Time</h3>
 		
-		<p>When we analyze performance, we are making a prediction.  Frequently, we need to perform tests to benchmark (i.e. measure) the actual performance of the functions we are using. In Python, the <code>timeit</code> library provides a capability to measure how much time was spent executing a function.  Consider the following example:</p>
+		<p>When we analyze performance, we are making a prediction.  Frequently, we need to perform tests to <strong>benchmark</strong> (i.e. measure) the actual performance of the functions we are using. In Python, the <code>timeit</code> library provides a capability to measure how much time was spent executing a function.  Consider the following example:</p>
 	
 		<pre><code class="Python">	
 import timeit
@@ -212,6 +214,18 @@ work = lots_of_loops(1000)
 print("Work = {}".format(work)) 
 			</code></pre>
 	
+        <h2 id="3">Key Terms</h2>
+        <ul>
+        <li><p><strong>algorithm</strong> - A solution to a problem including the steps to solve the problem.  An algorithm is implemented as one or more functions in code.</p></li>
+        <li><p><strong>benchmark</strong> - The measurement of actual execution time of an algorithm as observed in multiple executions of the algorithm.  Benchmarks are often taken within different environments (e.g. operating system, processor, programming language)</p></li>
+        <li><p><strong>big O</strong> - A mathematical representation of the performance of an algorithm.  As used in this lesson, it repersents the worst case execution time predicted for the code.  Represented as a function in terms of <code>n</code>, where <code>n</code> represents the size of the data being processed by the code.</p></li>
+        <li><p><strong>coefficient</strong> - A numeric factor applied to a function.  For example, O(2n) has a coefficient of 2 and O(5n^2) has a coefficient of 5.  In big O notation, the coefficient is dropped.</p></li>
+        <li><p><strong>constant</strong> - An alogorithm has constant time if it is not dependent on the size of data.  Constant time is always reduced to O(1).  A single expression in code is frequently O(1).</p></li>
+        <li><p><strong>linear</strong> - An algorithm has linear time if the execution time incerases at the same rate as the data size.  Linear time is always reduced to O(n).  Code that contains a single loop based on the size of the data is considered linear.</p></li>
+          <li><p><strong>logarithmic</strong> - An algorithm has logarithmic time if the rate of growth decreases as the size of the data increases.  Logartihmic time is commonly reduced to O(log n).  Other variations include O(n log n).  Logarithmic time is also described as the inverse of exponential growth (e.g. O(2^n)).  The practice of splitting data in half multiple times to achieve a goal is frequently considered logarithmic.</p></li>
+        <li><p><strong>performance</strong> - Describes the amount of time and memory used to perform a algorithm in sofwtare.  An algorithm can be implemented in many ways.  However, the performance may be different between each implementation.</p></li>
+        <li><p><strong>polynomial</strong> - An algorithm has polynomial time if the execution time increases by a fixed exponent relative to the size of the data.  In a loop within a loop (both related to the size of data) were written, then the big O notation would be likely reduced to O(n^2).  If there were three embedded loops, the big O notaiton would be O(n^3).  Lower order exponents are dropped in big O notation.  For example, O(4n^3 + 7n^2) = O(n^3).</p></li>
+          </ul>
 		<script src="../site/js/highlight/highlight.pack.js"></script>
 		<script>hljs.initHighlightingOnLoad();</script>	
 	

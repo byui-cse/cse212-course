@@ -25,6 +25,7 @@
 			<li><p><a href="#1.5">Linked Lists in Python</a></p></li>
 			<li><p><a href="#1.6">Comparing Dynamic Array and Linked List</a></p></li>
 		</ul>
+        <p><a href="#2">Key Terms</a></p>
 		
 		<h2 id="1">Linked Lists</h2>
 		
@@ -33,11 +34,11 @@
 		
 		<img src="dynamic_array_not_full.jpeg" width="100%" height="100%" alt="Shows a dynamic array with capacity 8 and size 7.  Indices 0 through 6 are populated with 8, 12, 31, 15, 4, 42, and 27."/>
 		
-		<p>A collection of data can also be stored in a random way within memory.  A linked list is organized in this way.  With a linked list, each element in the list is at some location in memory.  There is no guarantee that one element will be next to another element.  In order to keep our list together, each element (which we will call a node) will contain both the value and a link to the next item in the list.  Specifically, the link will be a pointer to the location in memory that contains our next element.</p>
+		<p>A collection of data can also be stored in a random way within memory.  A <strong>linked list</strong> is organized in this way.  With a linked list, each element in the list is at some location in memory.  There is no guarantee that one element will be next to another element.  In order to keep our list together, each element (which we will call a <strong>node</strong>) will contain both the <strong>value</strong> and a link to the <strong>next node</strong> in the list.  Specifically, the link will be a <strong>pointer</strong> to the location in memory that contains our next element.</p>
 		
 		<img src="linked_list.jpeg" width="100%" height="100%" alt="Shows a linked list made up of 5 nodes.  Each node has a value and a NEXT that points to the next node.  The HEAD is pointing to the first node.  The nodes have the following values in order: 8, 12, 31, 15, 4."/>
 		
-		<p>In the linked list shown above, the first node is called the <strong>head</strong>.  If you know where the head is, then you can traverse the entire linked list by following the pointers.  Most linked lists maintain a bi-directional linking between nodes.  The doubly-linked list shown below has both a <strong>head</strong> and a <strong>tail</strong>.</p>
+		<p>In the linked list shown above, the first node is called the <strong>head</strong>.  If you know where the head is, then you can traverse the entire linked list by following the pointers.  Most linked lists maintain a bi-directional linking between nodes.  Bi-directional means that each node will maintain a pointer to both the next node and <strong>previous node</strong>.  The <strong>doubly-linked list</strong> shown below has both a head and a <strong>tail</strong>.</p>
 		
 		<img src="linked_list_double.jpeg" width="100%" height="100%" alt="Shows a doubly linked list made up of 5 nodes.  Each node has a value, a NEXT that points to the next node, and a PREV that points to the previous node.  The HEAD is pointing to the first node and the TAIL is pointing to the last node.  The nodes have the following values in order: 8, 12, 31, 15, 4."/>
 		
@@ -242,8 +243,24 @@ def go_forward(self):
 		</ul>
 		
 		<p>Thinking back about stacks and queues, the stack did the push and pop operations from the end.  Therefore, a stack can use either a dynamic array or linked list (a Python <code>list</code> or a Python <code>deque</code>) equally well.  However, since a queue did the enqueue and dequeue operations from the end and the front, a queue should always be implemented with a linked list (a Python <code>deque</code>).  This strong statement only applies when the size of the data is "large" (recall discussions earlier about big O).  If we only have a small number of items in my queue, then both a dynamic array and linked list will run fast enough.</p>
-    </article>
-	
+
+    
+        <h2 id="2">Key Terms</h2>
+	    <ul>
+        <li><p><strong>doubly-linked list</strong> - A linked list that is bi-directional.  The linked list will maintain both a head and a tail.  To traverse in either direction, the node will have both a pointer to the next node and the previous node.  Access to both the head and tail is O(1).</p></li>
+        <li><p><strong>head</strong> - A pointer to the first node in the linked list.</p></li>
+        <li><p><strong>linked list</strong> - A data structure that keeps data in order but is not in contiguous memory.  To get to the next (or previous) item in the list, pointers are maintained and followed. Access to the head is O(1).</p></li>
+        <li><p><strong>next</strong> - A pointer in each node of the linked list that points to the next node.</p></li>
+        <li><p><strong>node</strong> - The combination of the value and the pointers representing one item in the linked list.</p></li>
+        <li><p><strong>pointer</strong> - Refers to an address in the computer memory.  Also called a reference.</p></li>
+        <li><p><strong>tail</strong> - A pointer to the last node in the linked list.  If the list has only one item, then the head and tail are the same.</p></li>
+        <li><p><strong>value</strong> - The actual data stored in the linked list as part of the node.</p></li>
+        <li><p><strong>previous</strong> - A pointer in each of the linked list that points to the previous node.</p></li>
+            
+        </ul>
+        
+            </article>
+    
 		<script src="../site/js/highlight/highlight.pack.js"></script>
 		<script>hljs.initHighlightingOnLoad();</script>	
 </body>

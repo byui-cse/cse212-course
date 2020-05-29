@@ -31,10 +31,10 @@
 			<li><p><a href="#2.3">"Execute" the Code Manually</a></p></li>
 			<li><p><a href="#2.4">Analyze the use of Data Structures</a></p></li>
 			</ul>
-		
+        <p><a href="#3">Key Terms</a></p>
 		
 			<h2 id="1">Stacks</h2>
-		<p>A stack is a data structure that is characterized by the order in which items are added and removed.  Often called "Last In, First Out" (LIFO), the stack can be used to accomplish various tasks and can be implemented using a Python list.</p>
+		<p>A <strong>stack</strong> is a data structure that is characterized by the order in which items are added and removed.  Often called "Last In, First Out" (LIFO), the stack can be used to accomplish various tasks and can be implemented using a Python list.</p>
 		
 		<h3 id="1.1">Stack of Pancakes</h3>
 		
@@ -135,11 +135,11 @@
 		
 		<img src="structure_chart.jpeg" width="100%" height="100%" alt="Shows a structure chart where the main function calls the readAccessRecords function and the searchAccessRecords function.  The readAccessRecords function receives an accessFile input and produces accessRecords and recordCount as an output.  The searchAccessRecords function receives the accessREcords, numRecords, startTime, and entTime while producing no output.  The searchAccessRecords function also call the displayAccessRecord function providing accessRecord as an input with no outputs."/>
 		<br>
-		<p>If the code contains classes, then creating a UML (Unified Modelling Language) class diagram to show the classes (with member data and member functions) and the relationships between the classes will help us to visualize the software and enable us to read different sections of the code based on their dependencies to others.  For example, in the diagram below, we can see that the Order HAS-A (object composition shown with the filled in diamond) list of Products and that each Product IS-A either a PerishableProduct or an ElectronicProduct (inheritance shown with the open triangle).  With this drawn, we would probably start with understanding the Product base class first since it has no dependency on other objects.  Second, we would review the different types of Products.  Finally, we would review the Order class which containts the list of the Product objects that we already understand.</p>
+		<p>If the code contains classes, then creating a <strong>UML</strong> (Unified Modelling Language) class diagram to show the classes (with member data and member functions) and the relationships between the classes will help us to visualize the software and enable us to read different sections of the code based on their dependencies to others.  For example, in the diagram below, we can see that the Order HAS-A (object composition shown with the filled in diamond) list of Products and that each Product IS-A either a PerishableProduct or an ElectronicProduct (inheritance shown with the open triangle).  With this drawn, we would probably start with understanding the Product base class first since it has no dependency on other objects.  Second, we would review the different types of Products.  Finally, we would review the Order class which containts the list of the Product objects that we already understand.</p>
 		
 		<img src="uml_diagram.jpeg" width="100%" height="100%" alt="Shows the classes and their relationships shown in the text above.  The Order class has an integer order_id and a list of Product objects called products.  The Order class has an init function, an add_product function that takes a product object as an input, and a display function.  The Product class has a string name and a float price with an init function and a display function.  The ElectronicProduct has a string url_download and both an init and download function.  The PerishableProduct has a expiry datetime object and both an init and donate function.">
 		<br>
-		<p>When we are looking at a single function, it can be useful to diagram the behavior of the function.  Simple flow charts can quickly give us a better perspective of the loops and decisions in our code.  In the flow chart, use diamonds to represent decisions, boxes to represent actions, and arrows to show flow.</p>
+		<p>When we are looking at a single function, it can be useful to diagram the behavior of the function.  Simple <strong>flow charts</strong> can quickly give us a better perspective of the loops and decisions in our code.  In the flow chart, use diamonds to represent decisions, boxes to represent actions, and arrows to show flow.</p>
 		
 		<img src="flow_chart.jpeg" width="100%" height="100%" alt="Shows the flow of random number guessing game.  After getting the seed from the user and seeding the generator, a random number is selected and the guess counter is reset.  A loop begins with the user being prompted for a guess.  The guess counter will be udpated and then the guess is compared with the actual number.  Either the phrase higher, lower, or congratulations will be displayed.  If the correct answer was guessed, the guess count is also displayed.  The user is prompted to play the game again.  If they want to play again, then the process above repeast starting with the selection of a random number and the resetting of the guess counter.  Otherwise, the software says goodbye and the program ends.">
 		<br>
@@ -220,8 +220,21 @@ def do_something(text):
 		<br>
 		<h3 id="2.4">Analyze the use of Data Structures</h3>
 		<p>When code contains a data structure like a list or a stack (and others that we will learn during the course), we should consider why the data structure was used.  Data structures are used both for storing information but also to use the information in different ways.  Looking at the readings above, a stack is used if we want to remember where we have been and potentially go reverse or backwards.  Knowing this capability, you can form a hypothesis about what the code is doing if you see a stack being used in the code.  During the activities this week, you will be reading code that uses stacks.  How the stack is being used will help you better understand the purpose and behavior of the code.</p>
-        </article>
-	
+
+
+    <h2 id="3">Key Terms</h2>
+    <ul>
+    <li><p><strong>back</strong> - Refers to the location in a stack where a push and pop occurs.  The last item put into the stack is found in the back.</p></li>
+    <li><p><strong>flow charts</strong> - A diagram that models the behavior of a program, algorithm, or function.  Actions are shown in boxes, decisions shown in diamonds, and arrows are used to show execution flow.</p></li>
+    <li><p><strong>front</strong> - Refers to the location in a stack where the first item added to the stack can be found.  Traditionally this is index 0 of a dynamic array.</p></li>
+    <li><p><strong>pop</strong> - The operation to remove the last item pushed to the stack.  The item from the back of the stack is removed and returned.</p></li>
+    <li><p><strong>push</strong> - The operation to add a new items onto the stop.  The item is placed at the back of the stack.</p></li>
+    <li><p><strong>review</strong> - A formal process of ensuring code is written correctly.  Code is usually reviewed against the design and coding standards.  Frequently checklists are used to help the reviewer.</p></li>
+    <li><p><strong>stack</strong> - A data structure that follows a First In, Last Out (FILO) rule.  The stack is used to reverse data or remember previous data including previous results.</p></li>
+    <li><p><strong>UML</strong> - Unified Modelling Language.  A formal modelling language to represent object oriented designs.  UML includes many types of diagrams including class diagrams, activity diagrams, and state diagrams.</p></li>
+    </ul>
+        
+                </article>
 	<script src="../site/js/highlight/highlight.pack.js"></script>
 	<script>hljs.initHighlightingOnLoad();</script>
 </body>
