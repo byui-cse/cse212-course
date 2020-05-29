@@ -23,6 +23,7 @@ class Simple_Queue:
         """
         Enqueue the value provided into the queue
         """
+        #self.queue.insert(0, value)   # Defect 2 - Should use append 
         self.queue.append(value)
 
     def dequeue(self):
@@ -31,7 +32,9 @@ class Simple_Queue:
         """
         if len(self.queue) < 0:
             raise IndexError()
-        value = self.queue[0]
+        #value = self.queue[1]   # Defect 1 - Both of these should be [0]
+        #del self.queue[1]            
+        value = self.queue[0] 
         del self.queue[0]
         return value
 
