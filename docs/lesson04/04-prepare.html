@@ -29,9 +29,11 @@
 			<li><p><a href="#2.1">Testing Code from Requirements</a></p></li>
 			<li><p><a href="#2.2">Running Test Cases</a></p></li>
 			</ul>
+        
+        <p><a href="#3">Key Terms</a></p>        
 		
 			<h2 id="1">Queues</h2>
-		<p>During the last lesson, we learned about the stack.  The Stack was "Last In, First Out" (LIFO) and was implemented using the Python list.  The queue is characterized as "First In, First Out" (FIFO) and can also be implemented using the Python list.</p>
+		<p>During the last lesson, we learned about the stack.  The Stack was "Last In, First Out" (LIFO) and was implemented using the Python list.  The <strong>queue</strong> is characterized as "First In, First Out" (FIFO) and can also be implemented using the Python list.</p>
 		
 		<h3 id="1.1">Grocery Story Queue</h3>
 		
@@ -42,7 +44,7 @@
 		<p>Queues are used when we need to process a collection of requests in a fair and orderly way.  Consider the following two common queues used in software: the Web Server Queue and the Reader/Writer Queue. </p>
 				
 		<h3 id="1.2">Web Server Queue</h3>
-		<p>A web server receives numerous HTTP requests for web pages from clients throughout the world.  Each request requires the web server to send back information.  The amount of time it takes to send that information makes it difficult to respond timely to all requests.  This would be similair to a customer service desk that had only one phone.  If the customer service agent is helping someone else, then no one would pick up your call.  To solve the problem, a queue is used to pick up all the phone calls and transfer you to the customer service agent when they are ready for the next person.</p>
+		<p>A web server receives numerous HTTP (Hypertext Transfer Protocol) requests for web pages from clients throughout the world.  Each request requires the web server to send back information.  The amount of time it takes to send that information makes it difficult to respond timely to all requests.  This would be similair to a customer service desk that had only one phone.  If the customer service agent is helping someone else, then no one would pick up your call.  To solve the problem, a queue is used to pick up all the phone calls and transfer you to the customer service agent when they are ready for the next person.</p>
 		
 		<img src="web_server.jpeg" width="100%" height="100%" alt="Shows 3 laptop computers sending requests through the Internet Cloud to a server.  The server enqueues the requests into a Web Server Queue (which currently has 4 requests with space for 5).  The server dequeues requests from the queue when it is ready.  The response is sent to back to the laptop through the Internet Cloud."/>
 		
@@ -50,7 +52,7 @@
 		
 		<h3 id="1.3">Reader/Writer Queue </h3>
 		
-		<p>Frequently, we have the need to run different software components concurrently (e.g. looks like they are running at the same time).  Each component is called a process or a thread (additional information about threads in Python can be found <a href="https://realpython.com/intro-to-python-threading/" target="_blank">here</a>).  Each process will likely have their own set of variables that are maintained.  Frequently, there is need to have shared data between the processes.  The diagram below shows a variable which is being shared by multiple processes.</p>
+		<p>Frequently, we have the need to run different software components concurrently (e.g. looks like they are running at the same time).  Each component is called a <strong>process</strong> or a thread (additional information about threads in Python can be found <a href="https://realpython.com/intro-to-python-threading/" target="_blank">here</a>).  Each process will likely have their own set of variables that are maintained.  Frequently, there is need to have shared data between the processes.  The diagram below shows a variable which is being shared by multiple processes.</p>
 		
 		<img src="reader_writer.jpeg" width="100%" height="100%" alt="Shows 3 processes trying to read a shared variable and 3 processes trying to write to a shared variable."/>
 		
@@ -98,19 +100,19 @@
 	
 	<h2 id="2" style="counter-reset: h3">Finding Defects Using Testing</h2>
 		
-        <p>The best time to find a defect is while you are "in-phase."  This means that before you deliver your software to the customer you want to identify as many errors as possible.  It is much more expensive to fix errors if the software has already been delivered to the customer.  The two most common methods for finding defects are:
+        <p>The best time to find a <strong>defect</strong> is while you are "in-phase."  This means that before you deliver your software to the customer you want to identify as many errors as possible.  It is much more expensive to fix errors if the software has already been delivered to the customer.  The two most common methods for finding defects are:
 		<ul>
 		<li><p>Code Review</p></li>
 		<li><p>Testing</p></li>
 		</ul></p>
 	
 	<h3 id="2.1">Testing Code from Requirements</h3>
-		<p>Even the best code reviewers may not be able to analyze all the different scenarios that the software will execute within.  Testing is a process of demonstrating that specific inputs will result in expected outputs.  The selection of inputs can be done systematically.  We do not need to test all input combination.  Often times we will write code to test your code.  Consider a program that was supposed to determine if a year was a leap year.  The requirements of a program would include the following:</p>
+		<p>Even the best code reviewers may not be able to analyze all the different scenarios that the software will execute within.  <strong>Testing</strong> is a process of demonstrating that specific inputs will result in expected outputs.  The selection of inputs can be done systematically.  We do not need to test all input combination.  Often times we will write code to test your code.  Consider a program that was supposed to determine if a year was a leap year.  The <strong>requirements</strong> of a program would include the following:</p>
 			<ul>
 	<li><p>Every 4 years shall be a leap year.</p></li>
 	<li><p>Every 100 years shall not be a leap year.</p></li>
 	<li><p>Every 400 years shall be a leap year.</p></li></ul>
-	<p>Based on these requirements, we can write some test cases.  Notice that we are not writing test cases based on what the code does.  If there is an error in the code, we may incorrectly write the test case based on the faulty code.  Using the requirements above, we may write the following tests:</p>
+	<p>Based on these requirements, we can write some <strong>test cases</strong>.  Notice that we are not writing test cases based on what the code does.  Each test case includes an <strong>expected result</strong>.  If there is an error in the code, we may incorrectly write the test case based on the faulty code.  Using the requirements above, we may write the following tests:</p>
 	<ul><li><p>Test 1</p><ul><li>Scenario: Year 1996 (multiple of 4 but not multiple of 100 or 400)</li>
 		<li>Expected Result: True</li></ul></li>
 		<li><p>Test 2</p><ul><li>Scenario: Year 1900 (multiple of 4, multiple of 100, not multiple of 400)</li>
@@ -162,8 +164,23 @@ result = queue.dequeue()
 print(result)
 			</code></pre>
 	<p>In addition to finding defects, testing also has the benefit of helping the programmer better understand the requirements of the software.  Whether you or another engineer wrote the code, the process of writing test scenarios will increase your understanding of what the software should do.</p>
-    </article>
+
 	
+        <h2 id="3">Key Terms</h2>
+    <ul>
+    <li><p><strong>back</strong> - Refers to the location in the queue where a enqueue occurs.  The last item put in the queue is found in the back.</p></li>
+    <li><p><strong>defect</strong> - This is an error in code.</p></li>
+    <li><p><strong>dequeue</strong> - The operation to remove an item from the queue.  The item is removed from the front of the queue.</p></li>
+    <li><p><strong>enqueue</strong> - The operation to add an item to the queue.  The item is added to the back of the queue. </p></li>
+    <li><p><strong>expected result</strong> - The result that you expect to receive when you run a test case.  The expected result is based on your understanding of the software requirements.</p></li>
+    <li><p><strong>front</strong> - Referes to the locaiton in the queue where a dequeue occurs.  The first item put in the queue in found in the front.  Traditionally this is index 0 of a dynamic array.</p></li>
+    <li><p><strong>process</strong> - The place where software runs.  A process has code that is executed and memory used for variables in that code.  Multiple processes can run at the same time.  Processes can share memory. </p></li>
+    <li><p><strong>queue</strong> - A data structure that follows a First In, First Out (FIFO) rule.  The queue is used both to maintain order in data and to remember data when there is not time to process it.</p></li>
+    <li><p><strong>requirements</strong> - Written description of what software should do.</p></li>
+    <li><p><strong>test cases</strong> - Scenarios that are written to test that code behaves per the requirements.  A test case will usually have test code unless the procedure if for the user to just interact with the software.  An expected result is written for each test case. </p></li>
+    <li><p><strong>testing</strong> - An activity to demonstrate that the code correctly implements the requirements.</p></li>
+    </ul>
+        </article>
 		<script src="../site/js/highlight/highlight.pack.js"></script>
 		<script>hljs.initHighlightingOnLoad();</script>
 </body>

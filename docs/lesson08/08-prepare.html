@@ -25,10 +25,11 @@
 			<li><p><a href="#1.5">Sample Problems - Find Combinations</a></p></li>
 			<li><p><a href="#1.6">Sample Problems - MergeSort</a></p></li>
 		</ul>
+        <p><a href="#2">Key Terms</a></p>
 		
 		<h2 id="1">Recursion</h2>
 		<h3 id="1.1">Recursive Function Calls</h3>
-		<p>Usually when we write functions, we design them so they call different functions.  Recursion is a technique where a function calls itself.  For example, consider the following code:</p>
+		<p>Usually when we write functions, we design them so they call different functions.  <strong>Recursion</strong> is a technique where a function calls itself.  For example, consider the following code:</p>
 		
 		<pre><code class="Python">
 def say_hello():
@@ -42,7 +43,7 @@ def say_hello():
 		<p>When we use recursion, we need to make sure we follow two important rules:</p>
 		<ul>
 			<li><p>Smaller Problem - When we call the function recursively, we need to make sure we are calling the function on a smaller problem.  Without this rule, our function will run forever.</p></li>
-			<li><p>Base Case - As we continue to call the function on a smaller problem, we need a place to stop.  We must define a scenario in which recursion is not required.</p></li>
+			<li><p>Base Case - As we continue to call the function on a smaller problem, we need a place to stop.  We must define a scenario in which recursion is not required.  This is called the <strong>base case</strong>.</p></li>
 		</ul>
 		
 		<p>Applying these two rules to the <code>say_hello</code> function, we have the following modified code which is keeping track of how many times to say "Hello":</p>
@@ -240,6 +241,13 @@ print(data)  # [1, 2, 3, 4, 6, 8, 9]
 		</code></pre>
 		
 		<p>The performance of this recursive algorithm is O(n log n).  The O(log n) occurs because the recursion is splitting the list in half.  The O(n) occurs because of the algorithm to merge the two sorted lists together.  Many of the algorithms related to data structures and sorting that use recursion result in performance of either O(log n) or O(n log n).  These solutions are preferred over those that give O(n) or O(n^2).</p>
+        
+        <h2 id="2">Key Terms</h2>
+        
+        <ul>
+        <li><p><strong>base case</strong> - The scenario that will terminate (or stop) the recursive calls.  If this is not designed properly, then the recursion will run forever.</p></li>
+        <li><p><strong>recursion</strong> - The calling of a function with the same function.  This can be used to solve problems by identifying a solution which is written in terms of solving the same problem using smaller values.  A base case is needed to ensure that the recursion eventually stops.  The base cases are solved in the function without using recursion.</p></li>
+        </ul>
 		
 		<script src="../site/js/highlight/highlight.pack.js"></script>
 		<script>hljs.initHighlightingOnLoad();</script>

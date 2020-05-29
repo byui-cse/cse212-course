@@ -25,17 +25,19 @@
 			<li><p><a href="#1.5">Traversing a BST</a></p></li>
 			<li><p><a href="#1.6">BST in Python</a></p></li>
 		</ul>
+        
+        <p><a href="#2">Key Terms</a></p>
 		
 		<h2 id="1">Trees</h2>
-		<p>Trees are like linked lists in that nodes are connected together by pointers.  However, unlike linked lists, a tree can connect to multiple different nodes.  We will look at the following types of trees: binary trees, binary search trees, and balanced binary search trees.</p>
+		<p><strong>Trees</strong> are like linked lists in that nodes are connected together by pointers.  However, unlike linked lists, a tree can connect to multiple different nodes.  We will look at the following types of trees: binary trees, binary search trees, and balanced binary search trees.</p>
 		
 		<h3 id="1.1">Binary Trees</h3>
-		<p>A binary tree is a tree that links to no more than two other nodes.  In the picture below, the top node is called the <strong>root</strong> node.  The nodes that connect to no other nodes are called <strong>leaf</strong> nodes.  Nodes are frequently also referred to <strong>parent</strong> and <strong>child</strong> nodes.  The nodes to the left of a parent node and the nodes to the right of a parent node each form a subtree.  There is always only one root node.  While not shown in the picture, it is common for child nodes to also point back up to the parent node (similar to a linked list).</p>
+		<p>A <strong>binary tree</strong> is a tree that links to no more than two other <strong>nodes</strong>.  In the picture below, the top node is called the <strong>root</strong> node.  The nodes that connect to no other nodes are called <strong>leaf</strong> nodes.  Nodes are frequently also referred to <strong>parent</strong> and <strong>child</strong> nodes.  The nodes to the left of a parent node and the nodes to the right of a parent node each form a <strong>subtree</strong>.  There is always only one root node.  While not shown in the picture, it is common for child nodes to also point back up to the parent node (similar to a linked list).</p>
 		
 		<img src="binary_tree.jpeg" height="100%" width="100%" alt="Shows a Binary Tree where the top (node A) is called the root, the nodes that do not conenct to any other nodes are called leaves (node D, E, and F).  Node A connects to nodes B and C.  Node B connects to node D and E.  Node C connects only to node F.  A subtree is formed from a any parent node such as node B and includes all of the children nodes D and E.">
 		
 		<h3 id="1.2">Binary Search Trees</h3>
-		<p>A binary search tree (BST) is a binary tree that follows rules for data that is put into the tree.  Data is placed into the BST by comparing the data with the value in the parent node.  If the data being added is less than the parent node, then it is put in the left subtree.  If the data being added is greater (usually we will say greater than or equal to if duplicates are allowed) than the parent node, then it is put in the right subtree.  By using this process, the data is stored in the tree sorted.</p>
+		<p>A <strong>binary search tree</strong> (BST) is a binary tree that follows rules for data that is put into the tree.  Data is placed into the BST by comparing the data with the value in the parent node.  If the data being added is less than the parent node, then it is put in the left subtree.  If the data being added is greater (usually we will say greater than or equal to if duplicates are allowed) than the parent node, then it is put in the right subtree.  By using this process, the data is stored in the tree sorted.</p>
 		
 		<img src="binary_search_tree.jpeg" height="100%" width="100%" alt="Shows a Binary Search Tree where the root node is 15.  The 15 is connected to 10 (on the left) and 24 (on the right).  The 10 is connected to 3 (on the left) and 14 (on the right).  The 24 is connected to 33 (on the right).">
 		
@@ -52,14 +54,14 @@
 		
 		<p>The process that we used to find where to put the new node was an efficient process.  If we had a dynamic array or a linked list containing sorted values, we would have an O(n) operation as we search for the proper location to insert a value into the proper sorted position.  By using the BST, we are able to exclude a subtree with each comparison.  This ability to split the job in half recursively results in O(log n).  Maintaining sorted data in a BST performs better than other data structures.</p>
 		
-		<p>However, the only reason we had O(log n) in the example above was because the tree was "balanced".  To see the difference between a balanced and an unbalanced tree, we will construct a tree with the same values but in a different order.  The reason why the previous tree has 15 as the root node is because 15 was added first.  This time, we will add the values in the following order: 3, 10, 14, 15, 20, 24, 33 (purposefully in ascending order).</p>
+		<p>However, the only reason we had O(log n) in the example above was because the tree was "balanced".  To see the difference between a <strong>balanced</strong> and an unbalanced tree, we will construct a tree with the same values but in a different order.  The reason why the previous tree has 15 as the root node is because 15 was added first.  This time, we will add the values in the following order: 3, 10, 14, 15, 20, 24, 33 (purposefully in ascending order).</p>
 		
 		<img src="unbalanced_bst.jpeg" height="100%" width="100%" alt="Shows a binary search tree with a root node of 3.  Each subsequent node is attached to the right including 10, 14, 15, 20, 24, and 33.">
 		
 		<p>This tree is a BST but looks more like a linked list.  This BST is unbalanced has a resulting performance for searching of O(n) instead of O(log n).</p>
 		
 		<h3 id="1.3">Balanced Binary Search Trees</h3>
-		<p>A balanced binary search tree (balanced BST) is a BST such that the difference of height between the two subtrees is not dramatically different.  The height of a tree can be found by counting the maximum number of nodes between the root and the leaves.  Since it is not reasonable to expect that the order of data will result in a balanced BST, numerous algorithms have been written to detect if a tree is unbalanced and to correct the unbalance.  Common algorithms include red black trees and AVL (Adelson, Velskii, and Landis) trees.  The example below shows an AVL tree which is balanced because the difference of height between subtrees is less than 2.</p>
+		<p>A <strong>balanced binary search tree</strong> (balanced BST) is a BST such that the difference of height between the two subtrees is not dramatically different.  The height of a tree can be found by counting the maximum number of nodes between the root and the leaves.  Since it is not reasonable to expect that the order of data will result in a balanced BST, numerous algorithms have been written to detect if a tree is unbalanced and to correct the unbalance.  Common algorithms include red black trees and AVL (Adelson, Velskii, and Landis) trees.  The example below shows an <strong>AVL tree</strong> which is balanced because the difference of height between subtrees is less than 2.</p>
 		
 		<img src="avl_tree_initial.jpeg" height="100%" width="100%" alt="Shows an AVL tree where the root node is 15.  The 15 is connected to 10 (on the left) and 24 (on the right).  The 10 is connected to 3 (on the left) and 14 (on the right).   The 12 is connected to 14 (on the left).  The 24 is connected to 33 (on the right). Looking at the subtree starting with 10, the height to the 3 on the left is 2.  The height of the subtree to the 12 on the right is 3.">
 		
@@ -130,7 +132,7 @@ def _insert(self, data, node):
 		</code></pre>	
 		<h3 id="1.5">Traversing a BST</h3>
 		
-		<p>We traverse a BST when we want to display all the data in the tree.  An in-order traversal will visit each node from smallest to largest.  A similair process can be followed to visit each node from the largest to the smallest.  This is also a recursive process:</p>
+		<p>We <strong>traverse</strong> a BST when we want to display all the data in the tree.  An in-order traversal will visit each node from smallest to largest.  A similair process can be followed to visit each node from the largest to the smallest.  This is also a recursive process:</p>
 
 		<ul>
 		<li><p>Smaller problem: Traverse the left subtree of a node, use the current node, and then traverse the right subtree of the node.</p></li>
@@ -242,7 +244,23 @@ def _traverse_forward(self, node):
 			</tr>			
 		</table>
 
-		
+        <h2 id="2">Key Terms</h2>
+		<ul>
+        <li><p><strong>AVL Tree</strong> - Adelson, Velskii, and Landis Tree.  A balanced binary search tree that is checked unbalanced height after every modification to the tree.  If the tree is unbalanced, then pre-determined algorithms are used to balance the tree.</p></li>
+        <li><p><strong>balanced</strong> - A tree is balanced if the the height of the tree from the root to each leaf is consistent for all subtrees.  The measure of consistentency will vary between algorithms but usually does not exceed a height difference of 1.</p></li>
+        <li><p><strong>balanced binary search tree</strong> - A binary search tree which is balanced or restructured to be balanced.  A balanced binary search tree has O(log n) performance when searching.</p></li>
+        <li><p><strong>binary search tree</strong> - A binary tree that puts data less than the root to the left and greater than the root to the right.  This type of a tree enables searching algorithms to be efficient.</p></li>
+        <li><p><strong>binary tree</strong> - A tree that up to 2 children for each node.</p></li>
+        <li><p><strong>child</strong> - A child is node connected from a parent node.</p></li>
+        <li><p><strong>leaf</strong> - A leaf is a node that has no children.</p></li>
+        <li><p><strong>node</strong> - An entry in a tree that contains both the value and pointers to any children nodes.</p></li>
+        <li><p><strong>parent</strong> - A parent is node that connects to children nodes</p></li>
+        <li><p><strong>root</strong> - The first parent in a tree.</p></li>
+        <li><p><strong>subtree</strong> - Subset of a tree made by selecting a node to be the root and including all the children from that node.</p></li>
+        <li><p><strong>traverse</strong> - The process of visiting all nodes (and subsequently their values) in a tree.  Used frequently with a binary search tree using recursion to start at the leaf node that contains the smallest value and going to the leaf node that contains the largest value.</p></li>
+        <li><p><strong>trees</strong> - A data structure that starts with a root node and is subsequently connected to multiple nodes according to a relationship between the nodes.  The tree does not have any circular loops or unconnected nodes.</p></li>
+        </ul>
+        
 		<script src="../site/js/highlight/highlight.pack.js"></script>
 		<script>hljs.initHighlightingOnLoad();</script>
 		
