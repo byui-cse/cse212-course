@@ -15,6 +15,7 @@
     <article>
 		<h1>01 Prepare: Reading</h1>
 		<h2>Table of Contents</h2>
+        
 		<p><a href="#1">Dynamic Arrays</a></p>
 			<ul>
 			<li><p><a href="#1.1">Fixed Arrays</a></p></li>
@@ -31,24 +32,29 @@
 			<li><p><a href="#2.1">Scientific Method</a></p></li>
 			<li><p><a href="#2.2">Four Step Process</a></p></li>
 			</ul>
+        
         <p><a href="#3">Key Terms</a></p>
 
 		<h2 id="1">Dynamic Arrays</h2>
 
 		<h3 id="1.1">Fixed Arrays</h3>
+        
 		<p>A <strong>fixed array</strong> is a collection of data put in memory with the following properties:</p>
+        
 		<ul>
 		<li><p>The fixed array cannot grow or shrink after it is created.</p></li>
 		<li><p>Each item in the fixed array is the same size</p></li>
 		<li><p>Each item in the fixed array is contiguous (i.e. right next to each other) in memory</p></li>
 		</ul>
-		<p>It is very easy for the programming language to access any position in the array.  We use the term <strong>index</strong> when referring to a position in the array.  The <code>index</code> starts at 0.  In the example array below, we will assume that <code>index</code> 0 begins at memory location 100.  We will also assume that the size of each element in the array is 4 bytes.  Using this information, we can determine the memory location for each <code>index</code>.  Generically, we can say that <code>memory(index) = starting_address + (index * item_size)</code></p>
+        
+		<p>It is very easy for the programming language to access any position in the array.  We use the term <strong>index</strong> when referring to a position in the array.  The index starts at 0.  In the example array below, we will assume that index 0 begins at memory location 100.  We will also assume that the size of each element in the array is 4 bytes.  Using this information, we can determine the memory location for each index.  Generically, we can say that <code>memory(index) = starting_address + (index * item_size)</code></p>
         
         <figure>
 		<img src="fixed_array.jpeg" width="100%" height="100%" alt="Shows a fixed array with 8 items (index going from 0 to 7) where each item is 4 bytes long.  Since the starting memory address is 100, the addresses of all items (in order) are 100, 104, 108, 112, 116, 120, 124, and 128."/>
         <figcaption>Fixed Array</figcaption></figure>
 		
 		<h3 id="1.2">Dynamic Arrays</h3>
+        
 		<p>The difference between a <strong>dynamic array</strong> and a fixed array is that the dynamic array can grow (and also shrink).  This means that we can always add another item to a dynamic array.  One of the common operations performed on a dynamic array is to append a new item to the end of the list.  Consider the dynamic array below.</p>
 		
         <figure>
@@ -60,17 +66,15 @@
         <figure>
 		<img src="dynamic_array_full.jpeg" width="100%" height="100%" alt="Shows the same array with 19 added into index 7.  The array is now full with capacity and size both equal to 8."/>
         <figcaption>Dynamic Array that is Full</figcaption></figure>
-        
-		
-		<p>In this updated array, both the <code>size</code> and the <code>capacity</code> are now both 8.  If we want to append another number, we cannot just add it to the end.  A dynamic array is really just a fixed size array (in this case a fixed array of size of 8) that we will discard in favor of building a bigger fixed array.  If we tried to add another one, then we would be overwriting memory that likely belongs to another variable.  This dangerous condition is called buffer <strong>overflow</strong>.</p>
-		
+        <p>In this updated array, both the size and the capacity are now 8.  If we want to append another number, we cannot just add it to the end.  A dynamic array is really just a fixed size array (in this case a fixed array of size of 8) that we will discard in favor of building a bigger fixed array.  If we tried to add another one, then we would be overwriting memory that likely belongs to another variable.  This dangerous condition is called buffer <strong>overflow</strong>.</p>
         <figure>
 		<img src="dynamic_array_overflow.jpeg" width="100%" height="100%" alt="Shows the same array with 99 attempted to be added after index 7 in memory.  Anything added after index 7 is considered overflow and is memory that belongs to another variable."/>
         <figcaption>Overflowing a Dynamic Array</figcaption></figure>
 		
 		<p>To properly grow the array, we have to complete the following steps:</p>
+        
 		<ul>
-		<li><p>Create a new array twice as big as the original array.  Usually a dynamic array starts with <code>capacity</code> 0 and then increases in the following pattern: 0, 1, 2, 4, 8, 16, 32, 64, 128, etc.</p></li>
+		<li><p>Create a new array twice as big as the original array.  Usually a dynamic array starts with capacity 0 and then increases in the following pattern: 0, 1, 2, 4, 8, 16, 32, 64, 128, etc.</p></li>
 		<li><p>Copy all the values from the original smaller array into the new larger array.</p></li>
 		<li><p>Delete the original smaller array.</p></li>
 		<li><p>Add the new item to the larger array.</p></li>
@@ -90,7 +94,7 @@
 		
 		<h3 id="1.4">Deleting from the Array</h3>
 		
-		<p>If we wanted to delete an item from the array, we would need to move all items after the item removed to the previous index (i.e. move to the left).  As a special case, if we wanted to remove the last item in the array, we would not need to move any other items.  The typical effect of removing the last item is to just decrease the <code>size</code> variable by 1 while leaving the <code>capacity</code> the same.  This means that the data is not really "deleted."  If we append a new item, then the previously "deleted" item will be overwritten.</p>
+		<p>If we wanted to delete an item from the array, we would need to move all items after the item removed to the previous index (i.e. move to the left).  As a special case, if we wanted to remove the last item in the array, we would not need to move any other items.  The typical effect of removing the last item is to just decrease the size variable by 1 while leaving the capacity the same.  This means that the data is not really "deleted."  If we append a new item, then the previously "deleted" item will be overwritten.</p>
 		
         <figure>
 		<img src="dynamic_array_delete.jpeg" width="100%" height="100%" alt="Shows the previous array of capacity 16 and size 10.  The number 20 is removed from index 0 which causes the previous values in Indices 1 to 9 to move over by one to the left (towards the beginning)."/>
@@ -109,27 +113,27 @@
 			<tr>
 			  <td>lookup(index)</td>
 			  <td>Gets the value at the specific index.</td>
-			  <td>value = my_list[index]</td>	
+			  <td><code>value = my_list[index]</code></td>	
 			</tr>			
 			<tr>
 			  <td>append(value)</td>
 			  <td>Adds "value" to the next available index.</td>
-			  <td>my_list.append(value)</td>	
+			  <td><code>my_list.append(value)</code></td>	
 			</tr>
 			<tr>
 			  <td>insert(index, value)</td>
 			  <td>Adds "value" to the specified index and moves subsequent items to the next index.</td>
-			  <td>my_list.append(0, value) # Insert at beginning</td> 	
+			  <td><code>my_list.append(0, value)</code></td> 	
 			</tr>
 			<tr>
 			  <td>remove(index)</td>
 			  <td>Removes the item at the specified index and moves subsequent items to the previous index.</td>	
-			  <td>del my_list[index]</td>	
+			  <td><code>del my_list[index]</code></td>	
 			</tr>
 			<tr>
 			  <td>size()</td>
 			  <td>Return the size of the dynamic array.</td>
-			  <td>length = len(my_list)</td>	
+			  <td><code>length = len(my_list)</code></td>	
 			</tr>
 			<tr>
 			  <td>capacity()</td>
@@ -139,24 +143,20 @@
 			<tr>
 			  <td>empty()</td>
 			  <td>Returns true if the length of the dynamic array is zero.</td>
-			  <td>if len(my_list) == 0:</td>	
+			  <td><code>if len(my_list) == 0:</code></td>	
 			</tr>			
 		</table>
 		
 		<h3 id="1.6">Looping Through Lists and the Range Function</h3>
 		
 		<p>To access, display, or do something with every item in a list, the for loop is used.  The following code will display all values in a list one at a time:</p>
-		<pre><code class="Python">	
-for item in my_list:
-	print(item)
-			</code></pre>
 		
 		<p>This type of for loop is called an iterator because it will visit all items in the collection without the programmer needing to think about the index.  We can change the for loop so that it loops through all the index values for the list instead.</p>
 		
-		<pre><code class="Python">	
+<pre><code class="Python">	
 for index in range(len(my_list)):
 	print(my_list[index])
-			</code></pre>
+</code></pre>
 		
 		<p>The <code>range(n)</code> function is used to create something "like" a list that goes from 0 to n-1.  This is very vonvenient since the indices of a list of size n will go from 0 to n-1.  While this for loop is more complicated, there will be times when solving a problem that you want to know the index value.  When this is needed, the <code>range</code> function should be used.  There are three ways the <code>range</code> function can be used:</p>
 	
@@ -167,16 +167,16 @@ for index in range(len(my_list)):
 		</ul>
 	
 		<h3 id="1.7">List Comprehensions</h3>
-		<p>If we need to create a list in Python, a list comprehension provides some shorthand notation for writing them quickly.  A list comprehension can generically be written using an <strong>expression</strong>, <strong>collection</strong>, and a <strong>condition</strong> as follows: <code>my_list = [expression for item in collection if condition]</code></p>
+		<p>If we need to create a list in Python, a list comprehension provides some shorthand notation for writing them quickly.  A list comprehension can generically be written using an <strong>expression</strong>, <strong>collection</strong>, and a <strong>condition</strong> as follows: <code>my_list = [<span style="color:blue;">expression</span> <span style="color:darkorange;">for item in collection</span> <span style="color:green;">if condition</span>]</code></p>
 		<p>The three parts of the list comprehensions can be described as follows:</p>
 		<ul>
-			<li><p><code>expression</code> - This is required and represents what will be put in the list.</p></li>
-			<li><p><code>for item in collection</code> - This is required and represents how many items should be in the list (or considered in the list).</p></li>
-			<li><p><code>if condition</code> - This is optional and represents which items should be included (or excluded).</p></li>
+			<li><p><code><span style="color:blue;">expression</span></code> - This is required and represents what will be put in the list.</p></li>
+			<li><p><code><span style="color:darkorange;">for item in collection</span></code> - This is required and represents how many items should be in the list (or considered in the list).</p></li>
+			<li><p><code><span style="color:green;">if condition</span></code> - This is optional and represents which items should be included (or excluded).</p></li>
 		</ul>
 		<p>Here are some examples of list comprehensions:</p>
 		
-		<pre><code class="Python">	
+<pre><code class="Python">	
 # Create a list of numbers 0 to 99
 my_list = [x for x in range(100)]
 
@@ -199,7 +199,7 @@ words_with_e = [word for word in my_words if 'E' in word]
 # Except, Multiples of 400 are leap years
 leap_years = [year for year in range(1900, 2001) if (year % 400 == 0) or
 					(year % 100 != 0 and year % 4 == 0)]
-			</code></pre>
+</code></pre>
 
 		<h2 id="2" style="counter-reset: h3">Problem Solving Strategies</h2>
 		
@@ -208,7 +208,7 @@ leap_years = [year for year in range(1900, 2001) if (year % 400 == 0) or
 		
         <figure>
 		<img src="scientific_method.jpeg" width="100%" height="100%" alt="Shows a flow chart representing the scientific method.  The process goes: Problem Statement, Research, Hypothesis, Experiment, and then Conclusions.  If the conclusions suggest that the problem is solved, then we can finish knowing we have the answer.  If the conclusions suggest that the problem is not solved, then we return back up to the Research step."/>
-        <figcaption>Scientific Method</figcaption>            </figure>
+        <figcaption>Scientific Method</figcaption></figure>
 		
 		<h3 id="2.2">Four Step Process</h3>
 		
@@ -226,10 +226,13 @@ leap_years = [year for year in range(1900, 2001) if (year % 400 == 0) or
         <figcaption>Four Step Process to Problem Solving</figcaption></figure>
 		
         <h2 id="3">Key Terms</h2>
+        
         <ul>
         <li><p><strong>capacity</strong> - The number of items that can fit in the fixed array or the number of items that can currently fit in the dynamic array.  The capacity of a dynamic array can be increased.  This should not be confused with the size of the array.</p></li>
         <li><p><strong>collection</strong> - Data that can be put in a data structure including a dynamic array.</p></li>
-        <li><p><strong>condition</strong> - In programming this is a boolean expression that results in True or False.  A condition is usually used with an <code>if</code>. <code>while</code>, or list comprehension in Python.</p></li>
+        <li>
+          <p><strong>condition</strong> - In programming this is a boolean expression that results in True or False.  A condition is usually used with an <code>if</code>, <code>while</code>, or list comprehension in Python.</p>
+        </li>
         <li><p><strong>dynamic array</strong> - An array that can grow.  A dynamic array is a fixed array that is replaced with a new fixed array if more space is needed.</p></li>
         <li><p><strong>expression</strong> - In programming this is a statement that evaluates to a result.  Common expressions include mathematical operators (e.g. +, -, *, /) and variables.</p></li>
         <li><p><strong>index</strong> - In an array, the index represents the location of data.  The first index in the array is 0.  The index also refers to offset in memory from the starting address.</p></li>
@@ -238,7 +241,7 @@ leap_years = [year for year in range(1900, 2001) if (year % 400 == 0) or
         <li><p><strong>size</strong> - The number of items that are currently in a fixed or dynamic array.  If the array is empty, then the size is 0.  The size can not exceed the capacity.</p></li>
         </ul>
         
-	  <script src="../site/js/highlight/highlight.pack.js"></script>
+      <script src="../site/js/highlight/highlight.pack.js"></script>
 		<script>hljs.initHighlightingOnLoad();</script>
 </article>
 </body>
