@@ -34,12 +34,17 @@
 		<h3 id="1.1">Binary Trees</h3>
 		<p>A <strong>binary tree</strong> is a tree that links to no more than two other <strong>nodes</strong>.  In the picture below, the top node is called the <strong>root</strong> node.  The nodes that connect to no other nodes are called <strong>leaf</strong> nodes.  Nodes are frequently also referred to <strong>parent</strong> and <strong>child</strong> nodes.  The nodes to the left of a parent node and the nodes to the right of a parent node each form a <strong>subtree</strong>.  There is always only one root node.  While not shown in the picture, it is common for child nodes to also point back up to the parent node (similar to a linked list).</p>
 		
+        <figure>
 		<img src="binary_tree.jpeg" height="100%" width="100%" alt="Shows a Binary Tree where the top (node A) is called the root, the nodes that do not conenct to any other nodes are called leaves (node D, E, and F).  Node A connects to nodes B and C.  Node B connects to node D and E.  Node C connects only to node F.  A subtree is formed from a any parent node such as node B and includes all of the children nodes D and E.">
+            <figcaption>Binary Tree</figcaption>
+            </figure>
 		
 		<h3 id="1.2">Binary Search Trees</h3>
 		<p>A <strong>binary search tree</strong> (BST) is a binary tree that follows rules for data that is put into the tree.  Data is placed into the BST by comparing the data with the value in the parent node.  If the data being added is less than the parent node, then it is put in the left subtree.  If the data being added is greater (usually we will say greater than or equal to if duplicates are allowed) than the parent node, then it is put in the right subtree.  By using this process, the data is stored in the tree sorted.</p>
 		
+        <figure>
 		<img src="binary_search_tree.jpeg" height="100%" width="100%" alt="Shows a Binary Search Tree where the root node is 15.  The 15 is connected to 10 (on the left) and 24 (on the right).  The 10 is connected to 3 (on the left) and 14 (on the right).  The 24 is connected to 33 (on the right).">
+            <figcaption>Binary Search Tree</figcaption></figure>
 		
 		<p>Using the tree above, we can determine where to put additional items.  We always start at the root node and compare the new value with it.  We keep comparing until we have found an empty place for the new node.  For example, to insert the value 20, do the following:</p>
 		
@@ -50,26 +55,39 @@
 		<li><p>Insert 20 in the empty spot to the left of 24.</p></li>
 		</ul>
 		
+        <figure>
 		<img src="binary_search_tree_add_node.jpeg" height="100%" widgth="100%" alt="Shows the same binary search tree with node 20 added to the left of node 24.  Nodes 15, 24, and 20 are highlighted to show the path to find where the new node was inserted.">
-		
+		<figcaption>Add Node to BST</figcaption></figure>
+            
 		<p>The process that we used to find where to put the new node was an efficient process.  If we had a dynamic array or a linked list containing sorted values, we would have an O(n) operation as we search for the proper location to insert a value into the proper sorted position.  By using the BST, we are able to exclude a subtree with each comparison.  This ability to split the job in half recursively results in O(log n).  Maintaining sorted data in a BST performs better than other data structures.</p>
 		
 		<p>However, the only reason we had O(log n) in the example above was because the tree was "balanced".  To see the difference between a <strong>balanced</strong> and an unbalanced tree, we will construct a tree with the same values but in a different order.  The reason why the previous tree has 15 as the root node is because 15 was added first.  This time, we will add the values in the following order: 3, 10, 14, 15, 20, 24, 33 (purposefully in ascending order).</p>
 		
+        <figure>
 		<img src="unbalanced_bst.jpeg" height="100%" width="100%" alt="Shows a binary search tree with a root node of 3.  Each subsequent node is attached to the right including 10, 14, 15, 20, 24, and 33.">
-		
+		<figcaption>Unbalanced BST</figcaption></figure>
+            
 		<p>This tree is a BST but looks more like a linked list.  This BST is unbalanced has a resulting performance for searching of O(n) instead of O(log n).</p>
 		
 		<h3 id="1.3">Balanced Binary Search Trees</h3>
 		<p>A <strong>balanced binary search tree</strong> (balanced BST) is a BST such that the difference of height between the two subtrees is not dramatically different.  The height of a tree can be found by counting the maximum number of nodes between the root and the leaves.  Since it is not reasonable to expect that the order of data will result in a balanced BST, numerous algorithms have been written to detect if a tree is unbalanced and to correct the unbalance.  Common algorithms include red black trees and AVL (Adelson, Velskii, and Landis) trees.  The example below shows an <strong>AVL tree</strong> which is balanced because the difference of height between subtrees is less than 2.</p>
 		
+        <figure>
 		<img src="avl_tree_initial.jpeg" height="100%" width="100%" alt="Shows an AVL tree where the root node is 15.  The 15 is connected to 10 (on the left) and 24 (on the right).  The 10 is connected to 3 (on the left) and 14 (on the right).   The 12 is connected to 14 (on the left).  The 24 is connected to 33 (on the right). Looking at the subtree starting with 10, the height to the 3 on the left is 2.  The height of the subtree to the 12 on the right is 3.">
-		
+		<figcaption>Balanced AVL Tree</figcaption></figure>
+        
 		<p>If we add 13 to the right of the 12, we end up with an unbalanced AVL tree because the height of the right subtree from 10 is now 2 more than the left subtree.</p>
 		
+        <figure>
 		<img src="avl_tree_unbalanced.jpeg" height="100%" width="100%" alt="Shows the same AVL tree but with node 13 added to the right of 12.  The height between node 10 and node 13 is now 4.">
-		
+            <figcaption>Unbalanced AVL Tree after Adding Node</figcaption></figure>
+            
 		<p>The AVL algorithm will detect that the tree has become unbalanced.  To balance the tree, a node rotation will be performed.  For our tree, we can rotate the node with 13 so that nodes 12 and 14 are children nodes of the 13.  When this rotation is done, the tree returns to a balanced state.  An AVL tree will always be a Balanced BST and therefore benefit from O(log n) performance.</p>
+            
+        <figure>
+        <img src="avl_tree_rebalanced.jpeg" height="100%" widht="100%" alt="Shows the same AVL tree balanced again by moving the 13 to be the node of the subtree with 12 and 14 as children.">
+            <figcaption>Rebalanced AVL Tree</figcaption>
+        </figure>    
 		
 		<h2 style="counter-reset: h3">BST Operations</h2>
 		

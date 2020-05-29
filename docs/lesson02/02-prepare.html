@@ -49,7 +49,11 @@ def find_bob(name_list):
 		
 		<p>The size of the data in this function is based on the size of the <code>name_list</code>.  We will say that size of the data is <code>n</code>.  The <code>for</code> loop in the code means that we will potentially run <code>n</code> times.  This worst case potential will only happen if "Bob" is not in the list of names.  Therefore, we say that the big O in the worst case is O(n).  In general, when we ask for the big O of a function we are asking for the worst case scenario.  This function does have a best case scenario.  If "Bob" is the first name in the list, then the loop will only run one time.  Therefore, we can say the big O in the best case is O(1).  We call O(1) <strong>constant</strong> time.  When looking at code, usually a single line of code like an assignment statement, is considered O(1).</p>
 		<p>If a function has O(n) performance, then we also say that the function has <strong>linear</strong> performance.  Using a graphing calculator or a graphing website (e.g. <a href="http://desmos.com/calculator" target="_blank">desmos.com</a>), we can visually see the linear performance of O(n).  The graph below shows y = x which is used to represent O(n).  When x (or n) gets bigger, the amount of work (y) gets larger in a linear way.</p>
+        
+        <figure>
 		<img src="linear.jpg" width="100%" height="100%" alt="Shows the graph y=x for x in the range from 0 to 200.">
+        <figcaption>Representation of O(n)</figcaption></figure>
+        
 		<p>Consider the following code that has two loops in serial (one right after the other):</p>
 		<pre><code class="Python">	
 def multiple_loops(n):
@@ -59,10 +63,16 @@ def multiple_loops(n):
 		print(i**2)
 			</code></pre>
 		<p>In this function, each for loop contributes O(n) to the performance of the function.  The total would be O(n) + O(n) = O(2n).  If we graph this, O(2n) does look like it has a worse performance than O(n).</p>
+        <figure>
 		<img src="linear_two.jpg" width="100%" height="100%" alt="Shows y=x and y=2*x on the same graph for x in the range from 0 to 200.  The y=2*x graph takes twice as much work (y) as y=x.">
+        <figcaption>Comparison of O(n) and O(2n)</figcaption></figure>
+        
 		<p>However, if we zoom very far out to very large values of n, we notice that the distance between O(n) and O(2n) has not changed.  While it is true O(2n) will take twice as long, in the measurements of big O notation, they are equivalent since as we get to larger and larger values of n, the rate of increase (or decrease) has not changed.  The <strong>coefficients</strong> in big O notation should be dropped.  Therefore, instead of saying O(2n) for the function above, we will say O(n).</p>
-		<img src="linear_two_zoomed_out.jpg" width="100%" height="100%" alt="Shows y=x and y=2*x on the same graph for x in the range from 0 to 2000000.  The distance between the two graphs is the same as when we were zoomed in.">
 		
+        <figure>
+        <img src="linear_two_zoomed_out.jpg" width="100%" height="100%" alt="Shows y=x and y=2*x on the same graph for x in the range from 0 to 2000000.  The distance between the two graphs is the same as when we were zoomed in.">
+		<figcaption>Comparison of O(n) and O(2n) for very Large Values of n</figcaption></figure>
+        
 		<h3 id="1.2">Polynomial Performance</h3>
 		
 		<p>As seen earlier, the structure of the for loops is important to analyzing the big O performance for a function.  Consider the following scenario:</p>
@@ -74,8 +84,10 @@ def multiplication_table(n):
 			</code></pre>
 		<p>This function has a loop within a loop.  Both loops are based on the size of the data.  Instead of adding O(n) twice like we did with loops in serial, we multiply as follows:  O(n) * O(n) = O(n^2).  The rate of increase is much higher with an O(n^2) function compared to an O(n) function.  The <code>find_bob</code> function would, in the worst case, take 1,000 checks if the list size was 1,000, but the <code>multiplication_table</code> will take 1,000^2 = 1,000,000 print statements to complete for a similairly sized value of n.  This results in O(n^2) which is <strong>polynomial</strong> time.  The graph for an O(n^2) function is shown below:</p>
 		
+        <figure>
 		<img src="polynomial.jpg" width="100%" height="100%" alt="Shows the graph y=x^2 for x in the range 0 to 20.">
-		
+		<figcaption>Representation of O(n^2)</figcaption></figure>
+        
 		<p>Caution should be used when analyzing code that contains a loop within a loop.  If one of the loops is based on the size of the data but the other loop is not, it would be more accurate to characterize it as O(kn) where <code>k</code> is a constant.  Based on the rules we learned earlier, O(kn) = O(n) when <code>k</code> is a coefficient.  The code below would be O(n) because the inner loop is only running three times but the outer loop is based on the size of the data.</p>
 		
 		<pre><code class="Python">	
@@ -91,8 +103,10 @@ def short_multiplication_table(n):
 		
 		<p>It would seem like O(n) is the best performance you can get if we want to analyze a set of information.  However, there are some algorithms that have better performance.  Consider a function that had performance of O(log n).  This is called <strong>logarithmic</strong> time.  When graphed, the performance does not get significantly worse as the size of the data increases.</p>
 		
+        <figure>
 		<img src="logarithmic.jpg" width="100%" height="100%" alt="Shows the graph y=log x for x in the range 0 to 40.">
-		
+		<figcaption>Representation of O(log n)</figcaption></figure>
+        
 		<p>To find a function that has this type of performance, consider a list of sorted data: 2, 7, 12, 19, 31, 54, 68, and 91.  If we wanted to determine if 68 was in the list, we could search from left to right looking for 68.  Instead, we are going to treat this sorted list of numbers like a phone book.  If we wanted to find a name in a phone book, we would likely use our knowledge of the alphabet to get there faster.  A simple process could be to go to the item in the middle of the list (or the phone book) and determine if the number we are looking for is before or after the value in the middle.  By doing this, we will discard half of the values in the list in support of our search.  Using the remaining numbers, we will repeat the process by going to the middle and discarding half again.  If we repeat this process, we will eventually either find the number or determine that the number does not exist.</p>
 		
 		<p>Returning to our list of numbers, we will say 19 is in the middle (we started with an even number so we will use integer division to find the middle such as <code>len(numbers)//2</code>).  Since 68 (the number we are looking for) is greater than 19, then we concentrate our search after the 19.  The middle of the remaining numbers (31, 54, 68, and 91) is 54.  Since 68 is greater than 53, we will look at the numbers afterwards.  The middle of the remaining numbers (68 and 91) is 68.  Since 68 matches 68, we can say the number exists and it only took us three checks.</p>

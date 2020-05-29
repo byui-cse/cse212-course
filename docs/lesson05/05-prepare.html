@@ -42,7 +42,9 @@
 		<h3  id="1.2">Hashing and Sets</h3>
 		<p>To achieve the O(1) time for set operations, we will consider a very simple example.  Assume we wanted to store all positive one digit numbers (0 to 9) into a list.  How would we store these numbers if we wanted to have an O(1) performance for adding, removing, or testing for membership?  If we used the value to determine the index into the list, we might be able to achieve O(1).  Consider the function <code>index(n) = n</code>.  If we wanted to add the number 7, then we would use this simple function to determine the index to put the number 7 is index 7.  If we wanted to add the number 4, then we would put it into our function and get the index 4.  For this to work, our list will need to be exactly size 10.</p>
 		
+        <figure>
 		<img src="set_1digit.jpeg" height="100%" width="100%" alt="Shows a list of size 10 starting at index 0 containing some 1 digit numbers.  The value of 1 is in index 1, 4 is in index 4, 7 is in index 7, and 8 is in index 8.  Implements the equation index(n) = n.">
+        <figcaption>Set for 1 Digit Numbers</figcaption></figure>
 		
 		<p>The list above shows several one digit numbers added to our list according to the rule <code>index(n) = n</code>.  Notice that if we wanted to know if a number existed in the list, then we would use the formula to lookup the index.  This would result in an O(1) performance.  Also notice that the list is not populated in the same way that we learned about dynamic arrays.  We call this a <strong>sparse list</strong> because the list is not guaranteed to be filled from left to right.</p>
 
@@ -50,22 +52,30 @@
 		
 		<p>Imagine we changed this simple example to include all nine digit positive numbers (0 to 999,999,999). How big would the list need to be store these numbers and still achieve O(1) performance?  We would need a list size of 1 billion.  While this would work, the amount of memory is prohibitive.  To store just one 10 digit number, we would need memory for a 1 billion sized spare list.  Could we do this with something smaller such as a sparse list size of 10?  We can accomplish this by using the modulo (%) operator.  If we wrote the equation as <code>index(n) = n % 100</code>, then we would be able to store values properly.  The value 353,259,253 would be placed based on index(353,259,253) = 353,259,253 % 10 = 3.  The value 783,382,582 would be placed in index 2.  </p>
 		
+        <figure>
 		<img src="set_10digit.jpeg" height="100%" width="100%" alt="Shows a list of size 10 starting at index 0 containing some 9 digit numbers.  The value of 783382582 in index 2, 353259253 in index 3, 490295396 in index 6, and 119393828 in index 8.  Implements the equation index(n) = n % 10.">
-			
+        <figcaption>Set for 10 Digit Numbers</figcaption></figure>
+            
 		<p>The equation we used above can be generalized as follows:  <code>index(n) = n % sparse_list_size</code>.  This works great for numbers.  We can also use equations like this for strings and floats.  The generic function is <code>index(n) = hash(n) % sparse_list_size</code>.  The hash(n) represents what is called a <strong>hashing function</strong>.  The hashing function will convert non-integers into integers so that the modulo operation can be performed.  Python has a built-in hash function.  The values returned by the hash function will vary everytime you run a Python script, but they will be consistent while you are running a script to completion.  Not everything can be hashed.  For example, a list in Python cannot be hashed.  It is common to say that the index(n) is the hashing function for a set and that the values in a set have been hashed.</p>
 			
+        <figure>
 		<img src="hash_python.jpg" height="100%" width="100%" alt="Shows the output of several calls to the hash function in Python.  hash(3) resulted in 3.  hash(-3) resulted in -3.  hash(&quot;cat&quot;) resulted in 791447170.  hash(&quot;dog&quot;) resulted in 1290104669.  hash(3.14) resulted in 1846836513.  hash(True) resulted in 1. hash([1,2,3]) resulted in a TypeError that said unhashable type: 'list'">
+        <figcaption>Hashing in Python</figcaption></figure>
 			
 		<p>If we only have 100 spots and there are up to 10 billion possible values, it's reasonable to expect that perhaps there is a weakness in the data structure.  Using the same diagram above, what would happen if we tried to add 548,345,952?  This would also be placed in index 2.  This is called a conflict. </p>
 		
 		<h3  id="1.3">Dealing with Conflicts</h3>
 		<p>There are two common ways to deal with conflict in a sparse list.  The first option is called <strong>open addressing</strong>.  If we use our <code>index(n)</code> hashing function and find that something already occupies the space (or the item in that space is not what we are looking for), then open addressing strategy will tell us move to the next available space.  There are multiple ways that this can be done, but the simplest method would be to look to the right one spot at a time.  The danger with this approach is that a conflict can result in the creation of more conflicts.  In the example below, when 548,345,952 was added, since there was a conflict in index 2, we would move over to index 4.  Since there is something in index 4 already, we have to move to index 5.  Unfortantely, now any number ending in a 5 will also find a conflict.  This can result in rapidly growing clusters of conflicts.  </p>
 			
+        <figure>
 		<img src="set_10digit_open_addressing.jpeg" height="100%" width="100%" alt="Shows the previous list of size 10 with 9 digit numbers.  548345952 is shown in index 4 because indexes 2 and 3 were already full.">
-		
+		<figcaption>Open Addressing for Conflict Management</figcaption></figure>
+        
 		<p>A second option is called <strong>chaining</strong>.  Instead of looking for a new place for our data, we can make a list of values that occupy the same space.  This does not have the adverse effect of creating clusters of conflict.   </p>
 		
-		<img src="set_10digit_chaining.jpeg" height="100%" width="100%" alt="Shows the previous list of size 10 with 9 digit numbers.  783382582 and the new number 548345952 are now shown in a new list.  The new list is stored in index 2.  ">
+		<figure>
+        <img src="set_10digit_chaining.jpeg" height="100%" width="100%" alt="Shows the previous list of size 10 with 9 digit numbers.  783382582 and the new number 548345952 are now shown in a new list.  The new list is stored in index 2.  ">
+        <figcaption>Chaining for Conflict Management</figcaption></figure>
 		
 		<p>In both of these options to solve conflicts, we have an adverse effect on our O(1) performance.  The use of the <code>index(n)</code> hashing function is what gives us the O(1) timing.  If we have to search through several positions to find a value, or if we have to search the chained list, we may approach O(n) if the amount of conflict is high.  To avoid this, we need to increase the size of the sparsed list if the amount of conflict is too high.  When we increase the size of the sparsed list, then we need to reposition all of the values by running the <code>index(n)</code> function again with the increased sparsed list size.</p>
 		

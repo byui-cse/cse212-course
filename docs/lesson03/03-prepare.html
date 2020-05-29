@@ -40,14 +40,18 @@
 		
 		<p>If you were going to make pancakes for your family or friends, you probably would have a plate ready to stack the hot pancakes on as they finished looking.  Each time we put a pancake onto the stack, we call this a <strong>push</strong> operation.  In our culinary example, we might say that each new pancake goes onto the top of the stack.  However, since we are going to implement our stacks in Python, we will say that the pancake is actually added to the <strong>back</strong>.  When we take a pancake off to eat, we call this a <strong>pop</strong> operation.  Notice that we push and pop from the back of the stack.  Removing from the middle of the stack is not generally allowed (especially at the dinner table).  Notice that the pancake at the <strong>front</strong> is the the very first pancake that was cooked.  If the pancakes are made faster than they are eaten, then this first pancake would get cold.  A LIFO (Last In, First Out) or FIFO (First In, First Out) structure like the stack can result in data not being used for a long time.  This might not work well for a rotating stock system in a grocery store, but the real benefit of the stack is the ability to remember where we have been.</p>
 		
+        <figure>
 		<img src="pancake_stack.jpeg" width="100%" height="100%" alt="Shows a stack of pancakes where no pancakes are pushed to the back and pancakes are popped from the back to be eaten."/>
-		<br>
+		<figcaption>Stack of Pancakes</figcaption></figure>
+        
 		<h3 id="1.2">The "Undo" Option and the Stack</h3>
 		
 		<p>One of the most common stacks that people use on a computer is related to the Undo option in word processors and editors.  When we type something on the keyboard, the item is both displayed to the screen and also added to a stack.  If we type the phrase <code>"The rain in Spain stays mainly in the plain"</code>, we would expect the following commands to be put pushed onto the stack: <code>Type "The"</code>, <code>Type "rain"</code>, <code>Type "in"</code>, and so forth.  The last item to be pushed would be <code>Type "plain"</code>.  If we press the Undo button, the software will pop the stack and receive: <code>Type "plain"</code>.  The software will then do the opposite of this which would result in the word <code>"plain"</code> being removed from the screen.  </p>
 		
+        <figure>
 		<img src="undo_stack.jpeg" width="100%" height="100%" alt="Shows a computer screen and history stack with the initial text of The rain in Spain stays mainly in the plain.  Changes to the screen and stack are shown as described in the text of this section."/>
-		<br>
+		<figcaption>Stack used to Undo Text</figcaption></figure>
+        
 		<p>Since the stack is maintaining a history of what was typed, we can guarantee that pressing the Undo button will revert changes in the right order.  If we popped five additional times, we would have <code>"The rain in"</code> remaining on the screen.  If we type <code>"Idaho stays mainly in Rexburg"</code>, we would see five new pushes to the stack.  The original first three commands to display <code>"The rain in"</code> still remains at the front of the stack.  If the Undo button is pressed enough times, then these initial words would eventually be removed.</p>
 		
 		<p>Stacks are useful when we need to maintain history and perform an operation (eg. Undo function in an editor) backwards.</p>
@@ -60,18 +64,24 @@
 	
 		<p>The first of these is clear in our code.  If we are currently in function A, then we expect to call function B.  However, how do we tell the computer that we want to return function A when function B is finished.  This can be even more complicated by the fact that function B will need to call functions C, D, and E before it can finish.  The computer accomplishes this by using a function stack.  When a function is called, it is pushed to the stack.  The current function running is always on the back of the stack.  When the function finishes, it is popped off the stack.  The result is that the function to return to is the one that is on the back of the stack.</p>
 		
+        <figure>
 		<img src="function_stack.jpeg" width="100%" height="100%" alt="Shows a structure chart of function A calling function B, function B called functions C and D (in order), and function D calling function E.  Shows the function stack (front to back) when B is running (A, B), when C is running (A, B, C), when C finishes (A, B), when D is running (A, B, D),  when E is running (A, B, D, E) and when B finishes. (A)"/>
-		<br>
+		<figcaption>Function Stack in Programming</figcaption></figure>
+        
 		<p>In addition to keeping track of the function name that is running, the stack also allows us to see where in the function we were when a function was originally called as well as the memory that we were using in our function.  Stacks work well for remembering where we've been and the circumstances we were in during that previous time.</p>
 	
 		<p>When using Python or other programming languages, we will often see error messages that look like the following.  Notice that the information is showing which functions have called which functions up until the point of error.  This display of information comes directly from the function stack.  </p>
 	
+        <figure>
 		<img src="exception_function_stack.jpeg" width="100%" height="100%" alt="Shows the call stack from a Python program running in Visual Studio Code when a breakpoint was reached an paused the sofwtare."/>
-		<br>
+		<figcaption>Python Exception showing Function Stack</figcaption></figure>
+        
 		<p>Many code editors also include a debugger. Debuggers can be used to pause execution of software so that we can see what is occurring within our code step-by-step.  Part of the debugger capability is the display of the function stack (or frequently called the call stack) when the software is paused (due to a breakpoint or an exception).</p>
 		
+        <figure>
 		<img src="debugger_call_stack.jpeg" width="100%" height="100%" alt="Shows the call stack from a Python program running in Visual Studio Code when a breakpoint was reached an paused the sofwtare."/>
-		<br>
+		<figcaption>Debugger showing Function Stack</figcaption></figure>
+        
 		<h3 id="1.4">Stacks in Python</h3>
 		<p>In Python, a stack can be represented using a list.  To push an item to the back of the stack, the <code>append</code> function can be used on the list.  To pop items from the back of the stack, the <code>pop</code> function can be used.  The <code>pop</code> function will also delete it from the list.  The size can be determined by using the <code>len</code> function on the list.  The performance of the stack using a Python list is based on the performance of the dynamic array.</p>
 
@@ -131,18 +141,24 @@
 		<p>In this process, it is possible that we might find defects in the code that we were given.  Code reviews are a common tool for increasing software quality.  Performing these steps will require us to keep a good notebook to record our hypothesis, experiments, and conclusions.  A good reviewer will always have a pen and paper ready to complete their task.</p>
 		
 		<h3 id="2.2">Read Code "Cover to Cover"</h3>
-		<p>Unlike a book, code does not begin on page one.  We need to find where the code begins and follow it as it calls functions, runs loops, and branches in different directions with decision statements.  If the code has multiple functions, the creation of a structure chart (also called a calling tree) will be helpful.  The structure chart will use boxes to represent functions and arrows to represent functions calling functions.  Frequently drawn with the starting function at the top and working downwards, these diagrams can help us navigate through the code.  On the arrows, we may frequently write the inputs and outputs related to each function.  This will help us better understand the data in the code and which functions are responsible for creating, modifying, and using that data.</p>
+		<p>Unlike a book, code does not begin on page one.  We need to find where the code begins and follow it as it calls functions, runs loops, and branches in different directions with decision statements.  If the code has multiple functions, the creation of a <strong>structure chart</strong> (also called a calling tree) will be helpful.  The structure chart will use boxes to represent functions and arrows to represent functions calling functions.  Frequently drawn with the starting function at the top and working downwards, these diagrams can help us navigate through the code.  On the arrows, we may frequently write the inputs and outputs related to each function.  This will help us better understand the data in the code and which functions are responsible for creating, modifying, and using that data.</p>
 		
+        <figure>
 		<img src="structure_chart.jpeg" width="100%" height="100%" alt="Shows a structure chart where the main function calls the readAccessRecords function and the searchAccessRecords function.  The readAccessRecords function receives an accessFile input and produces accessRecords and recordCount as an output.  The searchAccessRecords function receives the accessREcords, numRecords, startTime, and entTime while producing no output.  The searchAccessRecords function also call the displayAccessRecord function providing accessRecord as an input with no outputs."/>
-		<br>
+		<figcaption>Structure Chart</figcaption></figure>
+        
 		<p>If the code contains classes, then creating a <strong>UML</strong> (Unified Modelling Language) class diagram to show the classes (with member data and member functions) and the relationships between the classes will help us to visualize the software and enable us to read different sections of the code based on their dependencies to others.  For example, in the diagram below, we can see that the Order HAS-A (object composition shown with the filled in diamond) list of Products and that each Product IS-A either a PerishableProduct or an ElectronicProduct (inheritance shown with the open triangle).  With this drawn, we would probably start with understanding the Product base class first since it has no dependency on other objects.  Second, we would review the different types of Products.  Finally, we would review the Order class which containts the list of the Product objects that we already understand.</p>
 		
+        <figure>
 		<img src="uml_diagram.jpeg" width="100%" height="100%" alt="Shows the classes and their relationships shown in the text above.  The Order class has an integer order_id and a list of Product objects called products.  The Order class has an init function, an add_product function that takes a product object as an input, and a display function.  The Product class has a string name and a float price with an init function and a display function.  The ElectronicProduct has a string url_download and both an init and download function.  The PerishableProduct has a expiry datetime object and both an init and donate function.">
-		<br>
+		<figcaption>UML Class Diagram</figcaption></figure>
+        
 		<p>When we are looking at a single function, it can be useful to diagram the behavior of the function.  Simple <strong>flow charts</strong> can quickly give us a better perspective of the loops and decisions in our code.  In the flow chart, use diamonds to represent decisions, boxes to represent actions, and arrows to show flow.</p>
 		
+        <figure>
 		<img src="flow_chart.jpeg" width="100%" height="100%" alt="Shows the flow of random number guessing game.  After getting the seed from the user and seeding the generator, a random number is selected and the guess counter is reset.  A loop begins with the user being prompted for a guess.  The guess counter will be udpated and then the guess is compared with the actual number.  Either the phrase higher, lower, or congratulations will be displayed.  If the correct answer was guessed, the guess count is also displayed.  The user is prompted to play the game again.  If they want to play again, then the process above repeast starting with the selection of a random number and the resetting of the guess counter.  Otherwise, the software says goodbye and the program ends.">
-		<br>
+		<figcaption>Flow Chart</figcaption></figure>
+        
 		<h3 id="2.3">"Execute" the Code Manually</h3>
 		<p>It is not always practical to run code that we are given.  If we can, then running the code with inputs that we generate can be helpful to understand the software.  However, the goal in this process is to understand the software without running the code on the computer.  Instead, we are going to run the software in our minds and on paper.</p>
 		
@@ -231,6 +247,7 @@ def do_something(text):
     <li><p><strong>push</strong> - The operation to add a new items onto the stop.  The item is placed at the back of the stack.</p></li>
     <li><p><strong>review</strong> - A formal process of ensuring code is written correctly.  Code is usually reviewed against the design and coding standards.  Frequently checklists are used to help the reviewer.</p></li>
     <li><p><strong>stack</strong> - A data structure that follows a First In, Last Out (FILO) rule.  The stack is used to reverse data or remember previous data including previous results.</p></li>
+    <li><p><strong>structure chart</strong> - A diagram showing which functions call which functions.  Frequently, the arrows used to show function calls also include parameters that are passed between the functions.</p></li>
     <li><p><strong>UML</strong> - Unified Modelling Language.  A formal modelling language to represent object oriented designs.  UML includes many types of diagrams including class diagrams, activity diagrams, and state diagrams.</p></li>
     </ul>
         

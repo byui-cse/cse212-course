@@ -98,8 +98,10 @@ def fib(n):
 		
 		<p>It is a useful exercise to analyze what happens when we call the <code>fib</code> function.  The diagram below shows the functions that are called when we run <code>fib(6)</code>.  Notice that the call to <code>fib(n-1)</code> is called before <code>fib(n-2)</code> and, therefore, the <code>fib(n-1)</code> must finish first.  Also notice that there are many duplicate calls to the <code>fib</code> function for the same value of <code>n</code>.</p>
 		
+        <figure>
 		<img src="fib6_recursion.jpeg" width="100%" height="100%" alt="Shows all the functions called by fib(6).  fib(6) calls fib(5) and fib(4).  fib(5) calls fib(4) and fib(3).  fib(4) calls fib(3) and fib(2).  fib(3) calls fib(2) and fib(1).  The total calls to the fib function (including the original fib(6)) is 15.">
-
+        <figcaption>Recursive Function Calls for fib(6)</figcaption></figure>
+        
 		<p>The <code>fib</code> function was called a total of 15 times!  This is an O(2^n) algorithm.</p>
 		
 		<h3 id="1.5">Sample Problems - Find Combinations</h3>

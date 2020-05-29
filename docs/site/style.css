@@ -119,10 +119,13 @@ article ol li code {
 }
 
 /* Content */
+
+
 article {
 	margin: 10px auto;
 	max-width: 750px;
 	padding: 20px;
+    counter-reset: figures;
 }
 
 article p {
@@ -164,6 +167,19 @@ article h3 {
 	font-weight: bold;
 }
 
+figure {
+	margin: 0 auto 1em;
+	counter-increment: figures;
+}
+
+figure figcaption:before {
+	content: 'Figure ' counter(figures) ' - ';
+}
+
+figure figcaption {
+    text-align: center;
+    	margin: 0 auto 1em;
+}
 aside.pull-right, aside.pull-left {
 	position: absolute;
 	right: 5px;
@@ -416,6 +432,7 @@ li heading {
 table, th, td {
   border: 1px solid black;
   border-collapse: collapse;
+    margin: 0 auto 1em;
 }
 th, td {
   padding: 15px;
