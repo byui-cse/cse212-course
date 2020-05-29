@@ -16,24 +16,29 @@
 		<h1>03 Prepare : Reading</h1>
 				
 		<h2>Table of Contents</h2>
+        
 		<p><a href="#1">Stacks</a></p>
-			<ul>
-			<li><p><a href="#1.1">Stack of Pancakes</a></p></li>
-			<li><p><a href="#1.2">The "Undo" Option and the Stack</a></p></li>
-			<li><p><a href="#1.3">Software and the Function Stack</a></p></li>
-			<li><p><a href="#1.4">Stacks in Python</a></p></li>
-			</ul>
-		
+        
+        <ul>
+        <li><p><a href="#1.1">Stack of Pancakes</a></p></li>
+        <li><p><a href="#1.2">The "Undo" Option and the Stack</a></p></li>
+        <li><p><a href="#1.3">Software and the Function Stack</a></p></li>
+        <li><p><a href="#1.4">Stacks in Python</a></p></li>
+        </ul>
+
 		<p><a href="#2">Understanding Code Using Reviews</a></p>
-			<ul>
-			<li><p><a href="#2.1">Code Reviews</a></p></li>
-			<li><p><a href="#2.2">Read code "cover to cover"</a></p></li>
-			<li><p><a href="#2.3">"Execute" the Code Manually</a></p></li>
-			<li><p><a href="#2.4">Analyze the use of Data Structures</a></p></li>
-			</ul>
+
+        <ul>
+        <li><p><a href="#2.1">Code Reviews</a></p></li>
+        <li><p><a href="#2.2">Read code "cover to cover"</a></p></li>
+        <li><p><a href="#2.3">"Execute" the Code Manually</a></p></li>
+        <li><p><a href="#2.4">Analyze the use of Data Structures</a></p></li>
+        </ul>
+        
         <p><a href="#3">Key Terms</a></p>
 		
-			<h2 id="1">Stacks</h2>
+        <h2 id="1">Stacks</h2>
+        
 		<p>A <strong>stack</strong> is a data structure that is characterized by the order in which items are added and removed.  Often called "Last In, First Out" (LIFO), the stack can be used to accomplish various tasks and can be implemented using a Python list.</p>
 		
 		<h3 id="1.1">Stack of Pancakes</h3>
@@ -59,8 +64,11 @@
 		<h3 id="1.3">Software and the Function Stack</h3>
 		
 		<p>Even if we didn't know what a stack was before today, we have actually been using stacks in all software we have written.  When we call a function in our code, we are telling the computer two things:</p>
-		<ul><li><p>Which function we want to call</p></li>
-		<li><p>Which function to go back to when we are done</p></li></ul>
+        
+		<ul>
+        <li><p>Which function we want to call</p></li>
+		<li><p>Which function to go back to when we are done</p></li>
+        </ul>
 	
 		<p>The first of these is clear in our code.  If we are currently in function A, then we expect to call function B.  However, how do we tell the computer that we want to return function A when function B is finished.  This can be even more complicated by the fact that function B will need to call functions C, D, and E before it can finish.  The computer accomplishes this by using a function stack.  When a function is called, it is pushed to the stack.  The current function running is always on the back of the stack.  When the function finishes, it is popped off the stack.  The result is that the function to return to is the one that is on the back of the stack.</p>
 		
@@ -83,6 +91,7 @@
 		<figcaption>Debugger showing Function Stack</figcaption></figure>
         
 		<h3 id="1.4">Stacks in Python</h3>
+        
 		<p>In Python, a stack can be represented using a list.  To push an item to the back of the stack, the <code>append</code> function can be used on the list.  To pop items from the back of the stack, the <code>pop</code> function can be used.  The <code>pop</code> function will also delete it from the list.  The size can be determined by using the <code>len</code> function on the list.  The performance of the stack using a Python list is based on the performance of the dynamic array.</p>
 
 		<table>
@@ -95,36 +104,36 @@
 			<tr>
 			  <td>push(value)</td>
 			  <td>Adds "value" to the back of the stack.</td>
-			  <td>my_stack.append(value)</td>	
+			  <td><code>my_stack.append(value)</code></td>	
 			  <td>O(1) - Performance of adding to the end of a dynamic array</td>
 			</tr>
 			<tr>
 			  <td>pop()</td>
 			  <td>Removes and returns the item from the back of the stack.</td>
-			  <td>value = my_stack.pop()</td> 	
+			  <td><code>value = my_stack.pop()</code></td> 	
 			  <td>O(1) - Performance of removing from the end of a dynamic array</td>
 			</tr>
 			<tr>
 			  <td>size()</td>
 			  <td>Return the size of the stack.</td>
-			  <td>length = len(my_stack)</td>	
+			  <td><code>length = len(my_stack)</code></td>	
 			  <td>O(1) - Performance of returning the size of the dynamic array</td>
 			</tr>
 			<tr>
 			  <td>empty()</td>
 			  <td>Returns true if the length of the stack is zero.</td>
-			  <td>if len(my_stack) == 0:</td>	
+			  <td><code>if len(my_stack) == 0:</code></td>	
 			  <td>O(1) - Performance of checking the size of the dynamic array</td>
 			</tr>			
 		</table>
-		<br>
 
-	<h2  id="2" style="counter-reset: h3">Understanding Code Using Reviews</h2>
+	    <h2  id="2" style="counter-reset: h3">Understanding Code Using Reviews</h2>
 		
 		<h3 id="2.1">Code Reviews</h3>
 		<p>We have frequently been asked to write code for either school or work.  However, how often have we been asked to complete the companion activity of reading code?  We have likely looked at code from websites and books, but there is a signficant difference between looking at code and reading code.  When we read code, we are attempting to understand the code like we would a book.  If we open a book and read a few random pages, we might get a high level summary of what the book is about.  However, to fully understand the book, we would need to not only read the book cover to cover, but we would also need to become acquainted personally with the diverse set of characters, follow a potentially winding plot, and discover the underlying messages woven in the story from the author.  This type of reading takes effort.  Reading code for understanding takes an equal amount of effort.</p>
 		
 		<p>There are multiple reasons why we might be asked to read code in our teams: </p>
+        
 		<ul>
 		<li><p>A team member has written some code and has asked other engineers to review the code for correctness against the design and for compliance against company standards.</p></li>
 		<li><p>A team member is asked to modify some code that was written by a former employee with or without the aid of a well documented design.</p></li>
@@ -132,15 +141,18 @@
 		
 		<p>When we read code others have written, we refer to this activity as a <strong>review</strong>.  A review should follow a methodical process.  Many companies will include a review checklist for engineers to use to ensure that they both understand the code and that they have checked all the coding standards.  When you review code, there are several strategies that you can use including the following:</p>
 		
-		<ul><li><p>Read code "cover to cover"</p></li>
+		<ul>
+        <li><p>Read code "cover to cover"</p></li>
 		<li><p>"Execute" the code manually</p></li>
-		<li><p>Ananlyze the use of data structures</p></li></ul>
+		<li><p>Ananlyze the use of data structures</p></li>
+        </ul>
 		
 		<p> Each of these methods will be discussed below.  When working with these methods, we should try to employ principles learned from the scientific method.  The scientific method requires us to form a hypothesis about what we think the code should be doing.  As we read through the code, we will test our hypothesis and look at the results.  If we are incorrect, then we can correct our misconceptions and form a new hypothesis.  This iterative process is necesessary to fully understand code. There are no shortcuts.  We can be tempted to search for the answer online or in a book.  While this may produce a faster answer, we will have not obtained full understanding of the code.</p>
 			
 		<p>In this process, it is possible that we might find defects in the code that we were given.  Code reviews are a common tool for increasing software quality.  Performing these steps will require us to keep a good notebook to record our hypothesis, experiments, and conclusions.  A good reviewer will always have a pen and paper ready to complete their task.</p>
 		
 		<h3 id="2.2">Read Code "Cover to Cover"</h3>
+        
 		<p>Unlike a book, code does not begin on page one.  We need to find where the code begins and follow it as it calls functions, runs loops, and branches in different directions with decision statements.  If the code has multiple functions, the creation of a <strong>structure chart</strong> (also called a calling tree) will be helpful.  The structure chart will use boxes to represent functions and arrows to represent functions calling functions.  Frequently drawn with the starting function at the top and working downwards, these diagrams can help us navigate through the code.  On the arrows, we may frequently write the inputs and outputs related to each function.  This will help us better understand the data in the code and which functions are responsible for creating, modifying, and using that data.</p>
 		
         <figure>
@@ -166,93 +178,96 @@
 		
 		<p>To execute code manually in our minds and on paper, we must start at the begining (or if we are looking at one piece of the sofwtare, perhaps start at the beginning of one of the functions).  If inputs are provided at the beginning (or at any other place along the way), we will have to develop useful inputs to see what will happen.  For example, consider the following code:</p>
 		
-		<pre><code class="Python">	
+<pre><code class="Python">	
 def do_something(text):
-		new_text = ""
-		for letter in text:
-			if letter != " ":
-					number = ord(letter)
-					new_letter = chr(number + 1)
-					new_text += new_letter
-			else:
-					new_text += letter
-		return new_text
-			</code></pre>
-		<br>
+    new_text = ""
+    for letter in text:
+        if letter != " ":
+            number = ord(letter)
+            new_letter = chr(number + 1)
+            new_text += new_letter
+        else:
+            new_text += letter
+    return new_text
+</code></pre>
+
 		<p>The function needs text and so we will propose some text like "Hello".  We will then step through each line of code and record in our notebook the value of each variable.  If we come across a code function that we don't understand (e.g. the ord and chr commands), then we will need to go online to read about those.  The <code>ord</code> function will return the ASCII numeric code that represents a character.  The <code>chr</code> function will convert an ASCII numeric code into a letter again.  When we finish the code we get <code>Ifmmp</code> which appears to be a form of simple childhood encryption in which each letter in the original text is changed by one letter higher in the alphabet.  When we ran the program, we noticed that you had to check if the letter was a space.  It would be good to try to the test again with spaces.  If we tried "Hello World", we end up with <code>Ifmmp Xpsme</code>.  Not only does the function perform the encoding, but it also preserves the spaces.</p>
 		
 		<table width="200" border="1" cellspacing="1" cellpadding="1">
-  <tbody>
-    <tr>
-      <th scope="col">text </th>
-      <th scope="col">letter </th>
-      <th scope="col">number </th>
-      <th scope="col">new_number </th>
-      <th scope="col">new_letter </th>
-      <th scope="col">new_text </th>
-    </tr>
-    <tr>
-      <td>Hello </td>
-      <td> H</td>
-      <td>72 </td>
-      <td> 73</td>
-      <td>I </td>
-      <td>I </td>
-    </tr>
-    <tr>
-      <td>&nbsp;</td>
-      <td>e </td>
-      <td>101 </td>
-      <td>102 </td>
-      <td>f </td>
-      <td>If </td>
-    </tr>
-    <tr>
-      <td>&nbsp;</td>
-      <td>l </td>
-      <td>108 </td>
-      <td>109 </td>
-      <td>m </td>
-      <td>Ifm </td>
-    </tr>
-    <tr>
-      <td>&nbsp;</td>
-      <td>l </td>
-      <td>108 </td>
-      <td>109 </td>
-      <td>m </td>
-      <td>Ifmm </td>
-    </tr>
-    <tr>
-      <td>&nbsp;</td>
-      <td>o </td>
-      <td>111 </td>
-      <td>112 </td>
-      <td>p </td>
-      <td>Ifmmp </td>
-    </tr>
-  </tbody>
-</table>
-		<br>
+          <tbody>
+            <tr>
+              <th scope="col">text </th>
+              <th scope="col">letter </th>
+              <th scope="col">number </th>
+              <th scope="col">new_number </th>
+              <th scope="col">new_letter </th>
+              <th scope="col">new_text </th>
+            </tr>
+            <tr>
+              <td>Hello </td>
+              <td> H</td>
+              <td>72 </td>
+              <td> 73</td>
+              <td>I </td>
+              <td>I </td>
+            </tr>
+            <tr>
+              <td>&nbsp;</td>
+              <td>e </td>
+              <td>101 </td>
+              <td>102 </td>
+              <td>f </td>
+              <td>If </td>
+            </tr>
+            <tr>
+              <td>&nbsp;</td>
+              <td>l </td>
+              <td>108 </td>
+              <td>109 </td>
+              <td>m </td>
+              <td>Ifm </td>
+            </tr>
+            <tr>
+              <td>&nbsp;</td>
+              <td>l </td>
+              <td>108 </td>
+              <td>109 </td>
+              <td>m </td>
+              <td>Ifmm </td>
+            </tr>
+            <tr>
+              <td>&nbsp;</td>
+              <td>o </td>
+              <td>111 </td>
+              <td>112 </td>
+              <td>p </td>
+              <td>Ifmmp </td>
+            </tr>
+          </tbody>
+        </table>
+
 		<h3 id="2.4">Analyze the use of Data Structures</h3>
+
 		<p>When code contains a data structure like a list or a stack (and others that we will learn during the course), we should consider why the data structure was used.  Data structures are used both for storing information but also to use the information in different ways.  Looking at the readings above, a stack is used if we want to remember where we have been and potentially go reverse or backwards.  Knowing this capability, you can form a hypothesis about what the code is doing if you see a stack being used in the code.  During the activities this week, you will be reading code that uses stacks.  How the stack is being used will help you better understand the purpose and behavior of the code.</p>
 
 
-    <h2 id="3">Key Terms</h2>
-    <ul>
-    <li><p><strong>back</strong> - Refers to the location in a stack where a push and pop occurs.  The last item put into the stack is found in the back.</p></li>
-    <li><p><strong>flow charts</strong> - A diagram that models the behavior of a program, algorithm, or function.  Actions are shown in boxes, decisions shown in diamonds, and arrows are used to show execution flow.</p></li>
-    <li><p><strong>front</strong> - Refers to the location in a stack where the first item added to the stack can be found.  Traditionally this is index 0 of a dynamic array.</p></li>
-    <li><p><strong>pop</strong> - The operation to remove the last item pushed to the stack.  The item from the back of the stack is removed and returned.</p></li>
-    <li><p><strong>push</strong> - The operation to add a new items onto the stop.  The item is placed at the back of the stack.</p></li>
-    <li><p><strong>review</strong> - A formal process of ensuring code is written correctly.  Code is usually reviewed against the design and coding standards.  Frequently checklists are used to help the reviewer.</p></li>
-    <li><p><strong>stack</strong> - A data structure that follows a First In, Last Out (FILO) rule.  The stack is used to reverse data or remember previous data including previous results.</p></li>
-    <li><p><strong>structure chart</strong> - A diagram showing which functions call which functions.  Frequently, the arrows used to show function calls also include parameters that are passed between the functions.</p></li>
-    <li><p><strong>UML</strong> - Unified Modelling Language.  A formal modelling language to represent object oriented designs.  UML includes many types of diagrams including class diagrams, activity diagrams, and state diagrams.</p></li>
-    </ul>
-        
-                </article>
-	<script src="../site/js/highlight/highlight.pack.js"></script>
-	<script>hljs.initHighlightingOnLoad();</script>
+        <h2 id="3">Key Terms</h2>
+
+        <ul>
+        <li><p><strong>back</strong> - Refers to the location in a stack where a push and pop occurs.  The last item put into the stack is found in the back.</p></li>
+        <li><p><strong>flow charts</strong> - A diagram that models the behavior of a program, algorithm, or function.  Actions are shown in boxes, decisions shown in diamonds, and arrows are used to show execution flow.</p></li>
+        <li><p><strong>front</strong> - Refers to the location in a stack where the first item added to the stack can be found.  Traditionally this is index 0 of a dynamic array.</p></li>
+        <li><p><strong>pop</strong> - The operation to remove the last item pushed to the stack.  The item from the back of the stack is removed and returned.</p></li>
+        <li><p><strong>push</strong> - The operation to add a new items onto the stop.  The item is placed at the back of the stack.</p></li>
+        <li><p><strong>review</strong> - A formal process of ensuring code is written correctly.  Code is usually reviewed against the design and coding standards.  Frequently checklists are used to help the reviewer.</p></li>
+        <li><p><strong>stack</strong> - A data structure that follows a First In, Last Out (FILO) rule.  The stack is used to reverse data or remember previous data including previous results.</p></li>
+        <li><p><strong>structure chart</strong> - A diagram showing which functions call which functions.  Frequently, the arrows used to show function calls also include parameters that are passed between the functions.</p></li>
+        <li><p><strong>UML</strong> - Unified Modelling Language.  A formal modelling language to represent object oriented designs.  UML includes many types of diagrams including class diagrams, activity diagrams, and state diagrams.</p></li>
+        </ul>
+   
+	    <script src="../site/js/highlight/highlight.pack.js"></script>
+	    <script>hljs.initHighlightingOnLoad();</script>
+
+     </article>
 </body>
 </html>
