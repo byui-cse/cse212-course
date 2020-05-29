@@ -52,6 +52,7 @@ class Customer_Service:
         new record into the queue.
         """
         # Verify there is room in the service queue
+        #if len(self.queue) > self.max_size:    # Defect 3 - Should use >=
         if len(self.queue) >= self.max_size:
             print("Maximum Number of Customers in Queue.")
             return
@@ -69,13 +70,13 @@ class Customer_Service:
         Dequeue the next customer and display the information.
         """
         # Need to check to make sure there are customers in the queue
-        if len(self.queue) == 0:
+        if len(self.queue) == 0:      # Defect 2 - Need to check queue length
             print("No Customers in the Queue")
         else:
             # Need to read and save the customer before it is deleted
             # from the queue
             customer = self.queue[0]
-            del self.queue[0]
+            del self.queue[0]         # Defect 1 - This line was missing
             print(customer)
 
     def __str__(self):
