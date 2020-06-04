@@ -16,7 +16,9 @@
 		<h1>07 Prepare : Reading</h1>
 				
 		<h2>Table of Contents</h2>
+        
 		<p><a href="#1">Linked Lists</a></p>
+        
 			<ul>
 			<li><p><a href="#1.1">Linked List Structure</a></p></li>				
 			<li><p><a href="#1.2">Inserting into a Linked List</a></p></li>
@@ -24,12 +26,14 @@
 			<li><p><a href="#1.4">Accessing from a Linked List</a></p></li>
 			<li><p><a href="#1.5">Linked Lists in Python</a></p></li>
 			<li><p><a href="#1.6">Comparing Dynamic Array and Linked List</a></p></li>
-		</ul>
+		    </ul>
+        
         <p><a href="#2">Key Terms</a></p>
 		
 		<h2 id="1">Linked Lists</h2>
 		
 		<h3 id="1.1">Linked List Structure</h3>
+        
 		<p>When we learned about the dynamic array, we saw that it was characterized by contiguous memory.  Each item in a dynamic array is right next to the next item in memory.  This allowed for very quick access to items in the dynamic array because memory addresses of each item could be calculated from a formula (address = starting_address + (index * item_size)).  The queue, stack, set, and map were all based on memory organized in this way.</p>
 		
         <figure>
@@ -51,7 +55,9 @@
 		<h2 id="1.2">Inserting into a Linked List</h2>
 		
 		<p>Unlike inserting into a dynamic array where we had to worry about moving items over towards the end to maintain contiguous memory, the act of inserting into a linked list only has an effect on its neighboring elements.  Additionally, since we are going to use pointers to connect the nodes together, there is no need to think about things such as capacity or growing the list like we did with a dynamic array.  There are three scenarios to consider: insert at the head, insert at the tail, and insert at the middle.</p>
+        
 		<p>Inserting at the head usually requires a four step process:</p>
+        
 		<ol>
 		<li><p>Create a new node (we will call it <code>new_node</code>)</p></li>
 		<li><p>Set the "next" of the new node to the current head (<code>new_node.next = self.head</code>)</p></li>
@@ -66,6 +72,7 @@
 		<p>There is a special case that exists for inserting at the head (and also inserting at the tail).  If the linked list is empty (<code>self.head is None)</code>) then all we have to do is set both the head and the tail to the new node we created.</p>
 		
 		<p>Inserting at the tail is similar to inserting at the head.  The same four steps are followed but with respect to the tail the following should happen:</p>
+        
 		<ol>
 		<li><p>Create a new node (we will call it <code>new_node</code>)</p></li>
 		<li><p>Set the "prev" of the new node to the current tail (<code>new_node.prev = self.tail</code>)</p></li>
@@ -117,7 +124,7 @@
 		<img src="linked_list_remove_tail.jpeg" width="100%" height="100%" alt="Shows a doubly linked list made up of 5 nodes with values of 8, 12, 31, 15, and 4.  The two step process to remove 4 (TAIL): 1) Set the NEXT of the second to last node (15) to nothing; 2) Set the TAIL to the second to last node."/>
 		<figcaption>Remove the Tail from the Linked List</figcaption></figure>
             
-		<p>The process to remove from the middle is not as compicated as inserting from the middle.  In the picture below, we are trying to remove the node <code>current</code>.  The process involves two steps:</p>
+		<p>The process to remove from the middle is not as complicated as inserting from the middle.  In the picture below, we are trying to remove the node <code>current</code>.  The process involves two steps:</p>
 		
 		<ol>
 		<li><p>Set the prev of the node after current to the node before current (<code>current.next.prev = current.prev</code>)</p></li>
@@ -132,7 +139,7 @@
 		
 		<p>If we want to find a value in the linked list or if we want to find a specific node (e.g. the 3rd node or the 10th node), we are required to loop through the linked list.  We can start at either the head (if we want to go forward through the list) or we can start at the tail (if we want to go backward through the list).  To loop through the list, we will follow the "next" (or the "prev" if going backwards from tail) links until we get to the end.  The following code is a basic traversal through a linked list:</p>
 		
-		<pre><code class="Python">	
+<pre><code class="Python">	
 def go_forward(self):
 	# Start at the beginning (the head)
 	current = self.head
@@ -145,7 +152,7 @@ def go_forward(self):
 
 		# Follow the pointer to the next node
 		current = current.next
-			</code></pre>
+</code></pre>
 		
 		<h2 id="1.5">Linked Lists in Python</h2>
 		
@@ -251,8 +258,6 @@ def go_forward(self):
 			
 		</table>
 		
-		<br>
-		
 		<p>We can conclude the following:</p>
 		
 		<ul>
@@ -264,6 +269,7 @@ def go_forward(self):
 
     
         <h2 id="2">Key Terms</h2>
+        
 	    <ul>
         <li><p><strong>doubly-linked list</strong> - A linked list that is bi-directional.  The linked list will maintain both a head and a tail.  To traverse in either direction, the node will have both a pointer to the next node and the previous node.  Access to both the head and tail is O(1).</p></li>
         <li><p><strong>head</strong> - A pointer to the first node in the linked list.</p></li>
@@ -274,12 +280,11 @@ def go_forward(self):
         <li><p><strong>tail</strong> - A pointer to the last node in the linked list.  If the list has only one item, then the head and tail are the same.</p></li>
         <li><p><strong>value</strong> - The actual data stored in the linked list as part of the node.</p></li>
         <li><p><strong>previous</strong> - A pointer in each of the linked list that points to the previous node.</p></li>
-            
         </ul>
         
-            </article>
-    
 		<script src="../site/js/highlight/highlight.pack.js"></script>
 		<script>hljs.initHighlightingOnLoad();</script>	
+        
+    </article>
 </body>
 </html>
