@@ -16,7 +16,9 @@
 		<h1>05 Prepare : Reading</h1>
 				
 		<h2>Table of Contents</h2>
+        
 		<p><a href="#1">Sets</a></p>
+        
 			<ul>
 			<li><p><a href="#1.1">Characteristics of Sets</a></p></li>				
 			<li><p><a href="#1.2">Hashing and Sets</a></p></li>
@@ -26,6 +28,7 @@
 			</ul>
 		
 		<p><a href="#2">Articulating Answers to Technical  Questions</a></p>
+        
 			<ul>
 			<li><p><a href="#2.1">Interview Questions</a></p></li>
 			<li><p><a href="#2.2">Articulating the Answer</a></p></li>
@@ -33,13 +36,16 @@
         
         <p><a href="#3">Key Terms</a></p>     
 		
-			<h2 id="1">Sets</h2>
+        <h2 id="1">Sets</h2>
+        
 		<p>Previously we learned about lists, stacks, and queues.  The location of each item in these data structures was very important to the proper use of the data structure.  Not all data structures worry about the order of the data.  The <strong>set</strong> data structure is an example of one for which order is not important.  </p>
 		
 		<h3 id="1.1">Characteristics of Sets</h3>
+        
 		<p>Besides the lack of order, the set has another difference.  Could we add duplicate data to a list, stack, or queue?  The answer is yes and this situation is very common. However, the set is constrained to allow no duplicates.  Knowing that there will be no duplicates (and because we don't care about the order) allows us to store the information in a set to make it very efficient to determine if data is in the set.  This test of membership in the set is the most important operation belonging to this data structure.  Using a technique called <strong>hashing</strong>, the set is able to add, remove, and test for membership in O(1) time.</p>
 		
 		<h3  id="1.2">Hashing and Sets</h3>
+        
 		<p>To achieve the O(1) time for set operations, we will consider a very simple example.  Assume we wanted to store all positive one digit numbers (0 to 9) into a list.  How would we store these numbers if we wanted to have an O(1) performance for adding, removing, or testing for membership?  If we used the value to determine the index into the list, we might be able to achieve O(1).  Consider the function <code>index(n) = n</code>.  If we wanted to add the number 7, then we would use this simple function to determine the index to put the number 7 is index 7.  If we wanted to add the number 4, then we would put it into our function and get the index 4.  For this to work, our list will need to be exactly size 10.</p>
 		
         <figure>
@@ -65,6 +71,7 @@
 		<p>If we only have 100 spots and there are up to 10 billion possible values, it's reasonable to expect that perhaps there is a weakness in the data structure.  Using the same diagram above, what would happen if we tried to add 548,345,952?  This would also be placed in index 2.  This is called a conflict. </p>
 		
 		<h3  id="1.3">Dealing with Conflicts</h3>
+        
 		<p>There are two common ways to deal with conflict in a sparse list.  The first option is called <strong>open addressing</strong>.  If we use our <code>index(n)</code> hashing function and find that something already occupies the space (or the item in that space is not what we are looking for), then open addressing strategy will tell us move to the next available space.  There are multiple ways that this can be done, but the simplest method would be to look to the right one spot at a time.  The danger with this approach is that a conflict can result in the creation of more conflicts.  In the example below, when 548,345,952 was added, since there was a conflict in index 2, we would move over to index 4.  Since there is something in index 4 already, we have to move to index 5.  Unfortantely, now any number ending in a 5 will also find a conflict.  This can result in rapidly growing clusters of conflicts.  </p>
 			
         <figure>
@@ -80,7 +87,9 @@
 		<p>In both of these options to solve conflicts, we have an adverse effect on our O(1) performance.  The use of the <code>index(n)</code> hashing function is what gives us the O(1) timing.  If we have to search through several positions to find a value, or if we have to search the chained list, we may approach O(n) if the amount of conflict is high.  To avoid this, we need to increase the size of the sparsed list if the amount of conflict is too high.  When we increase the size of the sparsed list, then we need to reposition all of the values by running the <code>index(n)</code> function again with the increased sparsed list size.</p>
 		
 		<h3 id="1.4">Applications with Sets</h3>
+        
 		<p>Sets have the following key characteristics:</p>
+        
 		<ul>
 		<li><p>Fast peformance for adding, removing, and finding (membership test).</p></li>
 		<li><p>No duplicates are allowed.  Most set implementations (including Python) will not give us an error when you try to add a duplicate value.  This is done so that we can easily convert from a list, which may have duplicates, to a set that contains just the unique values.</p></li>
@@ -88,13 +97,15 @@
 		</ul>
 		
 		<p>The set has many uses including the following:</p>
+        
 		<ul>
-			<li><p>Finding the unique values in a list.</p></li>
-			<li><p>Providing quick access to unique results previously calculated.</p></li>
-			<li><p>Performing mathematical set operations such as an intersection (common values between two sets) and union (all values within two sets).</p></li>
+        <li><p>Finding the unique values in a list.</p></li>
+        <li><p>Providing quick access to unique results previously calculated.</p></li>
+        <li><p>Performing mathematical set operations such as an intersection (common values between two sets) and union (all values within two sets).</p></li>
 		</ul>
 		
 		<h3 id="1.5">Sets in Python</h3>
+        
 		<p>In Python, a set can be represented using a curly braces (e.g. <code>my_set = {1, 2, 3}</code>)  To create an empty set (unlike an empty list), we use the code: <code>empty_set = set()</code>.  The <code>in</code> operator can be used to determine membership in the set.  The performance of the set is based on the performance of the hashing algorithm.</p>
 
 		<table>
@@ -129,12 +140,10 @@
 			  <td>O(1) - Performance of returning the size of the set</td>
 			</tr>
 		</table>
-		<br>
 		
 		<p>There are also mathematical operations to perform an intersection and union between two sets.  The code below demonstrates these capabilities in Python:</p>
 		
-		<pre><code class="Python">	
-
+<pre><code class="Python">	
 set1 = {1, 2, 3, 4, 5}
 set2 = {4, 5, 6, 7, 8}
 
@@ -143,27 +152,30 @@ set3 = set1 &amp; set2               # Alternate way of writing an intersection
 
 set4 = union(set1, set2)  # This will result in {1, 2, 3, 4, 5, 6, 7, 8}
 set4 = set1 | set2        # Alternate way of writing a union
-			
-			</code></pre>
+</code></pre>
 
 		<p>The Python library also includes a class called <code>dict</code> which stands for dictionary which is built using the set.  The dictionary in Python also uses the curly brace notation.  We will learn more about this in the future when we study maps.</p>
 	
-	<h2 id="2" style="counter-reset: h3">Articulating Answers to Technical Questions</h2>
+    	<h2 id="2" style="counter-reset: h3">Articulating Answers to Technical Questions</h2>
 		
 		<h3 id="2.1">Interview Questions</h3>
-		<p>It can feel intimidating, but most interviews that relate to software engineering will require us to answer technical questions.  These questions frequently include questions related to data structures like the following:
-		</p>
+        
+		<p>It can feel intimidating, but most interviews that relate to software engineering will require us to answer technical questions.  These questions frequently include questions related to data structures like the following:</p>
+        
 		<ul>
 		<li><p>How would you describe the performance of a set?</p></li>
 		<li><p>What is hashing and why is it used with a set?</p></li>
 		<li><p>When would you use a set instead of a List?</p></li>
 		</ul>
+        
 		<p>You want to practice questions that relate the purpose, behavior, and performance of a data structure.  Your responses should be concise, lasting perhaps no more than 30 seconds.  Often, these questions are asked within the context of a problem to be solved.  In your group practice and individual assignment this week, you will be asked to both respond to "how" you would solve the problem and actually solve the problem by writing code.</p>
 		
 		<p>Frequently, the interviewer is more interested in your thought process of getting to the "how" instead of the actual solution.  Even so, it's a valuable exercise to also solve the problems so you are better able to describe the "how" in an actual interview. </p>
 		
 		<h3  id="2.2">Articulating the Answer</h3>
+        
 		<p>When you approach a problem to solve with a limited amount of time to respond, you should consider the following guidance:</p>
+        
 		<ul>
 		<li><p>Understand the problem being asked.  You should not hesitate to ask clarifying questions to avoid assumptions.  For example: what is the valid range of numbers? Are duplicates allowed? Will there be invalid data in the collection?  These questions serve two purposes.  First, they help you to understand the problem and second, they communicate to the interviewer that you are aware of common constraints and errors that can occur in software.</p></li>
 		<li><p>Solve the problem by walking through scenarios.  Either verbally or on a whiteboard, explain the process of solving the problem for a simple example without introducing code.  The simple examples usually are those in which there are no failure cases or unusual conditions.</p></li>
@@ -172,19 +184,20 @@ set4 = set1 | set2        # Alternate way of writing a union
 		<li><p>Don't worry about getting the answer to the problem completely right.  Unlike a college coding assignment, you will likely have much less time to develop a solution in the interview. </p></li>
 		</ul>
 
-	
-            <h2 id="3">Key Terms</h2>
-    <ul>
-    <li><p><strong>chaining</strong> - A method of removing conflicts in a set in which all items that hash to the same index are chained together into a single data structure stored in that target index. When looking for data, the code will need to traverse the data structure.</p></li>
-    <li><p><strong>hashing</strong> - The process of mapping a item to an index location using a hashing function.  Since the function does not require searching throught the data structure, hashing can result in an O(1) in the best case.</p></li>
-    <li><p><strong>hashing function</strong> - A function that converts the value of an item to a numerical index value.  The hashing function will include a modulo operation to ensure the resulting index is within range of the sparsed list.</p></li>
-    <li><p><strong>open addressing</strong> - A method of removing conflicts in a set in which a new empty location is found elsewhere in the sparse list.  There are multiple ways of finding a empty location including moving over 1 index at a time until one is found.  When looking for data, the code will need to follow this search strategy until something is found.</p></li>
-    <li><p><strong>set</strong> - A data structure that maps data to an index based on a hashing function.  Sets can only hold unique data because of the hashing function.  Sets are useful for summarizing data and finding duplicates.</p></li>
-    <li><p><strong>sparsed list</strong> - An array that is only partially filled.  To avoid conflicts in a set, a sparsed list must have sufficient empty space to allow for new additions.  If a sparsed list gets too full, a larged sparsed list could be created with an updated hashing function. </p></li>
-    </ul>
-     </article>   
-
+        <h2 id="3">Key Terms</h2>
+        
+        <ul>
+        <li><p><strong>chaining</strong> - A method of removing conflicts in a set in which all items that hash to the same index are chained together into a single data structure stored in that target index. When looking for data, the code will need to traverse the data structure.</p></li>
+        <li><p><strong>hashing</strong> - The process of mapping a item to an index location using a hashing function.  Since the function does not require searching throught the data structure, hashing can result in an O(1) in the best case.</p></li>
+        <li><p><strong>hashing function</strong> - A function that converts the value of an item to a numerical index value.  The hashing function will include a modulo operation to ensure the resulting index is within range of the sparsed list.</p></li>
+        <li><p><strong>open addressing</strong> - A method of removing conflicts in a set in which a new empty location is found elsewhere in the sparse list.  There are multiple ways of finding a empty location including moving over 1 index at a time until one is found.  When looking for data, the code will need to follow this search strategy until something is found.</p></li>
+        <li><p><strong>set</strong> - A data structure that maps data to an index based on a hashing function.  Sets can only hold unique data because of the hashing function.  Sets are useful for summarizing data and finding duplicates.</p></li>
+        <li><p><strong>sparsed list</strong> - An array that is only partially filled.  To avoid conflicts in a set, a sparsed list must have sufficient empty space to allow for new additions.  If a sparsed list gets too full, a larged sparsed list could be created with an updated hashing function. </p></li>
+        </ul>
+         
 		<script src="../site/js/highlight/highlight.pack.js"></script>
 		<script>hljs.initHighlightingOnLoad();</script>	
+        
+    </article>   
 </body>
 </html>
