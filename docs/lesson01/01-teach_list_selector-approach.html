@@ -13,18 +13,24 @@
         <h1>CSE 212 | Programming with Data Structures</h1>
     </header>
     <article>
+        
       <h1>01 Teach - Part 2 Approach</h1>
+        
 		<p>To solve the List Selector problem, we will need to do the following as we loop through the selector list:</p>
+        
 		<ul>
 			<li><p>If the current value in the selector list is a 1, then we want to get the next item from the first list</p></li>
 			<li><p>If the current value in the selector list is a 2, then we want to get the next item from the second list</p></li>	
 			<li><p>We need to append the value we just selected to the new list </p></li>
 		</ul>
+        
 		<p>We will need a way to determine what is the next item is either list 1 or list 2.  Since the 1's and 2's could be random in the selector list, we will need variables to keep track of where we are (i.e. the index) in both lists:</p>
+        
 		<ul>
 			<li><p><code>pos_list1</code> - We will use this to keep track of the index of the next item in the first list</p></li>
 			<li><p><code>pos_list2</code> - We will use this to keep track of the index of the next item in the second list</p></li>
 		</ul>
+        
 		<p>We will initialize both of these variables to 0.  When we select an item from one of the lists (per the selector list) we will add one to either <code>pos_list1</code> or <code>pos_list2</code> depending on which one was selected.</p>
 
 			

@@ -143,7 +143,7 @@ class LinkedList:
         curr = self.head  # Start at the begining since this is a forward iteration.
         while curr is not None:
             yield curr.data  # Provide (yield) each item to the user
-            curr = curr.next # Go forwrd in the linked list
+            curr = curr.next # Go forward in the linked list
 
     #############
     # Problem 5 #
@@ -152,7 +152,7 @@ class LinkedList:
         """
         Iterate backward through the Linked List
         """
-        pass
+        yield "???"  # Replace this when you implement your solution
 
     def __str__(self):
         """
@@ -170,7 +170,8 @@ class LinkedList:
         return output
 
     
-# Sample Test Cases (You will need to add more)
+# Sample Test Cases (may not be comprehensive) 
+print("\n=========== PROBLEM 1 TESTS ===========")
 ll = LinkedList()
 ll.insert_head(1)
 ll.insert_head(2)
@@ -179,3 +180,35 @@ ll.insert_head(3)
 ll.insert_head(4)
 ll.insert_head(5)
 print(ll) # linkedlist[5, 4, 3, 2, 2, 1]
+ll.insert_tail(0)
+ll.insert_tail(-1)
+print(ll) # linkedlist[5, 4, 3, 2, 2, 1, 0, -1]
+
+print("\n=========== PROBLEM 2 TESTS ===========")
+ll.remove_tail()
+print(ll) # linkedlist[5, 4, 3, 2, 2, 1, 0]
+ll.remove_tail()
+print(ll) # linkedlist[5, 4, 3, 2, 2, 1]
+
+print("\n=========== PROBLEM 3 TESTS ===========")
+ll.insert_after(3, 3.5)
+ll.insert_after(5, 6)
+print(ll) # linkedlist[5, 6, 4, 3, 3.5, 2, 2, 1]
+ll.remove(-1)
+print(ll) # linkedlist[5, 6, 4, 3, 3.5, 2, 2, 1]
+ll.remove(3)
+print(ll) # linkedlist[5, 6, 4, 3.5, 2, 2, 1]
+ll.remove(6)
+print(ll) # linkedlist[5, 4, 3.5, 2, 2, 1]
+ll.remove(7)
+print(ll) # linkedlist[5, 4, 3.5, 2, 2, 1]
+
+print("\n=========== PROBLEM 4 TESTS ===========")
+ll.replace(2, 10)
+print(ll) # linkedlist[5, 4, 3.5, 10, 10, 1]
+ll.replace(7, 5)
+print(ll) # linkedlist[5, 4, 3.5, 10, 10, 1]
+
+
+print("\n=========== PROBLEM 5 TESTS ===========")
+print(list(reversed(ll)))  # [1, 10, 10, 3.5, 4, 5]

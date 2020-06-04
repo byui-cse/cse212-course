@@ -172,7 +172,7 @@ class BST:
         This function is intended to be called the first time by 
         the __reversed__ function.        
         """
-        pass
+        yield "???"  # Replace this when you implement your solution
 
     def get_height(self):
         """
@@ -244,25 +244,34 @@ def _insert_middle(sorted_list, first, last, bst):
     """
     pass
 
-# Sample Test Cases (You may need to add more)
+# Sample Test Cases (may not be comprehensive) 
+print("\n=========== PROBLEM 1 TESTS ===========")
 tree = BST()
 tree.insert(5)
 tree.insert(3)
 tree.insert(7)
-tree.insert(7)  # After implementing 'no duplicates' rule,
-                # this insert will have no effect on the tree.
+# After implementing 'no duplicates' rule,
+# this next insert will have no effect on the tree.
+tree.insert(7)  
 tree.insert(10)
 tree.insert(1)
-print(3 in tree) # True
-print(4 in tree) # False
 for x in tree:
     print(x)  # 1, 3, 5, 7, 10
+
+print("\n=========== PROBLEM 2 TESTS ===========")
+print(3 in tree) # True
+print(4 in tree) # False
+
+print("\n=========== PROBLEM 3 TESTS ===========")
 for x in reversed(tree):
     print(x)  # 10, 7, 5, 3, 1
+
+print("\n=========== PROBLEM 4 TESTS ===========")
 print(tree.get_height()) # 3
 
-tree2 = create_bst_from_sorted_list([x for x in range(127)]) # 2^7 - 1
-tree3 = create_bst_from_sorted_list([x for x in range(128)]) # 2^7
+print("\n=========== PROBLEM 5 TESTS ===========")
+tree2 = create_bst_from_sorted_list([x for x in range(127)]) # 2^7 - 1 nodes
+tree3 = create_bst_from_sorted_list([x for x in range(128)]) # 2^7 nodes
 print(tree2.get_height()) # 7 .. any higher and its not balanced
 print(tree3.get_height()) # 8 .. any higher and its not balanced
 
