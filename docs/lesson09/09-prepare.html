@@ -16,7 +16,9 @@
 		<h1>09 Prepare : Reading</h1>
 				
 		<h2>Table of Contents</h2>
+        
 		<p><a href="#1">Trees</a></p>
+        
 			<ul>
 			<li><p><a href="#1.1">Binary Trees</a></p></li>				
 			<li><p><a href="#1.2">Binary Search Trees</a></p></li>
@@ -24,27 +26,29 @@
 			<li><p><a href="#1.4">Inserting into a BST</a></p></li>
 			<li><p><a href="#1.5">Traversing a BST</a></p></li>
 			<li><p><a href="#1.6">BST in Python</a></p></li>
-		</ul>
+		    </ul>
         
         <p><a href="#2">Key Terms</a></p>
 		
 		<h2 id="1">Trees</h2>
+        
 		<p><strong>Trees</strong> are like linked lists in that nodes are connected together by pointers.  However, unlike linked lists, a tree can connect to multiple different nodes.  We will look at the following types of trees: binary trees, binary search trees, and balanced binary search trees.</p>
 		
 		<h3 id="1.1">Binary Trees</h3>
-		<p>A <strong>binary tree</strong> is a tree that links to no more than two other <strong>nodes</strong>.  In the picture below, the top node is called the <strong>root</strong> node.  The nodes that connect to no other nodes are called <strong>leaf</strong> nodes.  Nodes are frequently also referred to <strong>parent</strong> and <strong>child</strong> nodes.  The nodes to the left of a parent node and the nodes to the right of a parent node each form a <strong>subtree</strong>.  There is always only one root node.  While not shown in the picture, it is common for child nodes to also point back up to the parent node (similar to a linked list).</p>
+        
+		<p>A <strong>binary tree</strong> is a tree that links to no more than two other <strong>nodes</strong>.  In the picture below, the top node is called the <strong>root</strong> node.  The nodes that connect to no other nodes are called <strong>leaf</strong> nodes.  A node that has connected nodes is called a <strong>parent</strong> node.  The node connected to the parent are called <strong>child</strong> nodes.  The nodes to the left and right of any parent node form a <strong>subtree</strong>.  There is always only one root node.  While not shown in the picture, it is common for child nodes to also point back up to the parent node (similar to a linked list).</p>
 		
         <figure>
-		<img src="binary_tree.jpeg" height="100%" width="100%" alt="Shows a Binary Tree where the top (node A) is called the root, the nodes that do not conenct to any other nodes are called leaves (node D, E, and F).  Node A connects to nodes B and C.  Node B connects to node D and E.  Node C connects only to node F.  A subtree is formed from a any parent node such as node B and includes all of the children nodes D and E.">
-            <figcaption>Binary Tree</figcaption>
-            </figure>
+		<img src="binary_tree.jpeg" height="100%" width="100%" alt="Shows a Binary Tree where the top (node A) is called the root, the nodes that do not conenct to any other nodes are called leaves (node F, G, H and I).  Node A connects to nodes B and C.  Node B connects to node D and E.  Node C connects only to node F.  Node D connects to nodes G and H.  Node E connets to Node I. A subtree is formed from a any parent node such as parent node B and includes all of the children nodes D, E, G, H, and I.">
+        <figcaption>Binary Tree</figcaption></figure>
 		
 		<h3 id="1.2">Binary Search Trees</h3>
-		<p>A <strong>binary search tree</strong> (BST) is a binary tree that follows rules for data that is put into the tree.  Data is placed into the BST by comparing the data with the value in the parent node.  If the data being added is less than the parent node, then it is put in the left subtree.  If the data being added is greater (usually we will say greater than or equal to if duplicates are allowed) than the parent node, then it is put in the right subtree.  By using this process, the data is stored in the tree sorted.</p>
+        
+		<p>A <strong>binary search tree</strong> (BST) is a binary tree that follows rules for data that is put into the tree.  Data is placed into the BST by comparing the data with the value in the parent node.  If the data being added is less than the parent node, then it is put in the left subtree.  If the data being added is greater than the parent node, then it is put in the right subtree.  If duplicates are allowed than the duplicate can be put either to the left or to the right of the root.  By using this process, the data is stored in the tree sorted.</p>
 		
         <figure>
 		<img src="binary_search_tree.jpeg" height="100%" width="100%" alt="Shows a Binary Search Tree where the root node is 15.  The 15 is connected to 10 (on the left) and 24 (on the right).  The 10 is connected to 3 (on the left) and 14 (on the right).  The 24 is connected to 33 (on the right).">
-            <figcaption>Binary Search Tree</figcaption></figure>
+        <figcaption>Binary Search Tree</figcaption></figure>
 		
 		<p>Using the tree above, we can determine where to put additional items.  We always start at the root node and compare the new value with it.  We keep comparing until we have found an empty place for the new node.  For example, to insert the value 20, do the following:</p>
 		
@@ -70,7 +74,8 @@
 		<p>This tree is a BST but looks more like a linked list.  This BST is unbalanced has a resulting performance for searching of O(n) instead of O(log n).</p>
 		
 		<h3 id="1.3">Balanced Binary Search Trees</h3>
-		<p>A <strong>balanced binary search tree</strong> (balanced BST) is a BST such that the difference of height between the two subtrees is not dramatically different.  The height of a tree can be found by counting the maximum number of nodes between the root and the leaves.  Since it is not reasonable to expect that the order of data will result in a balanced BST, numerous algorithms have been written to detect if a tree is unbalanced and to correct the unbalance.  Common algorithms include red black trees and AVL (Adelson, Velskii, and Landis) trees.  The example below shows an <strong>AVL tree</strong> which is balanced because the difference of height between subtrees is less than 2.</p>
+        
+		<p>A <strong>balanced binary search tree</strong> (balanced BST) is a BST such that the difference of height between any two subtrees is not dramatically different.  The height of a tree can be found by counting the maximum number of nodes between root and the leaves.  Since it is not reasonable to expect that the order of data will result in a balanced BST, numerous algorithms have been written to detect if a tree is unbalanced and to correct the unbalance.  Common algorithms include red black trees and AVL (Adelson, Velskii, and Landis) trees.  The example below shows an <strong>AVL tree</strong> which is balanced because the difference of height between subtrees is less than 2.</p>
 		
         <figure>
 		<img src="avl_tree_initial.jpeg" height="100%" width="100%" alt="Shows an AVL tree where the root node is 15.  The 15 is connected to 10 (on the left) and 24 (on the right).  The 10 is connected to 3 (on the left) and 14 (on the right).   The 12 is connected to 14 (on the left).  The 24 is connected to 33 (on the right). Looking at the subtree starting with 10, the height to the 3 on the left is 2.  The height of the subtree to the 12 on the right is 3.">
@@ -80,14 +85,13 @@
 		
         <figure>
 		<img src="avl_tree_unbalanced.jpeg" height="100%" width="100%" alt="Shows the same AVL tree but with node 13 added to the right of 12.  The height between node 10 and node 13 is now 4.">
-            <figcaption>Unbalanced AVL Tree after Adding Node</figcaption></figure>
+        <figcaption>Unbalanced AVL Tree after Adding Node</figcaption></figure>
             
 		<p>The AVL algorithm will detect that the tree has become unbalanced.  To balance the tree, a node rotation will be performed.  For our tree, we can rotate the node with 13 so that nodes 12 and 14 are children nodes of the 13.  When this rotation is done, the tree returns to a balanced state.  An AVL tree will always be a Balanced BST and therefore benefit from O(log n) performance.</p>
             
         <figure>
         <img src="avl_tree_rebalanced.jpeg" height="100%" widht="100%" alt="Shows the same AVL tree balanced again by moving the 13 to be the node of the subtree with 12 and 14 as children.">
-            <figcaption>Rebalanced AVL Tree</figcaption>
-        </figure>    
+        <figcaption>Rebalanced AVL Tree</figcaption></figure>    
 		
 		<h2 style="counter-reset: h3">BST Operations</h2>
 		
@@ -96,19 +100,21 @@
 		<h3 id="1.4">Inserting into a BST</h3>
 		
 		<p>Inserting into a BST is a recursive operations:</p>
+        
 		<ul>
 		<li><p>Smaller problem: Insert a value into either the left subtree or the right subtree based on the value.</p></li>
 		<li><p>Base case: If there is space to add the node (the subtree is empty), then the correct place has been found and the item can be inserted.</p></li>
 		</ul>
 		
 		<p>The code for inserting into a BST is shown below.  Some things to note are as follows:</p>
+        
 		<ul>
 		<li><p>A node is defined as an object (in this example) of class <code>BST.Node</code>.  This is similar to what we saw with the linked list class.  The <code>Node</code> class is called an inner class because it's defined inside the <code>BST</code> class.  The Node class contains three things: <code>data</code> (the value), <code>left</code> (pointer to the left node), and <code>right</code> (pointer to the right node).</p></li>
 		<li><p>There are two functions.  The <code>insert</code> function is the one called by the user who wants to insert a value into the tree.  This function is used to call the recursive function <code>_insert</code> starting at the root node.  As a special case, if the root node is empty (<code>none</code>), then we will put the new node in the root without using any recursion.  We will follow this pattern for many of the recursive functions we write for the BST.</p></li>
 		<li><p>In the <code>_insert</code> function, we should identify the base case and the recursive calls to the correct subtrees.</p></li>
 		</ul>
 		
-		<pre><code class="Python">		
+<pre><code class="Python">		
 def insert(self, data):
 	"""
 	Insert 'data' into the BST.  If the BST
@@ -146,8 +152,8 @@ def _insert(self, data, node):
 			# Need to keep looking.  Call _insert
 			# recursively on the right subtree.
 			self._insert(data, node.right)
-
-		</code></pre>	
+</code></pre>	
+        
 		<h3 id="1.5">Traversing a BST</h3>
 		
 		<p>We <strong>traverse</strong> a BST when we want to display all the data in the tree.  An in-order traversal will visit each node from smallest to largest.  A similair process can be followed to visit each node from the largest to the smallest.  This is also a recursive process:</p>
@@ -164,7 +170,7 @@ def _insert(self, data, node):
 		<li><p>The <code>yield</code> command is used to provide the next value to the <code>for</code> loop.  The <code>yield</code> is like a <code>return</code> statement in a function.  However, unlike a <code>return</code>, the <code>yield</code> will allow the function to start back where it left off in the function when <code>__iter__</code> is called again.  If we want to provide the value that is returned from a function, the command is modified to be <code>yield from</code>.</p></li>
 		</ul>
 		
-		<pre><code class="Python">		
+<pre><code class="Python">		
 def __iter__(self):
 	"""
 	Perform a forward traversal (in order traversal) starting from 
@@ -205,8 +211,7 @@ def _traverse_forward(self, node):
 		yield from self._traverse_forward(node.left)
 		yield node.data
 		yield from self._traverse_forward(node.right)
-		
-		</code></pre>	
+</code></pre>	
 		
 		<p>A reverse traversal is frequently associated with the <code>__reversed__</code> function in Python.</p>
 		
@@ -263,6 +268,7 @@ def _traverse_forward(self, node):
 		</table>
 
         <h2 id="2">Key Terms</h2>
+        
 		<ul>
         <li><p><strong>AVL Tree</strong> - Adelson, Velskii, and Landis Tree.  A balanced binary search tree that is checked unbalanced height after every modification to the tree.  If the tree is unbalanced, then pre-determined algorithms are used to balance the tree.</p></li>
         <li><p><strong>balanced</strong> - A tree is balanced if the the height of the tree from the root to each leaf is consistent for all subtrees.  The measure of consistentency will vary between algorithms but usually does not exceed a height difference of 1.</p></li>
