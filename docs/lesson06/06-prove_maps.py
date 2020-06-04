@@ -78,7 +78,7 @@ def summarize_degrees(filename):
 
 # Sample Test Cases
 
-print(summarize_degrees("docs/lesson06/census.csv"))
+print(summarize_degrees("census.txt")) # You might need to add a path for the file
 # Results may be in a different order:
 # {'Bachelors': 5355, 'HS-grad': 10501, '11th': 1175, 
 # 'Masters': 1723, '9th': 514, 'Some-college': 7291, 

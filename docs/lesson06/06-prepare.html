@@ -16,19 +16,22 @@
 		<h1>06 Prepare : Reading</h1>
 				
 		<h2>Table of Contents</h2>
+        
 		<p><a href="#1">Maps</a></p>
+        
 			<ul>
 			<li><p><a href="#1.1">Making the Map from the Set</a></p></li>				
 			<li><p><a href="#1.2">Sets in Python</a></p></li>
 			<li><p><a href="#1.3">Complex Dictionary Data</a></p></li>
 			<li><p><a href="#1.4">Building Summary Tables</a></p></li>
-		</ul>
+		    </ul>
         
         <p><a href="#2">Key Terms</a></p>
 
 		<h2 id="1">Maps</h2>
 		
 		<h3 id="1.1">Making the Map from the Set</h3>
+        
 		<p>The <strong>map</strong> is most commonly viewed as a table.  In the map below, the first column contains a unique value called the <strong>key</strong>.  The second column contains a value (not necessarily unique) called the <strong>value</strong>.  The key forms a set because all the values are unique.  A map is created in software by associating a value with each item in the key set.  In the picture below, the table shows the key and value pairs.  The Key's are hashed into what looks like a set.  The values are then stored with each key value.</p>
 		
         <figure>
@@ -36,16 +39,15 @@
 		<figcaption>Map of Colors</figcaption></figure>
         
 		<h3 id="1.2">Sets in Python</h3>
+        
 		<p>The performance of the map is the same for the set.  Some programming languages call this a hashtable or a hashmap.  In Python, this is called a dictionary.  The dictionary (like the set) can be represented using a curly braces to specify a comma separated list of key/value pairs:</p>
 		
-		<pre><code class="Python">	
+<pre><code class="Python">	
 my_map = {"key1" : value1, "key2" : value2, "key3" : value3}
 empty_map1 = {}
 empty_map2 = dict()
-			</code></pre>
+</code></pre>
 			
-		<br>
-		
 		<table>
 			<tr>
 			  <th>Common Map Operation</th>
@@ -84,39 +86,46 @@ empty_map2 = dict()
 			  <td>O(1) - Performance of returning the size of the map</td>
 			</tr>
 		</table>
-		<br>
+
 		<h3 id="1.3">Complex Dictionary Data</h3>
+        
 		<p>A Python dictionary can store any value including other dictionaries.  Consider the following example which is data that was received from a website about the location of the <a href="http://open-notify.org/Open-Notify-API/ISS-Location-Now/" target="_blank">International Space Station </a>.  This data is called <strong>JSON</strong> (JavaScript Object Notation) data and is a common data format.  JSON data looks like a Python dictionary.</p>
-		<pre><code class="Python">
+        
+<pre><code class="Python">
 space_station = {"timestamp": 1584638006, 
-				 "message": "success", 
-				 "iss_position": {"longitude": "-149.9053", 
-								  "latitude": "-35.9225"}}
+                 "message": "success", 
+                 "iss_position": {"longitude": "-149.9053", 
+                                  "latitude": "-35.9225"}}
 
 longitude = space_station["iss_position"]["longitude"]
 latitude = space_station["iss_position"]["latitude"]
 
 print("Space Station at Lon: {} Lat: {}".format(longitude, latitude))
-			</code></pre>
+</code></pre>
+        
 		<p>Notice how "iss_position" is a key in the dictionary.  The value for this key is another dictionary.  To get access to the "longitude" key, we need to go through the "iss_position".  The use of square brackets is needed twice.</p>
+        
 		<p>Here is another example of data that was received about the <a href="http://open-notify.org/Open-Notify-API/People-In-Space/" target="_blank">number of people that are in space</a>. </p>
 		
-		<pre><code class="Python">	
+<pre><code class="Python">	
 astronauts = {"people": [
-				{"craft": "ISS", "name": "Andrew Morgan"}, 
-				{"craft": "ISS", "name": "Oleg Skripochka"}, 
-				{"craft": "ISS", "name": "Jessica Meir"}], 
-			  "message": "success", 
-			  "number": 3}
+                {"craft": "ISS", "name": "Andrew Morgan"}, 
+                {"craft": "ISS", "name": "Oleg Skripochka"}, 
+                {"craft": "ISS", "name": "Jessica Meir"}], 
+              "message": "success", 
+              "number": 3}
 
 for person in astronauts["people"]:
-	print(person["name"])
-			</code></pre>
+    print(person["name"])
+</code></pre>
+        
 		<p>Notice that the "people" key has a list for a value (using the square brackets).  To display the "name" of each person, we need to loop through each of the dictionaries in the "people" list and display the value associated with the name "key".</p>
 		
 		<h3 id="1.4">Building Summary Tables</h3>
-		<p>If we have an empty table, we can build a table from a list of data.  Using a dictionary, we can convert a list of data into a summary table.</p>
-		<pre><code class="Python">	
+        
+		<p>A map is often described as a table.  If we have a large set of data that we want to summarize, we can build a summary table using a map.  The summary table could contain counts, sums, minimums, maximums, or other mathematical aggregations.</p>
+        
+<pre><code class="Python">	
 letters = ["A", "A", "B", "G", "C", "G", "G", "D", "B"]
 summary_table = dict()
 
@@ -136,19 +145,20 @@ for letter in letters:
 
 print(summary_table)
 # {'A': 2, 'B': 2, 'G': 3, 'C': 1, 'D': 1}
-			</code></pre>
+</code></pre>
+    
+        <h2 id="2">Key Terms</h2>
 
-    
-    <h2 id="2">Key Terms</h2>
-    
-    <ul>
-    <li><p><strong>JSON</strong> - JavaScript Object Notation.  A format used frequently to share data between software.  JSON data uses maps and lists.  The syntax of JSON is the same as Python.</p></li>
-    <li><p><strong>key</strong> - The keys in the map form a set.  Each key is unique.  Keys are used to lookup value from the map.</p></li>
-    <li><p><strong>map</strong> - A data struture that is based on the set.  In addition to storing the unique values in the set, the map also includes a value associated with each key.  The map has the same O(1) behavior as the set.</p></li>
-    <li><p><strong>value</strong> - The value associated with each key within a map.  Frequently these values are referred to as key-value pairs.</p></li>
-    </ul>
-	    </article>
-		<script src="../site/js/highlight/highlight.pack.js"></script>
-		<script>hljs.initHighlightingOnLoad();</script>	
+        <ul>
+        <li><p><strong>JSON</strong> - JavaScript Object Notation.  A format used frequently to share data between software.  JSON data uses maps and lists.  The syntax of JSON is the same as Python.</p></li>
+        <li><p><strong>key</strong> - The keys in the map form a set.  Each key is unique.  Keys are used to lookup value from the map.</p></li>
+        <li><p><strong>map</strong> - A data struture that is based on the set.  In addition to storing the unique values in the set, the map also includes a value associated with each key.  The map has the same O(1) behavior as the set.</p></li>
+        <li><p><strong>value</strong> - The value associated with each key within a map.  Frequently these values are referred to as key-value pairs.</p></li>
+        </ul>
+
+        <script src="../site/js/highlight/highlight.pack.js"></script>
+        <script>hljs.initHighlightingOnLoad();</script>	
+        
+    </article>
 </body>
 </html>
