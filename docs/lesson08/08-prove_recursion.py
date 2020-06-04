@@ -15,7 +15,10 @@ GitHub repository, unshared Google Drive folder) is acceptable.
 def sum_recursive(n):
     """
     Using recursion, find the sum of 1 + 2 + 3 + ... + n
-    and return it.
+    and return it.  Remember to both express the solution 
+    in terms of recursive call on a smaller problem and 
+    to identify a base case (terminating case).  
+    A loop should not be used.
     """
     pass
 
@@ -29,15 +32,17 @@ print(sum_recursive(100)) # 5050
 
 def fibonacci(n, remember = dict()):
     """
-    Using recursion, the n'th fibonacci number
-    is found.  The formula for a fibonacci number
-    is fib(n) = fib(n-1) + fib(n-2) where the first
-    two fib numbers are fib(1) = 1 and fib(2) = 1.
-
-    In this algorithm, a dictionary ('remember') is used
-    to keep track of previously determine fibonacci
-    numbers.  Without this dictionary, you would not
-    be able to go much past the 40th fibonacci number
+    Implement an improved version of the fibonacci
+    function using recursion and a dictionary to 
+    remember previously calculated Fibonacci values.  
+    Without the dictionary, the recursive version 
+    of the Fibonacci algorithm would not be able 
+    to calculate the 100th Fibonacci number in 
+    your life time.  The Fibonacci algorithm is 
+    defined as fib(n) = fib(n-1) + fib(n-2) 
+    where fib(1) and fib(2) are equal to 1.  
+    You can assume that the value of n will be 
+    an integer greater than 0.
     """
     pass
 
@@ -57,13 +62,24 @@ print(fibonacci(100))  # 354224848179261915075 (This one will
 
 def find(sorted_list, target):
     """
-    Searches for a 'target' in a 'sorted_list'.  The base case
-    is when the size of the list is 1 (we just have to compare
-    the 'target' to the one item in the 'sorted_list').
-
-    The algorithm uses recursion to look in the first half or the
-    second half of the list based on comparing the value in the middle
-    of the 'sorted_list' with the desired 'target'.
+    Finish the find function which will 
+    search for a target value in a sorted list in O(log n) 
+    time.  This is achievable by comparing the middle 
+    item in the list with the target value.  If the 
+    middle item is less than the target, then you can 
+    exclude the first half of the list (because the 
+    list is already sorted).  Likewise, if the middle 
+    item is greater than the target, then you can exclude 
+    the second half of the list.  Use recursion to 
+    appropriately call the find function 
+    resulting in the ability to determine if the target 
+    value is in the list.  You will likely need 
+    to use list slicing to complete this problem:
+    
+    data[:a] - Creates a new list from index 0 to index a-1
+    data[a:] - Creates a new list from index a to len(data)-1
+    data[a:b] - Creates a new list from index a to index b-1
+    data[a:b:c] - Creates a new list from index a to index b-1 stepping by c
     """
     if len(sorted_list) == 1:  
         # Base Case
@@ -90,19 +106,36 @@ print(find([1, 3, 6, 18, 20, 25, 34, 38, 89, 95, 99, 100], 17)) # False
 # Problem 4 #
 #############
 
-def count_steps(s):
+def count_ways_to_climb(s):
     """
-    Using recursion, determine how many different ways to climb 
-    's' stairs.  When climbing, the person can only take 1 step, 
-    2 steps, or 3 steps at a time.  The person must land on the top
-    stair exactly.  You should assume that if there are no stairs 
-    (the invalid case) then the number of ways to climb would be 0.
+    Imagine that there was a staircase with s stairs.  
+    We want to count how many ways there are to climb 
+    the stairs.  If the person could only climb one 
+    stair at a time, then the total would be just one.  
+    However, if the person could choose to climb either 
+    one, two, or three stairs at a time (in any order), 
+    then the total possibilities become much more 
+    complicated.  If there were just three stairs, 
+    the possible ways to climb would be four as follows:
+    
+        1 step, 1 step, 1 step
+        1 step, 2 step
+        2 step, 1 step
+        3 step
+
+	Using recursion, determine how many ways there are 
+    to climb s stairs.  Note that the problem requires 
+    that the person land on the top stair.  For example, 
+    if you are on the second to last stair, you can do 
+    a 1 step but not a 2 or 3 step.  You should assume 
+    that if there are no stairs, then the number of ways 
+    to climb would be 0.
     """
     pass
 
 # Sample Test Cases (may not be comprehensive)
-print(count_steps(5))   # 13
-print(count_steps(20))  # 121415
+print(count_ways_to_climb(5))   # 13
+print(count_ways_to_climb(20))  # 121415
 
 
 #############
@@ -111,13 +144,21 @@ print(count_steps(20))  # 121415
 
 def wildcard_binary(pattern):
     """
-    Using recursion, display all valid binary numbers (only
-    contains 0's and 1's) based on a pattern that conatins
-    zero or more *'s.  A * represents either a 0 or a 1.  For 
-    example, 1* would result is 10 and 11.
-
-    The pattern is a string (str).  The use of the find and replace 
-    functions in Python may be useful to solve this problem.
+    A binary string is a string consisting of 
+    just 1's and 0's.  For example, 1010111 is 
+    a binary string.  If we introduce a wildcard 
+    symbol * into the string, we can say that 
+    this is now a pattern for multiple binary 
+    strings.  For example, 101*1 could be used 
+    to represent 10101 and 10111.  A pattern can
+    have more than one * wildcard.  For example, 
+    1**1 would result in 4 different binary 
+    strings: 1001, 1011, 1101, and 1111.</p>
+	
+    Using recursion, display all possible binary 
+    strings for a given pattern.  You might find 
+    some of the Python str functions like find 
+    and replace to be useful in solving this problem.
     """
     pass
 
