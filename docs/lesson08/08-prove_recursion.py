@@ -92,17 +92,17 @@ print(find([1, 3, 6, 18, 20, 25, 34, 38, 89, 95, 99, 100], 17)) # False
 
 def count_steps(s):
     """
-    Using recursion, determine how many steps it takes to climb 
+    Using recursion, determine how many different ways to climb 
     's' stairs.  When climbing, the person can only take 1 step, 
     2 steps, or 3 steps at a time.  The person must land on the top
-    stair exactly.  You should assume that if there are no stairs then
-    the number of steps would be 0.
+    stair exactly.  You should assume that if there are no stairs 
+    (the invalid case) then the number of ways to climb would be 0.
     """
     pass
 
 # Sample Test Cases (may not be comprehensive)
-print(count_steps(5))   # 11
-print(count_steps(20))  # 101902
+print(count_steps(5))   # 13
+print(count_steps(20))  # 121415
 
 
 #############
