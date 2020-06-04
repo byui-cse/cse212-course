@@ -22,7 +22,8 @@ def sum_recursive(n):
     """
     pass
 
-# Sample Test Cases (may not be comprehensive)
+# Sample Test Cases (may not be comprehensive) 
+print("\n=========== PROBLEM 1 TESTS ===========")
 print(sum_recursive(10))  # 55
 print(sum_recursive(100)) # 5050
 
@@ -46,6 +47,8 @@ def fibonacci(n, remember = dict()):
     """
     pass
 
+# Sample Test Cases (may not be comprehensive) 
+print("\n=========== PROBLEM 2 TESTS ===========")
 print(fibonacci(1))    # 1
 print(fibonacci(2))    # 1
 print(fibonacci(3))    # 2
@@ -97,7 +100,8 @@ def find(sorted_list, target):
             # ADD YOUR CODE HERE
             pass
 
-# Sample test cases (may not be comprehensive)
+# Sample Test Cases (may not be comprehensive) 
+print("\n=========== PROBLEM 3 TESTS ===========")
 print(find([1, 3, 6, 18, 20, 25, 34, 38, 89, 95, 99, 100], 89)) # True
 print(find([1, 3, 6, 18, 20, 25, 34, 38, 89, 95, 99, 100], 1))  # True
 print(find([1, 3, 6, 18, 20, 25, 34, 38, 89, 95, 99, 100], 17)) # False
@@ -133,7 +137,8 @@ def count_ways_to_climb(s):
     """
     pass
 
-# Sample Test Cases (may not be comprehensive)
+# Sample Test Cases (may not be comprehensive) 
+print("\n=========== PROBLEM 4 TESTS ===========")
 print(count_ways_to_climb(5))   # 13
 print(count_ways_to_climb(20))  # 121415
 
@@ -162,7 +167,8 @@ def wildcard_binary(pattern):
     """
     pass
 
-# Sample Test Cases (may not be comprehensive)
+# Sample Test Cases (may not be comprehensive) 
+print("\n=========== PROBLEM 5 TESTS ===========")
 wildcard_binary("110*0*")
 # 110000
 # 110001

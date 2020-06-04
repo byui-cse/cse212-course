@@ -36,7 +36,7 @@ class Translator:
 
     def translate(self, from_word):
         """
-        Traslate a word and return the result.  If the word 
+        Translate a word and return the result.  If the word 
         can not be translated then "???" is returned.  
         For example, in an english to german dictionary:
 
@@ -44,7 +44,8 @@ class Translator:
         """
         pass
 
-# Sample Test Cases (may not be comprehensive)
+# Sample Test Cases (may not be comprehensive) 
+print("\n=========== PROBLEM 1 TESTS ===========")
 english_to_german = Translator()
 english_to_german.add_word("House","Haus")
 english_to_german.add_word("Car","Auto")
@@ -76,8 +77,8 @@ def summarize_degrees(filename):
 
     return degrees
 
-# Sample Test Cases
-
+# Sample Test Cases (may not be comprehensive) 
+print("\n=========== PROBLEM 2 TESTS ===========")
 print(summarize_degrees("census.txt")) # You might need to add a path for the file
 # Results may be in a different order:
 # {'Bachelors': 5355, 'HS-grad': 10501, '11th': 1175, 
@@ -103,7 +104,8 @@ def is_anagram(word1, word2):
     """
     pass
 
-# Sample Test Cases (may not be comprehensive)
+# Sample Test Cases (may not be comprehensive) 
+print("\n=========== PROBLEM 3 TESTS ===========")
 print(is_anagram("A Decimal Point", "Im a Dot in Place"))  # True
 print(is_anagram("tom marvolo riddle", "i am lord voldemort")) # True
 print(is_anagram("Eleven plus Two", "Twelve Plus One")) # True
@@ -172,7 +174,7 @@ class Maze:
     def show_status(self):
         print("Current location (x={} , y={})".format(self.curr_x, self.curr_y))
 
-# Sample Test Cases 
+# Sample Test Cases (may not be comprehensive) 
 map =  {(1,1) : (False, True, False, True),
         (1,2) : (False, True, True, False),
         (1,3) : (False, False, False, False),
@@ -210,6 +212,7 @@ map =  {(1,1) : (False, True, False, True),
         (6,5) : (False, False, False, False),
         (6,6) : (True, False, False, False)}
 
+print("\n=========== PROBLEM 4 TESTS ===========")
 maze = Maze(map)
 choice = None
 while choice != "exit":
@@ -233,7 +236,7 @@ while choice != "exit":
 # Problem 5 #
 #############
 
-import requests  # Need to run 'pip install requests'
+import requests  
 
 def earthquake_daily_summary():
     """
@@ -248,13 +251,19 @@ def earthquake_daily_summary():
     at this website:  
 
     https://earthquake.usgs.gov/earthquakes/feed/v1.0/geojson_detail.php
+    
+    To install the requests library, run:
+       If using virtual environment: pip install requests
+       If using Windows: py -m pip install requests
+       If using Mac: pip3 install requests
     """    
     req = requests.get("https://earthquake.usgs.gov/earthquakes/feed/v1.0/summary/all_day.geojson")
     data = req.json() # The .json() function will convert the json data from the server to a dictionary
 
     # ADD YOUR CODE HERE
 
-# Sample Test Cases 
+# Sample Test Cases (may not be comprehensive) 
+print("\n=========== PROBLEM 5 TESTS ===========")
 earthquake_daily_summary()
 
 # Sample output from the function.  Number of earthquakes, places, and magnitudes will vary.

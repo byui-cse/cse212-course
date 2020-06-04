@@ -13,7 +13,9 @@
         <h1>CSE 212 | Programming with Data Structures</h1>
     </header>
     <article>
+        
       <h1>02 Teach - Part 2 Answer</h1>
+        
 		<ul>
 			<li><p><strong>Question</strong>: Do the actual results agree with the big O predictions made earlier?  If not, what do you think the big O should be?</p></li>
 			<li><p><strong>Answer</strong>: The <code>algorithm1</code> function has a single for loop.  This implies O(n).  If we look at the actual results, we see that count is the same value as the size of the list.  The <code>algorithm2</code> function has a loop within a loop.  This implies O(n^2).  If we look at the actual results, we see that the count is the square of the size of the data.  The <code>algorithm3</code> functions finds the center of the list and then looks at the 2nd half the list.  This process is repeated in which each iteration of the while loop the list is cut in half again.  This implies O(log n).  If we look at the actual results, we see that the count is approximately the base 2 logarithm of the size.</p></li>
