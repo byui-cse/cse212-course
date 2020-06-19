@@ -19,7 +19,7 @@
 		<p><a href="#1">Final Project Description</a></p>
 			<ul>
 			<li><p><a href="#1.1">Project Requirements</a></p></li>				
-			<li><p><a href="#1.2">Complete Example</a></p></li>
+			<li><p><a href="#1.2">Guidane</a></p></li>
 			<li><p><a href="#1.3">Using Markdown Language</a></p></li>
 			<li><p><a href="#1.4">Milestone Submissions</a></p></li>
 			<li><p><a href="#1.5">Grading Rubric</a></p></li>
@@ -41,58 +41,72 @@
 				<li><p>Select one of the following: set, linked list</p></li>
 				<li><p>You must include the following: tree</p></li>
 			</ul>
-		<li><p>You must write the tutorial using Markdown language.</p></li>
+
 		<li><p>Each of the three data structure training modules must include the following:</p></li>
 			<ul>
 				<li><p>Detailed and organized coverage of the topic with documentation including (but not limited to) example Python code, diagrams, and tables.  You should assume that the student using your tutorial will already know how to program in Python.  <strong>This should be written in your own words.  Remember, you are the teacher now.</strong></p></li>
 				<li><p>A complete example of a problem solved using the data structure.  The problem should be <strong>created by you</strong> and not be a copy of an existing problem.</p></li>
 				<li><p>A second problem (again created by you) which is given to the student of your tutorial to solve on their own.  You need to provide a link to the solution.</p></li>
 			</ul>
+		<li><p>You must write the tutorial using Markdown language.  You should create at least the following files:</p></li>
+            
+        <table style="table-layout: fixed">
+            <tr>
+              <th style="width: 25%">Filename</th>
+              <th style="width: 75%">Purpose</th>
+            </tr>
+            <tr>
+              <td>0-welcome.md</td>
+              <td>Provide an introduction to the student as well as links to three modules.  It is important that you provide your name, class, section, and email address on this page. </td>
+            </tr>
+            <tr>
+              <td>1-topic.md</td>
+              <td>Provide the tutorial for the first data structure topic.  You should include a link back to the welcome page.</td>
+            </tr>
+            <tr>
+              <td>2-topic.md</td>
+              <td>Provide the tutorial for the second data structure topic.  You should include a link back to the welcome page.</td>
+            </tr>
+            <tr>
+              <td>3-topic.md</td>
+              <td>Provide the tutorial for the third data structure topic.  You should include a link back to the welcome page.</td>
+            </tr>
+            <tr>
+              <td>Picture Files</td>
+              <td>If you want a picture (e.g., jpg, bmp, gif, png) to be included in your tutorial, then you need to make sure the files are included in your tutorial submittal.  If you copy an image from the internet, make sure that you can legally copy it and be sure to provide source information.</td>
+            </tr>
+            <tr>
+              <td>Python Files</td>
+              <td>You will likely want to include Python files for the student to see the solution to the second problem.</td>
+            </tr>
+            <tr>
+              <td>Other Files</td>
+              <td>If you have any other file that needs to be displayed or accessed by your tutorial, make sure they are included in your submittal.</td>
+            </tr>
+        </table>
 		</ol>
 		
-		<h3 id="1.2">Complete Example</h3>
+		<h3 id="1.2">Guidance</h3>
 		
-		<p>To help you visualize what this project requires, a complete <a href="https://github.com/byui-cse/cse212-course/blob/master/python_fundamentals/0-welcome.md" target="_blank">Python Fundamentals Tutorial</a> example has been provided.  This example covers three fundamental topics in Python programming: decisions, loops, and functions.  Please note that your tutorial will <strong>not</strong> be on these basic Python topics.  Your tutorial will be on data structures as described in project requirements shown in the previous section.  </p>
-		<p>You should pattern your data structure tutorial by having the following file structure:</p>
+        <p>When you write each of the data structure modules, you will want to consider the following questions (this is not an exhaustive list):</p>
+        
+        <ul>
+        <li><p>What is the purpose of the data structure?</p></li>
+        <li><p>What is the performance of the data structure (you will need to talk about big O notation)?</p></li>
+        <li><p>What kind of problems can be solved using the data structure?</p></li>
+        <li><p>How would the data structure be used in Python (in some cases you will need to discuss recursion)?</p></li>
+        <li><p>What kind of errors are common when using the data structure?</p></li>
+        
+        </ul>
+        
+        <p>This list of questions is not an exhaustive list but will be helpful to get you started.</p>
+        
+		<p>To help you visualize what this project requires, a complete <a href="https://github.com/byui-cse/cse212-course/blob/master/python_fundamentals/0-welcome.md" target="_blank">Python Fundamentals Tutorial</a> example written in Markdown has been provided.  This example covers three fundamental topics in Python programming: decisions, loops, and functions.  Please note that your tutorial will <strong>not</strong> be on these basic Python topics.  Your tutorial will be on data structures as described in project requirements shown in the previous section.  The structure of this example tutorial follows the project requirements for structure, technical depth, and sample problems.</p>
 		
-		<table style="table-layout: fixed">
-    <tr>
-      <th style="width: 25%">Filename</th>
-      <th style="width: 75%">Purpose</th>
-    </tr>
-    <tr>
-      <td>0-welcome.md</td>
-      <td>Provide an introduction to the student as well as links to three modules.  It is important that you provide your name, class, section, and email address on this page. </td>
-    </tr>
-    <tr>
-      <td>1-topic.md</td>
-      <td>Provide the tutorial for the first data structure topic.  You should include a link back to the welcome page.</td>
-    </tr>
-    <tr>
-      <td>2-topic.md</td>
-      <td>Provide the tutorial for the second data structure topic.  You should include a link back to the welcome page.</td>
-    </tr>
-    <tr>
-      <td>3-topic.md</td>
-      <td>Provide the tutorial for the third data structure topic.  You should include a link back to the welcome page.</td>
-    </tr>
-    <tr>
-      <td>Picture Files</td>
-      <td>If you want a picture (e.g., jpg, bmp, gif, png) to be included in your tutorial, then you need to make sure the files are included in your tutorial submittal.  If you copy an image from the internet, make sure that you can legally copy it and be sure to provide source information.</td>
-    </tr>
-    <tr>
-      <td>Python Files</td>
-      <td>You will likely want to include Python files for the student to see the solution.</td>
-    </tr>
-    <tr>
-      <td>Other Files</td>
-      <td>If you have any other file that needs to be displayed or accessed by your tutorial, make sure they are included in your submittal.</td>
-    </tr>
-</table>
 
 		<h3 id="1.3">Using Markdown Language</h3>
 		
-		<p>The Markdown language is commonly used to develop documentation.  Using a simple editor and the knowledge of a little bit of syntax, you can create documents with headers, bulleted lists, links, bold text, tables and pictures.  A common place to see Markdown documents is in GitHub repositories.  The link above for the example tutorial was shown to you in GitHub.  GitHub automatically interprets the Markdown file and displays as intended.</p>
+		<p>The Markdown language is commonly used to develop documentation.  The purpose of requring Markdown for your tutorial is to give you experience using this language.  Using a simple editor and the knowledge of a little bit of syntax, you can create documents with headers, bulleted lists, links, bold text, tables and pictures.  A common place to see Markdown documents is in GitHub repositories.  The link above for the example tutorial was shown to you in GitHub.  GitHub automatically interprets the Markdown file and displays as intended.</p>
 		
 		<p>There are many different tools available to help you write and preview Markdown files.  Visual Studio Code has built-in support for Markdown.  If you create a file with an <code>md</code> extension, then you can click on the preview button and you can see the Markdown and the finished product side by side.</p>
 		
@@ -138,7 +152,7 @@ like this `x = 42`
 
 If you have a block of code you want to show, use three back-ticks
 before and after the code.  If you put the name of the programming 
-language after the firth back-ticks, then it will highlight the 
+language after the fourth back-ticks, then it will highlight the 
 syntax for you:
 
 ```python
@@ -176,14 +190,35 @@ value 13 | value 23 | value 33
 		</ul>
 			
 		<h3 id="1.5">Grading Rubric</h3>
-		
-		<p>Grading of the final project will be done as follows:</p>
-		<ul>
-		<li><p>100% (A) - Demonstrated creativity while providing an engaging tutorial.</p></li>
-		<li><p>89% (B+) - Completed all the requirements of the project.</p></li>
-		<li><p>79% (C+) - Missing some components of the project or contains numerous technical errors.</p></li>
-		<li><p>65% (D) - Missing many components of the projects or contains significant technical errors.</p></li>
-		</ul>
+        
+		<p>The final project will be graded as follows, with only five possible numeric grades (there is no scale):</p>
+        
+		<table>
+			<tr>
+			  <th style="width: 25%">Grade</th>
+			  <th style="width: 75%">Description</th>
+			</tr>
+			<tr>
+			  <td>100% (A)</td>
+			  <td>Demonstrated creativity while providing an engaging tutorial.  All requirements have been satisified and there were no significant technical errors.  This tutorial would be very helpful for most students to learn data structures.  You should consider adding new sections to discuss additional data structures to prepare for future interviews.</td>
+			</tr>	
+			<tr>
+			  <td>89% (B+)</td>
+			  <td>Most requirements have been implemented <strong>OR</strong> there were some significant technical errors.  This tutorial would be helpful for some students to learn data structures but may cause some confusion if material is not updated.  You should address the issues in the tutorial to prepare for future interviews.
+			</tr>	
+			<tr>
+			  <td>75% (C)</td>
+			  <td>Only some requirements have been implemented <strong>OR</strong> there are numerous technical errors.  This tutorial  would not be helpful for most students to learn data structures.  You should consider spending time after the course to review your course notes and rework the tutorial so you are prepared for future interviews.  </td>
+			</tr>
+			<tr>
+			  <td>60% (D-)</td>
+			  <td>Only some requirements have been implemented and there are numerous technical errors.  This tutorial is not ready for other students to learn data structures.  You should consider either retaking the course or spending time after the course to reattempt the tutorial.  These actions are important to prepare you for future intreviews.</td>
+			</tr>
+            <tr>
+              <td>0% (F)</td>
+              <td>Project was not submitted or shows no effort to attempt.</td>
+            </tr>
+		</table>        
 		
 		
 		<h3 id="1.6">Working Independently</h3>
