@@ -33,34 +33,73 @@
 		<li><p><a href="08-prove_recursion.py" target="_blank">08-prove_recursion.py</a> to provide all your code solutions for the problems below.</p></li>
 		</ul>
 		
-		<h3>Problem 1 - Recursive Sum</h3>
-		<p>Implement the <code>sum_recursive</code> function to find the sum 1 + 2 + 3 + ... + n using recursion.  Remember to both express the solution in terms of recursive call on a smaller problem and to identify a base case (terminating case).  A loop should not be used.</p>
+		<h3>Problem 1 - Recursive Squares Sum</h3>
+		<p>Implement the <code>sum_squares_recursive</code> function to find the sum <code>1^2 + 2^2 + 3^2 + ... + n^2</code> using recursion.  Remember to both express the solution in terms of recursive call on a smaller problem and to identify a base case (terminating case).  If the value of <code>n &lt;= 0</code>, just return 0.   A loop should not be used.</p>
 		
-		<h3>Problem 2 - Fibonacci Improved</h3>
-		<p>Implement an improved version of the <code>fibonacci</code> function using recursion and a dictionary to remember previously calculated Fibonacci values.  Without the dictionary, the recursive version of the Fibonacci algorithm would not be able to calculate the 100th Fibonacci number in your life time.  The Fibonacci algorithm is defined as fib(n) = fib(n-1) + fib(n-2) where fib(1) and fib(2) are equal to 1.  You can assume that the value of n will be an integer greater than 0.</p>
+		<h3>Problem 2 - Permutations Choose</h3>
+		<p>Using recursion print permutations of length <code>size</code> from a list of <code>letters</code>.  This function should assume that each letter is unique (i.e. the function does not need to find unique permutations).  In mathematics, we can calculate the number of permutations using the formula: </p>
+        
+        <p><code>len(letters)</code>! / (<code>len(letters) - size</code>)!</p>
+
+        <p>For example, if <code>letters</code> was [A,B,C] and <code>size</code> was 2 then the following would display: AB, AC, BC  (might be in a different order).</p>
 			
-		<h3>Problem 3 - Find in a Sorted List</h3>
-		<p>Finish the <code>find</code> function which will search for a target value in a sorted list in O(log n) time.  This is achievable by comparing the middle item in the list with the target value.  If the middle item is less than the target, then you can exclude the first half of the list (because the list is already sorted).  Likewise, if the middle item is greater than the target, then you can exclude the second half of the list.  Use recursion to appropriately call the <code>find</code> function resulting in the ability to determine if the target value is in the list.  You will likely need to use list slicing to complete this problem:</p>
-		<ul>
-		<li><p><code>data[:a]</code> - Creates a new list from index 0 to index a-1</p></li>
-		<li><p><code>data[a:]</code> - Creates a new list from index a to len(data)-1</p></li>
-		<li><p><code>data[a:b]</code> - Creates a new list from index a to index b-1</p></li>
-		<li><p><code>data[a:b:c]</code> - Creates a new list from index a to index b-1 stepping by c</p></li>
-		</ul>
+		<h3>Problem 3 - Climbing Stairs</h3>
+        <p>Imagine that there was a staircase with <code>s</code> stairs.  We want to count how many ways there are to climb the stairs.  If the person could only climb one stair at a time, then the total would be just one.  However, if the person could choose to climb either one, two, or three stairs at a time (in any order), then the total possibilities become much more complicated.  If there were just three stairs, the possible ways to climb would be four as follows:</p>
+    
+        <ul>
+        <li><p>1 step, 1 step, 1 step</p></li>
+        <li><p>1 step, 2 step</p></li>
+        <li><p>2 step, 1 step</p></li>
+        <li><p>3 step</p></li>
+        </ul>
+
+	    <p>With just one step to go, the ways to get to the top of <code>s</code> stairs is to either:</p>
+    
+        <ul>
+        <li><p>Take a single step from the second to last step </p></li>
+        <li><p>Take a double step from the third to last step </p></li>
+        <li><p>Take a triple step from the fourth to last step</p></li>
+        </ul>
+
+        <p>We don't need to think about scenarios like taking two single steps from the third to last step because this is already part of the first scenario (taking a single step from the second to last step).</p>
+
+        <p>These final leaps give us a sum:</p>
+
+        <p><code>count_ways_to_climb(s) = count_ways_to_climb(s-1) + count_ways_to_climb(s-2) + count_ways_to_climb(s-3)</code></p>
+
+        <p>To run this function for larger values of <code>s</code>, you will need to update this function to use memoization.  The parameter <code>remember</code> has already been added as an input parameter to the function for you to complete this task.</p>
+    
+        <p>The last test case is commented out because it will not work until the memoization is implemented.</p>
 				
-		<h3>Problem 4 - Climbing Stairs</h3>
-		<p>Imagine that there was a staircase with <code>s</code> stairs.  We want to count how many ways there are to climb the stairs.  If the person could only climb one stair at a time, then the total would be just one.  However, if the person could choose to climb either one, two, or three stairs at a time (in any order), then the total possibilities become much more complicated.  If there were just three stairs, the possible ways to climb would be four as follows:</p>
-		<ul>
-		<li><p>1 step, 1 step, 1 step</p></li>
-		<li><p>1 step, 2 step</p></li>
-		<li><p>2 step, 1 step</p></li>
-		<li><p>3 step</p></li>
-		</ul>
-		<p>Using recursion, implement the <code>count_ways_to_climb</code> function to determine how many ways there are to climb <code>s</code> stairs.  Note that the problem requires that the person land on the top stair.  For example, if you are on the second to last stair, you can't do either a 2 step or a 3 step.  You should assume that if there are no stairs, then the number of ways to climb would be 0.</p>
-		
-		<h3>Problem 5 - Wildcard Binary Patterns</h3>
+		<h3>Problem 4 - Wildcard Binary Patterns</h3>
 		<p>A binary string is a string consisting of just <code>1</code>'s and <code>0</code>'s.  For example, <code>1010111</code> is a binary string.  If we introduce a wildcard symbol <code>*</code> into the string, we can say that this is now a pattern for multiple binary strings.  For example, <code>101*1</code> could be used to represent <code>10101</code> and <code>10111</code>.  A pattern can have more than one <code>*</code> wildcard.  For example, <code>1**1</code> would result in 4 different binary strings: <code>1001</code>, <code>1011</code>, <code>1101</code>, and <code>1111</code>.</p>
 		<p>Using recursion, display all possible binary strings for a given pattern.  You might find some of the Python <code>str</code> functions like <code>find</code> and <code>replace</code> to be useful in solving this problem.</p>
+        
+        <h3>Problem 5 - Maze</h3>
+        
+        <p>A maze is defined as a list of lists.  The outer list contains a representation of each row in the maze.  You can assume that the maze will be square (same number of rows and columns). The inner lists show what is in the maze:</p>
+
+        <ul>
+        <li><p>0 = Wall (You can't go through this)</p></li>
+        <li><p>1 = Open Path (You can go through this)</p></li>
+        <li><p>2 = End (You want to get to this point to win)</p></li>
+        </ul>
+
+        <p>In the code, there are two sample mazes.  Each maze shows 0, 1, or 2 in each box.  The blue boxes are walls and the white boxes are path ways.  The solution to each maze is highlighted in red.  Note that the small maze has two possible solutions and the big maze has only one possible solution.</p>
+        
+        <figure>
+		<img src="small_maze.jpg" class="center" alt="Shows a 3 by 3 maze (indices 0 to 2) populated as described in the code for the small_maze test.  The expected output shown in the code for this maze is highlighted in the picture.">
+        <figcaption>Small Maze Example</figcaption></figure>
+        
+        <figure>
+		<img src="big_maze.jpg" width="100%" height="100%" alt="Shows a 20 by 20 maze (indices 0 to 19) populated as described in the code for the small_maze test.  The expected output shown in the code for this maze is highlighted in the picture.">
+        <figcaption>Big Maze Example</figcaption></figure>
+        
+        <p>The <code>is_end_maze</code> and the <code>is_valid_move</code> functions are already written for you.  These functions assume that the first square in the maze is (0,0).  These functions also assume that you can't leave the boundaries of the maze and that you can't visit the same square in the same path (no circles).</p>
+
+        <p>The <code>curr_path</code> variable is a list of (x,y) tuples that represent the path we are currently on.  If you add a new position to the path, make sure that you add the tuple to the list so that the <code>is_valid_move</code> function works properly.</p>
+
+        <p>The goal is to implement the <code>solve_maze</code> function to display all paths to the end square using recursion.  When you find a path, then displaying will be as simple as <code>print(curr_path)</code>.</p>
 		
 		<h2>Submission</h2>
 		<p>You need to submit the following files for this assignment:</p>

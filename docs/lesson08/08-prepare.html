@@ -24,8 +24,9 @@
 			<li><p><a href="#1.2">Rules of Recursion</a></p></li>
 			<li><p><a href="#1.3">Sample Problems - Factorials</a></p></li>
 			<li><p><a href="#1.4">Sample Problems - Fibonacci</a></p></li>
-			<li><p><a href="#1.5">Sample Problems - Find Combinations</a></p></li>
-			<li><p><a href="#1.6">Sample Problems - MergeSort</a></p></li>
+            <li><p><a href="#1.5">Memoization</a></p></li>
+			<li><p><a href="#1.6">Sample Problems - Find Permutations</a></p></li>
+			<li><p><a href="#1.7">Sample Problems - Binary Search</a></p></li>
 		    </ul>
         
         <p><a href="#2">Key Terms</a></p>
@@ -113,155 +114,184 @@ def fib(n):
         <figcaption>Recursive Function Calls for fib(6)</figcaption></figure>
         
 		<p>The <code>fib</code> function was called a total of 15 times!  This is an O(2^n) algorithm.</p>
-		
-		<h3 id="1.5">Sample Problems - Find Combinations</h3>
-		
-		<p>The problem is to calculate the number of combinations of different letters in a word.  Mathematically, this should be <code>n!</code> where <code>n</code> is the number of letters in the word.  However, using recursion, we can also display each of the combinations (so long as the number of letters is small, otherwise it will take a long time to display all the results).  This problem, though, allows us to demonstrate a more complicated recursion problem and show a technique of remembering past results.</p>
         
-		<p>Let's assume that our list of letters is ["A", "B", "C", "D"].  Thinking about smaller problems being solved recursively, we could say that the number of combinations would be the sum of the following four things:</p>
+        <h3 id="1.5">Memoization</h3>
         
-		<ul>
-		<li><p>The number of combinations of A followed by all the different combinations of B, C, and D</p></li>
-		<li><p>The number of combinations of B followed by all the different combinations of A, C, and D</p></li>
-		<li><p>The number of combinations of C followed by all the different combinations of A, B, and D</p></li>
-		<li><p>The number of combinations of D followed by all the different combinations of A, B, and C</p></li>
-		</ul>
+        <p>We can improve the performance of the <code>fib</code> function by remembering previous results as we traverse through the recursive call.  <strong>Memoization</strong> is the process of remembering these previous results so that additional recursive calls are not needed.  For example, once we discover that <code>fib(3)</code> is equal to 2, we can store this into a Python dictionary with a key equal to 3 and the value of 2.  This becomes a base case.  If we need to calculate <code>fib(3)</code> again, we will just look up the 3 in the dictionary to get the answer.</p>
         
-		<p>Each recursive call to the <code>combinations</code> function will need to know two things: what letters have not been used yet, and the current string that has been built so far.  In the four scenarios above, after we add the A, we are left with the letters B, C, and D (the letters that have not been used yet).  Additionally, after we add the A, the A should be added to the current string that we have built.</p>
+        <p>The dictionary will only be used by the <code>fib</code> function and not be returned.  Since the dictionary needs to be shared for all recursive calls, we will write code to create the dictionary on the first recursive call only.</p>
         
-		<p>We also need a base case.  The simplest scenario is a list with one letter.  The result of <code>combinations(["A"])</code> would be one.  Here is our code (note that the printing out of the string should be commented out for large list of letters):</p>
-		
-<pre><code class="Python">		
-def combinations(letters, word_so_far=""):
-
-	if len(letters) == 1:   # Base Case
-		print(word_so_far + letters[0])  
-		return 1
-
-	else:
-		# Try adding each of the available letters
-		# to the 'word_so_far' and add up all the
-		# resulting combinations.
-
-		total = 0
-		for index in range(len(letters)):
-			# Make a copy of the letters to pass to the
-			# the next call to combinations.  We need
-			# to remove the letter we just added before
-			# we call combinations again.
-
-			letters_left = letters[:]
-			del letters_left[index]
-
-			# Add the new letter to the word we have so far
-			total += combinations(letters_left, word_so_far + letters[index])
-	return total
-
-print(combinations(list("ABC")))       # 6
-print(combinations(list("ABCDEFG")))   # 5040					
-</code></pre>		
-
-		<p>If we try a longer list of letters, this recursive algorithm slows down significantly.  Reflecting back on the Fibonacci problem, the diagram of function calls showed many duplicate calls to the <code>fib</code> function for the same value of <code>n</code>.  Likewise, in the <code>combinations</code> function, there are many duplciate calls to the function for the same value of <code>letters</code>.  To solve this problem, we will use a dictionary to remember the results of calling <code>combinations</code>.  Before we do a recursive call, we will check our dictionary to see if we have solved that part of the problem already before.  In a way, this becomes another base case.  Our faster code now looks like this:</p>
-		
-<pre><code class="Python">		
-def combinations(letters, word_so_far="", remember=dict()):
-
-	# The key in the dictionary will be a string
-	# made up of the letters in the list.  We will use
-	# this several times in the function so a variable
-	# will be useful.
-	remember_key = str(letters) 
-
-	if len(letters) == 1:   # Base Case
-		#print(word_so_far + letters[0])  
-		return 1
-
-	elif remember_key in remember:  # Have we seen this before?
-		return remember[remember_key]
-
-	else:
-		# Try adding each of the available letters
-		# to the 'word_so_far' and add up all the
-		# resulting combinations.
-		total = 0
-
-		for index in range(len(letters)):
-			# Make a copy of the letters to pass to the
-			# the next call to combinations.  We need
-			# to remove the letter we just added before
-			# we call combinations again.
-
-			letters_left = letters[:]
-			del letters_left[index]
-
-			# Add the new letter to the word we have so far
-			total += combinations(letters_left, 
-					word_so_far + letters[index], 
-					remember)
-
-	# Remember this result for later
-	remember[remember_key] = total
-
-	return total
-
-print(combinations(list("ABCDEFGHIJKLMNOP"))) # 20922789888000 			
-</code></pre>		
-
-		<h3 id="1.6">Sample Problems - MergeSort</h3>
-		
-		<p>Recursion plays an important role in several data structures and sorting algorithms.  One of the common sorting algorithms is called MergeSort.  MergeSort is based on the following process:</p>
-		
-		<ul>
-		<li><p>Split up a list into multiple smaller lists.  This is done by recursively cutting the list in half to make two smaller lists.  The splitting stops when we get to a list of size 1 (the base case).  Note that a list of size 1 is sorted.</p></li>
-		<li><p>Merge the lists back together again.  When this merging begins, it will be sorting two lists of size 1.  The result will be a sorted list of size 2.  As the merging continues, sorted lists of larger size will be merged together.  The process of merging two sorted lists into a single sorted list was one of the problems from the first week of the semester.</p></li>
-		</ul>
-		
-		<p>Here is the code for MergeSort.  Notice the recursion with the smaller problem (smaller lists) and the base case:</p>
-		 
 <pre><code class="Python">
-def merge_sort(data):
-    if len(data) &lt;= 1:
-        return
-    middle = len(data) // 2
-    left = data[:middle]    # First half using list slicing
-    right = data[middle:]   # Second half using list slicing
-    
-    merge_sort(left)  # Recursively sort the left side
-    merge_sort(right) # Recursively sort the right side
+def fibonacci(n, remember = None):
+    # If this is the first time calling the function, then
+    # we need to create the dictionary.
+    if remember is None:
+        remember = dict()
 
-    # At this point, left and right are now sorted!
-    # Now we need to merge them back together again
-    # The code below is one solution for merging two sorted lists together
+    # Base Case
+    if n &lt;= 2:
+        return 1
 
-    left_pos = 0
-    right_pos = 0
-    merge_pos = 0
-    # Select the smallest from left and right until we finish one side
-    while (left_pos &lt; len(left)) and (right_pos &lt; len(right)):
-        if left[left_pos] &lt; right[right_pos]:
-            data[merge_pos] = left[left_pos]
-            left_pos += 1
-        else:
-            data[merge_pos] = right[right_pos]
-            right_pos += 1
-        merge_pos += 1
-    # Copy over the other side that we have finished yet
-    if left_pos &lt; len(left):
-        data[merge_pos:] = left[left_pos:]
-    elif right_pos &lt; len(right):
-        data[merge_pos:] = right[right_pos:]
+    # Check if we have solved this one before
+    if n in remember:
+        return remember[n]
 
-data = [3, 1, 6, 2, 9, 8, 4]
-merge_sort(data)
-print(data)  # [1, 2, 3, 4, 6, 8, 9]
+    # Otherwise solve with recursion
+    result = fibonacci(n-1, remember) + fibonacci(n-2, remember)
+
+    # Remember result for potential later use
+    remember[n] = result
+    return result
+
+print(fibonacci(1))    # 1
+print(fibonacci(2))    # 1
+print(fibonacci(3))    # 2
+print(fibonacci(4))    # 3
+print(fibonacci(10))   # 55
+print(fibonacci(100))  # 354224848179261915075 (This one will
+                       # not work if you don't have the 
+                       # 'remember' dictionary implemented).
+
+
 </code></pre>
 		
-		<p>The performance of this recursive algorithm is O(n log n).  The O(log n) occurs because the recursion is splitting the list in half.  The O(n) occurs because of the algorithm to merge the two sorted lists together.  Many of the algorithms related to data structures and sorting that use recursion result in performance of either O(log n) or O(n log n).  These solutions are preferred over those that give O(n) or O(n^2).</p>
+		<h3 id="1.6">Sample Problems - Find Permutations</h3>
+		
+		<p>The problem is to calculate the number of ways to reorganize the letters in a word (i.e. the permutations).  Mathematically, this should be <code>n!</code> where <code>n</code> is the number of letters in the word.  However, using recursion, we can also display each of the permutations (so long as the number of letters is small, otherwise it will take a long time to display all the results).</p>
+        
+		<p>Let's assume that our list of letters is ["A", "B", "C", "D"].  Thinking about smaller problems being solved recursively, we could say that the number of permutations would be the sum of the following four things:</p>
+        
+		<ul>
+		<li><p>The number of permutations of A followed by all the different permutations of B, C, and D</p></li>
+		<li><p>The number of permutations of B followed by all the different permutations of A, C, and D</p></li>
+		<li><p>The number of permutations of C followed by all the different permutations of A, B, and D</p></li>
+		<li><p>The number of permutations of D followed by all the different permutations of A, B, and C</p></li>
+		</ul>
+        
+		<p>Each recursive call to the <code>permutations</code> function will need to know two things: what letters have not been used yet, and the current string that has been built so far.  In the four scenarios above, after we add the A, we are left with the letters B, C, and D (the letters that have not been used yet).  Additionally, after we add the A, the A should be added to the current string that we have built.  The diagram below shows have these function calls will be called and how the resulting permutations will be displayed:</p>
+        
+        <figure>
+		<img src="permutations.jpeg" width="100%" height="100%" alt="Shows some of the functions called by permutations([A,B,C,D]). This first function calls permutations([B,C,D],'A'), permutations([A,C,D],'B'), permutations([A,B,D],'C') and permutations([A,B,C],'D').  The permutations([B,C,D],'A') will call permutations([C,D],'AB'), permutations([B,D],'AC'), and permutations([B,C],'AD').  The permutations ([C,D],'AB') will call permutations([D],'ABC') and permutations([C],'ABD').  Each of these last 2 functions will call permutations([],'ABCD') and permutatoins([],'ABDC'), respectively.  In these last functions, the strings 'ABCD' and 'ABDC' will be printed out in each functions respectively. ">
+        <figcaption>Recursive Function Calls for permutations([A,B,C,D])</figcaption></figure>
+        
+		<p>We also need a base case.  The simplest scenario is a list with zero letters.  Here is our code:</p>
+		
+<pre><code class="Python">		
+def permutations(letters, word=""):
+
+	if len(letters) == 0:   # Base Case
+		print(word)  
+
+	else:
+		# Try adding each of the available letters
+		# to the 'word_so_far' and add up all the
+		# resulting permutations.
+
+		for index in range(len(letters)):
+			# Make a copy of the letters to pass to the
+			# the next call to permutations.  We need
+			# to remove the letter we just added before
+			# we call permutations again.
+
+			letters_left = letters[:]
+			del letters_left[index]
+
+			# Add the new letter to the word we have so far
+			permutations(letters_left, word + letters[index])
+
+permutations(list("ABC"))
+""" 
+Results:
+ABC
+ACB
+BAC
+BCA
+CAB
+CBA
+"""
+
+permutations(list("ABCD"))
+"""
+Results:
+ABCD
+ABDC
+ACBD
+ACDB
+ADBC
+ADCB
+BACD
+BADC
+BCAD
+BCDA
+BDAC
+BDCA
+CABD
+CADB
+CBAD
+CBDA
+CDAB
+CDBA
+DABC
+DACB
+DBAC
+DBCA
+DCAB
+DCBA
+"""
+</code></pre>		
+
+		<h3 id="1.7">Sample Problems - Binary Search</h3>
+		
+		<p>Recursion plays an important role in several searching and sorting algorithms.  The binary search algorithm assumes that the data is already sorted.  Just like a phone book, if you had sorted data, then the best way to find something is to look in the middle of data set.  By looking in the middle of the sorted data, we can quickly exclude half of the data with a single comparison.  The binary search algorithm is as follows: </p>
+		
+		<ul>
+        <li><p>Base Case: If the list has just one item, then check it and return the result.</p></li>
+        <li><p>Base Case: If the number in the middle of the list is what we are looking for, then the value is in the list</p></li>
+        <li><p>Recursion: If the number in the middle of the list is not what we are looking for, then search in either the first half (lower values) or the second half (higher values).  Calling the binary search function recursively on the list subset can either be done by creating a new list or by providing the function with the starting and ending index.  The first approach will take more memory.</p></li>
+        </ul>
+        <p>Here is the code for the binary search.</p> 
+		 
+<pre><code class="Python">
+def binary_search(sorted_list, target):
+    """
+    This function uses list slicing.  A list slice will create a list from another list
+    This is useful when we want to create new sublists.  Here is how list slicing works:
+    
+    data[:a] - Creates a new list from index 0 to index a-1
+    data[a:] - Creates a new list from index a to len(data)-1
+    data[a:b] - Creates a new list from index a to index b-1
+    data[a:b:c] - Creates a new list from index a to index b-1 stepping by c
+    """
+    if len(sorted_list) == 1:  
+        # Base Case
+        return target == sorted_list[0]
+    else:
+        # Find the middle and compare
+        middle = len(sorted_list) // 2
+        if target == sorted_list[middle]:
+            # We got lucky and the middle was the match
+            return True
+        elif target &gt; sorted_list[middle]:
+            # Search the first half (index 0 to middle-1) and 
+            # return the result
+            return find(sorted_list[:middle],target)
+        else:
+            # Search the second half (index middle to end) and 
+            # return the result
+            return find(sorted_list[middle:],target)
+
+print(find([1, 3, 6, 18, 20, 25, 34, 38, 89, 95, 99, 100], 89)) # True
+print(find([1, 3, 6, 18, 20, 25, 34, 38, 89, 95, 99, 100], 1))  # True
+print(find([1, 3, 6, 18, 20, 25, 34, 38, 89, 95, 99, 100], 17)) # False
+</code></pre>
+		
+		<p>The performance of this recursive algorithm is O(log n) because we are excluding half of the list with each comparison.</p>
         
         <h2 id="2">Key Terms</h2>
         
         <ul>
         <li><p><strong>base case</strong> - The scenario that will terminate (or stop) the recursive calls.  If this is not designed properly, then the recursion will run forever.</p></li>
+        <li><p><strong>memoization</strong> - The technique of remembering previous results found through recursion so that repetitive recursion can be avoided.</p></li>
         <li><p><strong>recursion</strong> - The calling of a function with the same function.  This can be used to solve problems by identifying a solution which is written in terms of solving the same problem using smaller values.  A base case is needed to ensure that the recursion eventually stops.  The base cases are solved in the function without using recursion.</p></li>
         </ul>
 		
