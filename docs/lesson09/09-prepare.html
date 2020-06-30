@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+AV<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -13,7 +13,7 @@
         <h1>CSE 212 | Programming with Data Structures</h1>
     </header>
     <article>
-		<h1>09 Prepare : Reading</h1>
+		<h1>09 Prepare: Reading</h1>
 				
 		<h2>Table of Contents</h2>
         
@@ -75,7 +75,7 @@
 		
 		<h3 id="1.3">Balanced Binary Search Trees</h3>
         
-		<p>A <strong>balanced binary search tree</strong> (balanced BST) is a BST such that the difference of height between any two subtrees is not dramatically different.  The height of a tree can be found by counting the maximum number of nodes between root and the leaves.  Since it is not reasonable to expect that the order of data will result in a balanced BST, numerous algorithms have been written to detect if a tree is unbalanced and to correct the unbalance.  Common algorithms include red black trees and AVL (Adelson, Velskii, and Landis) trees.  The example below shows an <strong>AVL tree</strong> which is balanced because the difference of height between subtrees is less than 2.</p>
+		<p>A <strong>balanced binary search tree</strong> (balanced BST) is a BST such that the difference of height between any two subtrees is not dramatically different.  The height of a tree can be found by counting the maximum number of nodes between root and the leaves.  Since it is not reasonable to expect that the order of data will result in a balanced BST, numerous algorithms have been written to detect if a tree is unbalanced and to correct the unbalance.  Common algorithms include red black trees and AVL (Adelson-Velskii and Landis) trees.  The example below shows an <strong>AVL tree</strong> which is balanced because the difference of height between subtrees is less than 2.</p>
 		
         <figure>
 		<img src="avl_tree_initial.jpeg" height="100%" width="100%" alt="Shows an AVL tree where the root node is 15.  The 15 is connected to 10 (on the left) and 24 (on the right).  The 10 is connected to 3 (on the left) and 14 (on the right).   The 12 is connected to 14 (on the left).  The 24 is connected to 33 (on the right). Looking at the subtree starting with 10, the height to the 3 on the left is 2.  The height of the subtree to the 12 on the right is 3.">
@@ -270,15 +270,15 @@ def _traverse_forward(self, node):
         <h2 id="2">Key Terms</h2>
         
 		<ul>
-        <li><p><strong>AVL Tree</strong> - Adelson, Velskii, and Landis Tree.  A balanced binary search tree that is checked unbalanced height after every modification to the tree.  If the tree is unbalanced, then pre-determined algorithms are used to balance the tree.</p></li>
+        <li><p><strong>AVL Tree</strong> - Adelson-Velskii and Landis Tree.  A balanced binary search tree that is checked unbalanced height after every modification to the tree.  If the tree is unbalanced, then pre-determined algorithms are used to balance the tree.</p></li>
         <li><p><strong>balanced</strong> - A tree is balanced if the the height of the tree from the root to each leaf is consistent for all subtrees.  The measure of consistentency will vary between algorithms but usually does not exceed a height difference of 1.</p></li>
         <li><p><strong>balanced binary search tree</strong> - A binary search tree which is balanced or restructured to be balanced.  A balanced binary search tree has O(log n) performance when searching.</p></li>
         <li><p><strong>binary search tree</strong> - A binary tree that puts data less than the root to the left and greater than the root to the right.  This type of a tree enables searching algorithms to be efficient.</p></li>
-        <li><p><strong>binary tree</strong> - A tree that up to 2 children for each node.</p></li>
-        <li><p><strong>child</strong> - A child is node connected from a parent node.</p></li>
+        <li><p><strong>binary tree</strong> - A tree that has up to two children for each node.</p></li>
+        <li><p><strong>child</strong> - A child is a node connected from a parent node.</p></li>
         <li><p><strong>leaf</strong> - A leaf is a node that has no children.</p></li>
         <li><p><strong>node</strong> - An entry in a tree that contains both the value and pointers to any children nodes.</p></li>
-        <li><p><strong>parent</strong> - A parent is node that connects to children nodes</p></li>
+        <li><p><strong>parent</strong> - A parent is a node that connects to children nodes.</p></li>
         <li><p><strong>root</strong> - The first parent in a tree.</p></li>
         <li><p><strong>subtree</strong> - Subset of a tree made by selecting a node to be the root and including all the children from that node.</p></li>
         <li><p><strong>traverse</strong> - The process of visiting all nodes (and subsequently their values) in a tree.  Used frequently with a binary search tree using recursion to start at the leaf node that contains the smallest value and going to the leaf node that contains the largest value.</p></li>

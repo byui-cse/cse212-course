@@ -13,7 +13,7 @@
         <h1>CSE 212 | Programming with Data Structures</h1>
     </header>
     <article>
-		<h1>02 Prepare : Reading</h1>
+		<h1>02 Prepare: Reading</h1>
 				
 		<h2>Table of Contents</h2>
         
@@ -39,7 +39,7 @@
 		
 		<h3 id="1.1">Big O Notation and Linear Performance</h3>
 		
-		<p><strong>Big O</strong> Notation is used to describe the performance of an <strong>algorithm</strong> (or function) for large sets of data.  If we have two functions that do the same thing, we can use big O notation to compare the performance of the two functions.  As a simple example, consider the following code which looks for the name "Bob" in a list of names:</p>
+		<p><strong>Big O</strong> notation is used to describe the performance of an <strong>algorithm</strong> (or function) for large sets of data.  If we have two functions that do the same thing, we can use big O notation to compare the performance of the two functions.  As a simple example, consider the following code which looks for the name "Bob" in a list of names:</p>
 		
 <pre><code class="Python">	
 def find_bob(name_list):
@@ -241,14 +241,14 @@ print("Work = {}".format(work))
         
         <ul>
         <li><p><strong>algorithm</strong> - A solution to a problem including the steps to solve the problem.  An algorithm is implemented as one or more functions in code.</p></li>
-        <li><p><strong>benchmark</strong> - The measurement of actual execution time of an algorithm as observed in multiple executions of the algorithm.  Benchmarks are often taken within different environments (e.g. operating system, processor, programming language)</p></li>
-        <li><p><strong>big O</strong> - A mathematical representation of the performance of an algorithm.  As used in this lesson, it repersents the worst case execution time predicted for the code.  Represented as a function in terms of <code>n</code>, where <code>n</code> represents the size of the data being processed by the code.</p></li>
+        <li><p><strong>benchmark</strong> - The measurement of actual execution time of an algorithm as observed in multiple executions of the algorithm.  Benchmarks are often taken within different environments (e.g. operating system, processor, programming language).</p></li>
+        <li><p><strong>big O</strong> - A mathematical representation of the performance of an algorithm.  As used in this lesson, it represents the worst case execution time predicted for the code.  Represented as a function in terms of <code>n</code>, where <code>n</code> represents the size of the data being processed by the code.</p></li>
         <li><p><strong>coefficient</strong> - A numeric factor applied to a function.  For example, O(2n) has a coefficient of 2 and O(5n^2) has a coefficient of 5.  In big O notation, the coefficient is dropped.</p></li>
-        <li><p><strong>constant</strong> - An alogorithm has constant time if it is not dependent on the size of data.  Constant time is always reduced to O(1).  A single expression in code is frequently O(1).</p></li>
-        <li><p><strong>linear</strong> - An algorithm has linear time if the execution time incerases at the same rate as the data size.  Linear time is always reduced to O(n).  Code that contains a single loop based on the size of the data is considered linear.</p></li>
-        <li><p><strong>logarithmic</strong> - An algorithm has logarithmic time if the rate of growth decreases as the size of the data increases.  Logartihmic time is commonly reduced to O(log n).  Other variations include O(n log n).  Logarithmic time is also described as the inverse of exponential growth (e.g. O(2^n)).  The practice of splitting data in half multiple times to achieve a goal is frequently considered logarithmic.</p></li>
-        <li><p><strong>performance</strong> - Describes the amount of time and memory used to perform a algorithm in sofwtare.  An algorithm can be implemented in many ways.  However, the performance may be different between each implementation.</p></li>
-        <li><p><strong>polynomial</strong> - An algorithm has polynomial time if the execution time increases by a fixed exponent relative to the size of the data.  In a loop within a loop (both related to the size of data) were written, then the big O notation would be likely reduced to O(n^2).  If there were three embedded loops, the big O notaiton would be O(n^3).  Lower order exponents are dropped in big O notation.  For example, O(4n^3 + 7n^2) = O(n^3).</p></li>
+        <li><p><strong>constant</strong> - An algorithm has constant time if it is not dependent on the size of data.  Constant time is always reduced to O(1).  A single expression in code is frequently O(1).</p></li>
+        <li><p><strong>linear</strong> - An algorithm has linear time if the execution time increases at the same rate as the data size.  Linear time is always reduced to O(n).  Code that contains a single loop based on the size of the data is considered linear.</p></li>
+        <li><p><strong>logarithmic</strong> - An algorithm has logarithmic time if the rate of growth decreases as the size of the data increases.  Logarithmic time is commonly reduced to O(log n).  Other variations include O(n log n).  Logarithmic time is also described as the inverse of exponential growth (e.g. O(2^n)).  The practice of splitting data in half multiple times to achieve a goal is frequently considered logarithmic.</p></li>
+        <li><p><strong>performance</strong> - Describes the amount of time and memory used to perform an algorithm in sofwtare.  An algorithm can be implemented in many ways.  However, the performance may be different between each implementation.</p></li>
+        <li><p><strong>polynomial</strong> - An algorithm has polynomial time if the execution time increases by a fixed exponent relative to the size of the data.  If a loop within a loop (both related to the size of data) were written, then the big O notation would be likely reduced to O(n^2).  If there were three embedded loops, the big O notation would be O(n^3).  Lower order exponents are dropped in big O notation.  For example, O(4n^3 + 7n^2) = O(n^3).</p></li>
         </ul>
         
 		<script src="../site/js/highlight/highlight.pack.js"></script>
