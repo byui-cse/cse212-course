@@ -170,7 +170,7 @@ def count_ways_to_climb(s, remember = None):
         return ways
 
 # Sample Test Cases (may not be comprehensive) 
-print("\n=========== PROBLEM 4 TESTS ===========")
+print("\n=========== PROBLEM 3 TESTS ===========")
 print(count_ways_to_climb(5))   # 13
 print(count_ways_to_climb(20))  # 121415
 # Uncomment out the test below after implementing memoization.  It won't work without it.
