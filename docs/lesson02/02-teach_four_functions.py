@@ -50,6 +50,9 @@ print_triangle(5) # Print triangle with side length 5
 print_triangle(8) # Print triangle with side length 5
 
 def display_letters_in_names(names):
+    """
+    Display each letter of each name in the list on a separate line.
+    """
     for name in names:
         for letter in name:
             print(letter)
