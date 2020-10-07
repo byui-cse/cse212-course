@@ -87,8 +87,11 @@
 			</tr>
 			<tr>
 			  <td>dequeue()</td>
-			  <td>Remove and return the item from the front of the queue</td>
-			  <td><code>value = my_queue[0]<br>del my_queue[0]</code></td> 	
+			  <td>Two approaches: Remove and return the item from the front of the queue; or pop off index 0</td>
+			  <td><code>value = my_queue[0]<br>del my_queue[0]</code>
+                  <br>or<br>
+                  <code>value = my_queue.pop(0)</code>
+              </td> 	
 			  <td>O(n) - Performance of obtaining and removing from the beginning of the dynamic array</td>
 			</tr>
 			<tr>
