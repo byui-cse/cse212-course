@@ -34,13 +34,13 @@ def check_braces(line):
     return len(stack) == 0  
                             
 
-# Good (passes on line 34)
+# True (passes on line 34 ... stack was empty at the end)
 print(check_braces("(a == 3 or (b == 5 and c == 6))"))  
 
-# Bad ..wrong opening square bracket (fails on line 29)
+# False ..wrong opening square bracket (fails on line 29 ... stack had only '(' in it before it was popped and compared with ']')
 #                           \/
-print(check_braces("(students]i].grade > 80 and students[i.grade < 90)"))  
+print(check_braces("(students]i].grade > 80 and students[i].grade < 90)"))  
 
-# Bad .... missing closing ')' here ------- (fails on line 34)
+# False .... missing closing ')' here ------- (fails on line 34 ... stack had an extra '(' in it at the end when it was supposed to be empty)
 #                                         \/
 print(check_braces("(robot[id + 1].execute(.pass() or (not robot[id * (2 + i)].alive and stormy) or (robot[id - 1].alive and lava_flowing))"))
