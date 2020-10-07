@@ -61,7 +61,7 @@ class Customer_Service:
         problem = input("Problem: ")
 
         # Create the customer object and add it to the queue
-        customer = CustomerService.Customer(name, account_id, problem)
+        customer = Customer_Service.Customer(name, account_id, problem)
         self.queue.append(customer)
 
     def serve_customer(self):
