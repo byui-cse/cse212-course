@@ -29,7 +29,7 @@ class Simple_Queue:
         """
         Dequeue the next value and return it
         """
-        if len(self.queue) < 0:
+        if len(self.queue) <= 0:
             raise IndexError()
         value = self.queue[1]
         del self.queue[1]
