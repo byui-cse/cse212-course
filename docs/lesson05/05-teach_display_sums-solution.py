@@ -14,7 +14,6 @@ def display_sums(numbers):
     We are assuming that there are no duplicates in the list
     """
     values_seen = set()
-    count = 0
     for n in numbers:
         # If 10-n is in the values_seen set then I know that
         # I have previously seen a number that will sum with n 
