@@ -101,6 +101,10 @@ def is_anagram(word1, word2):
     Examples:
     is_anagram("CAT","ACT") would return True
     is_anagram("DOG","GOOD") would return False because GOOD has 2 O's
+
+    Important Note: When determining if two words are anagrams, you
+    should ignore any spaces.  You should also ignore cases.  For 
+    example, 'Ab' and 'Ba' should be considered anagrams
     """
     pass
 
