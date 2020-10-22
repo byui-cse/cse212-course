@@ -254,8 +254,8 @@ def earthquake_daily_summary():
     Additional information about the format of the JSON data can be found 
     at this website:  
 
-    https://earthquake.usgs.gov/earthquakes/feed/v1.0/geojson_detail.php
-    
+    https://earthquake.usgs.gov/earthquakes/feed/v1.0/geojson.php
+        
     To install the requests library, run:
        If using virtual environment: pip install requests
        If using Windows: py -m pip install requests
