@@ -43,7 +43,7 @@ def permutations_choose(letters, size, word=""):
     using the formula: len(letters)! / (len(letters) - size)!
 
     For example, if letters was [A,B,C] and size was 2 then
-    the following would display: AB, AC, BC  (might be in 
+    the following would display: AB, AC, BA, BC, CA, CB (might be in 
     a different order).
     """
     pass
