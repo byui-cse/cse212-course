@@ -23,6 +23,22 @@ def unique_letters(text):
     # If we made it this far then all letters were unique
     return True
 
+# An alternative solution:
+def unique_letters2(text):
+    """ 
+    Determine if there are any duplicate letters in the text provided
+    This solution using a set and results in O(n) performance.
+    """
+    unique = set()
+    for letter in text:
+        unique.add(letter)
+    # The above three lines can be simplified to just: unique = set(text)
+
+    # If the text has only unique letters, then the unique set should
+    # be the same size of the text string.
+    return len(unique) == len(text)
+
+
 test1 = "abcdefghjiklmnopqrstuvwxyz"  # Expect True because all letters unique
 print(unique_letters(test1))
 

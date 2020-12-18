@@ -76,7 +76,7 @@ class Customer_Service:
             # Need to read and save the customer before it is deleted
             # from the queue
             customer = self.queue[0]
-            del self.queue[0]         # Defect 1 - This line was missing
+            del self.queue[0]         # Defect 1 - Delete should be done after 
             print(customer)
 
     def __str__(self):
@@ -86,7 +86,7 @@ class Customer_Service:
         Customer_Service object called cs, then you run print(cs) to see the 
         contents.
         """
-        result = "["
+        result = "[size=" + str(len(self.queue)) + " => "
         for customer in self.queue:
             result += "{"+str(customer)+"}"  # Uses the __str__ from Customer class
             result += ", "
@@ -113,8 +113,10 @@ print("Test 2")
 service = Customer_Service(4)
 service.add_new_customer()
 service.add_new_customer()
+print("Before serving customers: ",service)
 service.serve_customer()
 service.serve_customer()
+print("After serving customers: ",service)
 # Defect(s) Found: None :)
 
 print("=================")
@@ -139,6 +141,7 @@ service.add_new_customer()
 service.add_new_customer()
 service.add_new_customer()
 service.add_new_customer()
+print("Service Queue: ", service)
 # Defect(s) Found: This found that I need to do >= instead of > in add_new_customer
 
 print("=================")

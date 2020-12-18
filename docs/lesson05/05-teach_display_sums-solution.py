@@ -31,11 +31,18 @@ Should show something like (order does not matter):
 8 2
 9 1 
 """
-
+print("===========")
 display_sums([-20, -15, -10, -5, 0, 5, 10, 15, 20]) 
 """
 Should show something like (order does not matter):
 10 0
 15 -5
 20 -10
+"""
+print("===========")
+display_sums([5, 11, 2, -4, 6, 8, -1])
+"""
+Should show something like (order does not matter):
+8 2
+-1 11
 """

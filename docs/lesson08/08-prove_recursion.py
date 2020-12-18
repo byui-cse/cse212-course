@@ -45,6 +45,9 @@ def permutations_choose(letters, size, word=""):
     For example, if letters was [A,B,C] and size was 2 then
     the following would display: AB, AC, BA, BC, CA, CB (might be in 
     a different order).
+
+    You can assume that the size specified is always valid (between 1 
+    and the length of the letters list).
     """
     pass
 

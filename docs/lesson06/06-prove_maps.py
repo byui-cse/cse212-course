@@ -16,7 +16,9 @@ class Translator:
     """
     This class provides the capability of a translator.  A
     Python Dictionary is used to keep track of the mapping 
-    of words from one language to another language.
+    of words from one language to another language.  You should 
+    assume that there is only one translation for every 
+    word (and vice versa).
     """
 
     def __init__(self):
@@ -110,11 +112,15 @@ def is_anagram(word1, word2):
 
 # Sample Test Cases (may not be comprehensive) 
 print("\n=========== PROBLEM 3 TESTS ===========")
+print(is_anagram("CAT","ACT")) # True
+print(is_anagram("DOG", "GOOD")) # False
+print(is_anagram("AABBCCDD", "ABCD")) # False
+print(is_anagram("BC","AD")) # False
+print(is_anagram("Ab","Ba")) # True
 print(is_anagram("A Decimal Point", "Im a Dot in Place"))  # True
 print(is_anagram("tom marvolo riddle", "i am lord voldemort")) # True
 print(is_anagram("Eleven plus Two", "Twelve Plus One")) # True
-print(is_anagram("AABBCCDD", "ABCD")) # False
-print(is_anagram("COW","DOG")) # False
+print(is_anagram("Eleven plus One", "Twelve Plus One")) # False
 
 #############
 # Problem 4 #
@@ -218,23 +224,26 @@ map =  {(1,1) : (False, True, False, True),
 
 print("\n=========== PROBLEM 4 TESTS ===========")
 maze = Maze(map)
-choice = None
-while choice != "exit":
-    maze.show_status()
-    choice = input("up/down/left/right/exit >")
-    if choice == "up":
-        maze.move_up()
-    elif choice == "down":
-        maze.move_down()
-    elif choice == "left":
-        maze.move_left()
-    elif choice == "right":
-        maze.move_right()
-    elif choice == "exit":
-        print("Goodbye!")
-    else:
-        print("Invalid Choice.")
-    print()
+maze.show_status() # Should be at (1,1)
+maze.move_up() # Error
+maze.move_left() # Error
+maze.move_right() 
+maze.move_right() # Error
+maze.move_down()
+maze.move_down()
+maze.move_down()
+maze.move_right()
+maze.move_right()
+maze.move_up()
+maze.move_right()
+maze.move_down()
+maze.move_left()
+maze.move_down() # Error
+maze.move_right()
+maze.move_down()
+maze.move_down()
+maze.move_right()
+maze.show_status() # Should be at (6,6)
 
 #############
 # Problem 5 #

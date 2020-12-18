@@ -50,9 +50,9 @@ class BST:
         else:
             self._insert(data, self.root)  # Start at the root
 
-    #############
-    # Problem 1 #
-    #############
+    ###################
+    # Start Problem 1 #
+    ###################
     def _insert(self, data, node):
         """
         This function will look for a place to insert a node
@@ -69,7 +69,7 @@ class BST:
                 # Need to keep looking.  Call _insert
                 # recursively on the left sub-tree.
                 self._insert(data, node.left)
-        elif data >= node.data:
+        else:
             # The data belongs on the right side.
             if node.right is None:
                 # We found an empty spot
@@ -78,9 +78,12 @@ class BST:
                 # Need to keep looking.  Call _insert
                 # recursively on the right sub-tree.
                 self._insert(data, node.right)
+    
+    #################
+    # End Problem 1 #
+    #################
 
-
-    def __in__(self, data):
+    def __contains__(self, data):
         """ 
         Checks if data is in the BST.  This function
         supports the ability to use the 'in' keyword:
@@ -91,9 +94,9 @@ class BST:
         """
         return self._contains(data, self.root)  # Start at the root
 
-    #############
-    # Problem 2 #
-    #############
+    ###################
+    # Start Problem 2 #
+    ###################
     def _contains(self, data, node):
         """
         This funciton will search for a node that contains
@@ -102,6 +105,10 @@ class BST:
         to be called the first time by the __in__ function.
         """
         pass
+
+    #################
+    # End Problem 2 #
+    #################
 
     def __iter__(self):
         """
@@ -157,9 +164,9 @@ class BST:
         """        
         yield from self._traverse_backward(self.root)  # Start at the root
 
-    #############
-    # Problem 3 #
-    #############
+    ###################
+    # Start Problem 3 #
+    ###################
     def _traverse_backward(self, node):
         """
         Does a backwards traversal (reverse in-order traversal) through the 
@@ -174,20 +181,28 @@ class BST:
         """
         yield "???"  # Replace this when you implement your solution
 
+    #################
+    # End Problem 3 #
+    #################
+
     def get_height(self):
         """
-        Determine the height of the BST.  If the tree is empty, then
-        return 0.  Otherwise, call _get_height on the root which will
-        recursively determine the height of the tree.
+        Determine the height of the BST.  Note that an empty tree
+        will have a height of 0 and a tree with one item (root) will
+        have a height of 1.
+        
+        If the tree is empty, then return 0.  Otherwise, call 
+        _get_height on the root which will recursively determine the 
+        height of the tree.
         """
         if self.root is None:
             return 0
         else:
             return self._get_height(self.root)  # Start at the root
 
-    #############
-    # Problem 4 #
-    #############
+    ###################
+    # Start Problem 4 #
+    ###################
     def _get_height(self, node):
         """
         Determine the height of the BST.  The height of a sub-tree 
@@ -198,6 +213,11 @@ class BST:
         get_height.
         """
         pass
+
+    #################
+    # End Problem 4 #
+    #################
+
 
 # NOTE: Functions below are not part of the BST class above. 
 
@@ -216,9 +236,9 @@ def create_bst_from_sorted_list(sorted_list):
     _insert_middle(sorted_list, 0, len(sorted_list)-1, bst)
     return bst
 
-#############
-# Problem 5 #
-#############
+###################
+# Start Problem 5 #
+###################
 def _insert_middle(sorted_list, first, last, bst):
     """
     This function will attempt to insert the item in the middle
@@ -230,8 +250,8 @@ def _insert_middle(sorted_list, first, last, bst):
     first = 0
     last = 5
 
-    then the value 30 (index 2) would be added to the 'bst'
-    (the insert function above can be used to do this).  
+    then the value 30 (index 2 which is the middle) would be added 
+    to the 'bst' (the insert function above can be used to do this).   
 
     Subsequent recursive calls are made to insert the middle from the values 
     before 30 and the values after 30.  If done correctly, the order
@@ -241,8 +261,18 @@ def _insert_middle(sorted_list, first, last, bst):
 
     This function is intended to be called the first time by 
     create_bst_from_sorted_list.
+
+    The purpose for having the first and last parameters is so that we do 
+    not need to create new sublists when we make recursive calls.  Avoid 
+    using list slicing to create sublists to solve this problem.
+
     """
     pass
+
+#################
+# End Problem 5 #
+#################
+
 
 # Sample Test Cases (may not be comprehensive) 
 print("\n=========== PROBLEM 1 TESTS ===========")
@@ -268,12 +298,23 @@ for x in reversed(tree):
 
 print("\n=========== PROBLEM 4 TESTS ===========")
 print(tree.get_height()) # 3
+tree.insert(6)
+print(tree.get_height()) # 3
+tree.insert(12)
+print(tree.get_height()) # 4
+
 
 print("\n=========== PROBLEM 5 TESTS ===========")
+tree1 = create_bst_from_sorted_list([10, 20, 30, 40, 50, 60])
 tree2 = create_bst_from_sorted_list([x for x in range(127)]) # 2^7 - 1 nodes
 tree3 = create_bst_from_sorted_list([x for x in range(128)]) # 2^7 nodes
+tree4 = create_bst_from_sorted_list([42])
+tree5 = create_bst_from_sorted_list([])
+print(tree1.get_height()) # 3
 print(tree2.get_height()) # 7 .. any higher and its not balanced
 print(tree3.get_height()) # 8 .. any higher and its not balanced
+print(tree4.get_height()) # 1
+print(tree5.get_height()) # 0
 
 
 

@@ -11,14 +11,14 @@ GitHub repository, unshared Google Drive folder) is acceptable.
 def intersection(set1, set2):
     """
     Perform an intersection between 2 sets.  An intersection will contain
-    the items in common between both sets. 
+    the items in common between both sets. Do not use the '&' operator.
     """
     pass
 
 def union(set1, set2):
     """
     Perform a union between 2 sets.  A union will contain all the items
-    from both sets.  
+    from both sets.  Do not use the '|' operator.
     """
     pass
 

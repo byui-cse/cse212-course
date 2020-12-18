@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" type="text/css" href="../site/style.css" />
-    <title>CSE 212 - 08 Prove</title>
+    <title>CSE 212 - W08 Prove</title>
 </head>
 <body>
     <header id="courseTitle">
@@ -13,10 +13,10 @@
         <h1>CSE 212 | Programming with Data Structures</h1>
     </header>
     <article>
-        <h1>08 Prove: Individual Assignment</h1>
+        <h1>W08 Prove: Individual Assignment</h1>
 
        		<h2>Instructions</h2>
-		<p>This assignment <strong>must be completed individually</strong> to ensure you are meeting all course outcomes.  With the exception of the 08-Teach activity, you should not complete this project within a group.  If you obtain help from a tutor, the tutor should help you understand principles but should not help you answer these problems.  It is an honor code violation to obtain answers for these problems from others including using the internet (i.e. sites that allow students to share their solutions).</p>
+		<p>This assignment <strong>must be completed individually</strong> to ensure you are meeting all course outcomes.  With the exception of the W08-Teach activity, you should not complete this project within a group.  If you obtain help from a tutor, the tutor should help you understand principles but should not help you answer these problems.  It is an honor code violation to obtain answers for these problems from others including using the internet (i.e. sites that allow students to share their solutions).</p>
 		
 		<p>As you solve the problems, remember to use the principles learned in the first five lessons of the course:</p>
 		<ul>
@@ -27,11 +27,7 @@
 		<li><p>Articulating Answers for Technical Questions: imagine that you were asked one of these questions during an interview.  Remember to ensure that you fully understand the problem and work through different scenarios manually.  Consider how the data structure you are using will help you solve the problem.  A notebook or a whiteboard can be very useful in this process.</p></li>
 		</ul>
 		
-		<p>Download the following files:</p>
-		<ul>
-		<li><p><a href="08-prove_response.docx" target="_blank">08-prove_response.docx</a> to document to identify which problems you solved and to articulate how you solved (or attempted to solve) eah problem.</p></li>
-		<li><p><a href="08-prove_recursion.py" target="_blank">08-prove_recursion.py</a> to provide all your code solutions for the problems below.</p></li>
-		</ul>
+		<p>Download <a href="08-prove_recursion.py" target="_blank">08-prove_recursion.py</a> to provide all your code solutions for the problems below.</p>
 		
 		<h3>Problem 1 - Recursive Squares Sum</h3>
 		<p>Implement the <code>sum_squares_recursive</code> function to find the sum <code>1^2 + 2^2 + 3^2 + ... + n^2</code> using recursion.  Remember to both express the solution in terms of recursive call on a smaller problem and to identify a base case (terminating case).  If the value of <code>n &lt;= 0</code>, just return 0.   A loop should not be used.</p>
@@ -41,7 +37,7 @@
         
         <p><code>len(letters)</code>! / (<code>len(letters) - size</code>)!</p>
 
-        <p>For example, if <code>letters</code> was <code>[A,B,C]</code> and size was 2 then the following would display: AB, AC, BA, BC, CA, CB (might be in a different order).</p>
+        <p>For example, if <code>letters</code> was <code>[A,B,C]</code> and size was 2 then the following would display: AB, AC, BA, BC, CA, CB (might be in a different order).  You can assume that the size specified is always valid (between 1 and the length of the letters list).</p>
 			
 		<h3>Problem 3 - Climbing Stairs</h3>
         <p>Imagine that there was a staircase with <code>s</code> stairs.  We want to count how many ways there are to climb the stairs.  If the person could only climb one stair at a time, then the total would be just one.  However, if the person could choose to climb either one, two, or three stairs at a time (in any order), then the total possibilities become much more complicated.  If there were just three stairs, the possible ways to climb would be four as follows:</p>
@@ -95,7 +91,7 @@
 		<img src="big_maze.jpg" width="100%" height="100%" alt="Shows a 20 by 20 maze (indices 0 to 19) populated as described in the code for the small_maze test.  The expected output shown in the code for this maze is highlighted in the picture.">
         <figcaption>Big Maze Example</figcaption></figure>
         
-        <p>The <code>is_end_maze</code> and the <code>is_valid_move</code> functions are already written for you.  These functions assume that the first square in the maze is (0,0).  These functions also assume that you can't leave the boundaries of the maze and that you can't visit the same square in the same path (no circles).</p>
+        <p>The <code>is_end_maze</code> and the <code>is_valid_move</code> functions are already written for you.  These functions assume that the first square in the maze is (0,0).  These functions also assume that you can't leave the boundaries of the maze and that you can't visit the same square in the same path (no circles).  The <code>is_end_maze</code> will return True if the <code>x</code> and <code>y</code> coordinate represent the end of the maze.  The <code>is_valid_move</code> will return True if the movement to <code>x</code> and <code>y</code> is within the maze boundaries, does not represent a wall, and is not someplace we have already been.</p>
 
         <p>The <code>curr_path</code> variable is a list of (x,y) tuples that represent the path we are currently on.  If you add a new position to the path, make sure that you add the tuple to the list so that the <code>is_valid_move</code> function works properly.</p>
 
@@ -104,10 +100,8 @@
 		<h2>Submission</h2>
 		<p>You need to submit the following files for this assignment:</p>
 		<ul>
-			<li><p><code>08-prove_response.docx</code> - All answers should be provided.</p></li>
-			<li><p><code>08-prove_recursion.py</code> - Your solution for all problems.</p></li>
+			<li><p><code>08-prove_recursion.py</code> - Your solution for all problems with useful comments added to the code.</p></li>
 		</ul>
-		<p>Please submit each file separately.  Do not use a compression tool (e.g., zip, rar) to combine the files.</p>
 	
     </article>
 

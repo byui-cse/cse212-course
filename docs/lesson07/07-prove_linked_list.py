@@ -58,15 +58,19 @@ class LinkedList:
             self.head.prev = new_node # Connect the previous head to the new node
             self.head = new_node      # Update the head to point to the new node
 
-    #############
-    # Problem 1 #
-    #############
+    ###################
+    # Start Problem 1 #
+    ###################
     def insert_tail(self, value):
         """
         Insert a new node at the back (i.e. the tail) of the 
         linked list.
         """
         pass
+
+    #################
+    # End Problem 1 #
+    #################
 
     def remove_head(self):
         """ 
@@ -83,14 +87,18 @@ class LinkedList:
             self.head.next.prev = None  # Disconnect the second node from the first node
             self.head = self.head.next  # Update the head to point to the second node
 
-    #############
-    # Problem 2 #
-    #############
+    ###################
+    # Start Problem 2 #
+    ###################
     def remove_tail(self):
         """
         Remove the last node (i.e. the tail) of the linked list.
         """
         pass
+
+    #################
+    # End Problem 2 #
+    #################
 
     def insert_after(self, value, new_value):
         """
@@ -117,24 +125,32 @@ class LinkedList:
                 return # We can exit the function after we insert
             curr = curr.next # Go to the next node to search for 'value'
 
-    #############
-    # Problem 3 #
-    #############
+    ###################
+    # Start Problem 3 #
+    ###################
     def remove(self, value):
         """
         Remove the first node that contains 'value'.
         """
         pass
 
-    #############
-    # Problem 4 #
-    #############
+    #################
+    # End Problem 3 #
+    #################
+
+    ###################
+    # Start Problem 4 #
+    ###################
     def replace(self, old_value, new_value):
         """
         Searrch for all instances of 'old_value' and replace the value 
         to 'new_value'.
         """
         pass
+
+    #################
+    # End Problem 4 #
+    #################
 
     def __iter__(self):
         """
@@ -145,14 +161,18 @@ class LinkedList:
             yield curr.data  # Provide (yield) each item to the user
             curr = curr.next # Go forward in the linked list
 
-    #############
-    # Problem 5 #
-    #############
+    ###################
+    # Start Problem 5 #
+    ###################
     def __reversed__(self):
         """
         Iterate backward through the Linked List
         """
         yield "???"  # Replace this when you implement your solution
+
+    #################
+    # End Problem 5 #
+    #################
 
     def __str__(self):
         """
@@ -202,13 +222,17 @@ ll.remove(6)
 print(ll) # linkedlist[5, 4, 3.5, 2, 2, 1]
 ll.remove(7)
 print(ll) # linkedlist[5, 4, 3.5, 2, 2, 1]
+ll.remove(5)
+print(ll) # linkedlist[4, 3.5, 2, 2, 1]
 
 print("\n=========== PROBLEM 4 TESTS ===========")
 ll.replace(2, 10)
-print(ll) # linkedlist[5, 4, 3.5, 10, 10, 1]
+print(ll) # linkedlist[4, 3.5, 10, 10, 1]
 ll.replace(7, 5)
-print(ll) # linkedlist[5, 4, 3.5, 10, 10, 1]
+print(ll) # linkedlist[4, 3.5, 10, 10, 1]
+ll.replace(4, 100)
+print(ll) # linkedlist[100, 3.5, 10, 10, 1]
 
 
 print("\n=========== PROBLEM 5 TESTS ===========")
-print(list(reversed(ll)))  # [1, 10, 10, 3.5, 4, 5]
+print(list(reversed(ll)))  # [1, 10, 10, 3.5, 100]
