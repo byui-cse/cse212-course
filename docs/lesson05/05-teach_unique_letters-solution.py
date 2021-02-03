@@ -10,8 +10,8 @@ GitHub repository, unshared Google Drive folder) is acceptable.
 
 def unique_letters(text):
     """ 
-    Determine if there are any duplicate letters in the text provided
-    This solution using a set and results in O(n) performance.
+    Determine if there are any duplicate letters in the text provided.
+    This solution should use a set and result in O(n) performance.
     """
     found = set()
     for letter in text:
@@ -26,8 +26,8 @@ def unique_letters(text):
 # An alternative solution:
 def unique_letters2(text):
     """ 
-    Determine if there are any duplicate letters in the text provided
-    This solution using a set and results in O(n) performance.
+    Determine if there are any duplicate letters in the text provided.
+    This solution should use a set and result in O(n) performance.
     """
     unique = set()
     for letter in text:
@@ -37,6 +37,9 @@ def unique_letters2(text):
     # If the text has only unique letters, then the unique set should
     # be the same size of the text string.
     return len(unique) == len(text)
+
+    # We could simplify this function to a single line:
+    # return len(set(text)) == len(text)
 
 
 test1 = "abcdefghijklmnopqrstuvwxyz"  # Expect True because all letters unique
