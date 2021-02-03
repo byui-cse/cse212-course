@@ -39,10 +39,10 @@ def unique_letters2(text):
     return len(unique) == len(text)
 
 
-test1 = "abcdefghjiklmnopqrstuvwxyz"  # Expect True because all letters unique
+test1 = "abcdefghijklmnopqrstuvwxyz"  # Expect True because all letters unique
 print(unique_letters(test1))
 
-test2 = "abcdefghjiklanopqrstuvwxyz"  # Expect False because 'a' is repeated
+test2 = "abcdefghijklanopqrstuvwxyz"  # Expect False because 'a' is repeated
 print(unique_letters(test2))
 
 test3 = "" 
