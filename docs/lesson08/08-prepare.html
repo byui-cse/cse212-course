@@ -168,7 +168,7 @@ print(fibonacci(100))  # 354224848179261915075 (This one will
 		<li><p>The number of permutations of D followed by all the different permutations of A, B, and C</p></li>
 		</ul>
         
-		<p>Each recursive call to the <code>permutations</code> function will need to know two things: what letters have not been used yet, and the current string that has been built so far.  In the four scenarios above, after we add the A, we are left with the letters B, C, and D (the letters that have not been used yet).  Additionally, after we add the A, the A should be added to the current string that we have built.  The diagram below shows have these function calls will be called and how the resulting permutations will be displayed:</p>
+		<p>Each recursive call to the <code>permutations</code> function will need to know two things: what letters have not been used yet, and the current string that has been built so far.  In the four scenarios above, after we add the A, we are left with the letters B, C, and D (the letters that have not been used yet).  Additionally, after we add the A, the A should be added to the current string that we have built.  The diagram below shows how these function calls will be called and how the resulting permutations will be displayed:</p>
         
         <figure>
 		<img src="permutations.jpeg" width="100%" height="100%" alt="Shows some of the functions called by permutations([A,B,C,D]). This first function calls permutations([B,C,D],'A'), permutations([A,C,D],'B'), permutations([A,B,D],'C') and permutations([A,B,C],'D').  The permutations([B,C,D],'A') will call permutations([C,D],'AB'), permutations([B,D],'AC'), and permutations([B,C],'AD').  The permutations ([C,D],'AB') will call permutations([D],'ABC') and permutations([C],'ABD').  Each of these last 2 functions will call permutations([],'ABCD') and permutatoins([],'ABDC'), respectively.  In these last functions, the strings 'ABCD' and 'ABDC' will be printed out in each functions respectively. ">
@@ -242,7 +242,7 @@ DCBA
 
 		<h3 id="1.7">Sample Problems - Binary Search</h3>
 		
-		<p>Recursion plays an important role in several searching and sorting algorithms.  The binary search algorithm assumes that the data is already sorted.  Just like a phone book, if you had sorted data, then the best way to find something is to look in the middle of data set.  By looking in the middle of the sorted data, we can quickly exclude half of the data with a single comparison.  The binary search algorithm is as follows: </p>
+		<p>Recursion plays an important role in several searching and sorting algorithms.  The binary search algorithm assumes that the data is already sorted.  Just like a phone book, if you had sorted data, then the best way to find something is to look in the middle of the data set.  By looking in the middle of the sorted data, we can quickly exclude half of the data with a single comparison.  The binary search algorithm is as follows: </p>
 		
 		<ul>
         <li><p>Base Case: If the list has just one item, then check it and return the result.</p></li>
