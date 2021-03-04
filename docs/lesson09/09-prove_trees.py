@@ -102,7 +102,7 @@ class BST:
         This funciton will search for a node that contains
         'data'.  The current sub-tree being search is 
         represented by 'node'.  This function is intended
-        to be called the first time by the __in__ function.
+        to be called the first time by the __contains__ function.
         """
         pass
 
@@ -112,9 +112,9 @@ class BST:
 
     def __iter__(self):
         """
-        Perform a formward traversal (in order traversal) starting from 
-        the root of the BST.  This function is called when a loop
-        is performed:
+        Perform a forward traversal (in order traversal) starting from 
+	    the root of the BST.  This is called a generator function.
+        This function is called when a loop	is performed:
 
         for value in my_bst:
             print(value)
@@ -138,10 +138,12 @@ class BST:
             print(value)
 
         The keyword 'yield' will return the value for the 'for' loop to
-        use.  When the 'for' loop wants to get the next value, the code in
-        this function will start back up where the last 'yield' returned a 
-        value.  The keyword 'yield from' is used when we want to 'yield' a
-        value that is returned from a function.
+	    use.  When the 'for' loop wants to get the next value, the code in
+	    this function will start back up where the last 'yield' returned a 
+	    value.  The keyword 'yield from' is used when our generator function
+        needs to call another function for which a `yield` will be called.  
+        In other words, the `yield` is delegated by the generator function
+        to another function.
 
         This function is intended to be called the first time by 
         the __iter__ function.
