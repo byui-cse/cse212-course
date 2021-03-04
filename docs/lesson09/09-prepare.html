@@ -166,16 +166,16 @@ def _insert(self, data, node):
 		<p>The code for traversing a BST is shown below.  In addition to the observations made to the insert code above, we should note the following additional things about this algorithm:</p>
 		
 		<ul>
-		<li><p>The starting function is called <code>__iter__</code>.  The use of double underscores in Python means that this function is part of the Python framework.  When we write code like <code>for item in collection</code>, the <code>__iter__</code> function is called on the <code>collection</code> to get the next item.  In our case, the <code>__iter__</code> will provide the user the next value in the BST.</p></li>
-		<li><p>The <code>yield</code> command is used to provide the next value to the <code>for</code> loop.  The <code>yield</code> is like a <code>return</code> statement in a function.  However, unlike a <code>return</code>, the <code>yield</code> will allow the function to start back where it left off in the function when <code>__iter__</code> is called again.  If we want to provide the value that is returned from a function, the command is modified to be <code>yield from</code>.</p></li>
+		<li><p>The starting function is called <code>__iter__</code>.  The use of double underscores in Python means that this function is part of the Python framework.  When we write code like <code>for item in collection</code>, the <code>__iter__</code> function is called on the <code>collection</code> to get the next item.  In our case, the <code>__iter__</code> will provide the user the next value in the BST.  We call this a generator function.</p></li>
+		<li><p>The <code>yield</code> command is used to provide the next value to the <code>for</code> loop.  The <code>yield</code> is like a <code>return</code> statement in a function.  However, unlike a <code>return</code>, the <code>yield</code> will allow the function to start back where it left off in the function when <code>__iter__</code> is called again.  If we want delegate the <code>yield</code> operation to another function, the command is modified to be <code>yield from</code>.  If a generator function (e.g. <code>__iter__</code>) needs to call another function which will <code>yield</code> the result, then we will need to use the <code>yield from</code> keywords.</p></li>
 		</ul>
 		
 <pre><code class="Python">		
 def __iter__(self):
 	"""
-	Perform a forward traversal (in order traversal) starting from 
-	the root of the BST.  This function is called when a loop
-	is performed:
+    Perform a forward traversal (in order traversal) starting from 
+    the root of the BST.  This is called a generator function.
+    This function is called when a loop	is performed:
 
 	for value in my_bst:
 		print(value)
@@ -198,11 +198,13 @@ def _traverse_forward(self, node):
 	for value in my_bst:
 		print(value)
 
-	The keyword 'yield' will return the value for the 'for' loop to
-	use.  When the 'for' loop wants to get the next value, the code in
-	this function will start back up where the last 'yield' returned a 
-	value.  The keyword 'yield from' is used when we want to 'yield' a
-	value that is returned from a function.
+    The keyword 'yield' will return the value for the 'for' loop to
+    use.  When the 'for' loop wants to get the next value, the code in
+    this function will start back up where the last 'yield' returned a 
+    value.  The keyword 'yield from' is used when our generator function
+    needs to call another function for which a `yield` will be called.  
+    In other words, the `yield` is delegated by the generator function
+    to another function.
 
 	This function is intended to be called the first time by 
 	the __iter__ function.
