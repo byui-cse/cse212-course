@@ -79,7 +79,7 @@ class Customer_Service:
         Customer_Service object called cs, then you run print(cs) to see the 
         contents.
         """
-        result = "[size=" + str(len(self.queue)) + " => "
+        result = "[size=" + str(len(self.queue)) + " max_size=" + str(self.max_size) +" => "
         for customer in self.queue:
             result += "{"+str(customer)+"}"  # Uses the __str__ from Customer class
             result += ", "

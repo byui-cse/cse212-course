@@ -107,6 +107,9 @@ def is_anagram(word1, word2):
     Important Note: When determining if two words are anagrams, you
     should ignore any spaces.  You should also ignore cases.  For 
     example, 'Ab' and 'Ba' should be considered anagrams
+
+    Reminder: You can access a letter by index in a Python string by 
+    using the [] notation.
     """
     pass
 
@@ -115,6 +118,7 @@ print("\n=========== PROBLEM 3 TESTS ===========")
 print(is_anagram("CAT","ACT")) # True
 print(is_anagram("DOG", "GOOD")) # False
 print(is_anagram("AABBCCDD", "ABCD")) # False
+print(is_anagram("ABCCD","ABBCD")) # False
 print(is_anagram("BC","AD")) # False
 print(is_anagram("Ab","Ba")) # True
 print(is_anagram("A Decimal Point", "Im a Dot in Place"))  # True

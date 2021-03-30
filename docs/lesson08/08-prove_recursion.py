@@ -271,8 +271,8 @@ def is_valid_move(maze, curr_path, x, y):
         return False
     if y > len(maze)-1 or y < 0:
         return False
-    # Can't go if there is something in the way
-    if maze[y][x] not in (1,2):
+    # Can't go through a wall
+    if maze[y][x] == 0:
         return False
     # Can't go if we have already been there (don't go in circles)
     if (x,y) in curr_path:

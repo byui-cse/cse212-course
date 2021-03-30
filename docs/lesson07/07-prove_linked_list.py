@@ -77,7 +77,8 @@ class LinkedList:
         Remove the first node (i.e. the head) of the linked list.
         """
         # If the list has only one item in it, then set head and tail 
-        # to None resulting in an empty list.
+        # to None resulting in an empty list.  This condition will also
+        # cover an empty list.  Its okay to set to None again.
         if self.head == self.tail:
             self.head = None
             self.tail = None
@@ -193,43 +194,48 @@ class LinkedList:
 # Sample Test Cases (may not be comprehensive) 
 print("\n=========== PROBLEM 1 TESTS ===========")
 ll = LinkedList()
-ll.insert_head(1)
+ll.insert_tail(1)
+ll.insert_head(2)
 ll.insert_head(2)
 ll.insert_head(2)
 ll.insert_head(3)
 ll.insert_head(4)
 ll.insert_head(5)
-print(ll) # linkedlist[5, 4, 3, 2, 2, 1]
+print(ll) # linkedlist[5, 4, 3, 2, 2, 2, 1]
 ll.insert_tail(0)
 ll.insert_tail(-1)
-print(ll) # linkedlist[5, 4, 3, 2, 2, 1, 0, -1]
+print(ll) # linkedlist[5, 4, 3, 2, 2, 2, 1, 0, -1]
 
 print("\n=========== PROBLEM 2 TESTS ===========")
 ll.remove_tail()
-print(ll) # linkedlist[5, 4, 3, 2, 2, 1, 0]
+print(ll) # linkedlist[5, 4, 3, 2, 2, 2, 1, 0]
 ll.remove_tail()
-print(ll) # linkedlist[5, 4, 3, 2, 2, 1]
+print(ll) # linkedlist[5, 4, 3, 2, 2, 2, 1]
 
 print("\n=========== PROBLEM 3 TESTS ===========")
 ll.insert_after(3, 3.5)
 ll.insert_after(5, 6)
-print(ll) # linkedlist[5, 6, 4, 3, 3.5, 2, 2, 1]
+print(ll) # linkedlist[5, 6, 4, 3, 3.5, 2, 2, 2, 1]
 ll.remove(-1)
-print(ll) # linkedlist[5, 6, 4, 3, 3.5, 2, 2, 1]
+print(ll) # linkedlist[5, 6, 4, 3, 3.5, 2, 2, 2, 1]
 ll.remove(3)
-print(ll) # linkedlist[5, 6, 4, 3.5, 2, 2, 1]
+print(ll) # linkedlist[5, 6, 4, 3.5, 2, 2, 2, 1]
 ll.remove(6)
-print(ll) # linkedlist[5, 4, 3.5, 2, 2, 1]
+print(ll) # linkedlist[5, 4, 3.5, 2, 2, 2, 1]
+ll.remove(1)
+print(ll) # linkedlist[5, 4, 3.5, 2, 2, 2]
 ll.remove(7)
-print(ll) # linkedlist[5, 4, 3.5, 2, 2, 1]
+print(ll) # linkedlist[5, 4, 3.5, 2, 2, 2]
 ll.remove(5)
-print(ll) # linkedlist[4, 3.5, 2, 2, 1]
+print(ll) # linkedlist[4, 3.5, 2, 2, 2]
+ll.remove(2)
+print(ll) # linkedlist[4, 3.5, 2, 2]
 
 print("\n=========== PROBLEM 4 TESTS ===========")
 ll.replace(2, 10)
-print(ll) # linkedlist[4, 3.5, 10, 10, 1]
+print(ll) # linkedlist[4, 3.5, 10, 10]
 ll.replace(7, 5)
-print(ll) # linkedlist[4, 3.5, 10, 10, 1]
+print(ll) # linkedlist[4, 3.5, 10, 10]
 ll.replace(4, 100)
 print(ll) # linkedlist[100, 3.5, 10, 10, 1]
 

@@ -285,14 +285,19 @@ tree.insert(7)
 # After implementing 'no duplicates' rule,
 # this next insert will have no effect on the tree.
 tree.insert(7)  
+tree.insert(4)
 tree.insert(10)
 tree.insert(1)
+tree.insert(6)
 for x in tree:
-    print(x)  # 1, 3, 5, 7, 10
+    print(x)  # 1, 3, 4, 5, 6, 7, 10
 
 print("\n=========== PROBLEM 2 TESTS ===========")
 print(3 in tree) # True
-print(4 in tree) # False
+print(2 in tree) # False
+print(7 in tree) # True
+print(6 in tree) # True
+print(9 in tree) # False
 
 print("\n=========== PROBLEM 3 TESTS ===========")
 for x in reversed(tree):
