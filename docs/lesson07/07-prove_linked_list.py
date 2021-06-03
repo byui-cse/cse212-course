@@ -237,8 +237,8 @@ print(ll) # linkedlist[4, 3.5, 10, 10]
 ll.replace(7, 5)
 print(ll) # linkedlist[4, 3.5, 10, 10]
 ll.replace(4, 100)
-print(ll) # linkedlist[100, 3.5, 10, 10, 1]
+print(ll) # linkedlist[100, 3.5, 10, 10]
 
 
 print("\n=========== PROBLEM 5 TESTS ===========")
-print(list(reversed(ll)))  # [1, 10, 10, 3.5, 100]
+print(list(reversed(ll)))  # [10, 10, 3.5, 100]
