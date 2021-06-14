@@ -301,7 +301,7 @@ print(9 in tree) # False
 
 print("\n=========== PROBLEM 3 TESTS ===========")
 for x in reversed(tree):
-    print(x)  # 10, 7, 5, 3, 1
+    print(x)  # 10, 7, 6, 5, 4, 3, 1
 
 print("\n=========== PROBLEM 4 TESTS ===========")
 print(tree.get_height()) # 3
