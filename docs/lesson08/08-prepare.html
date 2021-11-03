@@ -271,18 +271,18 @@ def binary_search(sorted_list, target):
         if target == sorted_list[middle]:
             # We got lucky and the middle was the match
             return True
-        elif target &gt; sorted_list[middle]:
+        elif target &lt; sorted_list[middle]:
             # Search the first half (index 0 to middle-1) and 
             # return the result
-            return find(sorted_list[:middle],target)
+            return binary_search(sorted_list[:middle],target)
         else:
             # Search the second half (index middle to end) and 
             # return the result
-            return find(sorted_list[middle:],target)
+            return binary_search(sorted_list[middle:],target)
 
-print(find([1, 3, 6, 18, 20, 25, 34, 38, 89, 95, 99, 100], 89)) # True
-print(find([1, 3, 6, 18, 20, 25, 34, 38, 89, 95, 99, 100], 1))  # True
-print(find([1, 3, 6, 18, 20, 25, 34, 38, 89, 95, 99, 100], 17)) # False
+print(binary_search([1, 3, 6, 18, 20, 25, 34, 38, 89, 95, 99, 100], 89)) # True
+print(binary_search([1, 3, 6, 18, 20, 25, 34, 38, 89, 95, 99, 100], 1))  # True
+print(binary_search([1, 3, 6, 18, 20, 25, 34, 38, 89, 95, 99, 100], 17)) # False
 </code></pre>
 		
 		<p>The performance of this recursive algorithm is O(log n) because we are excluding half of the list with each comparison.</p>
