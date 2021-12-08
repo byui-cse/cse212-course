@@ -245,17 +245,17 @@ def _traverse_forward(self, node):
 			<tr>
 			  <td>traverse_forward</td>
 			  <td>Visit all objects from smallest to largest.</td>	
-			  <td>O(log n) - Recursively traverse the left subtree and then the right subtree.</td>					
+			  <td>O(n) - Recursively traverse the left subtree and then the right subtree.</td>					
 			</tr>
 			<tr>
 			  <td>traverse_reverse</td>
 			  <td>Visit all objects from largest to smallest.</td>	
-			  <td>O(log n) - Recursively traverse the right subtree and then the left subtree.</td>					
+			  <td>O(n) - Recursively traverse the right subtree and then the left subtree.</td>					
 			</tr>
 			<tr>
 			  <td>height(node)</td>
 			  <td>Determine the height of a node.  If the height of the tree is needed, the root node is provided.</td>
-			  <td>O(log n) - Recursively find the height of the left and right subtrees and then return the maximum height (plus one to account for the root).</td>					
+			  <td>O(n) - Recursively find the height of the left and right subtrees and then return the maximum height (plus one to account for the root).</td>					
 			</tr>
 			<tr>
 			  <td>size()</td>
