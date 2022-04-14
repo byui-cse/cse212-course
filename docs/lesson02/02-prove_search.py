@@ -31,19 +31,15 @@ def search_sorted_2(data, target):
     which represents the work done in the function 
     is returned.
     """
-    count = 0
-    start = 0
-    end = len(data) - 1
-    while start <= end:
-        count += 1
-        middle = ((end - start) // 2) + start
-        if data[middle] == target:
-            return count # Found it
-        elif data[middle] < target:
-            start = middle + 1
-        else:
-            end = middle - 1
-    return count # Didn't find it
+    if len(data) == 0:
+        return 1     # All done
+    middle = len(data) // 2
+    if data[middle] == target:
+        return 1     # Found it
+    elif data[middle] < target:   # Search in the upper half after index middle
+        return 1 + search_sorted_2(data[middle+1:], target)
+    else:                         # Search in the lower half before index middle
+        return 1 + search_sorted_2(data[:middle], target)
 
 # This code will analyze the the 2 sorting functions for different values of "n" (size of the data)
 print("{:>15}{:>15}{:>15}{:>15}{:>15}".format("n","sort1-count","sort2-count","sort1-time","sort2-time"))
